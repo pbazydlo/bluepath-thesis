@@ -76,11 +76,15 @@ Definicje
 \end_layout
 
 \begin_layout Standard
-asindidsna
+Węzeł
 \end_layout
 
 \begin_layout Subsection
 Nazewnictwo
+\end_layout
+
+\begin_layout Standard
+Biblioteka 
 \end_layout
 
 \begin_layout Standard
@@ -96,7 +100,8 @@ Istniejące rozwiązania
 \end_layout
 
 \begin_layout Standard
-coś o tym co jest
+Przed stworzeniem środowiska ułatwiającego tworzenie aplikacji rozproszonych
+ należy przeanalizować to co już istnieje.
 \end_layout
 
 \begin_layout Subsection
@@ -104,7 +109,8 @@ PVM
 \end_layout
 
 \begin_layout Standard
-coś o pvm
+jawny message passing, trudne do debugowania, brak możliwości dołączania
+ węzłów w trakcie przetwarzania.
 \end_layout
 
 \begin_layout Subsection
@@ -112,7 +118,7 @@ MPI
 \end_layout
 
 \begin_layout Standard
-coś o MPI
+podobnie jak PVM
 \end_layout
 
 \begin_layout Subsection
@@ -120,7 +126,8 @@ Hadoop
 \end_layout
 
 \begin_layout Standard
-kkkk
+Na bazie naszego systemu można zaimplementować przetwarzanie w modelu mapowania
+ i redukcji (czyli mamy wyższy poziom abstrakcji, szerszą klasę zastosowań).
 \end_layout
 
 \begin_layout Subsection
@@ -136,7 +143,18 @@ DryadLINQ
 \end_layout
 
 \begin_layout Standard
-tak
+Specjalizowane do przetwarzania kolekcji.
+ Wymaga Dryad - ciężki do postawienia i skonfigurowania
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ [przydało by się jakieś wsparcie dla tego stwierdzenia]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -144,7 +162,12 @@ Erlang
 \end_layout
 
 \begin_layout Standard
-:)
+Lekkie wątki, akcje na odebrane wiadomości(przetwarzanie message-centric),
+ nie ma współdzielonego stanu pomiędzy wątkami.
+\end_layout
+
+\begin_layout Standard
+Wolimy znany model zamków i innych mutexów.
 \end_layout
 
 \begin_layout Subsection

@@ -68,11 +68,9 @@ Koncepcja i projekt systemu
 \end_layout
 
 \begin_layout Standard
-afffebafekba
-\end_layout
-
-\begin_layout Section
-Klaster Bluepath
+kod zarządzalny (testowane C#, F#), łatwy w użyciu, szybki start dla nuboof,
+ wysoki poziom abstrakcji (wątki vs przesyłanie komunikatów, współdzielenie
+ stanu vs erlang)
 \end_layout
 
 \begin_layout Standard
@@ -99,14 +97,6 @@ Ponadto na węzłach mogą działać dodatkowe usługi.
 \end_layout
 
 \begin_layout Section
-Komunikacja
-\end_layout
-
-\begin_layout Standard
-??? WCF, HTTP (niestety), SOAP (najgorzej)
-\end_layout
-
-\begin_layout Section
 Usługa odnajdywania węzłów
 \end_layout
 
@@ -123,70 +113,40 @@ wywany z klastra.
  
 \end_layout
 
+\begin_layout Subsection
+ConnectionManager
+\end_layout
+
+\begin_layout Standard
+Zarządca połączeń
+\end_layout
+
 \begin_layout Section
 Rozproszona pamięć współdzielona
 \end_layout
 
 \begin_layout Standard
-Redis YEAH!
+co to i po co
 \end_layout
 
 \begin_layout Subsection
-Windows Redis s.
+Kolekcje rozproszone
 \end_layout
 
 \begin_layout Standard
-Differences from UNIX versions Networking On UNIX all IO operations occur
- with file descriptors regardless of the type of IO operation.
- Most IO mechanisms in Windows do not use file descriptors.
- The approach we have taken is to unify all of Windows IO operations under
- a simulated file descriptor.
- We do not support named pipes at this time with our simulated file descriptor
- code.
- Fork Redis uses the fork() UNIX system API to create a point-in-time snapshot
- of the data store for storage to disk.
- This impacts several features on Redis: AOF/RDB backup, master-slave synchroniz
-ation, and clustering.
- Windows does not have a fork-like API available, so we have had to simulate
- this behavior by placing the Redis heap in a memory mapped file that can
- be shared with a child process.
- In order to control the size of this file we have added a maxheap flag.
- See the Redis.Windows.conf file for details on the usage of this flag.
- The default size of this file is equal to the size of physical memory on
- your target machine.
- If there is insufficient disk space for this file Redis will fail to start.
- Dependencies This version of Redis is dependent on the Microsoft Visual
- C++ 2012 Redistributable Package.
- If you are developing in VS2012 you already have what you need.
- You can get the redistributable from Microsoft at http://support.microsoft.com/kb
-/2019667 , or you can get this from Chocolately at https://chocolatey.org/package
-s/vcredist2012.
- 
+Zapewniają łatwą w zrozumieniu i wykorzystaniu abstrakcję.
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-[Windows Redis package: Redis Release Notes.docx]
+Distributed list, dictionary, counter
 \end_layout
 
-\begin_layout Section
-Typy w systemie
+\begin_layout Subsection
+Operacje zbiorcze
 \end_layout
 
 \begin_layout Standard
-W trakcie projektowania systemu założono, że wszystkie typy przesyłane pomiędzy
- węzłami muszą być serializowalne (posiadać atrybut 
-\begin_inset Flex Code
-status collapsed
-
-\begin_layout Plain Layout
-Serializable
-\end_layout
-
-\end_inset
-
-).
+bo chcemy minimalizować narzuty komunikacyjne
 \end_layout
 
 \begin_layout Section
@@ -235,6 +195,25 @@ Planistę
 (więcej o tym dalej, bo pisanie o interefejsie i własnym schedulerze to
  chyba nie tu).
  
+\end_layout
+
+\begin_layout Subsection
+Typy w systemie
+\end_layout
+
+\begin_layout Standard
+W trakcie projektowania systemu założono, że wszystkie typy przesyłane pomiędzy
+ węzłami muszą być serializowalne (posiadać atrybut 
+\begin_inset Flex Code
+status collapsed
+
+\begin_layout Plain Layout
+Serializable
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Section
@@ -419,6 +398,14 @@ process mining
 
 \begin_layout Standard
 much image
+\end_layout
+
+\begin_layout Standard
+Wizualizacja logów
+\end_layout
+
+\begin_layout Standard
+Disco
 \end_layout
 
 \end_body

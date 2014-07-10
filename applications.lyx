@@ -79,6 +79,14 @@ DLINQ
 Częściowa implementacja proof of concept
 \end_layout
 
+\begin_layout Standard
+AsDistributed
+\end_layout
+
+\begin_layout Standard
+GroupBy, SelectMany, Select, Where
+\end_layout
+
 \begin_layout Section
 Map Reduce
 \end_layout

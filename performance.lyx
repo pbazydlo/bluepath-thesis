@@ -64,7 +64,7 @@ dcs
 \begin_body
 
 \begin_layout Chapter
-Testy wydajnościowe
+Testy jakościowe i wydajnościowe
 \end_layout
 
 \begin_layout Standard
@@ -72,14 +72,55 @@ ayuidsawsd
 \end_layout
 
 \begin_layout Section
+Testy jakościowe
+\end_layout
+
+\begin_layout Standard
+qwertyui
+\end_layout
+
+\begin_layout Subsection
+Testy jednostkowe
+\end_layout
+
+\begin_layout Standard
+Są i są fajne (MSUNIT, shouldly...)
+\end_layout
+
+\begin_layout Subsection
+Testy integracyjne
+\end_layout
+
+\begin_layout Standard
+sdfdf
+\end_layout
+
+\begin_layout Subsubsection
 Środowisko
+\end_layout
+
+\begin_layout Standard
+uruchamianie redis'a i spawnowanie usług bluepath problematyczne bo nigdy
+ do końca nie wiemy czy już chodzi
+\end_layout
+
+\begin_layout Section
+Testy wydajnościowe
+\end_layout
+
+\begin_layout Standard
+będą
+\end_layout
+
+\begin_layout Subsection
+Środowisko 
 \end_layout
 
 \begin_layout Standard
 Azurek
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Prefixy
 \end_layout
 
@@ -87,7 +128,7 @@ Prefixy
 qwertyui
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 PI
 \end_layout
 

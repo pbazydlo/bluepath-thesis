@@ -81,6 +81,23 @@ Celem pracy jest zaprojektowanie biblioteki, która pozwoli twórcom usług
  
 \end_layout
 
+\begin_layout Standard
+Użytkownik tworzy algorytm jak równoległy, system zapewnia rozproszenie
+ (ukrycie przesyłania komunikatów, mechanizmy synchronizacji).
+ Łatwość debugowania.
+ Możliwość wykonania w ramach 1 wątku z przypiętym debuggerem.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Czy to tu?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Struktura pracy
 \end_layout
@@ -109,6 +126,22 @@ Udział w pracy poszczególnych członków zespołu
 
 \begin_layout Standard
 iausjfaouhf
+\end_layout
+
+\begin_layout Paragraph
+Piotr Bazydło
+\end_layout
+
+\begin_layout Standard
+----
+\end_layout
+
+\begin_layout Paragraph
+Zachariusz Karwacki
+\end_layout
+
+\begin_layout Standard
+----
 \end_layout
 
 \end_body

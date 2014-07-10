@@ -67,5 +67,166 @@ dcs
 Implementacja
 \end_layout
 
+\begin_layout Standard
+audwnhawudnhawd
+\end_layout
+
+\begin_layout Section
+Komunikacja
+\end_layout
+
+\begin_layout Standard
+??? WCF, HTTP (niestety), SOAP (najgorzej)
+\end_layout
+
+\begin_layout Standard
+można przekonfigurować na coś innego
+\end_layout
+
+\begin_layout Standard
+bluepathlistener - tworzy serwis hosta, który implementuje 
+\begin_inset Flex Code
+status collapsed
+
+\begin_layout Plain Layout
+IRemoteExecutorService
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Jeżeli w ramach procesu działa więcej niż 1 listener każdy ma swój port
+ i swoją kolekcję lokalnych wykonawców, ale współdzielą listę zdalnych wykonawcó
+w.
+ 
+\end_layout
+
+\begin_layout Section
+Usługa odnajdywania węzłów
+\end_layout
+
+\begin_layout Standard
+sdfghj
+\end_layout
+
+\begin_layout Section
+Rozproszona pamięć współdzielona
+\end_layout
+
+\begin_layout Standard
+nie implementujemy sami bo nie taki cel pracy
+\end_layout
+
+\begin_layout Subsection
+Rozważane rozwiązania 
+\end_layout
+
+\begin_layout Standard
+Redis, Rhino DHT, MonoTorrent, Memcached, Rijak, Polyphony (F# rulez).
+\end_layout
+
+\begin_layout Standard
+Memcached - dawno nie aktualizowany (ostatnia aktualizacja 2013, .NET 2.0)
+\end_layout
+
+\begin_layout Standard
+Rhino-DHT - throw new NotImplementedException(); więcej w napotkanych problemach
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:problemy-rhino-dht"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rijak - implementacja dynamo, brak wsparcia dla .NET
+\end_layout
+
+\begin_layout Standard
+Polyphony - projekt w fazie experymentalnej, ostatnie zmiany sprzed 4 lat,
+ (DHT w F# oparte o Chord)
+\end_layout
+
+\begin_layout Standard
+Komponent wymienialny
+\end_layout
+
+\begin_layout Standard
+Redis YEAH!
+\end_layout
+
+\begin_layout Standard
+Redis - szybki, popularny, dobry klient dla .NET utrzymywany przez StackExchange
+\end_layout
+
+\begin_layout Standard
+Problemy z redis: 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:problemy-Windows-Redis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Rozproszony wątek
+\end_layout
+
+\begin_layout Standard
+aqsdghjk
+\end_layout
+
+\begin_layout Section
+Wykonawca
+\end_layout
+
+\begin_layout Standard
+Identyfikowani przez guid
+\end_layout
+
+\begin_layout Standard
+ThreadPool - zhejtować można (ale trochę) - nie można przerywać zadań.
+ Sprawdzanie stanu wątków.
+\end_layout
+
+\begin_layout Section
+Planista
+\end_layout
+
+\begin_layout Standard
+Jakie typy zaimplementowane
+\end_layout
+
+\begin_layout Section
+Logowanie zdarzeń
+\end_layout
+
+\begin_layout Standard
+aaaa
+\end_layout
+
+\begin_layout Section
+Communication Framework
+\end_layout
+
+\begin_layout Standard
+Shared storage access,
+\end_layout
+
+\begin_layout Standard
+Udostępnianie logu (bo jest statyczny)
+\end_layout
+
+\begin_layout Standard
+potencjalnie mogłoby być reporting
+\end_layout
+
 \end_body
 \end_document

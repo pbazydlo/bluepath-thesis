@@ -64,12 +64,145 @@ dcs
 \begin_body
 
 \begin_layout Chapter
-Wnioski
+Podsumowanie
 \end_layout
 
 \begin_layout Standard
 Warto było
 \end_layout
 
+\begin_layout Section
+Przebieg realizacji
+\end_layout
+
+\begin_layout Standard
+fghj
+\end_layout
+
+\begin_layout Section
+Napotkane problemy
+\end_layout
+
+\begin_layout Paragraph
+Serializacja
+\end_layout
+
+\begin_layout Standard
+WYJĄTKI, o jej problemach
+\end_layout
+
+\begin_layout Paragraph
+Środowisko do testów integracyjnych.
+\end_layout
+
+\begin_layout Standard
+był problem żeby bootstrapować
+\end_layout
+
+\begin_layout Paragraph
+Dystrybucja aplikacji do węzłów (super skrypt w powershell'u)
+\end_layout
+
+\begin_layout Standard
+napisane, robi wszystko
+\end_layout
+
+\begin_layout Paragraph
+rhino-dht
+\begin_inset CommandInset label
+LatexCommand label
+name "par:problemy-rhino-dht"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+nie działało
+\end_layout
+
+\begin_layout Paragraph
+Windows Redis
+\begin_inset CommandInset label
+LatexCommand label
+name "par:problemy-Windows-Redis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Differences from UNIX versions Networking On UNIX all IO operations occur
+ with file descriptors regardless of the type of IO operation.
+ Most IO mechanisms in Windows do not use file descriptors.
+ The approach we have taken is to unify all of Windows IO operations under
+ a simulated file descriptor.
+ We do not support named pipes at this time with our simulated file descriptor
+ code.
+ Fork Redis uses the fork() UNIX system API to create a point-in-time snapshot
+ of the data store for storage to disk.
+ This impacts several features on Redis: AOF/RDB backup, master-slave synchroniz
+ation, and clustering.
+ Windows does not have a fork-like API available, so we have had to simulate
+ this behavior by placing the Redis heap in a memory mapped file that can
+ be shared with a child process.
+ In order to control the size of this file we have added a maxheap flag.
+ See the Redis.Windows.conf file for details on the usage of this flag.
+ The default size of this file is equal to the size of physical memory on
+ your target machine.
+ If there is insufficient disk space for this file Redis will fail to start.
+ Dependencies This version of Redis is dependent on the Microsoft Visual
+ C++ 2012 Redistributable Package.
+ If you are developing in VS2012 you already have what you need.
+ You can get the redistributable from Microsoft at http://support.microsoft.com/kb
+/2019667 , or you can get this from Chocolately at https://chocolatey.org/package
+s/vcredist2012.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+[Windows Redis package: Redis Release Notes.docx]
+\end_layout
+
+\begin_layout Section
+Perspektywy dalszego rozwoju
+\end_layout
+
+\begin_layout Standard
+Lepsze implementacje poszczególnych części (i tu można się rozwodzić)
+\end_layout
+
+\begin_layout Itemize
+Więcej rozproszonych struktur danych (kolejka)
+\end_layout
+
+\begin_layout Itemize
+Pełne wsparcie LINQ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(AsResumable)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+rozbudowa interfejsu komunikacji z systemem
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ReportProgress
+\end_layout
+
+\begin_layout Itemize
+LocalStorage
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
