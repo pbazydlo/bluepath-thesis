@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass dcsbook
@@ -15,13 +15,13 @@ dcs
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -32,15 +32,24 @@ dcs
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -64,11 +73,100 @@ dcs
 \begin_body
 
 \begin_layout Chapter
-Przykłady zastosowania
+Przykładowe zastosowania
 \end_layout
 
 \begin_layout Standard
-W tym rozdziale przedstawione zostaną...
+W tym rozdziale przedstawione zostaną przykladowe zastosowania systemu Bluepath.
+ Na bazie rozproszonych wątków, współdzielonej rozproszonej pamięci i nadbudowan
+ych nad nią abstrakcji listy i słownika przygotowane zostały projekty:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+DLINQ
+\end_layout
+
+\end_inset
+
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Distributed Language Integrated Query
+\end_layout
+
+\end_inset
+
+) -- dostawca metod manipulacji kolekcji w sposób zgodny z obecnym już w
+ środowisku .NET dla standardowych, nierozproszonych kolekcji, 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Map Reduce
+\end_layout
+
+\end_inset
+
+ -- abstrakcja specjalizowana do uruchamiania zadań w modelu mapowania i
+ redukcji z możliwością zlecania zadań bez rekompilacji systemu i dystrybuowania
+ nowej wersji plików wykonywalnych na węzły -- kod 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Mappera
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Reducera
+\end_layout
+
+\end_inset
+
+ jest pobierany ze współdzielonej pamięci i kompilowany przed wykonaniem
+ na węzłach, 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Autocomplete
+\end_layout
+
+\end_inset
+
+ -- 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Liczenie przybliżenia liczby PI
+\end_layout
+
+\end_inset
+
+ -- 
 \end_layout
 
 \begin_layout Section
@@ -94,6 +192,19 @@ Map Reduce
 \begin_layout Standard
 Implementacja systemu przetwarzania MapReduce przy pomocy mechanizmów dostarczan
 ych przez Bluepath była jak cięcie gorącym nożem masła.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+porównanie z NetReduce?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

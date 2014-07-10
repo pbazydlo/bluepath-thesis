@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass dcsbook
@@ -15,13 +15,13 @@ dcs
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -32,15 +32,24 @@ dcs
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -201,7 +210,45 @@ Planista
 \end_layout
 
 \begin_layout Standard
-Jakie typy zaimplementowane
+Wraz z systemem dostarczone zostały następujące typy planistów:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+ThreadNumberScheduler
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+formatowanie: name czy może code?
+\end_layout
+
+\end_inset
+
+ -- szereguje zadania na najmniej obciążonym węźle pod względem liczby wykonywan
+ych na nim wątków,
+\end_layout
+
+\begin_layout Itemize
+i na razie nie ma innych.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -213,19 +260,56 @@ aaaa
 \end_layout
 
 \begin_layout Section
-Communication Framework
+Interfejs do komunikacji z systemem
 \end_layout
 
 \begin_layout Standard
-Shared storage access,
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[Communication framework] Shared storage access,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Udostępnianie logu (bo jest statyczny)
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 potencjalnie mogłoby być reporting
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aby skorzystać z funkcji udostępnianych przez system (jak np.
+ pobranie identyfikatora 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Wykonawcy
+\end_layout
+
+\end_inset
+
+ czy dostęp do wspóldzielonej rozproszonej pamięci) wewnątrz rozproszonego
+ wątku, użytkownik musi uzyskać przeznaczony do tego obiekt.
+ System automatycznie wstrzykuje go do metod jako jeden z parametrów --
+ wystarczy, by był on typu interfejsu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IBluepathCommunicationFramework
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_body
