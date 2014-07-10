@@ -258,11 +258,6 @@ filename "conclusions.lyx"
 
 \end_layout
 
-\begin_layout Chapter
-\start_of_appendix
-Users Guide
-\end_layout
-
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -276,11 +271,14 @@ backmatter
 
 \end_inset
 
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "bibliography"
+options "thesisPP"
 
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring Odnośniki
+\end_inset
 
 \end_layout
 
