@@ -64,38 +64,51 @@ dcs
 \begin_body
 
 \begin_layout Chapter
-Introduction
+Wstęp
 \end_layout
 
 \begin_layout Standard
-The Introduction may be put 
-\begin_inset Flex Emph
-status collapsed
-
-\begin_layout Plain Layout
-before
+W tym rozdziale przedstawione zostaną...
 \end_layout
 
-\end_inset
-
- the 
-\begin_inset Flex Code
-status collapsed
-
-\begin_layout Plain Layout
-
-\backslash
-mainmatter
+\begin_layout Section
+Cel i zakres pracy
 \end_layout
 
-\end_inset
-
- command which will disable numbering of this chapter while still adding
- to the table of contents.
+\begin_layout Standard
+Celem pracy jest zaprojektowanie biblioteki, która pozwoli twórcom usług
+ w prosty sposób zaimplementować przetwarzanie rozproszone.
+ 
 \end_layout
 
-\begin_layout Paragraph
-The goal and the scope of the thesis
+\begin_layout Section
+Struktura pracy
+\end_layout
+
+\begin_layout Standard
+W niniejszej pracy omówiono koncepcję oraz implementację biblioteki Bluepath.
+ W kolejnych rozdziałach zaprezentowany zostanie przegląd istniejących rozwiązań
+—środowisk przetwarzania rozproszonego, przestawione zostaną przykładowe
+ problemy, które można za jej pomocą rozwiązać, wraz z implementacjami,
+ wyniki testów.
+ 
+\end_layout
+
+\begin_layout Section
+Motywacja
+\end_layout
+
+\begin_layout Standard
+(tutaj wstaw opowieść o tym, że systemy rozproszone to przyszłość i bez
+ nich zginiemy) 
+\end_layout
+
+\begin_layout Section
+Udział w pracy poszczególnych członków zespołu
+\end_layout
+
+\begin_layout Standard
+iausjfaouhf
 \end_layout
 
 \end_body

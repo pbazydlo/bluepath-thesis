@@ -64,7 +64,177 @@ dcs
 \begin_body
 
 \begin_layout Chapter
-Concept and Design of the System
+Koncepcja i projekt systemu
+\end_layout
+
+\begin_layout Standard
+afffebafekba
+\end_layout
+
+\begin_layout Section
+Klaster Bluepath
+\end_layout
+
+\begin_layout Standard
+(komputery połączone siecią, które mogą komunikować się każdy z każdym,
+ nie może być NAT).
+ Biblioteka zapewnia szkielet/środowisko (framework?) do tworzenia aplikacji
+ rozproszonych.
+ Aplikacja taka musi zostać rozdystrybuowana na węzły w klastrze przez użytkowni
+ka.
+ Zakładamy, że na węzłach obliczeniowych [to określenie mi się podoba] znajduje
+ się zgodna binarnie wersja aplikacji, tj.
+ każdy z węzłów może wykonać dowolną metodę z dowolnej klasy będącej częścią
+ aplikacji.
+ 
+\end_layout
+
+\begin_layout Standard
+[słabo, wiem ;p] 
+\end_layout
+
+\begin_layout Standard
+Ponadto na węzłach mogą działać dodatkowe usługi.
+ 
+\end_layout
+
+\begin_layout Section
+Usługa odnajdywania węzłów
+\end_layout
+
+\begin_layout Standard
+Odkrywanie węzłów w sieci realizowane jest za pomocą usługi Service Discovery,
+ która działa na jednym z węzłów.
+ Dołączające się węzły muszą znać adres serwera Service Discovery w celu
+ zarejestrowania się w usłudze.
+ Rejestracja/wyrejestrowanie się węzła powoduje rozesłania powiadomienia
+ o tym fakcie do wszystkich pozostałych węzłów w klastrze.
+ Usługa ta okresowo monitoruje obciążenie węzłów.
+ W przypadku braku odpowiedzi stwierdzana jest awaria węzła i jest on wyrejestro
+wywany z klastra.
+ 
+\end_layout
+
+\begin_layout Section
+Rozproszona pamięć współdzielona
+\end_layout
+
+\begin_layout Standard
+Redis YEAH!
+\end_layout
+
+\begin_layout Subsection
+Windows Redis s.
+\end_layout
+
+\begin_layout Standard
+Differences from UNIX versions Networking On UNIX all IO operations occur
+ with file descriptors regardless of the type of IO operation.
+ Most IO mechanisms in Windows do not use file descriptors.
+ The approach we have taken is to unify all of Windows IO operations under
+ a simulated file descriptor.
+ We do not support named pipes at this time with our simulated file descriptor
+ code.
+ Fork Redis uses the fork() UNIX system API to create a point-in-time snapshot
+ of the data store for storage to disk.
+ This impacts several features on Redis: AOF/RDB backup, master-slave synchroniz
+ation, and clustering.
+ Windows does not have a fork-like API available, so we have had to simulate
+ this behavior by placing the Redis heap in a memory mapped file that can
+ be shared with a child process.
+ In order to control the size of this file we have added a maxheap flag.
+ See the Redis.Windows.conf file for details on the usage of this flag.
+ The default size of this file is equal to the size of physical memory on
+ your target machine.
+ If there is insufficient disk space for this file Redis will fail to start.
+ Dependencies This version of Redis is dependent on the Microsoft Visual
+ C++ 2012 Redistributable Package.
+ If you are developing in VS2012 you already have what you need.
+ You can get the redistributable from Microsoft at http://support.microsoft.com/kb
+/2019667 , or you can get this from Chocolately at https://chocolatey.org/package
+s/vcredist2012.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+[Windows Redis package: Redis Release Notes.docx]
+\end_layout
+
+\begin_layout Section
+Typy w systemie
+\end_layout
+
+\begin_layout Standard
+W trakcie koncypowania :P systemu założono, że wszystkie typy przesyłane
+ pomiędzy węzłami muszą być serializowalne (posiadać atrybut 
+\begin_inset Flex Code
+status collapsed
+
+\begin_layout Plain Layout
+Serializable
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Wszystkie muszą być serializowalne
+\end_layout
+
+\begin_layout Section
+Rozproszony wątek
+\end_layout
+
+\begin_layout Standard
+Jednostką przetwarzania w systemie jest 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+Rozproszony wątek
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nazwa?
+\end_layout
+
+\end_inset
+
+.
+ Jest on tworzony na podstawie statycznej metody, która przyjmuje dowolną,
+ liczbę parametrów i zwraca wartość.
+ Wynik przechwytywany jest przez środowisko i udostępniany do odczytu na
+ węźle, który zlecił wykonanie wątku.
+ Rozproszony wątek może zostać wykonany na dowolnym węźle obliczeniowym
+ oraz uruchamiać kolejne rozproszone wątki.
+ Decyzja o wyborze miejsca wykonania wątku podejmowana jest z wykorzystaniem
+ lokalnej wiedzy o stanie klastra przez 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+Planistę
+\end_layout
+
+\end_inset
+
+(więcej o tym dalej, bo pisanie o interefejsie i własnym schedulerze to
+ chyba nie tu).
+ 
+\end_layout
+
+\begin_layout Standard
+Co w przypadku awarii? 
 \end_layout
 
 \end_body
