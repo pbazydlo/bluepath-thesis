@@ -7,9 +7,6 @@
 %
 %  $Id: thesis-template.lyx,v 1.7 2011/12/22 12:10:18 sobaniec Exp $
 %
-\AtBeginDocument{% 
-        \renewcommand{\tablename}{Tabela}% 
-}
 \end_preamble
 \options thesis
 \use_default_options false
@@ -148,6 +145,16 @@ Praca magisterska
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset ERT
 status open
 
