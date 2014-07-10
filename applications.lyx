@@ -64,7 +64,7 @@ dcs
 \begin_body
 
 \begin_layout Chapter
-Wstęp
+Przykłady zastosowania
 \end_layout
 
 \begin_layout Standard
@@ -72,43 +72,37 @@ W tym rozdziale przedstawione zostaną...
 \end_layout
 
 \begin_layout Section
-Cel i zakres pracy
+DLINQ
 \end_layout
 
 \begin_layout Standard
-Celem pracy jest zaprojektowanie biblioteki, która pozwoli twórcom usług
- w prosty sposób zaimplementować przetwarzanie rozproszone.
+Częściowa implementacja proof of concept
+\end_layout
+
+\begin_layout Section
+Map Reduce
+\end_layout
+
+\begin_layout Standard
+Implementacja systemu przetwarzania MapReduce przy pomocy mechanizmów dostarczan
+ych przez Bluepath była jak cięcie gorącym nożem masła.
+\end_layout
+
+\begin_layout Section
+Autocomplete
+\end_layout
+
+\begin_layout Standard
+Przetwarzania dokumentów - prefixy do autocomplete...
  
 \end_layout
 
 \begin_layout Section
-Struktura pracy
+Liczenie PI
 \end_layout
 
 \begin_layout Standard
-W niniejszej pracy omówiono koncepcję oraz implementację biblioteki Bluepath.
- W kolejnych rozdziałach zaprezentowany zostanie przegląd istniejących rozwiązań
-—środowisk przetwarzania rozproszonego, przestawione zostaną przykładowe
- problemy, które można za jej pomocą rozwiązać, wraz z implementacjami,
- wyniki testów.
- 
-\end_layout
-
-\begin_layout Section
-Motywacja
-\end_layout
-
-\begin_layout Standard
-(tutaj wstaw opowieść o tym, że systemy rozproszone to przyszłość i bez
- nich zginiemy) 
-\end_layout
-
-\begin_layout Section
-Udział w pracy poszczególnych członków zespołu
-\end_layout
-
-\begin_layout Standard
-iausjfaouhf
+Rozproszone liczenie PI.
 \end_layout
 
 \end_body

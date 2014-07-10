@@ -8,9 +8,9 @@
 dcs
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language polish
 \language_package default
-\inputencoding auto
+\inputencoding utf8
 \fontencoding global
 \font_roman default
 \font_sans default
@@ -65,6 +65,10 @@ dcs
 
 \begin_layout Chapter
 Wnioski
+\end_layout
+
+\begin_layout Standard
+Warto było
 \end_layout
 
 \end_body

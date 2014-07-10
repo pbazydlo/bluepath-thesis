@@ -8,9 +8,9 @@
 dcs
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language polish
 \language_package default
-\inputencoding auto
+\inputencoding utf8
 \fontencoding global
 \font_roman default
 \font_sans default
@@ -65,6 +65,34 @@ dcs
 
 \begin_layout Chapter
 Testy wydajnościowe
+\end_layout
+
+\begin_layout Standard
+ayuidsawsd
+\end_layout
+
+\begin_layout Section
+Środowisko
+\end_layout
+
+\begin_layout Standard
+Azurek
+\end_layout
+
+\begin_layout Section
+Prefixy
+\end_layout
+
+\begin_layout Standard
+qwertyui
+\end_layout
+
+\begin_layout Section
+PI
+\end_layout
+
+\begin_layout Standard
+qwertyuiop
 \end_layout
 
 \end_body
