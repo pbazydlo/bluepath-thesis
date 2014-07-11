@@ -375,9 +375,9 @@ Serializable
 
 .
  Środowisko zakłada izolację pomiędzy wątkami: wątki działające w ramach
- jednego procesu--hosta nie mogą komunikować się ze sobą poprzez pamięć,
- a parametry, z którymi wywoływana jest metoda są kopiowane do nowych instancji
- klas i struktur.
+ jednego procesu--hosta nie mogą komunikować się ze sobą poprzez pamięć
+ operacyjną, a parametry, z którymi wywoływana jest metoda są kopiowane
+ do nowych instancji klas i struktur.
  Wyjątkiem jest tutaj dostarczana przez środowisko pamięć współdzielona.
  W tym przypadku programista powinien stosować dostarczone wraz z nią mechanizmy
  synchronizacji.
@@ -395,12 +395,47 @@ act? http://msdn.microsoft.com/en-us/library/ms730167(v=vs.110).aspx
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Zapis do pamięci współdzielonej jest thread-safe? Jeżeli tak, można o tym
+ napisać.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Wykonawca
 \end_layout
 
 \begin_layout Standard
-Każdy wykonawca jest identyfikowany przez unikalną 128-bitową liczbę (GUID).
+Każdy wykonawca jest identyfikowany przez unikalną 128-bitową liczbę (GUID),
+ przy czym instancja 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Zdalnego wykonawcy
+\end_layout
+
+\end_inset
+
+ używa takiego samego identyfikatora jak 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Lokalny wykonawca
+\end_layout
+
+\end_inset
+
+, który został zainicjowany do wykonania kodu użytkownika.
  
 \begin_inset Note Note
 status open
@@ -415,8 +450,39 @@ http://blogs.msdn.com/b/oldnewthing/archive/2008/06/27/8659071.aspx
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 ThreadPool - zhejtować można (ale trochę) - nie można przerywać zadań.
  Sprawdzanie stanu wątków.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lokalny wykonawca szereguje wątki do wykonania używając dostarczonej przez
+ środowisko .NET Framework puli wątków (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TheadPool
+\end_layout
+
+\end_inset
+
+).
+ Podejście to ma swoje wady -- tracona jest kontrola nad tak stworzonymi
+ wątkami, nie można ich przerwać lub sprawdzić ich stanu (uniemożliwia to
+ np.
+ realizację detekcji zakleszczenia).
+ W przypadku, gdy w kodzie użytkownika wystąpi wyjątek, zostanie on przechwycony
+ przez środowisko, zserializowany i udostępniony wywołującemu wątkowi do
+ odczytu.
 \end_layout
 
 \begin_layout Section
@@ -428,7 +494,7 @@ Wraz z systemem dostarczone zostały następujące typy planistów:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Flex Name
+\begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
@@ -442,7 +508,7 @@ ThreadNumberScheduler
 status open
 
 \begin_layout Plain Layout
-formatowanie: name czy może code?
+formatowanie: name czy code?
 \end_layout
 
 \end_inset

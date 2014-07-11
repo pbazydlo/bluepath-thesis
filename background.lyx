@@ -109,6 +109,12 @@ Istniejące rozwiązania
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:background-Istniejące-rozwiązania"
+
+\end_inset
+
 Przed stworzeniem środowiska ułatwiającego tworzenie aplikacji rozproszonych
  należy przeanalizować to co już istnieje.
 \end_layout
@@ -171,8 +177,15 @@ Erlang
 \end_layout
 
 \begin_layout Standard
-Lekkie wątki, akcje na odebrane wiadomości(przetwarzanie message-centric),
- nie ma współdzielonego stanu pomiędzy wątkami.
+Język programowania Erlang 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Erlang-Armstrong:2010:ERL:1810891.1810910"
+
+\end_inset
+
+ został zaprojektowany do...Lekkie wątki, akcje na odebrane wiadomości(przetwarzani
+e message-centric), nie ma współdzielonego stanu pomiędzy wątkami.
 \end_layout
 
 \begin_layout Standard
@@ -187,7 +200,7 @@ Project Orleans
 W modelu programowania Orleans 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "export:210931"
+key "Orleans-export:210931"
 
 \end_inset
 
