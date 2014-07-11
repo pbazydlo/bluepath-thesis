@@ -176,6 +176,16 @@ Rozproszonej pamięci współdzielonej
 
 \end_inset
 
+ dalej nazywany równierz 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięcią współdzieloną
+\end_layout
+
+\end_inset
+
 .
  Zastosowanie takiego mechanizmu pozwala ukryć problemy komunikacyjne związane
  z wymianą danych i udostępnić programiście interfejs do którego jest przyzwycza
@@ -190,16 +200,35 @@ W celu identyfikacji danych w pamięci współdzielonej zastosowano klucze.
 status open
 
 \begin_layout Plain Layout
-rozproszonej pamięci współdzielonej
+Rozproszonej pamięci współdzielonej
 \end_layout
 
 \end_inset
 
  nie przewidziano zapewnienia hierarchii kluczy.
  Tego typu mechanizm, choć przydatny w pewnych przypadkach, może zostać
- dostarczony przez warstwy obudowujące dostęp do pamięci współdzielonej.
- Aby zapewnić wysoką użyteczność, oraz możliwość rozbudowy pamięci współdzielone
-j przewidziane zostały następujące operacje:
+ dostarczony przez warstwy obudowujące dostęp do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+.
+ Aby zapewnić wysoką użyteczność, oraz możliwość rozbudowy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ przewidziane zostały następujące operacje:
 \end_layout
 
 \begin_layout Itemize
@@ -212,8 +241,17 @@ Store
 
 \end_inset
 
- -- operacja tworząca dane w pamięci współdzielonej, w przypadku gdy podany
- klucz już istnieje operacja nie powiedzie się,
+ -- operacja tworząca dane w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+, w przypadku gdy podany klucz już istnieje operacja nie powiedzie się,
 \end_layout
 
 \begin_layout Itemize
@@ -226,8 +264,17 @@ StoreOrUpdate
 
 \end_inset
 
- -- operacja zapisująca dane do pamięci współdzielonej, w przypadku gdy
- podany klucz już istnieje dane zostaną nadpisane,
+ -- operacja zapisująca dane do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+, w przypadku gdy podany klucz już istnieje dane zostaną nadpisane,
 \end_layout
 
 \begin_layout Itemize
@@ -240,9 +287,18 @@ Update
 
 \end_inset
 
- -- operacja aktualizująca dane w pamięci współdzielonej, powiedzie się
- tylko wtedy gdy podany klucz został wcześniej utworzony w pamięci współdzielone
-j,
+ -- operacja aktualizująca dane w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+, powiedzie się tylko wtedy gdy podany klucz został wcześniej utworzony
+ w pamięci współdzielonej,
 \end_layout
 
 \begin_layout Itemize
@@ -255,8 +311,18 @@ Retrieve
 
 \end_inset
 
- -- operacja pobierająca dane z pamięci współdzielonej, powiedzie się tylko
- wtedy gdy podany klucz został wcześniej utworzony w pamięci współdzielonej,
+ -- operacja pobierająca dane z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+, powiedzie się tylko wtedy gdy podany klucz został wcześniej utworzony
+ w pamięci współdzielonej,
 \end_layout
 
 \begin_layout Itemize
@@ -269,8 +335,18 @@ Remove
 
 \end_inset
 
- -- operacja usuwająca dane z pamięci współdzielonej, powiedzie się tylko
- wtedy gdy podany klucz został wcześniej utworzony w pamięci współdzielonej.
+ -- operacja usuwająca dane z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+, powiedzie się tylko wtedy gdy podany klucz został wcześniej utworzony
+ w pamięci współdzielonej.
 \end_layout
 
 \begin_layout Standard
@@ -292,7 +368,7 @@ Dzięki tak zdefiniowanej semantyce operacji na podstawie
 status open
 
 \begin_layout Plain Layout
-rozproszonej pamięci współdzielonej
+Rozproszonej pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -302,7 +378,7 @@ rozproszonej pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-zamki rozproszone
+Zamki rozproszone
 \end_layout
 
 \end_inset
@@ -313,7 +389,7 @@ zamki rozproszone
 status open
 
 \begin_layout Plain Layout
-rozproszonej pamięci współdzielonej
+Rozproszonej pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -323,7 +399,7 @@ rozproszonej pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-zamki rozproszone
+Zamki rozproszone
 \end_layout
 
 \end_inset
@@ -333,7 +409,7 @@ zamki rozproszone
 status open
 
 \begin_layout Plain Layout
-rozszerzoną rozproszoną pamięć współdzieloną
+Rozszerzoną pamięć współdzieloną
 \end_layout
 
 \end_inset
@@ -350,6 +426,68 @@ reference "sub:Koncepcja-Zamki-rozproszone"
 
 \begin_layout Subsection
 Kolekcje rozproszone
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Rozproszona pamięć współdzielona
+\end_layout
+
+\end_inset
+
+ mimo tego, że zapewnia operacje niezbędne do komunikacji w trakcie przetwarzani
+a, może okazać się mechanizmem o zbyt niskim poziomie abstrakcji.
+ Efektem mogło by być wielokrotne pisanie przez programistę podobnych fragmentów
+ kodu w celu obsługi 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+.
+ Aby uniknąć takiej sytuacji wprowadzone zostały trzy podstawowe kolekcje
+ oparte na 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Rozproszonej pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+: lista, słownik oraz licznik.
+\end_layout
+
+\begin_layout Paragraph
+Lista rozproszona
+\end_layout
+
+\begin_layout Standard
+na co pozwala, co zapewnia (operacje opisać w implementacji).
+\end_layout
+
+\begin_layout Paragraph
+Słownik rozproszony
+\end_layout
+
+\begin_layout Standard
+na co pozwala, co zapewnia (operacje opisać w implementacji).
+\end_layout
+
+\begin_layout Paragraph
+Licznik rozproszony
+\end_layout
+
+\begin_layout Standard
+na co pozwala, co zapewnia (operacje opisać w implementacji).
 \end_layout
 
 \begin_layout Standard
