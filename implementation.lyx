@@ -149,6 +149,16 @@ reference "par:problemy-rhino-dht"
 
 \end_inset
 
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+https://github.com/ayende/rhino-dht
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -189,7 +199,52 @@ Rozproszony wątek
 \end_layout
 
 \begin_layout Standard
-aqsdghjk
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedThread
+\end_layout
+
+\end_inset
+
+ to klasa, której instancje reprezentują jednostkę przetwarzania w systemie.
+ Wątek taki tworzony jest na podstawie delegatu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Func
+\end_layout
+
+\end_inset
+
+ opakowującego statyczną (nazwaną lub anonimową) metodę.
+ Liczba parametrów wejściowych takiej metody to maksymalnie 16.
+ Wszystkie typy parametrów oraz typ zwracany muszą być oznaczone atrybutem
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Serializable
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Czy użycie własnych typów może wymagać dodatnia adnotacji KnownType do DataContr
+act? http://msdn.microsoft.com/en-us/library/ms730167(v=vs.110).aspx
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
