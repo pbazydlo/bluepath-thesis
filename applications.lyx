@@ -161,7 +161,11 @@ Autocomplete
 status open
 
 \begin_layout Plain Layout
-Liczenie przybliżenia liczby PI
+Obliczanie przybliżenia liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -217,11 +221,28 @@ Przetwarzania dokumentów - prefixy do autocomplete...
 \end_layout
 
 \begin_layout Section
-Liczenie PI
+Obliczanie przybliżenia liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Rozproszone liczenie PI.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-> Metoda Monte Carlo
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

@@ -82,6 +82,17 @@ ny proces (jaki?).
  W ramach procesu działa wątek nasłuchujący na zlecenia.
 \end_layout
 
+\begin_layout Standard
+Implementacja systemu została wykonana w środowisku .NET Framework 4.5 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Microsoft.NET"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Komunikacja
 \end_layout
@@ -363,6 +374,13 @@ Serializable
 \end_inset
 
 .
+ Środowisko zakłada izolację pomiędzy wątkami: wątki działające w ramach
+ jednego procesu--hosta nie mogą komunikować się ze sobą poprzez pamięć,
+ a parametry, z którymi wywoływana jest metoda są kopiowane do nowych instancji
+ klas i struktur.
+ Wyjątkiem jest tutaj dostarczana przez środowisko pamięć współdzielona.
+ W tym przypadku programista powinien stosować dostarczone wraz z nią mechanizmy
+ synchronizacji.
  
 \begin_inset Note Note
 status open
