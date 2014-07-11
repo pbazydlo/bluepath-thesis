@@ -184,6 +184,83 @@ Project Orleans
 \end_layout
 
 \begin_layout Standard
+W modelu programowania Orleans
+\begin_inset CommandInset citation
+LatexCommand cite
+key "export:210931"
+
+\end_inset
+
+ zaproponowano wprowadzenie abstrakcji wirtualnych aktorów.
+ W porównaniu do Erlanga, środowisko wykonwacze działa tu na wyższym poziomie
+ abstrakcji, uwalniając programistę od problemów takich jak obsługa awarii,
+ odtwarzanie aktorów i zarządzanie rozproszonymi zasobami -- w szczególności
+ rozłożeniem aktorów na poszczególne węzły.
+ W systemie Orleans przyjęto następujące założenia:
+\end_layout
+
+\begin_layout Enumerate
+aktorzy istnieją permanentnie (wirtualnie),
+\end_layout
+
+\begin_layout Enumerate
+instancje aktorów (tzw.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+aktywacje
+\end_layout
+
+\end_inset
+
+) są tworzone automatycznie w momencie wysłania żądania do aktora, który
+ nie istnieje lub gdy aktor jest typu 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+stateless worker
+\end_layout
+
+\end_inset
+
+, tj.
+ nie wymagamy, aby istaniała tylko jedna instancja aktora danego typu (
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+single activation
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Enumerate
+przezroczystość położenia -- instancja aktora może istnieć na różnych maszynach
+ w różnych chwilach, może też nie istnieć w ogóle fizycznie, aplikacja nie
+ zna lokalizacji aktora,
+\end_layout
+
+\begin_layout Enumerate
+automatyczne skalowanie -- niezależne instancje aktorów typu 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+stateless worker
+\end_layout
+
+\end_inset
+
+ mogą być uruchamiane w wielu egzemplarzach.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 

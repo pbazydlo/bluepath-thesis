@@ -46,7 +46,7 @@ dcs
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks true
 \pdf_pdfborder true
-\pdf_colorlinks true
+\pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
 \pdf_quoted_options "urlcolor=linkcolor,linkcolor=linkcolor,citecolor=linkcolor"
@@ -271,6 +271,9 @@ backmatter
 
 \end_inset
 
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
@@ -279,6 +282,7 @@ bibfiles "bibliography"
 options "thesisPP"
 
 \end_inset
+
 
 \end_layout
 

@@ -77,7 +77,9 @@ Implementacja
 \end_layout
 
 \begin_layout Standard
-audwnhawudnhawd
+System Bluepath działa na klastrze serwerów, na każdym z nich musi być uruchomio
+ny proces (jaki?).
+ W ramach procesu działa wątek nasłuchujący na zlecenia.
 \end_layout
 
 \begin_layout Section
@@ -111,6 +113,134 @@ Jeżeli w ramach procesu działa więcej niż 1 listener każdy ma swój port
  i swoją kolekcję lokalnych wykonawców, ale współdzielą listę zdalnych wykonawcó
 w.
  
+\end_layout
+
+\begin_layout Standard
+Callbacki vs.
+ pooling
+\end_layout
+
+\begin_layout Standard
+pod spodem jest to właściwie tradycyjny model RPC, ale abstrakcja rozproszonych
+ wątków ukrywa to przed użytkownikiem.
+\end_layout
+
+\begin_layout Standard
+komunikacja z użyciem asynchronicznych wiadomości
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+listing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[ServiceContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+public interface IRemoteExecutorService
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    Guid Initialize(byte[] methodHandle);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Execute(Guid eId, object[] parameters, ServiceUri callbackUri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void ExecuteCallback(Guid eid, RemoteExecutorServiceResult executeResult);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    RemoteExecutorServiceResult TryJoin(Guid eId);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    PerformanceStatistics GetPerformanceStatistics();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
