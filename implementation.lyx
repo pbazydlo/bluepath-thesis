@@ -197,7 +197,18 @@ Wykonawca
 \end_layout
 
 \begin_layout Standard
-Identyfikowani przez guid
+Każdy wykonawca jest identyfikowany przez unikalną 128-bitową liczbę (GUID).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+http://blogs.msdn.com/b/oldnewthing/archive/2008/06/27/8659071.aspx
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard

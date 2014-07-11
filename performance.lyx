@@ -585,11 +585,28 @@ qwertyui
 \end_layout
 
 \begin_layout Subsection
-PI
+Obliczanie przybliżenia liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 qwertyuiop
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-> Metoda Monte Carlo
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
