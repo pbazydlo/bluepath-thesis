@@ -142,10 +142,210 @@ Zarządca połączeń
 
 \begin_layout Section
 Rozproszona pamięć współdzielona
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Przeżucić cały punkt pod Planistę
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-co to i po co
+Często w ramach przetwarzania rozproszonego zachodzi potrzeba komunikacji.
+ W celu jej zapewnienia jako część biblioteki 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+ dostarczany jest mechanizm 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Rozproszonej pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+.
+ Zastosowanie takiego mechanizmu pozwala ukryć problemy komunikacyjne związane
+ z wymianą danych i udostępnić programiście interfejs do którego jest przyzwycza
+jony z programowania aplikacji równoległych.
+\end_layout
+
+\begin_layout Standard
+W celu identyfikacji danych w pamięci współdzielonej zastosowano klucze.
+ Klucz jest unikalnym ciągiem znaków jednoznacznie identyfikującym dane.
+ W trakcie projektowania 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonej pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ nie przewidziano zapewnienia hierarchii kluczy.
+ Tego typu mechanizm, choć przydatny w pewnych przypadkach, może zostać
+ dostarczony przez warstwy obudowujące dostęp do pamięci współdzielonej.
+ Aby zapewnić wysoką użyteczność, oraz możliwość rozbudowy pamięci współdzielone
+j przewidziane zostały następujące operacje:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Store
+\end_layout
+
+\end_inset
+
+ -- operacja tworząca dane w pamięci współdzielonej, w przypadku gdy podany
+ klucz już istnieje operacja nie powiedzie się,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+StoreOrUpdate
+\end_layout
+
+\end_inset
+
+ -- operacja zapisująca dane do pamięci współdzielonej, w przypadku gdy
+ podany klucz już istnieje dane zostaną nadpisane,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Update
+\end_layout
+
+\end_inset
+
+ -- operacja aktualizująca dane w pamięci współdzielonej, powiedzie się
+ tylko wtedy gdy podany klucz został wcześniej utworzony w pamięci współdzielone
+j,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Retrieve
+\end_layout
+
+\end_inset
+
+ -- operacja pobierająca dane z pamięci współdzielonej, powiedzie się tylko
+ wtedy gdy podany klucz został wcześniej utworzony w pamięci współdzielonej,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Remove
+\end_layout
+
+\end_inset
+
+ -- operacja usuwająca dane z pamięci współdzielonej, powiedzie się tylko
+ wtedy gdy podany klucz został wcześniej utworzony w pamięci współdzielonej.
+\end_layout
+
+\begin_layout Standard
+Operacje te, choć wystarczające w większości zastosowań, zostały rozwinięte
+ o odpowiedniki operujące na wielu kluczach na raz - zostały one opisane
+ w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Koncepcja-Operacje-zbiorcze"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dzięki tak zdefiniowanej semantyce operacji na podstawie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonej pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ można równierz zdefiniować bardziej złożone mechanizmy takie jak 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamki rozproszone
+\end_layout
+
+\end_inset
+
+.
+ Ponieważ część mechanizmów zapewniających realizację 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonej pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ może posiadać wbudowane mechanizmy zapewniające 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamki rozproszone
+\end_layout
+
+\end_inset
+
+ zdefiniowano 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozszerzoną rozproszoną pamięć współdzieloną
+\end_layout
+
+\end_inset
+
+, której operacje zostały opisane w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Koncepcja-Zamki-rozproszone"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -153,19 +353,68 @@ Kolekcje rozproszone
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Zapewniają łatwą w zrozumieniu i wykorzystaniu abstrakcję.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Distributed list, dictionary, counter
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Operacje zbiorcze
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Koncepcja-Operacje-zbiorcze"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 bo chcemy minimalizować narzuty komunikacyjne
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Zamki rozproszone
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Koncepcja-Zamki-rozproszone"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+bo potrzebujemy sekcje krytyczne
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
