@@ -171,7 +171,7 @@ Bluepath
 status open
 
 \begin_layout Plain Layout
-Rozproszonej pamięci współdzielonej
+rozproszonej pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -181,7 +181,7 @@ Rozproszonej pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-Pamięcią współdzieloną
+pamięcią współdzieloną
 \end_layout
 
 \end_inset
@@ -211,7 +211,7 @@ W celu identyfikacji danych w pamięci współdzielonej zastosowano klucze.
 status open
 
 \begin_layout Plain Layout
-Rozproszonej pamięci współdzielonej
+rozproszonej pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -223,7 +223,7 @@ Rozproszonej pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-Pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -234,7 +234,7 @@ Pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-Pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -267,7 +267,7 @@ Store
 status open
 
 \begin_layout Plain Layout
-Pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -290,7 +290,7 @@ StoreOrUpdate
 status open
 
 \begin_layout Plain Layout
-Pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -313,7 +313,7 @@ Update
 status open
 
 \begin_layout Plain Layout
-Pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -337,7 +337,7 @@ Retrieve
 status open
 
 \begin_layout Plain Layout
-Pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -361,7 +361,7 @@ Remove
 status open
 
 \begin_layout Plain Layout
-Pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -389,7 +389,7 @@ Dzięki tak zdefiniowanej semantyce operacji na podstawie
 status open
 
 \begin_layout Plain Layout
-Rozproszonej pamięci współdzielonej
+rozproszonej pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -399,7 +399,7 @@ Rozproszonej pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-Zamki rozproszone
+zamki rozproszone
 \end_layout
 
 \end_inset
@@ -410,7 +410,7 @@ Zamki rozproszone
 status open
 
 \begin_layout Plain Layout
-Rozproszonej pamięci współdzielonej
+rozproszonej pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -420,7 +420,7 @@ Rozproszonej pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-Zamki rozproszone
+zamki rozproszone
 \end_layout
 
 \end_inset
@@ -430,7 +430,7 @@ Zamki rozproszone
 status open
 
 \begin_layout Plain Layout
-Rozszerzoną pamięć współdzieloną
+rozszerzoną pamięć współdzieloną
 \end_layout
 
 \end_inset
@@ -467,7 +467,7 @@ a, może okazać się mechanizmem o zbyt niskim poziomie abstrakcji.
 status open
 
 \begin_layout Plain Layout
-Pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -479,7 +479,7 @@ Pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-Rozproszonej pamięci współdzielonej
+rozproszonej pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -587,7 +587,7 @@ Jednostką przetwarzania w systemie jest
 status collapsed
 
 \begin_layout Plain Layout
-Rozproszony wątek
+rozproszony wątek
 \end_layout
 
 \end_inset
@@ -615,7 +615,7 @@ nazwa?
 status collapsed
 
 \begin_layout Plain Layout
-Planistę
+planistę
 \end_layout
 
 \end_inset
@@ -654,7 +654,7 @@ Wykonywanie wątków zarówno zdalne jak i lokalne jest zarządzane przez
 status collapsed
 
 \begin_layout Plain Layout
-Wykonawców
+wykonawców
 \end_layout
 
 \end_inset
@@ -673,7 +673,7 @@ Wszystkie wątki wykonywane lokalnie (zarówno te które pochodzą z lokalnego
 status collapsed
 
 \begin_layout Plain Layout
-Wykonawców lokalnych
+wykonawców lokalnych
 \end_layout
 
 \end_inset
@@ -708,7 +708,7 @@ Do opakowania zdalnego uruchomienia
 status collapsed
 
 \begin_layout Plain Layout
-Rozproszonego wątku
+rozproszonego wątku
 \end_layout
 
 \end_inset
@@ -718,7 +718,7 @@ Rozproszonego wątku
 status collapsed
 
 \begin_layout Plain Layout
-Wykonawca zdalny
+wykonawca zdalny
 \end_layout
 
 \end_inset
@@ -740,7 +740,7 @@ Elementem systemu decydującym o wyborze miejsca wykonywania
 status collapsed
 
 \begin_layout Plain Layout
-Rozproszonego wątku
+rozproszonego wątku
 \end_layout
 
 \end_inset
@@ -760,7 +760,7 @@ nazwa?
 status collapsed
 
 \begin_layout Plain Layout
-Planista
+planista
 \end_layout
 
 \end_inset
@@ -772,7 +772,7 @@ Planista
 status collapsed
 
 \begin_layout Plain Layout
-Planisty
+planisty
 \end_layout
 
 \end_inset

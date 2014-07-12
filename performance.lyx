@@ -116,7 +116,7 @@ Równolegle z tworzonym kodem powstawały testy jednostkowe poszczególnych
 status open
 
 \begin_layout Plain Layout
-Lokalny wykonawca
+lokalny wykonawca
 \end_layout
 
 \end_inset
@@ -139,7 +139,7 @@ Join
 status open
 
 \begin_layout Plain Layout
-Zdalny wykonawca
+zdalny wykonawca
 \end_layout
 
 \end_inset
@@ -169,12 +169,12 @@ mock object
 \end_layout
 
 \begin_layout Itemize
-Usługa 
+usługa 
 \begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-Zdalnego wykonawcy
+zdalnego wykonawcy
 \end_layout
 
 \end_inset
@@ -231,7 +231,7 @@ IBluepathCommunicationFramework
 status open
 
 \begin_layout Plain Layout
-Rozproszony wątek
+rozproszony wątek
 \end_layout
 
 \end_inset
@@ -251,7 +251,7 @@ nazwa?
 status open
 
 \begin_layout Plain Layout
-Lokalnego wykonawcy
+lokalnego wykonawcy
 \end_layout
 
 \end_inset
@@ -261,7 +261,7 @@ Lokalnego wykonawcy
 status open
 
 \begin_layout Plain Layout
-Zdalnego wykonawcy
+zdalnego wykonawcy
 \end_layout
 
 \end_inset
@@ -292,7 +292,7 @@ IScheduler
 status open
 
 \begin_layout Plain Layout
-Zarządcy połączeń
+zarządcy połączeń
 \end_layout
 
 \end_inset
@@ -301,7 +301,7 @@ Zarządcy połączeń
 \end_layout
 
 \begin_layout Itemize
-Planista 
+planista 
 \begin_inset Flex Code
 status open
 
@@ -334,16 +334,99 @@ Testy integracyjne
 \end_layout
 
 \begin_layout Standard
-sdfdf
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+imho we wstępie do tego punktu można opisać środowisko, nie robić podpunktu
 \end_layout
 
-\begin_layout Subsubsection
-Środowisko
+\begin_layout Plain Layout
+uruchamianie redis'a i spawnowanie usług bluepath problematyczne bo nigdy
+ do końca nie wiemy czy już chodzi
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-uruchamianie redis'a i spawnowanie usług bluepath problematyczne bo nigdy
- do końca nie wiemy czy już chodzi
+W ramach testów integracyjnych przetestowane zostały następujące aspekty:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszone wątki
+\end_layout
+
+\end_inset
+
+ -- zachowanie systemu w wyniku próby wykonania metod akceptujących różne
+ typy parametrów i zwracające wyniki różnego typu -- tablice, klasy (także
+ generyczne), delegaty
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(?)
+\end_layout
+
+\end_inset
+
+, a także obsługa wyjątków w kodzie użytkownika oraz w przypadku nieprawidłowego
+ wywołania; test obejmował także wykonanie metody z biblioteki napisanej
+ w języku F#,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zarządca połączeń
+\end_layout
+
+\end_inset
+
+ -- pobieranie listy dostępnych węzłów z usługi katalogowej i aktualizowanie
+ swojej lokalnej kopii listy (dodawanie nowych węzłów i usuwanie wyrejestrowanyc
+h), pobieranie informacji o obciążeniu węzłów zarejestrowanych w klastrze,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+współdzielona pamięć
+\end_layout
+
+\end_inset
+
+ -- testy zapisu i odczytu obiektów (także jako operacji zbiorczych),
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszone zamki
+\end_layout
+
+\end_inset
+
+ -- pobieranie i zwalnianie zamków (także z limitem czasu), budzenie wątków
+ czekających na zamkach,
+\end_layout
+
+\begin_layout Itemize
+a także testy struktury danych i obiekty zbudowanych na bazie współdzielonej
+ pamięci -- lista, słownik, licznik.
 \end_layout
 
 \begin_layout Section
@@ -370,8 +453,8 @@ key "Microsoft-Azure"
 .
  Klaster składał się z 7 maszyn wirtualnych -- na sześciu z nich działały
  usługi systemu Bluepath pod kontrolą systemu operacyjnego Windows Server
- 2012 R2 Datacenter (wydanego 17 czerwca 2014 r.), na jednej maszynie uruchomiony
- został host współdzielonej pamięci Redis pod kontrolą systemu operacyjnego
+ 2012 R2 Datacenter (wydanego 17 czerwca 2014 r.), a na jednej maszynie uruchomio
+ny został host współdzielonej pamięci Redis pod kontrolą systemu operacyjnego
  Ubuntu Server 14.04 LTS (wydanego 20 czerwca 2014 r.).
  Maszyny różniły się konfiguracją sprzętową w zależności od przeznaczenia,
  węzeł inicjujący przetwarzanie był typu 
