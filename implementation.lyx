@@ -151,7 +151,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-listing
+Interfejs IRemoteExecutorService
 \end_layout
 
 \end_inset
@@ -245,10 +245,6 @@ public interface IRemoteExecutorService
 }
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -259,7 +255,135 @@ Usługa odnajdywania węzłów
 \end_layout
 
 \begin_layout Standard
-sdfghj
+Obecna implementacja zawiera usługę odnajdywania węzłów zrealizowaną w sposób
+ scentralizowany, a każdy z węzłów podłączających się do klastra musi znać
+ adres IP i numer portu, pod którym działa usługa katalogowa.
+ Usługa udostępnia metody służące do zarejestrowania się węzła (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Register
+\end_layout
+
+\end_inset
+
+), wyrejestrowania się węzła (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Unregister
+\end_layout
+
+\end_inset
+
+), pobrania listy zarejestrowanych w klastrze węzłów (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetAvailableServices
+\end_layout
+
+\end_inset
+
+), oraz pobrania statystyk wydajności wszystkich węzłów w klastrze (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetPerformanceStatistics
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interfejs ICentralizedDiscoveryService
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+[ServiceContract]
+\end_layout
+
+\begin_layout Plain Layout
+public interface ICentralizedDiscoveryService
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+    ServiceUri[] GetAvailableServices();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+    void Register(ServiceUri uri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+    void Unregister(ServiceUri uri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+    Task<Dictionary<ServiceUri, PerformanceStatistics>> GetPerformanceStatistics
+();
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -536,7 +660,62 @@ Logowanie zdarzeń
 \end_layout
 
 \begin_layout Standard
-aaaa
+Za zbieranie informacji na temat zdarzeń zachodzących w systemie odpowiada
+ klasa 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Log
+\end_layout
+
+\end_inset
+
+ udostępniająca statyczne metody 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ExceptionMessage
+\end_layout
+
+\end_inset
+
+ -- do logowania wyjątków i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TraceMessage
+\end_layout
+
+\end_inset
+
+ -- do logowania pozostałych zdarzeń.
+ Istnieje możliwość przekierowania wszystkich informacji do współdzielonej
+ pamięci.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+jest zahardcodowany new RedisStorage!! (?)
+\end_layout
+
+\end_inset
+
+ Udostępnia ona również metodę 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SaveXes
+\end_layout
+
+\end_inset
+
+, która zapisuje wszystkie zgromadzone we współdzielonej pamięci zdarzenia
+ zapisuje do pliku XML w formacie OpenXES.
+ 
 \end_layout
 
 \begin_layout Section

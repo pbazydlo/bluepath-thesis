@@ -187,9 +187,20 @@ Pamięcią współdzieloną
 \end_inset
 
 .
- Zastosowanie takiego mechanizmu pozwala ukryć problemy komunikacyjne związane
+ Pamięć ta ma charakter pamięci masowej, a nie pamięci operacyjnej.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(?) 
+\end_layout
+
+\end_inset
+
+Zastosowanie takiego mechanizmu pozwala ukryć problemy komunikacyjne związane
  z wymianą danych i udostępnić programiście interfejs do którego jest przyzwycza
 jony z programowania aplikacji równoległych.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -228,7 +239,17 @@ Pamięci współdzielonej
 
 \end_inset
 
- przewidziane zostały następujące operacje:
+ przewidziane zostały następujące operacje
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+to nie jest za bardzo implementacyjne?
+\end_layout
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Itemize
@@ -523,7 +544,8 @@ name "sub:Koncepcja-Operacje-zbiorcze"
 status open
 
 \begin_layout Plain Layout
-bo chcemy minimalizować narzuty komunikacyjne
+bo chcemy minimalizować narzuty komunikacyjne - znowu, czy to nie implementacja?
+?
 \end_layout
 
 \end_inset
@@ -795,7 +817,17 @@ OpenXES
 \end_layout
 
 \begin_layout Standard
-nasza implementacja standardu
+nasza implementacja standardu 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ale o implementacji to w implementacji
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
