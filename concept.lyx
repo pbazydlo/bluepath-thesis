@@ -133,11 +133,247 @@ wywany z klastra.
 \end_layout
 
 \begin_layout Subsection
-ConnectionManager
+Zarządca połączeń
 \end_layout
 
 \begin_layout Standard
-Zarządca połączeń
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ConnectionManager
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Rozproszony wątek
+\end_layout
+
+\begin_layout Standard
+Jednostką przetwarzania w systemie jest 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+rozproszony wątek
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nazwa?
+\end_layout
+
+\end_inset
+
+.
+ Jest on tworzony na podstawie statycznej metody, która przyjmuje dowolną,
+ liczbę parametrów i zwraca wartość.
+ Wynik przechwytywany jest przez środowisko i udostępniany do odczytu na
+ węźle, który zlecił wykonanie wątku.
+ Rozproszony wątek może zostać wykonany na dowolnym węźle obliczeniowym
+ oraz uruchamiać kolejne rozproszone wątki.
+ Decyzja o wyborze miejsca wykonania wątku podejmowana jest z wykorzystaniem
+ lokalnej wiedzy o stanie klastra przez 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+planistę
+\end_layout
+
+\end_inset
+
+(więcej o tym dalej, bo pisanie o interefejsie i własnym schedulerze to
+ chyba nie tu).
+ 
+\end_layout
+
+\begin_layout Subsection
+Typy w systemie
+\end_layout
+
+\begin_layout Standard
+W trakcie projektowania systemu założono, że wszystkie typy przesyłane pomiędzy
+ węzłami muszą być serializowalne (posiadać atrybut 
+\begin_inset Flex Code
+status collapsed
+
+\begin_layout Plain Layout
+Serializable
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Wykonawca
+\end_layout
+
+\begin_layout Standard
+Wykonywanie wątków zarówno zdalne jak i lokalne jest zarządzane przez 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+wykonawców
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Wykonawca lokalny
+\end_layout
+
+\begin_layout Standard
+Wszystkie wątki wykonywane lokalnie (zarówno te które pochodzą z lokalnego
+ węzła jak i te zlecone przez inny węzeł) są zarządzane przez 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+wykonawców lokalnych
+\end_layout
+
+\end_inset
+
+.
+ Do ich (wykonawcy) zadań należą:
+\end_layout
+
+\begin_layout Itemize
+rozpocząć przetwarzanie, 
+\end_layout
+
+\begin_layout Itemize
+przekierować parametry, 
+\end_layout
+
+\begin_layout Itemize
+przechwycić wyjątki,
+\end_layout
+
+\begin_layout Itemize
+po zakończeniu przetwarzania udostępnia wyniki wyższym warstwom.
+\end_layout
+
+\begin_layout Subsection
+Wykonawca zdalny
+\end_layout
+
+\begin_layout Standard
+Do opakowania zdalnego uruchomienia 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+rozproszonego wątku
+\end_layout
+
+\end_inset
+
+ zastosowany został 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+wykonawca zdalny
+\end_layout
+
+\end_inset
+
+.
+ Zleca on wykonanie zadania [wyspecyfikowanemu] węzłowi, oraz monitoruje
+ stan wykonania zadania (zakończenie, wystąpienie błędów).
+ Jest on również odpowiedzialny za odebranie wyniku przetwarzania i udostępnieni
+e ich wyższym warstwom.
+\end_layout
+
+\begin_layout Section
+Planista
+\end_layout
+
+\begin_layout Standard
+Elementem systemu decydującym o wyborze miejsca wykonywania 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+rozproszonego wątku
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nazwa?
+\end_layout
+
+\end_inset
+
+ jest 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+planista
+\end_layout
+
+\end_inset
+
+.
+ Każda jego realizacja musi być oparta na zdefiniowanym interfejsie.
+ Dzięki temu użytkownik może przygotować własną implementację 
+\begin_inset Flex Name
+status collapsed
+
+\begin_layout Plain Layout
+planisty
+\end_layout
+
+\end_inset
+
+ dostosowaną do prowadzonego przetwarzania lub wybrać jedną z dostarczonych
+ razem z biblioteką.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Musi on implementować interfejs 
+\begin_inset Flex Code
+status collapsed
+
+\begin_layout Plain Layout
+IScheduler
+\end_layout
+
+\end_inset
+
+.
+ Pozwala to zastosować implementację Planisty dostosowaną do potrzeb przetwarzan
+ia i jest jednym z istotnych elementów modułowości sys
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -146,7 +382,7 @@ Rozproszona pamięć współdzielona
 status open
 
 \begin_layout Plain Layout
-Przeżucić cały punkt pod Planistę
+Przerzucić cały punkt pod Planistę
 \end_layout
 
 \end_inset
@@ -570,233 +806,6 @@ status open
 
 \begin_layout Plain Layout
 bo potrzebujemy sekcje krytyczne
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Rozproszony wątek
-\end_layout
-
-\begin_layout Standard
-Jednostką przetwarzania w systemie jest 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-rozproszony wątek
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nazwa?
-\end_layout
-
-\end_inset
-
-.
- Jest on tworzony na podstawie statycznej metody, która przyjmuje dowolną,
- liczbę parametrów i zwraca wartość.
- Wynik przechwytywany jest przez środowisko i udostępniany do odczytu na
- węźle, który zlecił wykonanie wątku.
- Rozproszony wątek może zostać wykonany na dowolnym węźle obliczeniowym
- oraz uruchamiać kolejne rozproszone wątki.
- Decyzja o wyborze miejsca wykonania wątku podejmowana jest z wykorzystaniem
- lokalnej wiedzy o stanie klastra przez 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-planistę
-\end_layout
-
-\end_inset
-
-(więcej o tym dalej, bo pisanie o interefejsie i własnym schedulerze to
- chyba nie tu).
- 
-\end_layout
-
-\begin_layout Subsection
-Typy w systemie
-\end_layout
-
-\begin_layout Standard
-W trakcie projektowania systemu założono, że wszystkie typy przesyłane pomiędzy
- węzłami muszą być serializowalne (posiadać atrybut 
-\begin_inset Flex Code
-status collapsed
-
-\begin_layout Plain Layout
-Serializable
-\end_layout
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Section
-Wykonawca
-\end_layout
-
-\begin_layout Standard
-Wykonywanie wątków zarówno zdalne jak i lokalne jest zarządzane przez 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-wykonawców
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-Wykonawca lokalny
-\end_layout
-
-\begin_layout Standard
-Wszystkie wątki wykonywane lokalnie (zarówno te które pochodzą z lokalnego
- węzła jak i te zlecone przez inny węzeł) są zarządzane przez 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-wykonawców lokalnych
-\end_layout
-
-\end_inset
-
-.
- Do ich (wykonawcy) zadań należą:
-\end_layout
-
-\begin_layout Itemize
-rozpocząć przetwarzanie, 
-\end_layout
-
-\begin_layout Itemize
-przekierować parametry, 
-\end_layout
-
-\begin_layout Itemize
-przechwycić wyjątki,
-\end_layout
-
-\begin_layout Itemize
-po zakończeniu przetwarzania udostępnia wyniki wyższym warstwom.
-\end_layout
-
-\begin_layout Subsection
-Wykonawca zdalny
-\end_layout
-
-\begin_layout Standard
-Do opakowania zdalnego uruchomienia 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-rozproszonego wątku
-\end_layout
-
-\end_inset
-
- zastosowany został 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-wykonawca zdalny
-\end_layout
-
-\end_inset
-
-.
- Zleca on wykonanie zadania [wyspecyfikowanemu] węzłowi, oraz monitoruje
- stan wykonania zadania (zakończenie, wystąpienie błędów).
- Jest on również odpowiedzialny za odebranie wyniku przetwarzania i udostępnieni
-e ich wyższym warstwom.
-\end_layout
-
-\begin_layout Section
-Planista
-\end_layout
-
-\begin_layout Standard
-Elementem systemu decydującym o wyborze miejsca wykonywania 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-rozproszonego wątku
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nazwa?
-\end_layout
-
-\end_inset
-
- jest 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-planista
-\end_layout
-
-\end_inset
-
-.
- Każda jego realizacja musi być oparta na zdefiniowanym interfejsie.
- Dzięki temu użytkownik może przygotować własną implementację 
-\begin_inset Flex Name
-status collapsed
-
-\begin_layout Plain Layout
-planisty
-\end_layout
-
-\end_inset
-
- dostosowaną do prowadzonego przetwarzania lub wybrać jedną z dostarczonych
- razem z biblioteką.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Musi on implementować interfejs 
-\begin_inset Flex Code
-status collapsed
-
-\begin_layout Plain Layout
-IScheduler
-\end_layout
-
-\end_inset
-
-.
- Pozwala to zastosować implementację Planisty dostosowaną do potrzeb przetwarzan
-ia i jest jednym z istotnych elementów modułowości sys
 \end_layout
 
 \end_inset
