@@ -126,27 +126,89 @@ będą
 \end_layout
 
 \begin_layout Standard
-MIcrosoft Azure
+Środowisko do przeprowadzenia testów wydajnościowych zostało przygotowane
+ w oparciu o platformę Microsoft Azure
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Microsoft-Azure"
+
+\end_inset
+
+.
+ Klaster składał się z 7 maszyn wirtualnych -- na sześciu z nich działały
+ usługi systemu Bluepath pod kontrolą systemu operacyjnego Windows Server
+ 2012 R2 Datacenter (wydanego 17 czerwca 2014 r.), na jednej maszynie uruchomiony
+ został host współdzielonej pamięci Redis pod kontrolą systemu operacyjnego
+ Ubuntu Server 14.04 LTS (wydanego 20 czerwca 2014 r.).
+ Maszyny różniły się konfiguracją sprzętową w zależności od przeznaczenia,
+ węzeł inicjujący przetwarzanie był typu 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Medium VM (Basic A2)
 \end_layout
 
-\begin_layout Standard
-Windows Server 2012 R2 Datacenter, data wydania: 17.06.2014 r.
+\end_inset
+
+ i posiadał 2 wirtualne rdzenie AMD Operton 1,6 GHz i 3,5 GB pamięci operacyjnej
+, węzły obliczeniowe typu 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Small VM (Basic A1)
 \end_layout
 
-\begin_layout Standard
-Ubuntu Server 14.04 LTS, data wydania: 20.06.2014 r.
+\end_inset
+
+ dysponowały po 1 wirtualnym rdzeniu AMD Opteron 1,6 GHz i 1,75 GB pamięci
+ operacyjnej, natomiast węzeł hosta Redis była to instancja typu 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Large VM (Basic A3)
 \end_layout
 
-\begin_layout Standard
-Small VM (Basic A1) -- AMD Opteron 1.6GHz CPU, 1.75GB RAM
+\end_inset
+
+ posiadająca cztery rdzenie AMD Opteron 1,6 GHZ i 7 GB pamięci operacyjnej.
+ Szczegóły konfiguracji zestawiono w tabeli 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:performance-Konfiguracja-testowego-klastra"
+
+\end_inset
+
+.
+ Maszyny wirtualne wchodzące w skład klastra połączone zostały w wirtualną
+ sieć, w której wyłączone były zapory sieciowe, a komunikacja odbywała się
+ z użyciem prywatnych wewnętrznych adresów IP (tzw.
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+DIP
 \end_layout
 
-\begin_layout Standard
-Medium VM (Basic A2) -- AMD Opteron 2 x 1.6GHz CPU, 3.5GB RAM
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+DIP -- wewnętrzny adres IP przydzielony automatycznie przez Windows Azure
+ z użyciem DHCP
 \end_layout
 
-\begin_layout Standard
-Large VM (Basic A3) -- AMD Opteron 4 x 1.6GHz CPU, 7GB RAM
+\end_inset
+
+).
+ Do dystrybucji nowych wersji bibliotek systemu Bluepath na wszystkie maszyny
+ w klastrze przygotowany został skrypt PowerShell.
 \end_layout
 
 \begin_layout Standard
@@ -160,7 +222,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-ddddd
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:performance-Konfiguracja-testowego-klastra"
+
+\end_inset
+
+Konfiguracja testowego klastra
 \end_layout
 
 \end_inset
@@ -560,20 +628,6 @@ Ubuntu Server
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Maszyny wirtualne wchodzące w skład klastra są połączone w wirtualną sieć.
- 
-\end_layout
-
-\begin_layout Standard
-Wewnętrzne adresy IP (DIP), brak firewalli (jest dopiero przy wyjściu na
- świat).
-\end_layout
-
-\begin_layout Standard
-Deploy przez skrypt PowerShellowy.
 \end_layout
 
 \begin_layout Subsection
