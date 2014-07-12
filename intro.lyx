@@ -160,12 +160,30 @@ Piotr Bazydło
 ----
 \end_layout
 
+\begin_layout Itemize
+przykładowe aplikacje -- DLINQ, autocomplete 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+może jakaś lepsza nazwa?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 Zachariusz Karwacki
 \end_layout
 
 \begin_layout Standard
 ----
+\end_layout
+
+\begin_layout Itemize
+przykładowa aplikacja -- MapReduce
 \end_layout
 
 \end_body

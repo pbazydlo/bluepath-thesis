@@ -112,7 +112,7 @@ Distributed Language Integrated Query
 status open
 
 \begin_layout Plain Layout
-Map Reduce
+MapReduce
 \end_layout
 
 \end_inset
@@ -190,7 +190,7 @@ GroupBy, SelectMany, Select, Where
 \end_layout
 
 \begin_layout Section
-Map Reduce
+MapReduce
 \end_layout
 
 \begin_layout Standard

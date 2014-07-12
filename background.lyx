@@ -158,7 +158,14 @@ DryadLINQ
 \end_layout
 
 \begin_layout Standard
-Specjalizowane do przetwarzania kolekcji.
+Środowisko DryadLINQ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DryadLINQ-MSR"
+
+\end_inset
+
+ jest specjalizowane do przetwarzania kolekcji.
  Wymaga Dryad - ciężki do postawienia i skonfigurowania
 \begin_inset Note Note
 status open
