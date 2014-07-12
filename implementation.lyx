@@ -391,7 +391,137 @@ Rozproszona pamięć współdzielona
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 nie implementujemy sami bo nie taki cel pracy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zgodnie z założeniami zaprezentowanymi w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:concept-Rozproszona-pamięć-współdzielona"
+
+\end_inset
+
+, interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorage
+\end_layout
+
+\end_inset
+
+ wymaga implementacji metod do operacji na pojedynczych wartościach: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Store
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+StoreOrUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Update
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Retrieve
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Remove
+\end_layout
+
+\end_inset
+
+ oraz operacji zbiorczych: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkStore
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkStoreOrUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkRetrieve
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkRemove
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -544,7 +674,7 @@ Każdy wykonawca jest identyfikowany przez unikalną 128-bitową liczbę (GUID),
 status open
 
 \begin_layout Plain Layout
-Zdalnego wykonawcy
+zdalnego wykonawcy
 \end_layout
 
 \end_inset
@@ -554,7 +684,7 @@ Zdalnego wykonawcy
 status open
 
 \begin_layout Plain Layout
-Lokalny wykonawca
+lokalny wykonawca
 \end_layout
 
 \end_inset
@@ -750,7 +880,7 @@ Aby skorzystać z funkcji udostępnianych przez system (jak np.
 status open
 
 \begin_layout Plain Layout
-Wykonawcy
+wykonawcy
 \end_layout
 
 \end_inset

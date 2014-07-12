@@ -391,6 +391,12 @@ Przerzucić cały punkt pod Planistę
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:concept-Rozproszona-pamięć-współdzielona"
+
+\end_inset
+
 Często w ramach przetwarzania rozproszonego zachodzi potrzeba komunikacji.
  W celu jej zapewnienia jako część biblioteki 
 \begin_inset Flex Name
@@ -480,7 +486,7 @@ pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-to nie jest za bardzo implementacyjne?
+przeniosłem 'kodowe' nazwy operacji do implementacji
 \end_layout
 
 \end_inset
@@ -489,121 +495,28 @@ to nie jest za bardzo implementacyjne?
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Store
-\end_layout
-
-\end_inset
-
- -- operacja tworząca dane w 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci współdzielonej
-\end_layout
-
-\end_inset
-
-, w przypadku gdy podany klucz już istnieje operacja nie powiedzie się,
+zapis -- operacja zapisująca dane; w przypadku gdy podany klucz już istnieje
+ operacja nie powiedzie się,
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-StoreOrUpdate
-\end_layout
-
-\end_inset
-
- -- operacja zapisująca dane do 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci współdzielonej
-\end_layout
-
-\end_inset
-
-, w przypadku gdy podany klucz już istnieje dane zostaną nadpisane,
+zapis lub aktualizacja -- operacja zapisująca dane; w przypadku gdy podany
+ klucz istnieje, wartość zostanie nadpisana,
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Update
-\end_layout
-
-\end_inset
-
- -- operacja aktualizująca dane w 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci współdzielonej
-\end_layout
-
-\end_inset
-
-, powiedzie się tylko wtedy gdy podany klucz został wcześniej utworzony
- w pamięci współdzielonej,
+aktualizacja -- operacja aktualizująca dane -- powiedzie się tylko wtedy,
+ gdy podany klucz został wcześniej utworzony w pamięci współdzielonej,
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Retrieve
-\end_layout
-
-\end_inset
-
- -- operacja pobierająca dane z 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci współdzielonej
-\end_layout
-
-\end_inset
-
-, powiedzie się tylko wtedy gdy podany klucz został wcześniej utworzony
- w pamięci współdzielonej,
+pobranie -- operacja pobierająca dane -- powiedzie się tylko wtedy gdy podany
+ klucz został wcześniej utworzony,
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Remove
-\end_layout
-
-\end_inset
-
- -- operacja usuwająca dane z 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci współdzielonej
-\end_layout
-
-\end_inset
-
-, powiedzie się tylko wtedy gdy podany klucz został wcześniej utworzony
- w pamięci współdzielonej.
+usunięcie -- operacja usuwająca dane -- powiedzie się tylko wtedy gdy podany
+ klucz został wcześniej utworzony w pamięci współdzielonej.
 \end_layout
 
 \begin_layout Standard
