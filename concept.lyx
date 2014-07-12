@@ -149,6 +149,48 @@ ConnectionManager
 
 \end_layout
 
+\begin_layout Standard
+Każdy węzeł powinien przechowywać lokalnie obraz klastra, aby w momencie,
+ kiedy zajdzie potrzeba zlecenia zadania jednemu ze 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zdalnych wykonawców
+\end_layout
+
+\end_inset
+
+, nie musiał odpytywać usługi katalogowej.
+ Tym zadaniem zajmuje się 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zarządca połączeń
+\end_layout
+
+\end_inset
+
+.
+ Posiada też dodatkowe informacje, które mogą przydać
+\begin_inset space \space{}
+\end_inset
+
+się 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+planiście
+\end_layout
+
+\end_inset
+
+, np.
+ obciążenie węzłów.
+\end_layout
+
 \begin_layout Section
 Rozproszony wątek
 \end_layout
@@ -296,8 +338,27 @@ wykonawca zdalny
 \end_inset
 
 .
- Zleca on wykonanie zadania [wyspecyfikowanemu] węzłowi, oraz monitoruje
- stan wykonania zadania (zakończenie, wystąpienie błędów).
+ Zleca on wykonanie zadania 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[wyspecyfikowanemu]
+\end_layout
+
+\end_inset
+
+węzłowi wybranemu przez 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+planistę
+\end_layout
+
+\end_inset
+
+ oraz monitoruje stan wykonania zadania (zakończenie, wystąpienie błędów).
  Jest on również odpowiedzialny za odebranie wyniku przetwarzania i udostępnieni
 e ich wyższym warstwom.
 \end_layout
