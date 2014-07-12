@@ -93,7 +93,240 @@ Testy jednostkowe
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Są i są fajne (MSUNIT, shouldly...)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Równolegle z tworzonym kodem powstawały testy jednostkowe poszczególnych
+ funkcji.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Lokalny wykonawca
+\end_layout
+
+\end_inset
+
+ -- operacja 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Join
+\end_layout
+
+\end_inset
+
+ z określonym limitem czasu oczekiwania na jej zakończenie,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Zdalny wykonawca
+\end_layout
+
+\end_inset
+
+ -- testy operacji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Pulse
+\end_layout
+
+\end_inset
+
+ z użyciem atrapy obiektu (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+mock object
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+Usługa 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Zdalnego wykonawcy
+\end_layout
+
+\end_inset
+
+ -- wykonanie metody z użyciem zserializowanego uchwytu, przechwytywanie
+ wyjątków w kodzie użytkownika, zwracanie statystyk obciążenia węzła oraz
+ testy z użyciem zmienionej implementacji interfejsu (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+fake object
+\end_layout
+
+\end_inset
+
+) -- operacji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Join
+\end_layout
+
+\end_inset
+
+ (synchronicznej i asynchronicznej), rzucenia przechwyconego w kodzie użytkownik
+a wyjątku w momencie wykonywania operacji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Join
+\end_layout
+
+\end_inset
+
+, wstrzykiwania zależności 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IBluepathCommunicationFramework
+\end_layout
+
+\end_inset
+
+ (przez podmianę oraz przez dodanie brakującego parametru),
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Rozproszony wątek
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nazwa?
+\end_layout
+
+\end_inset
+
+ -- wykonanie z użyciem 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Lokalnego wykonawcy
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Zdalnego wykonawcy
+\end_layout
+
+\end_inset
+
+ (potrzebne usługi, tj.
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IRemoteExecutorService
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IScheduler
+\end_layout
+
+\end_inset
+
+ zostały zasymulowane za pomocą atrap obiektów, użyto też 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Zarządcy połączeń
+\end_layout
+
+\end_inset
+
+ w trybie bez wywołań zwrotnych), głębokie kopiowanie parametrów wywołania,
+\end_layout
+
+\begin_layout Itemize
+Planista 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ThreadNumberScheduler
+\end_layout
+
+\end_inset
+
+ -- test sprawdza, czy następuje wybór najmniej obciążonego węzła spośród
+ zasymulowanych,
+\end_layout
+
+\begin_layout Itemize
+z uwagi na użycie własnej klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ServiceUri
+\end_layout
+
+\end_inset
+
+ jako klucza w słowniku, testujemy też taki scenariusz.
 \end_layout
 
 \begin_layout Subsection
