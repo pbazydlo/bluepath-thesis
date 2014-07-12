@@ -127,7 +127,7 @@ w.
 \end_layout
 
 \begin_layout Standard
-Callbacki vs.
+Callbacki (wywołania zwrotne) vs.
  pooling
 \end_layout
 
@@ -846,6 +846,173 @@ SaveXes
 , która zapisuje wszystkie zgromadzone we współdzielonej pamięci zdarzenia
  zapisuje do pliku XML w formacie OpenXES.
  
+\end_layout
+
+\begin_layout Standard
+Implementacja standardu została wykonana na podstawie plików XML Schema
+ (XSD) udostępnionych 28 marca 2014 r.
+ wraz biblioteką OpenXES 2.0.
+ Szkielet klas został wygenerowany przy użyciu narzędzia 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+XML Schema Definition Tool
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XML-Schema-Definition-Tool"
+
+\end_inset
+
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xsd.exe
+\end_layout
+
+\end_inset
+
+) dostarczanego wraz ze środowiskiem programistycznym .NET Framework 4.5.1.
+ W jednym z plików, na podstawie którego generowane były klasy, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xes.xsd
+\end_layout
+
+\end_inset
+
+, znaleziony został drobny błąd składniowy -- brakująca spacja, co powodowało,
+ że plik XML był niepoprawny składniowo i nieprzyjmowany przez narzędzie
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xsd.exe
+\end_layout
+
+\end_inset
+
+.
+ Po jego poprawieniu ujawnił się kolejny problem objawiający się wyjątkiem
+ przepełnienia stosu w trakcie generowania klas.
+ Ten problem został rozwiązany przez objęcie wnętrza elementu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xs:complexType
+\end_layout
+
+\end_inset
+
+ odnoszącego się do typu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AttributableType
+\end_layout
+
+\end_inset
+
+ elementem 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xs:sequence
+\end_layout
+
+\end_inset
+
+.
+ Przykład użycia narzędzia xsd.exe został zaprezentowany na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-Skrypt-generujący-klasy-z-XSD"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-Skrypt-generujący-klasy-z-XSD"
+
+\end_inset
+
+Skrypt generujący klasy w języku C# na podstawie pliku XSD dla formatu OpenXES
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+"c:
+\backslash
+Program Files (x86)
+\backslash
+Microsoft SDKs
+\backslash
+Windows
+\backslash
+v8.1A
+\backslash
+bin
+\backslash
+NETFX 4.5.1 Tools
+\backslash
+xsd.exe" xes.xsd /classes /o:../Bluepath/Reporting/ 
+\end_layout
+
+\begin_layout Plain Layout
+
+"c:
+\backslash
+Program Files (x86)
+\backslash
+Microsoft SDKs
+\backslash
+Windows
+\backslash
+v8.1A
+\backslash
+bin
+\backslash
+NETFX 4.5.1 Tools
+\backslash
+xsd.exe" xesext.xsd /classes /o:../Bluepath/Reporting/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

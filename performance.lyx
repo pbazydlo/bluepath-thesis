@@ -85,7 +85,46 @@ Testy jakościowe
 \end_layout
 
 \begin_layout Standard
-qwertyui
+Testy jakościowe, zarówno jednostkowe jak i integracyjne, działają w środowisku
+ 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Microsoft Unit Test Framework
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Microsoft-Unit-Test-Framework-for-Managed-Code"
+
+\end_inset
+
+.
+ Dodatkowo korzystają z bibliotek 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Shoudly
+\end_layout
+
+\end_inset
+
+ do zapisu asercji oraz 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Moq
+\end_layout
+
+\end_inset
+
+ do tworzenia atrap obiektów.
 \end_layout
 
 \begin_layout Subsection
