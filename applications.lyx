@@ -205,9 +205,28 @@ key "MSDN:WhatIsWindowsCommunicationFoundation"
 \end_inset
 
 .
- Założeniem aplikacji było, by kod metod Map i Reduce dostarczany był jako
- kod źródłowy w języku C# w formie klasy implementującej odpowiedni interfejs
- przedstawiony na listingu 
+ Założeniem aplikacji było, by kod metod 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Map
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Reduce
+\end_layout
+
+\end_inset
+
+ dostarczany był jako kod źródłowy w języku C# w formie klasy implementującej
+ odpowiedni interfejs przedstawiony na listingu 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:applications-MapReduce-IMapProvider-IReduceProvider"
@@ -237,6 +256,30 @@ IReduceProvider
  -- i składowany razem z danymi w pamięci współdzielonej.
  Kompilacja kodu miała odbywać się na węzłach bezpośrednio przed wykonaniem
  metody.
+ Innym podejściem mogłoby być dostarczanie kodu w formie bibliotek dołączanych
+ dynamicznie (
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+.NET assembly
+\end_layout
+
+\end_inset
+
+).
+ Rozwiązanie zostało odrzucone z powodu potencjalnych problemów z wyładowywaniem
+ kodu z pamięci przed rozpoczęciem kolejnego zadania.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+piszemy o tym? więcej w problemach? były małe testy z addonami
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
