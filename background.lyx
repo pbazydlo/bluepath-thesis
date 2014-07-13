@@ -141,8 +141,26 @@ Hadoop
 \end_layout
 
 \begin_layout Standard
-Na bazie naszego systemu można zaimplementować przetwarzanie w modelu mapowania
- i redukcji (czyli mamy wyższy poziom abstrakcji, szerszą klasę zastosowań).
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+opis hadoopa i na koniec:
+\end_layout
+
+\end_inset
+
+Proponowane w niniejszej pracy środowisko przetwarzania rozproszonego ma
+ szerszą klasę zastosowań, możliwe jest także zaimplementowanie na jego
+ bazie obliczeń w modelu mapowania i redukcji, co zostało zaprezentowane
+ w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:applications-MapReduce"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection

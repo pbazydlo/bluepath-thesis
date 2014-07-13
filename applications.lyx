@@ -194,6 +194,12 @@ MapReduce
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:applications-MapReduce"
+
+\end_inset
+
 W celu porównania pracochłonności implementacji aplikacji z użyciem bibliteki
  Bluepath i bez niej przygotowane zostały aplikacje do realizacji przetwarzania
  w modelu mapowania i redukcji zarówno w środowisku Bluepath jak i bezpośrednio

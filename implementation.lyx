@@ -98,15 +98,182 @@ Komunikacja
 \end_layout
 
 \begin_layout Standard
-??? WCF, HTTP (niestety), SOAP (najgorzej)
+Komunikacja między węzłami została zrezlizowana w modelu RPC (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+remote procedure call
+\end_layout
+
+\end_inset
+
+) za pomocą 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Windows Communication Foundation
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MSDN:WhatIsWindowsCommunicationFoundation"
+
+\end_inset
+
+.
+ Połączenia realizowane są za pomocą protokołu HTTP, a wiadomości są przesyłane
+ zgodnie z protokołem SOAP.
+ Wątek nasłuchujący jest reprezentowany przez obiekt klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BluepathListener
+\end_layout
+
+\end_inset
+
+.
+ Wewnętrznie tworzy on instancję klasy faktycznie nasłuchującej na losowym
+ porcie na wiadomości zgodne z interfejsem 
+\begin_inset Flex Code
+status collapsed
+
+\begin_layout Plain Layout
+IRemoteExecutorService
+\end_layout
+
+\end_inset
+
+, który został przedstawiony na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-Interfejs-IRemoteExecutorService"
+
+\end_inset
+
+.
+ Dokonywana jest też rejestracja w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usłudze odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+.
+ Jeżeli w ramach jednego procesu zostanie utworzone kilka instancji klasy
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BluepathListener
+\end_layout
+
+\end_inset
+
+ każda z nich będzie nasłuchiwała na innym porcie i posiadała własną kolekcję
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+lokalnych wykonawców
+\end_layout
+
+\end_inset
+
+.
+ Lista znanych 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zdalnych wykonawców
+\end_layout
+
+\end_inset
+
+ jest współdzielona w ramach procesu przez wszystkie wątki nasłuchujące.
+ 
 \end_layout
 
 \begin_layout Standard
-można przekonfigurować na coś innego
+W systemie każdy węzeł może komunikować się z dowolnym innym, o ile zna
+ jego adres IP i numer portu, pod którym działa usługa.
+ Komunikaty, zarówno wywołania (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+request
+\end_layout
+
+\end_inset
+
+) jak i wywołania zwrotne (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+callback
+\end_layout
+
+\end_inset
+
+), mają charakter asynchroniczny.
+ Istnieje również możliwość wyłączenia wywołań zwrotnych i przełączenia
+ systemu w tryb z odpytywaniem (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+polling
+\end_layout
+
+\end_inset
+
+).
+ Wydaje się, że nie ma to sensu w przypadku prowadzenia w klastrze faktycznych
+ obliczeń, gdyż wprowadza dodatkowe opóźnienia, ale przydaje się w niektórych
+ scenariuszach realizowanych środowisku testowym.
 \end_layout
 
 \begin_layout Standard
-bluepathlistener - tworzy serwis hosta, który implementuje 
+Zastosowane protokoły nie zapewniają żadnych gwarancji co do kolejności
+ dostarczonych wiadomości.
+ Nie zapewniają również niezawodności dostarczania wiadomości ponad to,
+ co oferuje protokół działający w warstwie transportowej -- TCP.
+ Zakładamy jednak, że połączenia w obrębie jednego klastra są na tyle stabilne,
+ że nie będzie to powodowało problemów.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
++??? WCF, HTTP, SOAP
+\end_layout
+
+\begin_layout Plain Layout
+-można przekonfigurować na coś innego
+\end_layout
+
+\begin_layout Plain Layout
++bluepathlistener - tworzy serwis hosta, który implementuje 
 \begin_inset Flex Code
 status collapsed
 
@@ -119,33 +286,38 @@ IRemoteExecutorService
 .
 \end_layout
 
-\begin_layout Standard
-Jeżeli w ramach procesu działa więcej niż 1 listener każdy ma swój port
+\begin_layout Plain Layout
++Jeżeli w ramach procesu działa więcej niż 1 listener każdy ma swój port
  i swoją kolekcję lokalnych wykonawców, ale współdzielą listę zdalnych wykonawcó
 w.
  
 \end_layout
 
-\begin_layout Standard
-Callbacki (wywołania zwrotne) vs.
+\begin_layout Plain Layout
++Callbacki (wywołania zwrotne) vs.
  pooling
 \end_layout
 
-\begin_layout Standard
-pod spodem jest to właściwie tradycyjny model RPC, ale abstrakcja rozproszonych
+\begin_layout Plain Layout
++pod spodem jest to właściwie tradycyjny model RPC, ale abstrakcja rozproszonych
  wątków ukrywa to przed użytkownikiem.
 \end_layout
 
-\begin_layout Standard
-komunikacja z użyciem asynchronicznych wiadomości
+\begin_layout Plain Layout
++komunikacja z użyciem asynchronicznych wiadomości
 \end_layout
 
-\begin_layout Standard
-kolejność wiadomości - dowolna
+\begin_layout Plain Layout
++kolejność wiadomości - dowolna
 \end_layout
 
-\begin_layout Standard
-niezawodność dostarczania - jeżeli protokół TCP zgubi wiadomość, mamy problem
+\begin_layout Plain Layout
++niezawodność dostarczania - jeżeli protokół TCP zgubi wiadomość, mamy problem
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -160,6 +332,13 @@ status open
 
 \begin_layout Plain Layout
 Interfejs IRemoteExecutorService
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-Interfejs-IRemoteExecutorService"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
