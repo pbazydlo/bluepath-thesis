@@ -226,14 +226,7 @@ Reduce
 \end_inset
 
  dostarczany był jako kod źródłowy w języku C# w formie klasy implementującej
- odpowiedni interfejs przedstawiony na listingu 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lis:applications-MapReduce-IMapProvider-IReduceProvider"
-
-\end_inset
-
- -- 
+ odpowiedni interfejs -- 
 \begin_inset Flex Code
 status open
 
@@ -253,7 +246,14 @@ IReduceProvider
 
 \end_inset
 
- -- i składowany razem z danymi w pamięci współdzielonej.
+ -- przedstawiony na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:applications-MapReduce-IMapProvider-IReduceProvider"
+
+\end_inset
+
+ i składowany razem z danymi w pamięci współdzielonej.
  Kompilacja kodu miała odbywać się na węzłach bezpośrednio przed wykonaniem
  metody.
  Innym podejściem mogłoby być dostarczanie kodu w formie bibliotek dołączanych
@@ -356,6 +356,163 @@ public interface IReduceProvider
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Główną klasą w aplikacji był 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+koordynator
+\end_layout
+
+\end_inset
+
+.
+ Z wykorzystaniem biblioteki Bluepath jego zadanie sprowadzało się w pierwszej
+ fazie przetwarzania do uruchomienia 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonych wątków
+\end_layout
+
+\end_inset
+
+ w liczbie odpowiadającej liczbe plików wejściowych
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+z tą liczbą do sprawdzenia (?)
+\end_layout
+
+\end_inset
+
+, które były inicjowane metodą, która:
+\end_layout
+
+\begin_layout Itemize
+ładowała kod metody 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Map
+\end_layout
+
+\end_inset
+
+ ze współdzielonej pamięci, 
+\end_layout
+
+\begin_layout Itemize
+wykonywała skompilowany kod 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+mappera
+\end_layout
+
+\end_inset
+
+ na wskazanym fragmencie danych wejściowych ze współdzielonej pamięci,
+\end_layout
+
+\begin_layout Itemize
+zapisywała wygenerowane pary klucz--wartość do współdzielonej pamięci,
+\end_layout
+
+\begin_layout Itemize
+zwracała listę kluczy jako wynik wykonania rozproszonego wątku do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+koordynatora
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Zainicjowane w ten sposób wątki były następnie uruchamiane z parą parametrów
+ -- nazwą pliku zawierającego dane do przetworzenia oraz nazwą pliku z kodem
+ źródłowym metody 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Map
+\end_layout
+
+\end_inset
+
+.
+ W drugiej fazie przetwarzania tworzonych było tyle rozproszonych wątków,
+ ile kluczy było wynikiem pierwszej fazy
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+z tą liczbą do sprawdzenia (?)
+\end_layout
+
+\end_inset
+
+.
+ Każdy z nich inicjowany był metodą, która:
+\end_layout
+
+\begin_layout Itemize
+ładowała kod metody 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Reduce
+\end_layout
+
+\end_inset
+
+ ze współdzielonej pamięci,
+\end_layout
+
+\begin_layout Itemize
+wykonywała skompilowany kod 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+reducera
+\end_layout
+
+\end_inset
+
+ na wskazanym fragmencie danych wejściowych ze współdzielonej pamięci,
+\end_layout
+
+\begin_layout Itemize
+zapisywała wygenerowane pary klucz--wartość do współdzielonej pamięci,
+\end_layout
+
+\begin_layout Itemize
+zwracała listę kluczy jako wynik wykonania rozproszonego wątku do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+koordynatora
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
