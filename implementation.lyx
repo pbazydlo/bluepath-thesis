@@ -141,6 +141,14 @@ komunikacja z użyciem asynchronicznych wiadomości
 \end_layout
 
 \begin_layout Standard
+kolejność wiadomości - dowolna
+\end_layout
+
+\begin_layout Standard
+niezawodność dostarczania - jeżeli protokół TCP zgubi wiadomość, mamy problem
+\end_layout
+
+\begin_layout Standard
 \begin_inset listings
 lstparams "language=C"
 inline false

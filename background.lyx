@@ -191,12 +191,73 @@ key "Erlang-Armstrong:2010:ERL:1810891.1810910"
 
 \end_inset
 
- został zaprojektowany do...Lekkie wątki, akcje na odebrane wiadomości(przetwarzani
-e message-centric), nie ma współdzielonego stanu pomiędzy wątkami.
+ został zaprojektowany do tworzenia odpornych na awarie systemów rozproszonych.
+ Jego historia sięga roku 1985, kiedy to w firmie Ericsson postanowiono
+ ,,zrobić coś ze sposobem, w jaki tworzą aplikacje''.
+ W roku 2000 Erlang został upubliczniony na otwartej licencji.
+ Podstawowe jego cechy to:
+\end_layout
+
+\begin_layout Itemize
+izolacja procesów, brak współdzielonych struktur danych w pamięci operacyjnej,
+ zamków, semaforów,
+\end_layout
+
+\begin_layout Itemize
+procesy komunikują się przesyłając asynchroniczne wiadomości, które zawierają
+ faktyczne dane, a nie referencje na zdalne obiekty,
+\end_layout
+
+\begin_layout Itemize
+zdolność do wykrycia awarii i replikacja -- procesy otrzymują sygnały w
+ przypadku awarii obserwowanych procesów i muszą posiadać tyle danych, by
+ przejąć zadania straconego węzła i kontynuować przetwarzanie,
+\end_layout
+
+\begin_layout Itemize
+system udostępnia metodę określania przyczyn awarii procesu.
 \end_layout
 
 \begin_layout Standard
+Z uwagi na mały narzut pamięciowy procesów (nazywanych także 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+aktorami
+\end_layout
+
+\end_inset
+
+) programista może tworzyć bardzo wiele.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Może: Procesy nazywane są też aktorami ze względu na podobieństwa do modelu
+ zaproponowanego przez Gula Aghe w artykule [G.
+ Agha.
+ A model of concurrent computation in distributed systems.
+ W MIT Series in Artificial Intelligence.
+ MIT Press, Cambridge, MA, USA, 1986.]
+\end_layout
+
+\begin_layout Plain Layout
+Lekkie wątki, akcje na odebrane wiadomości(przetwarzanie message-centric),
+ nie ma współdzielonego stanu pomiędzy wątkami.
+\end_layout
+
+\begin_layout Plain Layout
 Wolimy znany model zamków i innych mutexów.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -219,11 +280,11 @@ key "Orleans-export:210931"
  W systemie Orleans przyjęto następujące założenia:
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 aktorzy istnieją permanentnie (wirtualnie),
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 instancje aktorów (tzw.
  
 \begin_inset Flex Emph
@@ -260,13 +321,13 @@ single activation
 ),
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 przezroczystość położenia -- instancja aktora może istnieć na różnych maszynach
  w różnych chwilach, może też nie istnieć w ogóle fizycznie, aplikacja nie
  zna lokalizacji aktora,
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 automatyczne skalowanie -- niezależne instancje aktorów typu 
 \begin_inset Flex Emph
 status open
