@@ -194,16 +194,120 @@ MapReduce
 \end_layout
 
 \begin_layout Standard
-Implementacja systemu przetwarzania MapReduce przy pomocy mechanizmów dostarczan
-ych przez Bluepath była jak cięcie gorącym nożem masła.
-\end_layout
+W celu porównania pracochłonności implementacji aplikacji z użyciem bibliteki
+ Bluepath i bez niej przygotowane zostały aplikacje do realizacji przetwarzania
+ w modelu mapowania i redukcji zarówno w środowisku Bluepath jak i bezpośrednio
+ z wykorzystaniem platformy Windows Communication Foundation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MSDN:WhatIsWindowsCommunicationFoundation"
 
-\begin_layout Standard
-\begin_inset Note Note
+\end_inset
+
+.
+ Założeniem aplikacji było, by kod metod Map i Reduce dostarczany był jako
+ kod źródłowy w języku C# w formie klasy implementującej odpowiedni interfejs
+ przedstawiony na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:applications-MapReduce-IMapProvider-IReduceProvider"
+
+\end_inset
+
+ -- 
+\begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-porównanie z NetReduce?
+IMapProvider
+\end_layout
+
+\end_inset
+
+ lub 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IReduceProvider
+\end_layout
+
+\end_inset
+
+ -- i składowany razem z danymi w pamięci współdzielonej.
+ Kompilacja kodu miała odbywać się na węzłach bezpośrednio przed wykonaniem
+ metody.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:applications-MapReduce-IMapProvider-IReduceProvider"
+
+\end_inset
+
+Interfejsy IMapProvider i IReduceProvider 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public interface IMapProvider 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    IEnumerable<KeyValuePair<string, string>> Map(string key, string value);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public interface IReduceProvider 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    KeyValuePair<string, string> Reduce(string key, IEnumerable<string>
+ values); 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \end_inset

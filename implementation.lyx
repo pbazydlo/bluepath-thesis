@@ -522,7 +522,7 @@ BulkRemove
 \end_inset
 
 .
- Dodatkowo zdefiniowany został interfejs
+ Dodatkowo zdefiniowany został interfejs 
 \begin_inset Flex Code
 status open
 
@@ -948,16 +948,6 @@ ThreadNumberScheduler
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-formatowanie: name czy code?
-\end_layout
-
-\end_inset
-
  -- szereguje zadania na najmniej obciążonym węźle pod względem liczby wykonywan
 ych na nim wątków,
 \end_layout
@@ -1053,7 +1043,7 @@ XML Schema Definition Tool
 
 \end_inset
 
-
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "XML-Schema-Definition-Tool"
