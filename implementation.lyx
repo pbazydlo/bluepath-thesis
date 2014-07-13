@@ -329,22 +329,27 @@ Interfejs ICentralizedDiscoveryService
 \end_layout
 
 \begin_layout Plain Layout
+
 [ServiceContract]
 \end_layout
 
 \begin_layout Plain Layout
+
 public interface ICentralizedDiscoveryService
 \end_layout
 
 \begin_layout Plain Layout
+
 {
 \end_layout
 
 \begin_layout Plain Layout
+
     [OperationContract]
 \end_layout
 
 \begin_layout Plain Layout
+
     ServiceUri[] GetAvailableServices();
 \end_layout
 
@@ -353,10 +358,12 @@ public interface ICentralizedDiscoveryService
 \end_layout
 
 \begin_layout Plain Layout
+
     [OperationContract]
 \end_layout
 
 \begin_layout Plain Layout
+
     void Register(ServiceUri uri);
 \end_layout
 
@@ -365,10 +372,12 @@ public interface ICentralizedDiscoveryService
 \end_layout
 
 \begin_layout Plain Layout
+
     [OperationContract]
 \end_layout
 
 \begin_layout Plain Layout
+
     void Unregister(ServiceUri uri);
 \end_layout
 
@@ -377,15 +386,18 @@ public interface ICentralizedDiscoveryService
 \end_layout
 
 \begin_layout Plain Layout
+
     [OperationContract]
 \end_layout
 
 \begin_layout Plain Layout
+
     Task<Dictionary<ServiceUri, PerformanceStatistics>> GetPerformanceStatistics
 ();
 \end_layout
 
 \begin_layout Plain Layout
+
 }
 \end_layout
 
@@ -588,64 +600,117 @@ Rozważane rozwiązania
 \end_layout
 
 \begin_layout Standard
-Redis, Rhino DHT, MonoTorrent, Memcached, Rijak, Polyphony (F# rulez).
+Podjęto decyzje o skorzystaniu z jednego z istniejących rozwiązań do zrealizowan
+ia koncepcji 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+współdzielonej pamięci
+\end_layout
+
+\end_inset
+
+.
+ Pod uwagę brane były następujące aplikacje:
+\end_layout
+
+\begin_layout Itemize
+Memcached -- niestety projekt był aktualizowany ostatni raz w roku 2013
+ a jego implementacja opiera się o .NET Framework 2.0,
+\end_layout
+
+\begin_layout Itemize
+Riak -- który jest implementacją Amazon Dynamo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Amazon-Dynamo"
+
+\end_inset
+
+, odrzucony ze względu na brak API dla .NET Framework,
+\end_layout
+
+\begin_layout Itemize
+Polyphony -- eksperymentalny projekt rozproszonej tablicy haszowej napisany
+ w języku F#, nie wybrano ze względu na wczesnorozwojowy charakter projektu,
+\end_layout
+
+\begin_layout Itemize
+Rhino DHT -- implementacja rozproszonej tablicy haszowej w języku C#; posiada
+ zależności do Rhino PHT (
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+persistent hash table
+\end_layout
+
+\end_inset
+
+) oraz Rhino Queues.
 \end_layout
 
 \begin_layout Standard
-Memcached - dawno nie aktualizowany (ostatnia aktualizacja 2013, .NET 2.0)
+Wybrane zostało rozwiązanie Rhino DHT
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+throw new NotImplementedException(); https://github.com/ayende/rhino-dht
 \end_layout
 
-\begin_layout Standard
-Rhino-DHT - throw new NotImplementedException(); więcej w napotkanych problemach
+\end_inset
+
+, które było aktywnie rozwijane przez rozpoznawalnego autora -- Ayende Rahiena.
+ Niestety, okazało się, że wersjonowanie danych nie zostało w pełni zaimplemento
+wane i nie było możliwe wykonanie atomowej 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+warunkowej? test?
+\end_layout
+
+\end_inset
+
+operacji ,,odczytaj i zapisz'', która była niezbędna do zrealizowania 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamków
+\end_layout
+
+\end_inset
+
+.
+ Szczegóły tego problemu zostały przedstawione punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:problemy-rhino-dht"
 
 \end_inset
 
+.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-https://github.com/ayende/rhino-dht
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-Rijak - implementacja dynamo, brak wsparcia dla .NET
-\end_layout
-
-\begin_layout Standard
-Polyphony - projekt w fazie experymentalnej, ostatnie zmiany sprzed 4 lat,
- (DHT w F# oparte o Chord)
-\end_layout
-
-\begin_layout Standard
-Komponent wymienialny
-\end_layout
-
-\begin_layout Standard
-Redis YEAH!
-\end_layout
-
-\begin_layout Standard
-Redis - szybki, popularny, dobry klient dla .NET utrzymywany przez StackExchange
-\end_layout
-
-\begin_layout Standard
-Problemy z redis: 
+Kolejnym rozwiązaniem wziętym pod uwagę był Redis.
+ Projekt ten jest utrzymywany przez StackExchange i używany na co dzień
+ jako mechanizm pamięci podręcznej tego serwisu internetowego.
+ Rozwijana jest także jego wersja rozproszona -- Redis Cluster.
+ System ten posiada bibliteki dla .NET Framework.
+ Problemy, które napotkano podczas uruchamiania usługi Redis zostały opisane
+ w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:problemy-Windows-Redis"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Subsection
