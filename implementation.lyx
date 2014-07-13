@@ -522,6 +522,57 @@ BulkRemove
 \end_inset
 
 .
+ Dodatkowo zdefiniowany został interfejs
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IExtendedStorage
+\end_layout
+
+\end_inset
+
+ rozszerzający podstawowy interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorage
+\end_layout
+
+\end_inset
+
+ o operacje pobrania i zwolnienia 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonych zamków
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AcquireLock
+\end_layout
+
+\end_inset
+
+ (w wersji z limitem czasu i bez) oraz 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ReleaseLock
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -583,6 +634,146 @@ Problemy z redis:
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:problemy-Windows-Redis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Współdzielone struktury danych i obiekty
+\end_layout
+
+\begin_layout Standard
+Struktury danych i obiekty, które mogą być współdzielone między wątkami
+ zaimplementowane zostały w oparciu o 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozszerzoną pamięć współdzieloną
+\end_layout
+
+\end_inset
+
+, zdefiniowaną za pomocą interfejsu
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IExtendedStorage
+\end_layout
+
+\end_inset
+
+.
+ Każdy obiekt jest identyfikowany przez klucz będący łańcuchem znaków.
+\end_layout
+
+\begin_layout Paragraph
+Lista
+\end_layout
+
+\begin_layout Standard
+Lista implementuje interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IList
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Słownik
+\end_layout
+
+\begin_layout Standard
+Słownik implementuje interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IDictionary
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Licznik
+\end_layout
+
+\begin_layout Standard
+Udostępnia operacje: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetValue
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SetValue
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Increase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Decrease
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetAndIncrease
+\end_layout
 
 \end_inset
 
