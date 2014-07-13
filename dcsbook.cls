@@ -199,6 +199,9 @@
   \renewcommand{\maketitle}{%
     \begin{titlepage}
     \begin{center}
+    {\large\@university\par
+    \@institute}\par
+    \vspace{0.7cm}
     \includegraphics[width=3cm]{logopp.jpg}
     \end{center}
 
