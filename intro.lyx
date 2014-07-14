@@ -92,8 +92,8 @@ Celem pracy było zaprojektowanie biblioteki, która pozwoli twórcom usług
  W tym przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, mogą wykonywać się na zdalnych maszynach.
  Przesyłanie komunikatów pomiędzy węzłami powinno być ukryte przed użytkownikiem.
- Środowisko ma również zapewnić bezpieczeństwo podczas operacji na współdzielony
-ch danych przez różne wątki (ang.
+ Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdziel
+onych danych przez różne wątki (ang.
  
 \begin_inset Flex Emph
 status open
@@ -107,7 +107,7 @@ thread safety
 ), dostarczyć abstrakcje bezpiecznych kolekcji -- listy, słownika -- oraz
  innych obiektów, np.
  licznika.
- Istotna jest też łatwość analizowania błędów.
+ Istotna była też łatwość analizowania błędów.
 \end_layout
 
 \begin_layout Standard

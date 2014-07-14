@@ -141,6 +141,19 @@ Hadoop
 \end_layout
 
 \begin_layout Standard
+Hadoop to wydane na wolnej licencji środowisko przetwarzania w modelu mapowania
+ i redukcji zaprojektowanymn pierwotnie przez firmę Google -- MapReduce
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Google-MapReduce"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
