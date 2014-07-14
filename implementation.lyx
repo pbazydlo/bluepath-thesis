@@ -920,6 +920,10 @@ IExtendedStorage
 
 .
  Każdy obiekt jest identyfikowany przez klucz będący łańcuchem znaków.
+ W przypadku listy czy słownika na podstawie klucza wywiedzione zostają
+ identyfikatory obiektów składających się na daną strukturę -- zamków, metadanyc
+h i poszczególnych wartości.
+ 
 \end_layout
 
 \begin_layout Paragraph
@@ -927,18 +931,38 @@ Lista
 \end_layout
 
 \begin_layout Standard
-Lista implementuje interfejs 
+Lista implementuje standardowy interfejs 
 \begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-IList
+IList<T>
+\end_layout
+
+\end_inset
+
+ z przestrzeni nazw 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Collections.Generic
 \end_layout
 
 \end_inset
 
 .
- 
+ Próba pobrania enumeratora zwraca obiekt klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedListEnumerator
+\end_layout
+
+\end_inset
+
+, który umożliwia iterowanie po kolekcji.
 \end_layout
 
 \begin_layout Paragraph
@@ -946,17 +970,38 @@ Słownik
 \end_layout
 
 \begin_layout Standard
-Słownik implementuje interfejs 
+Słownik implementuje standardowy interfejs 
 \begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-IDictionary
+IDictionary<TKey, TValue>
+\end_layout
+
+\end_inset
+
+ z przestrzeni nazw 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Collections.Generic
 \end_layout
 
 \end_inset
 
 .
+ Próba pobrania enumeratora zwraca obiekt klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedDictionaryEnumerator
+\end_layout
+
+\end_inset
+
+, który umożliwia iterowanie po kolekcji.
 \end_layout
 
 \begin_layout Paragraph
@@ -964,7 +1009,18 @@ Licznik
 \end_layout
 
 \begin_layout Standard
-Udostępnia operacje: 
+W wielu scenariuszach przydatnym obiektem może być współdzielony licznik.
+ Zaimplementowana klasa 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedCounter
+\end_layout
+
+\end_inset
+
+ udostępnia następujące operacje: 
 \end_layout
 
 \begin_layout Itemize
@@ -977,7 +1033,7 @@ GetValue
 
 \end_inset
 
-
+ -- pobiera aktualną wartość licznika,
 \end_layout
 
 \begin_layout Itemize
@@ -990,7 +1046,7 @@ SetValue
 
 \end_inset
 
-
+ -- ustawia podaną liczbę jako wartość licznika,
 \end_layout
 
 \begin_layout Itemize
@@ -1003,7 +1059,7 @@ Increase
 
 \end_inset
 
-
+ -- zwiększa wartość licznika o podaną wartość,
 \end_layout
 
 \begin_layout Itemize
@@ -1016,7 +1072,7 @@ Decrease
 
 \end_inset
 
-
+ -- zmniejsza wartość licznika o podaną wartość,
 \end_layout
 
 \begin_layout Itemize
@@ -1029,7 +1085,7 @@ GetAndIncrease
 
 \end_inset
 
-
+ -- atomowo pobiera aktualną wartość licznika i zwiększa ją o wskazaną liczbę.
 \end_layout
 
 \begin_layout Section

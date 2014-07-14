@@ -85,21 +85,41 @@ Cel i zakres pracy
 \end_layout
 
 \begin_layout Standard
-Celem pracy jest zaprojektowanie biblioteki, która pozwoli twórcom usług
+Celem pracy było zaprojektowanie biblioteki, która pozwoli twórcom usług
  w prosty sposób zaimplementować przetwarzanie rozproszone.
+ Użytkownik pisząc program równoległy, powinien otrzymać możliwość jego
+ rozproszenia po dołączniu do klastra wielu węzłów.
+ W tym przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
+ procesora, mogą wykonywać się na zdalnych maszynach.
+ Przesyłanie komunikatów pomiędzy węzłami powinno być ukryte przed użytkownikiem.
+ Środowisko ma również zapewnić bezpieczeństwo podczas operacji na współdzielony
+ch danych przez różne wątki (ang.
  
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+thread safety
+\end_layout
+
+\end_inset
+
+), dostarczyć abstrakcje bezpiecznych kolekcji -- listy, słownika -- oraz
+ innych obiektów, np.
+ licznika.
+ Istotna jest też łatwość analizowania błędów.
 \end_layout
 
 \begin_layout Standard
-Użytkownik tworzy algorytm jak równoległy, system zapewnia rozproszenie
- (ukrycie przesyłania komunikatów, mechanizmy synchronizacji).
- Łatwość debugowania.
- Możliwość wykonania w ramach 1 wątku z przypiętym debuggerem.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Czy to tu?
+Użytkownik tworzy algorytm jak równoległy, system zapewnia rozproszenie
+ (ukrycie przesyłania komunikatów, mechanizmy synchronizacji).
+ Łatwość debugowania.
+ Możliwość wykonania w ramach 1 wątku z przypiętym debuggerem.
+ ?Czy to tu?
 \end_layout
 
 \end_inset
@@ -114,19 +134,14 @@ Struktura pracy
 \begin_layout Standard
 W niniejszej pracy omówiono koncepcję oraz implementację biblioteki Bluepath.
  W kolejnych rozdziałach zaprezentowany zostanie przegląd istniejących rozwiązań
-—środowisk przetwarzania rozproszonego, przestawione zostaną przykładowe
- problemy, które można za jej pomocą rozwiązać, wraz z implementacjami,
- wyniki testów.
+ -- środowisk przetwarzania rozproszonego, przestawione zostaną przykładowe
+ problemy, które można rozwiązać za pomocą proponowanej biblioteki wraz
+ z implementacjami oraz wyniki testów.
  
 \end_layout
 
 \begin_layout Section
 Motywacja
-\end_layout
-
-\begin_layout Standard
-(tutaj wstaw opowieść o tym, że systemy rozproszone to przyszłość i bez
- nich zginiemy) 
 \end_layout
 
 \begin_layout Standard
@@ -142,6 +157,20 @@ reference "sec:background-Istniejące-rozwiązania"
  Istniejące rozwiązania).
  Celem pracy było stworzenie środowiska, które można w prosty sposób uruchomić,
  bez instalowania wielu składników i skomplikowanej konfiguracji.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(tutaj wstaw opowieść o tym, że systemy rozproszone to przyszłość i bez
+ nich zginiemy) 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
