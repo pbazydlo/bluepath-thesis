@@ -77,7 +77,7 @@ Podstawy teorytyczne
 \end_layout
 
 \begin_layout Standard
-tu jakiś wstęp do całego rozdziału - co w nim będzie i po co...
+tu jakiś wstęp do całego rozdziału
 \end_layout
 
 \begin_layout Section
@@ -94,10 +94,6 @@ Nazewnictwo
 
 \begin_layout Standard
 Biblioteka 
-\end_layout
-
-\begin_layout Standard
-Bluepath to my a my to Bluepath.
 \end_layout
 
 \begin_layout Standard
@@ -124,6 +120,15 @@ PVM
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
 jawny message passing, trudne do debugowania, brak możliwości dołączania
  węzłów w trakcie przetwarzania.
 \end_layout
@@ -133,7 +138,51 @@ MPI
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
 podobnie jak PVM
+\end_layout
+
+\begin_layout Subsection
+Dryad i DryadLINQ
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+Środowisko DryadLINQ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DryadLINQ-MSR"
+
+\end_inset
+
+ jest specjalizowane do przetwarzania kolekcji.
+ Wymaga Dryad - ciężki do postawienia i skonfigurowania
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ [przydało by się jakieś wsparcie dla tego stwierdzenia]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -141,8 +190,17 @@ Hadoop
 \end_layout
 
 \begin_layout Standard
-Hadoop to wydane na wolnej licencji środowisko przetwarzania w modelu mapowania
- i redukcji zaprojektowanymn pierwotnie przez firmę Google -- MapReduce
+Przetwarzanie w modelu mapowania i redukcji zostało pierwotnie zaproponowane
+ przez firmę Google -- 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+MapReduce
+\end_layout
+
+\end_inset
+
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -151,6 +209,17 @@ key "Google-MapReduce"
 \end_inset
 
 .
+ 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Hadoop
+\end_layout
+
+\end_inset
+
+ to jego implementacja wydana na otwartej licencji.
 \end_layout
 
 \begin_layout Standard
@@ -181,33 +250,79 @@ Spark
 \end_layout
 
 \begin_layout Standard
-uyfiyg
-\end_layout
-
-\begin_layout Subsection
-DryadLINQ
-\end_layout
-
-\begin_layout Standard
-Środowisko DryadLINQ 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "DryadLINQ-MSR"
-
-\end_inset
-
- jest specjalizowane do przetwarzania kolekcji.
- Wymaga Dryad - ciężki do postawienia i skonfigurowania
-\begin_inset Note Note
+Środowisko obliczeniowe 
+\begin_inset Flex Strong
 status open
 
 \begin_layout Plain Layout
- [przydało by się jakieś wsparcie dla tego stwierdzenia]
+Spark
 \end_layout
 
 \end_inset
 
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Spark-Berkeley"
 
+\end_inset
+
+ powstało w wyniku prac prowadzonych na University of California w Berkeley.
+ Od 2013 r.
+ jako 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Apache Spark
+\end_layout
+
+\end_inset
+
+ jest rozwijane przez Apache Software Foundation.
+ Środowisko to może być użyte do przetwarzania w modelu nieograniczonym
+ do dwóch faz jak w 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+MapReduce
+\end_layout
+
+\end_inset
+
+, co upodabnia je bardziej do 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Dryad
+\end_layout
+
+\end_inset
+
+.
+ Udostępnia też abstrakcję pamięci nazwaną 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Resilient Distributed Dataset
+\end_layout
+
+\end_inset
+
+ (RDD) zapewniającą odtwarzanie danych utraconych w wyniku awarii.
+ Ponadto zastosowane optymalizacje pozwoliły znacząco poprawić czas opóźnienia
+ rozpoczęcia przetwarzania zadania w klastrze składającym się z tysięcy
+ rdzeni 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Spark-Berkeley-Performance"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -215,7 +330,17 @@ Erlang
 \end_layout
 
 \begin_layout Standard
-Język programowania Erlang 
+Język programowania 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Erlang
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Erlang-Armstrong:2010:ERL:1810891.1810910"
@@ -251,7 +376,7 @@ system udostępnia metodę określania przyczyn awarii procesu.
 
 \begin_layout Standard
 Z uwagi na mały narzut pamięciowy procesów (nazywanych także 
-\begin_inset Flex Emph
+\begin_inset Flex Strong
 status open
 
 \begin_layout Plain Layout
@@ -296,23 +421,64 @@ Project Orleans
 \end_layout
 
 \begin_layout Standard
-W modelu programowania Orleans 
+W modelu programowania 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Orleans
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Orleans-export:210931"
 
 \end_inset
 
- zaproponowano wprowadzenie abstrakcji wirtualnych aktorów.
- W porównaniu do Erlanga, środowisko wykonwacze działa tu na wyższym poziomie
- abstrakcji, uwalniając programistę od problemów takich jak obsługa awarii,
- odtwarzanie aktorów i zarządzanie rozproszonymi zasobami -- w szczególności
- rozłożeniem aktorów na poszczególne węzły.
- W systemie Orleans przyjęto następujące założenia:
+ zaproponowano wprowadzenie abstrakcji 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+wirtualnych aktorów
+\end_layout
+
+\end_inset
+
+.
+ W porównaniu do 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Erlanga
+\end_layout
+
+\end_inset
+
+, środowisko wykonwacze działa tu na wyższym poziomie abstrakcji, uwalniając
+ programistę od problemów takich jak obsługa awarii, odtwarzanie aktorów
+ i zarządzanie rozproszonymi zasobami -- w szczególności rozłożeniem aktorów
+ na poszczególne węzły.
+ W systemie 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Orleans
+\end_layout
+
+\end_inset
+
+ przyjęto następujące założenia:
 \end_layout
 
 \begin_layout Itemize
-aktorzy istnieją permanentnie (wirtualnie),
+aktorzy istnieją permanentnie (wirtualnie), programista nie tworzy ani nie
+ niszczy samodzielnie reprezentujących ich obiektów,
 \end_layout
 
 \begin_layout Itemize
@@ -339,7 +505,8 @@ stateless worker
 \end_inset
 
 , tj.
- nie wymagamy, aby istaniała tylko jedna instancja aktora danego typu (
+ nie wymagamy, aby istaniała tylko jedna instancja aktora danego typu (w
+ przeciwieństwie do 
 \begin_inset Flex Emph
 status open
 
