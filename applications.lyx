@@ -893,7 +893,15 @@ seed
 \begin_inset Formula $\frac{1}{4}$
 \end_inset
 
- powierzchni koła, którego środek znajduje się w punkcie (0, 0).
+ powierzchni koła, którego środek znajduje się w punkcie (0, 0) -- patrz
+ rysunek 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:applications-Monte-Carlo-Pi"
+
+\end_inset
+
+.
  Ostateczne wyliczenie otrzymanego przybliżenia liczby 
 \begin_inset Formula $\pi$
 \end_inset
@@ -951,6 +959,49 @@ reference "sub:performance-Obliczanie-przyblizenia-Pi"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename images/monte-carlo-pi.png
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:applications-Monte-Carlo-Pi"
+
+\end_inset
+
+Ilustracja obliczania przybliżenia liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+ metodą Monte Carlo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
