@@ -367,7 +367,21 @@ Apache Spark
  jest rozwijane przez Apache Software Foundation.
  Środowisko to może być użyte do przetwarzania w modelu nieograniczonym
  do dwóch faz jak w MapReduce, co upodabnia je bardziej do Dryad.
- Udostępnia też abstrakcję pamięci nazwaną 
+ Zastosowane w środowisku optymalizacje pozwoliły znacząco poprawić czas
+ opóźnienia rozpoczęcia przetwarzania zadania w klastrze składającym się
+ z tysięcy rdzeni 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Spark-Berkeley-Performance"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Spark udostępnia abstrakcję pamięci nazwaną 
 \begin_inset Flex Emph
 status open
 
@@ -378,16 +392,140 @@ Resilient Distributed Dataset
 \end_inset
 
  (RDD) zapewniającą odtwarzanie danych utraconych w wyniku awarii.
- Ponadto zastosowane optymalizacje pozwoliły znacząco poprawić czas opóźnienia
- rozpoczęcia przetwarzania zadania w klastrze składającym się z tysięcy
- rdzeni 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Spark-Berkeley-Performance"
+ RDD może zostać skonstruowany na podstawie pliku znajdującego się we współdziel
+onym systemie plików jak np.
+ HDFS, poprzez ,,zrównoleglenie'' kolekcji, np.
+ tablicy lub w wyniku manipulacji istniejącym już RDD -- transformacji za
+ pomocą operacji mapowania i konkatenacji
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Operacja mapowania i konkatenacji w Spark -- 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+flatMap
+\end_layout
+
+\end_inset
+
+, aplikuje na elementach funkcję 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Formula $List[B]$
+\end_inset
+
+.
+ Jej semantyka jest więc tożsama z semantyką operacji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+map
+\end_layout
+
+\end_inset
+
+ w modelu MapReduce.
+\end_layout
+
+\end_inset
+
+, mapowania
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Operacja mapowania w Spark -- 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+map
+\end_layout
+
+\end_inset
+
+, aplikuje na elementach funkcję 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ czy filtrowania
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Operacja filtrowania w Spark -- 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+filter
+\end_layout
+
+\end_inset
+
+, wybiera elementy spełniające predykat.
+\end_layout
 
 \end_inset
 
 .
+ Czwartym sposobem konstrukcji nowego RDD jest zmiana trwałości (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+persistence
+\end_layout
+
+\end_inset
+
+) już istniejącego za pomocą akcji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+cache
+\end_layout
+
+\end_inset
+
+ -- wskazuje, że zbiór danych powinien zostać w pamięci operacyjnej ponieważ
+ będzie jeszcze używany -- lub 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+save
+\end_layout
+
+\end_inset
+
+, która materializuje zbiór danych do HDFS.
+ 
 \end_layout
 
 \begin_layout Subsection
