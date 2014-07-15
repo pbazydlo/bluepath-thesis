@@ -148,6 +148,29 @@ Praca magisterska
 \end_layout
 
 \begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename external/karta.pdf
+	display false
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename external/bluepath.pdf
+	display false
+	extra LaTeX "pages=-"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
