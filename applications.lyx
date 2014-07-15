@@ -153,7 +153,9 @@ Autocomplete
 
 \end_inset
 
- -- 
+ -- algorytm przygotowujący na podstawie podanej kolekcji dokumentów bazę
+ prefiksów, która może zostać wykorzystana do zrealizowania systemu podpowiedzi
+ słów na podstawie pierwszych liter wpisywanych przez użytkownika,
 \end_layout
 
 \begin_layout Itemize
@@ -170,7 +172,13 @@ Obliczanie przybliżenia liczby
 
 \end_inset
 
- -- 
+ -- algorytm obliczający przybliżoną wartość liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+, który umożliwił przeprowadzenie testów porównawczych szybkości obliczeń
+ w klastrze bez wykorzystania pamięci współdzielonej w stosunku do obliczeń
+ prowadzonych na pojedynczym węźle.
 \end_layout
 
 \begin_layout Section
@@ -178,15 +186,39 @@ DLINQ
 \end_layout
 
 \begin_layout Standard
+Jedną z aplikacji zaimplementowanych na bazie biblioteki Bluepath jest 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Distributed Language Integrated Query
+\end_layout
+
+\end_inset
+
+ (DLINQ) -- zbiór metod roszerzających możliwości operowania na kolekcjach.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Częściowa implementacja proof of concept
 \end_layout
 
-\begin_layout Standard
-AsDistributed
+\begin_layout Plain Layout
+AsDistributed -- co właściwie robi?
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 GroupBy, SelectMany, Select, Where
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -672,17 +704,7 @@ System.Uri
 \end_inset
 
  następowała zamiana znaku ,,+'' na spację, przez co wartość przestawała
- być poprawnym ciągiem zgodnym z kodowaniem 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Base64
-\end_layout
-
-\end_inset
-
-.
+ być poprawnym ciągiem zgodnym z kodowaniem Base64.
  Jako rozwiązanie tego problemu zastosowano zamianę spacji z powrotem na
  znaki ,,+'' w momencie odczytu klucza z otrzymanego 
 \begin_inset Flex Code
@@ -810,20 +832,125 @@ Obliczanie przybliżenia liczby
 \end_layout
 
 \begin_layout Standard
-Rozproszone liczenie PI.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
+Metoda Monte Carlo jest formą symulacji z wykorzystaniem generatora liczb
+ pseudolosowych.
+ Każde kolejne uruchomienie algorytmu daje nieco inne wyniki, o ile nie
+ zapewnimy generatorowi takich samych warunków początkowych (ang.
+ 
+\begin_inset Flex Emph
 status open
 
 \begin_layout Plain Layout
--> Metoda Monte Carlo
+seed
 \end_layout
 
 \end_inset
 
+).
+ Obliczenie przybliżenia liczby 
+\begin_inset Formula $\pi$
+\end_inset
 
+ sprowadza się do losowania 
+\begin_inset Formula $n$
+\end_inset
+
+ razy pary liczb (
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+) z przedziału [0, 1] i inkrementowaniu licznika 
+\begin_inset Formula $m$
+\end_inset
+
+, gdy para spełnia warunek 
+\begin_inset Formula $x^{2}+y^{2}\leq1$
+\end_inset
+
+.
+ W przykładowej symulacji dla 
+\begin_inset Formula $n=1000000$
+\end_inset
+
+ otrzymano 
+\begin_inset Formula $m=785930$
+\end_inset
+
+.
+ Oznacza to, że 
+\begin_inset Formula $m$
+\end_inset
+
+ z 
+\begin_inset Formula $n$
+\end_inset
+
+ sprawdzonych punków znalazło się w obszarze reprezentującym 
+\begin_inset Formula $\frac{1}{4}$
+\end_inset
+
+ powierzchni koła, którego środek znajduje się w punkcie (0, 0).
+ Ostateczne wyliczenie otrzymanego przybliżenia liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+ przedstawia równanie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:applications-Monte-Carlo-Pi"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{equation}
+p=\frac{m}{n}=\frac{785930}{1000000},~p\times4=3,14372\approx\pi\label{eq:applications-Monte-Carlo-Pi}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zwiększanie liczby próbek 
+\begin_inset Formula $n$
+\end_inset
+
+ nie musi poprawiać dokładności otrzymanego wyniku.
+ W zależności od jakości zastosowanego generatora liczb pseudolosowych,
+ może on w pewnym momencie zakończyć bieżącą sekwencję i rozpocząć zwracanie
+ liczb z tej samej sekwencji od początku.
+ Ponieważ celem tego testu nie jest zbadanie dokładności przybliżenia liczby
+ 
+\begin_inset Formula $\pi$
+\end_inset
+
+ a porównanie szybkości obliczeń w klastrze i na pojedynczym węźle, jako
+ generator została wybrana klasa 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Random
+\end_layout
+
+\end_inset
+
+.
+ Otrzymane wyniki i ich analiza zostały przedstawione w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:performance-Obliczanie-przyblizenia-Pi"
+
+\end_inset
+
+.
 \end_layout
 
 \end_body

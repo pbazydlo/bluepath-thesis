@@ -1002,6 +1002,12 @@ Obliczanie przybliżenia liczby
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:performance-Obliczanie-przyblizenia-Pi"
+
+\end_inset
+
 qwertyuiop
 \end_layout
 
