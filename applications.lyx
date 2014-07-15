@@ -1523,8 +1523,17 @@ Obliczanie przybliżenia liczby
 \end_layout
 
 \begin_layout Standard
-Metoda Monte Carlo jest formą symulacji z wykorzystaniem generatora liczb
- pseudolosowych.
+Metoda Monte Carlo
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+http://mathfaculty.fullerton.edu/mathews/n2003/montecarlopimod.html
+\end_layout
+
+\end_inset
+
+ jest formą symulacji z wykorzystaniem generatora liczb pseudolosowych.
  Każde kolejne uruchomienie algorytmu daje nieco inne wyniki, o ile nie
  zapewnimy generatorowi takich samych warunków początkowych (ang.
  
