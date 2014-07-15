@@ -450,6 +450,10 @@ public interface IReduceProvider
 
 \end_layout
 
+\begin_layout Subsection
+Koordynator
+\end_layout
+
 \begin_layout Standard
 Główną klasą w aplikacji jest 
 \begin_inset Flex Name
@@ -461,9 +465,29 @@ koordynator
 
 \end_inset
 
-.
- Z wykorzystaniem biblioteki Bluepath jego zadanie sprowadzało się w pierwszej
- fazie przetwarzania do uruchomienia 
+, który pełni rolę nadzorcy zadań (z tego powodu nazywany jest także 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+JobTrackerem
+\end_layout
+
+\end_inset
+
+).
+ Jego zadaniem jest przydzielanie zdań mapowania i redukcji podległym węzłom.
+ Poniżej opisano jego implementacje z wykorzystaniem biblioteki Bluepath
+ jak i w oparciu bezpośrednio o technologię WCF.
+\end_layout
+
+\begin_layout Subsubsection*
+Koordynator oparty o Bluepath
+\end_layout
+
+\begin_layout Standard
+W środowisku Bluepath jego zadanie sprowadzało się w pierwszej fazie przetwarzan
+ia do uruchomienia 
 \begin_inset Flex Name
 status open
 
@@ -621,6 +645,379 @@ Reduce
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsubsection*
+Koordynator w technologii WCF
+\end_layout
+
+\begin_layout Standard
+W projekcie bez użycia biblioteki Bluepath koordynator jest opisany za pomocą
+ interfejsu definiującego kontrakt usługi (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ServiceContract
+\end_layout
+
+\end_inset
+
+) i udostępnia końcówkę WCF (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+WCF endpoint
+\end_layout
+
+\end_inset
+
+).
+ Interfejs ten został przedstawiony na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:applications-MapReduce-ICoordinatorService"
+
+\end_inset
+
+.
+ W tej implementacji koordynator, oprócz zlecania wykonania zadań, musi
+ również zająć się innymi zadaniami związanymi z obsługą klastra:
+\end_layout
+
+\begin_layout Itemize
+rejestrowywaniem i wyrejestrowywaniem węzłów, udostępnianiem ich listy (metody
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AddWorker
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+RemoveWorker
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetWorkers
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+udostępnianiem wyników przetwarzania, zarówno pełnych jak i częściowych,
+ jeżeli przetwarzanie jeszcze trwa (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetResults
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+udostępnianiem interfejsu do manipulacji danymi znajdującymi się w jego
+ części pamięci -- zapisywanie, usuwanie, pobieranie listy plików, czyszczenie
+ pamięci (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AddToStorage
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+RemoveFromStorage
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ListStorageFiles
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+CleanStorage
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Pliki, które mają być przetwarzane oraz kod metod Map i Reduce muszą w pierwszej
+ kolejności trafić do pamięci koordynatora.
+ Poszczególne pliki są następnie wysyłane do konkretnych węzłów, którym
+ przydzielone zostało zadanie ich przetwarzania.
+ Podobnie po zakończeniu fazy mapowania koordynator przygotowuje plan wykonania
+ fazy redukcji i rozsyła w klastrze listę przydziału kluczy do węzłów.
+ Na tej podstawie węzły mogą przesłać między sobą wyniki pośrednie.
+ Po zakończeniu przetwarzania węzły przesyłają pliki wynikowe do pamięci
+ koordynatora.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:applications-MapReduce-ICoordinatorService"
+
+\end_inset
+
+Interfejs ICoordinatorService
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[ServiceContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+public interface ICoordinatorService
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void AddWorker(Uri uri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    Uri[] GetWorkers();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void RemoveWorker(Uri uri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    bool RunJob(int numberOfMappers, int numberOfReducers, Uri mapCodeFile,
+ Uri reduceCodeFile, Uri[] filesToProcess);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    Uri AddToStorage(string fileName, string content);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    Uri[] ListStorageFiles();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void RemoveFromStorage(Uri uri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void CleanStorage();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    MapReduceResult GetResults();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[DataContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+public class MapReduceResult
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    [DataMember]
+\end_layout
+
+\begin_layout Plain Layout
+
+    public Tuple<string, string>[] KeysAndValues { get; set; }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [DataMember]
+\end_layout
+
+\begin_layout Plain Layout
+
+    public bool IsRunning { get; set; }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pamięć masowa
 \end_layout
 
 \begin_layout Standard
@@ -814,6 +1211,300 @@ public interface IMapReduceStorage
 
 \end_layout
 
+\begin_layout Subsection
+Węzeł obliczeniowy w technologii WCF
+\end_layout
+
+\begin_layout Standard
+Usługa węzła obliczeniowego jest komponentem obecnym jedynie w wersji aplikacji
+ zbudowanej w oparciu o technologię WCF (środowisko Bluepath zapewnia możlwiość
+ uruchamiania procesów roboczych na węzłach bez dodatkowego nakładu pracy
+ ze strony programisty).
+ Usługa ta zarządza procesami roboczymi na danym węźle o raz pełni rolę
+ pośrednika między koordynatorem a procesami roboczymi.
+ Węzły mogą komunikować się między sobą w celu bezpośredniego przesłania
+ plików pomiędzy fazami mapowania i redukcji.
+ Interfejs usługi umożliwia:
+\end_layout
+
+\begin_layout Itemize
+utworzenie nowego procesu roboczego (metoda 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Init
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+uruchomienie przetwarzania w ramach jednego z procesów roboczych (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Map
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Reduce
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+sprawdzenie, czy przetwarzanie w danym procesie roboczym się zakończyło
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TryJoin
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+zlecenie przesłania plików między węzłami roboczymi na podstawie listy przydział
+u kluczy do węzłów (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+TransferFiles
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+zapisanie pliku w pamięci procesu roboczego (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+PushFile
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+pobranie informacji o obciążeniu węzła (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetPerformanceStatistics
+\end_layout
+
+\end_inset
+
+) -- zajętości pamięci operacyjnej, obciążeniu procesora, ilości wolnego
+ miejsca na dysku.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:applications-MapReduce-IRemoteWorkerService"
+
+\end_inset
+
+Interfejs IRemoteWorkerService
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[ServiceContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+public interface IRemoteWorkerService
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Init(int workerId);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Map(Uri uri, Uri mapFuncUri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    void Reduce(Uri uri, Uri reduceFuncUri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    string[] TryJoin(int workerId, Uri callbackUri);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    Uri[] TransferFiles(int workerId, Dictionary<string, Uri> keysAndUris);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    Uri PushFile(int workerId, string fileName, string content);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    [OperationContract]
+\end_layout
+
+\begin_layout Plain Layout
+
+    PerformanceMonitor.PerformanceStatistics GetPerformanceStatistics();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    Uri EndpointUri { get; }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Wyniki eksperymentu
+\end_layout
+
+\begin_layout Standard
+Implementacja środowiska do przetwarzania w modelu mapowania i redukcji
+ zajęła 6
+\begin_inset space ~
+\end_inset
+
+dni dwóm programistom, natomiast z wykorzystaniem biblioteki Bluepath czas
+ ten skrócił się do 2
+\begin_inset space ~
+\end_inset
+
+dni
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+4?
+\end_layout
+
+\end_inset
+
+ i to przy zaangażowaniu tylko jednego programisty.
+\end_layout
+
 \begin_layout Section
 Autocomplete
 \end_layout
@@ -855,15 +1546,15 @@ seed
 \begin_inset Formula $n$
 \end_inset
 
- razy pary liczb (
-\begin_inset Formula $x$
+ razy pary liczb 
+\begin_inset Formula $(x,\thinspace y)$
 \end_inset
 
-, 
-\begin_inset Formula $y$
+ z przedziału 
+\begin_inset Formula $[0,\thinspace1]$
 \end_inset
 
-) z przedziału [0, 1] i inkrementowaniu licznika 
+ i inkrementowaniu licznika 
 \begin_inset Formula $m$
 \end_inset
 
@@ -917,7 +1608,7 @@ reference "eq:applications-Monte-Carlo-Pi"
  
 \begin_inset Formula 
 \begin{equation}
-p=\frac{m}{n}=\frac{785930}{1000000},~p\times4=3,14372\approx\pi\label{eq:applications-Monte-Carlo-Pi}
+p=\frac{m}{n}=\frac{785930}{1000000},\thinspace\thinspace\thinspace p\times4=3,14372\approx\pi\label{eq:applications-Monte-Carlo-Pi}
 \end{equation}
 
 \end_inset
