@@ -128,7 +128,14 @@ key "MSDN:WhatIsWindowsCommunicationFoundation"
 
 .
  Połączenia realizowane są za pomocą protokołu HTTP, a wiadomości są przesyłane
- zgodnie z protokołem SOAP.
+ zgodnie z protokołem SOAP 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Poznaj-SOAP"
+
+\end_inset
+
+.
  Wątek nasłuchujący jest reprezentowany przez obiekt klasy 
 \begin_inset Flex Code
 status open

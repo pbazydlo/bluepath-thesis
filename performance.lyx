@@ -114,6 +114,13 @@ Shoudly
 
 \end_inset
 
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shouldly"
+
+\end_inset
+
  do zapisu asercji oraz 
 \begin_inset Flex Strong
 status open
@@ -121,6 +128,13 @@ status open
 \begin_layout Plain Layout
 Moq
 \end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Moq"
 
 \end_inset
 
