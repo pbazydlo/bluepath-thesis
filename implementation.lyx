@@ -931,7 +931,7 @@ Lista
 \end_layout
 
 \begin_layout Standard
-Lista implementuje standardowy interfejs 
+Lista implementuje standardowy generyczny interfejs 
 \begin_inset Flex Code
 status open
 
@@ -970,7 +970,7 @@ Słownik
 \end_layout
 
 \begin_layout Standard
-Słownik implementuje standardowy interfejs 
+Słownik implementuje standardowy generyczny interfejs 
 \begin_inset Flex Code
 status open
 

@@ -111,8 +111,27 @@ name "sec:background-Istniejące-rozwiązania"
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Przed stworzeniem środowiska ułatwiającego tworzenie aplikacji rozproszonych
  należy przeanalizować to co już istnieje.
+\end_layout
+
+\end_inset
+
+Poniżej przedstawiono wybrane środowiska umożliwiające tworzenie aplikacji
+ do rozproszonych obliczeń.
+ W tabeli 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:background-Podsumowanie-istniejacych-rozwiazan"
+
+\end_inset
+
+ znajduje się ich porównanie.
 \end_layout
 
 \begin_layout Subsection
@@ -138,16 +157,57 @@ MPI
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+Biblioteka 
+\begin_inset Flex Strong
 status open
 
 \begin_layout Plain Layout
-TODO
+MPI
 \end_layout
 
 \end_inset
 
-podobnie jak PVM
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Using-MPI-Portable-Parallel-Programming-with-the-Message-Passing-Interface"
+
+\end_inset
+
+ została zaproponowana jako próba połączenia najlepszych rozwiązań z istniejącyc
+h ówcześnie i rozwijanych od lat systemów opartych na przesyłaniu wiadomości
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+message-passing systems
+\end_layout
+
+\end_inset
+
+).
+ Standard określa nazwy, sposoby i wyniki wywołania podprogramów realizowane
+ z aplikacji napisanych m.
+\begin_inset space ~
+\end_inset
+
+in.
+ w języku C.
+ Aplikacja taka jest kompilowana za pomocą standardowego kompilatora i łączona
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+linked
+\end_layout
+
+\end_inset
+
+) z biblioteką MPI.
 \end_layout
 
 \begin_layout Subsection
@@ -190,8 +250,7 @@ Hadoop
 \end_layout
 
 \begin_layout Standard
-Przetwarzanie w modelu mapowania i redukcji zostało pierwotnie zaproponowane
- przez firmę Google -- 
+Przetwarzanie w modelu mapowania i redukcji -- 
 \begin_inset Flex Strong
 status open
 
@@ -208,7 +267,7 @@ key "Google-MapReduce"
 
 \end_inset
 
-.
+ -- zostało pierwotnie zaproponowane przez firmę Google.
  
 \begin_inset Flex Strong
 status open
@@ -220,6 +279,32 @@ Hadoop
 \end_inset
 
  to jego implementacja wydana na otwartej licencji.
+ Środowisko korzysta z 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Hadoop Distributed File System
+\end_layout
+
+\end_inset
+
+ (HDFS) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HDFS-Architecture-Guide"
+
+\end_inset
+
+ -- rozproszonego systemu plików o wysokiej odporności na awarie węzłów.
+ Udostępnia on dane w sposób strumieniowy oraz jest dostosowany do obsługi
+ dużych zbiorów danych (tj.
+ rozmiaru mierzonego w terabajtach) i dużych plików.
+ Twórcy środowiska wyszli z założenia, że ,,zmiana miejsca obliczeń jest
+ mniej kosztowna niż przesłanie danych'', w związku z tym HDFS udostępnia
+ aplikacjom interfejs, który pozwala zmienić miejsce wykonania tak, aby
+ odbyło się tam, gdzie fizycznie znajdują się dane.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -227,15 +312,10 @@ Hadoop
 status open
 
 \begin_layout Plain Layout
-opis hadoopa i na koniec:
-\end_layout
-
-\end_inset
-
-Proponowane w niniejszej pracy środowisko przetwarzania rozproszonego ma
- szerszą klasę zastosowań, możliwe jest także zaimplementowanie na jego
- bazie obliczeń w modelu mapowania i redukcji, co zostało zaprezentowane
- w punkcie 
+opis hadoopa i na koniec: Proponowane w niniejszej pracy środowisko przetwarzani
+a rozproszonego ma szerszą klasę zastosowań, możliwe jest także zaimplementowani
+e na jego bazie obliczeń w modelu mapowania i redukcji, co zostało zaprezentowan
+e w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:applications-MapReduce"
@@ -243,6 +323,11 @@ reference "sec:applications-MapReduce"
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -281,27 +366,7 @@ Apache Spark
 
  jest rozwijane przez Apache Software Foundation.
  Środowisko to może być użyte do przetwarzania w modelu nieograniczonym
- do dwóch faz jak w 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-MapReduce
-\end_layout
-
-\end_inset
-
-, co upodabnia je bardziej do 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Dryad
-\end_layout
-
-\end_inset
-
-.
+ do dwóch faz jak w MapReduce, co upodabnia je bardziej do Dryad.
  Udostępnia też abstrakcję pamięci nazwaną 
 \begin_inset Flex Emph
 status open
@@ -376,7 +441,7 @@ system udostępnia metodę określania przyczyn awarii procesu.
 
 \begin_layout Standard
 Z uwagi na mały narzut pamięciowy procesów (nazywanych także 
-\begin_inset Flex Strong
+\begin_inset Flex Emph
 status open
 
 \begin_layout Plain Layout
@@ -439,7 +504,7 @@ key "Orleans-export:210931"
 \end_inset
 
  zaproponowano wprowadzenie abstrakcji 
-\begin_inset Flex Strong
+\begin_inset Flex Emph
 status open
 
 \begin_layout Plain Layout
@@ -449,31 +514,11 @@ wirtualnych aktorów
 \end_inset
 
 .
- W porównaniu do 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Erlanga
-\end_layout
-
-\end_inset
-
-, środowisko wykonwacze działa tu na wyższym poziomie abstrakcji, uwalniając
- programistę od problemów takich jak obsługa awarii, odtwarzanie aktorów
- i zarządzanie rozproszonymi zasobami -- w szczególności rozłożeniem aktorów
- na poszczególne węzły.
- W systemie 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Orleans
-\end_layout
-
-\end_inset
-
- przyjęto następujące założenia:
+ W porównaniu do Erlanga, środowisko wykonwacze działa tu na wyższym poziomie
+ abstrakcji, uwalniając programistę od problemów takich jak obsługa awarii,
+ odtwarzanie aktorów i zarządzanie rozproszonymi zasobami -- w szczególności
+ rozłożeniem aktorów na poszczególne węzły.
+ W systemie Orleans przyjęto następujące założenia:
 \end_layout
 
 \begin_layout Itemize
@@ -569,6 +614,453 @@ The actor model is a long-standing model for concurrent computation, dating
 \begin_layout Plain Layout
 (http://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-M
 odel-everything-you-wanted-to-know-but-were-afraid-to-ask)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Podsumowanie
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:background-Podsumowanie-istniejacych-rozwiazan"
+
+\end_inset
+
+Porównanie wybranych środowisk przetwarzania rozproszonego
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Środowisko
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rok wydania
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Język programowania
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PVM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MPI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C/C++/Fortran
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DryadLINQ
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+.NET (C#/F#/VB)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hadoop
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Java/Scala
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+/Python?/C++?(1)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spark
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Java/Scala/Python
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erlang
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Erlang
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Orleans
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+.NET (C#/F#/VB)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(1) http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-p
+ython/
 \end_layout
 
 \end_inset
