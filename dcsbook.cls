@@ -245,7 +245,7 @@
        \setlength{\leftmargin}{0.1\textwidth}
        \setlength{\rightmargin}{0.1\textwidth}
        \begin{center}
-         \secfont\Large\abstractname
+         \secfont\Large\translate{Abstract}
        \end{center}
        \smallskip
        \small
