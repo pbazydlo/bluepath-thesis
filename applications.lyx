@@ -119,22 +119,22 @@ MapReduce
 
  -- abstrakcja specjalizowana do uruchamiania zadań w modelu mapowania i
  redukcji z możliwością zlecania zadań bez rekompilacji systemu i dystrybuowania
- nowej wersji plików wykonywalnych na węzły -- kod 
-\begin_inset Flex Emph
+ nowej wersji plików wykonywalnych na węzły -- kod metod 
+\begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-Mappera
+Map
 \end_layout
 
 \end_inset
 
  i 
-\begin_inset Flex Emph
+\begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-Reducera
+Reduce
 \end_layout
 
 \end_inset
