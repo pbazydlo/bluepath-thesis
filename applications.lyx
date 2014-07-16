@@ -252,6 +252,17 @@ key "MSDN:WhatIsWindowsCommunicationFoundation"
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Jakieś nazwy by się przydały na rozróżnienie tych dwóch aplikacji w dalszej
+ części tekstu
+\end_layout
+
+\end_inset
+
 .
  Założeniem aplikacji było, by kod metod 
 \begin_inset Flex Code
@@ -1503,6 +1514,20 @@ status open
 \end_inset
 
  i to przy zaangażowaniu tylko jednego programisty.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+może jakieś zestawienie 'co trzeba zakodzić - Bluepath vs.
+ WCF'
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

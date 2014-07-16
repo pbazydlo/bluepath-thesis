@@ -77,7 +77,7 @@ Podsumowanie
 \end_layout
 
 \begin_layout Standard
-Warto było
+abc...
 \end_layout
 
 \begin_layout Section
@@ -85,64 +85,169 @@ Przebieg realizacji
 \end_layout
 
 \begin_layout Standard
-fghj
+abc...
 \end_layout
 
 \begin_layout Section
 Napotkane problemy
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+abc...
+\end_layout
+
+\begin_layout Subsection
 Serializacja
 \end_layout
 
 \begin_layout Standard
+abc...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 WYJĄTKI, o jej problemach
 \end_layout
 
-\begin_layout Paragraph
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Środowisko do testów integracyjnych.
 \end_layout
 
 \begin_layout Standard
-był problem żeby bootstrapować
-\end_layout
-
-\begin_layout Paragraph
-Dystrybucja aplikacji do węzłów (super skrypt w powershell'u)
+abc...
 \end_layout
 
 \begin_layout Standard
-napisane, robi wszystko
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+był problem żeby bootstrapować
 \end_layout
 
-\begin_layout Paragraph
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dystrybucja aplikacji do węzłów
+\end_layout
+
+\begin_layout Standard
+abc...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+rozwiązane skryptem w PowerShellu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 rhino-dht
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "par:problemy-rhino-dht"
 
 \end_inset
 
-
+abc...
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 nie działało
 \end_layout
-
-\begin_layout Paragraph
-Windows Redis
-\begin_inset CommandInset label
-LatexCommand label
-name "par:problemy-Windows-Redis"
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Subsection
+Redis uruchamiany w systemie Windows
+\end_layout
+
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "par:problemy-Windows-Redis"
+
+\end_inset
+
+Podczas pracy usługi Redis z dużym obciążeniem pod kontrolą systemu Windows
+ zaobserwowano znaczący spadek wydajności.
+ Wyjaśnienie problemów z działaniem znaleziono w dokumencie 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MSOpenTech-Redis-Release-Notes"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+W wersji dla systemu Linux wszystkie operacje wejścia-wyjścia korzystają
+ z deskryptorów plików, które nie są tak rozpowszechnione w API systemu
+ Windows.
+ Wersja przeznaczona dla systemów Windows używa w związku z tym symulowanego
+ deskryptora plików.
+ Zasadniczym problemem jest jednak brak obecności wywołania systemowego
+ fork do tworzenia procesów potomnych, która w systemie Windows została
+ zasymulowana poprzez umieszczenie sterty procesu Redis w 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+memory-mapped file
+\end_layout
+
+\end_inset
+
+, czyli fragmencie pamięci wirtualnej, która jest dokładnym odwzorowaniem
+ pliku znajdującego się na dysku lub -- w ogólności -- obiektu, do którego
+ jesteśmy w stanie uzyskać deskryptor.
+ Taki deskryptor przekazywany jest następnie potomnym procesom.
+ Warto zauważyć, że domyślnym zachowaniem środowiska jest tworzenie współdzielon
+ego pliku o rozmiarze odpowiadającym rozmiarowi pamięci fizycznej komputera.
+ 
+\end_layout
+
+\begin_layout Standard
+Ostatecznie różnice, które ujawniły się pomiędzy wersją usługi Redis przeznaczon
+ą dla systemów Windows a pochodnych UNIXa, wpłynęły na podjęcie decyzji
+ o uruchomieniu go w systemie operacyjnym Ubuntu.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Differences from UNIX versions Networking On UNIX all IO operations occur
  with file descriptors regardless of the type of IO operation.
  Most IO mechanisms in Windows do not use file descriptors.
@@ -171,10 +276,39 @@ s/vcredist2012.
  
 \end_layout
 
-\begin_layout Standard
-
-\series bold
+\begin_layout Plain Layout
 [Windows Redis package: Redis Release Notes.docx]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Wyładowywanie kodu z pamięci
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Application Domains -- http://msdn.microsoft.com/en-us/library/2bh4z9hs(v=vs.110).as
+px
+\end_layout
+
+\begin_layout Plain Layout
+Add-ony
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
