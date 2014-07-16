@@ -394,6 +394,99 @@ Add-ony
 
 \end_layout
 
+\begin_layout Subsection
+Implementacja standardu OpenXES
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ na
+\begin_inset space ~
+\end_inset
+
+podstawie pliku XSD
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:problemy-Implementacja-standardu-OpenXES-z-XSD"
+
+\end_inset
+
+Podczas próby implementacji standardu OpenXES opisanej w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:implementation-Logowanie-zdarzen"
+
+\end_inset
+
+ na podstawie plików XML Schema udostępnionych 28 marca 2014 r.
+ wraz wersją 2.0 bibliteki napotkano problemy przy próbie automatycznego
+ wygenerowania klas.
+ W jednym z plików, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xes.xsd
+\end_layout
+
+\end_inset
+
+, znaleziony został drobny błąd składniowy -- brakująca spacja, co powodowało,
+ że plik XML był niepoprawny składniowo i nieprzyjmowany przez narzędzie
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xsd.exe
+\end_layout
+
+\end_inset
+
+.
+ Po jego poprawieniu ujawnił się kolejny problem objawiający się wyjątkiem
+ przepełnienia stosu w trakcie generowania klas.
+ Ten problem został rozwiązany przez objęcie wnętrza elementu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xs:complexType
+\end_layout
+
+\end_inset
+
+ odnoszącego się do typu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AttributableType
+\end_layout
+
+\end_inset
+
+ elementem 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xs:sequence
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Perspektywy dalszego rozwoju
 \end_layout
