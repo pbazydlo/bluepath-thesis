@@ -290,7 +290,90 @@ Wyładowywanie kodu z pamięci
 \end_layout
 
 \begin_layout Standard
-...
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:problemy-Wyladowywanie-kodu-z-pamieci"
+
+\end_inset
+
+Klasycznym mechanizmem oddzielania od siebie aplikacji jest stosowanie abstrakcj
+i procesu, z których każdy posiada swoją własną przestrzeń adresową.
+ Komunikacja między procesami może zachodzić jedynie z użyciem mechanizmów
+ udostępnianych przez system operacyjny.
+ 
+\end_layout
+
+\begin_layout Standard
+Środowisko .NET Framework wprowadza koncepcję domen aplikacji
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+application domains
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MSDN-Applications-Domains"
+
+\end_inset
+
+, która pozwala uruchomić w ramach jednego procesu wiele odizolowanych aplikacji.
+ Do zalet tego podejścia należą:
+\end_layout
+
+\begin_layout Itemize
+brak narzutu związanego z użyciem mechanizmów systemu operacyjnego do wykonywani
+a wywołań między procesami,
+\end_layout
+
+\begin_layout Itemize
+błędy w jednej z aplikacji nie wpłyną na pozostałe,
+\end_layout
+
+\begin_layout Itemize
+poszczególne aplikacje mogą być wyładowywane z pamięci bez zatrzymywania
+ całego procesu.
+\end_layout
+
+\begin_layout Standard
+Domena aplikacji jest najmniejszą jednostką, jaką można wyładować z pamięci.
+ Nie jest to możliwe dla pojedynczych typów czy bibliotek
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+assembly
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
