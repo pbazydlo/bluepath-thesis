@@ -552,47 +552,7 @@ ia i jest jednym z istotnych elementów modułowości sys
 \end_layout
 
 \begin_layout Section
-Rozproszona pamięć współdzielona
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nie podoba mi się to 
-\begin_inset Quotes eld
-\end_inset
-
-rozproszona
-\begin_inset Quotes erd
-\end_inset
-
-, bo w końcu testowaliśmy z 1 węzłem - jesteśmy na etapie koncepcji, a nasz
- system nie bazuje na tym czy testowaliśmy z jednym węzłem czy nie - dopóki
- działanie abstrakcji pozostaje niezmienne to mogło by to działać przy pomocy
- listonoszy :P
-\end_layout
-
-\begin_layout Plain Layout
--- mimo wszystko uważam, że nadużywamy tutaj słowa 'rozproszona', podaczas
- gdy nam chodzi o 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-'pamięć współdzieloną', a jej ew.
- rozproszenie jest kwestią implementacyjną
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+Pamięć współdzielona
 \end_layout
 
 \begin_layout Standard
@@ -618,17 +578,7 @@ Bluepath
 status open
 
 \begin_layout Plain Layout
-rozproszonej pamięci współdzielonej
-\end_layout
-
-\end_inset
-
- dalej nazywany równierz 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięcią współdzieloną
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -668,7 +618,7 @@ W celu identyfikacji danych w pamięci współdzielonej zastosowano klucze.
 status open
 
 \begin_layout Plain Layout
-rozproszonej pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -743,7 +693,7 @@ Dzięki tak zdefiniowanej semantyce operacji na podstawie
 status open
 
 \begin_layout Plain Layout
-rozproszonej pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
@@ -764,7 +714,7 @@ zamki rozproszone
 status open
 
 \begin_layout Plain Layout
-rozproszonej pamięci współdzielonej
+pamięci współdzielonej
 \end_layout
 
 \end_inset
