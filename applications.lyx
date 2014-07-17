@@ -820,6 +820,21 @@ Pliki, które mają być przetwarzane oraz kod metod Map i Reduce muszą w pierw
 \end_layout
 
 \begin_layout Standard
+\noindent
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
 \begin_inset listings
 lstparams "breaklines=true,language=C"
 inline false
@@ -1033,6 +1048,11 @@ public class MapReduceResult
 \begin_layout Plain Layout
 
 }
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1688,8 +1708,94 @@ System.Random
 
 \end_inset
 
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Implementacja klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Random
+\end_layout
+
+\end_inset
+
+ w .NET Framework 4.0 posiada kilka cech, które sprawiają, że (co właściwie??
+ :D).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+http://stackoverflow.com/a/6842191
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Inicjowanie generatora przez domyślny konstruktor używa aktualnego czasu.
+ Z tego powodu utworzenie wielu jego instancji w krótkim czasie, np.
+ w środowisku wielowątkowym, może prowadzić do otrzymania takich samych
+ sekwencji liczb.
+ 
+\end_layout
+
+\begin_layout Itemize
+Dla niektórych wartości parametrów metoda Next zwraca sekwencje, których
+ rozkład nie jest równomierny.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+dla r.Next(1431655765)%2 ok.
+ 2/3 próbek to 0 -> 2/3 próbek to liczby parzyste
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+W zastosowaniach, w których wymagane jest bezpieczeństwo zaleca się stosowanie
+ implementacji opartych o metody kryptograficzne, np.
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Security.Cryptography.RNGCryptoServiceProvider
+\end_layout
+
+\end_inset
+
 .
- Otrzymane wyniki i ich analiza zostały przedstawione w punkcie 
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Otrzymane wyniki i ich analiza zostały przedstawione w rozdziale 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Testy wydajnościowe i jakościowe
+\end_layout
+
+\end_inset
+
+ w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:performance-Obliczanie-przyblizenia-Pi"
