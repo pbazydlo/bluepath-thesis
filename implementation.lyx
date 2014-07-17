@@ -263,7 +263,7 @@ callback
 
 ), mają charakter asynchroniczny.
  Istnieje również możliwość wyłączenia wywołań zwrotnych i przełączenia
- systemu w tryb z odpytywaniem (ang.
+ systemu w tryb pracy z odpytywaniem (ang.
  
 \begin_inset Flex Emph
 status open
@@ -278,6 +278,22 @@ polling
  Wydaje się, że nie ma to sensu w przypadku prowadzenia w klastrze faktycznych
  obliczeń, gdyż wprowadza dodatkowe opóźnienia, ale przydaje się w niektórych
  scenariuszach realizowanych środowisku testowym.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+To 'ale przydaje się'...
+ brzmi trochę lamersko - może trzeba wymyślić przypadek kiedy może być użyteczne
+ - np.
+ callbacki często giną, więc lepiej overhead i polling - przynajmniej nie
+ zawiśniemy [a co w pollingu jak wyślemy zapytanie o status, ale nie dostaniemy
+ odpowiedzi[mimo że doszło], a następnie wyślemy takie samo zapytanie jeszcze
+ raz?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -906,8 +922,18 @@ reference "par:problemy-rhino-dht"
 
 \begin_layout Standard
 Kolejnym rozwiązaniem wziętym pod uwagę był Redis.
- Projekt ten jest utrzymywany przez StackExchange i używany na co dzień
- jako mechanizm pamięci podręcznej tego serwisu internetowego.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Projekt ten jest utrzymywany przez StackExchange -- NIE!!!!
+\end_layout
+
+\end_inset
+
+Salvatore Sanfilippo i Pieter Noordhuis!!! i używany na co dzień jako mechanizm
+ pamięci podręcznej tego serwisu internetowego.
  Rozwijana jest także jego wersja rozproszona -- Redis Cluster.
  System ten posiada bibliteki dla .NET Framework.
  Problemy, które napotkano podczas uruchamiania usługi Redis zostały opisane
@@ -937,7 +963,7 @@ rozszerzoną pamięć współdzieloną
 
 \end_inset
 
-, zdefiniowaną za pomocą interfejsu
+, zdefiniowaną za pomocą interfejsu 
 \begin_inset Flex Code
 status open
 
@@ -1252,7 +1278,7 @@ Lokalny wykonawca szereguje wątki do wykonania używając dostarczonej przez
 status open
 
 \begin_layout Plain Layout
-TheadPool
+ThreadPool
 \end_layout
 
 \end_inset
@@ -1406,7 +1432,7 @@ SaveXes
 \end_inset
 
 , która zapisuje wszystkie zgromadzone we współdzielonej pamięci zdarzenia
- zapisuje do pliku XML w formacie OpenXES.
+ do pliku XML w formacie OpenXES.
  
 \end_layout
 
@@ -1600,6 +1626,16 @@ IBluepathCommunicationFramework
 \end_inset
 
 .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Nie po polsku jest to
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

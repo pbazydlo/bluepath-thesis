@@ -85,6 +85,10 @@ Definicje
 \end_layout
 
 \begin_layout Standard
+Węzeł obliczeniowy
+\end_layout
+
+\begin_layout Standard
 ...
 \end_layout
 
@@ -710,7 +714,7 @@ aktorami
 
 \end_inset
 
-) programista może tworzyć bardzo wiele.
+) programista może tworzyć ich bardzo wiele.
  
 \end_layout
 
@@ -743,6 +747,19 @@ Wolimy znany model zamków i innych mutexów.
 
 \begin_layout Subsection
 Project Orleans
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Opis co to jest + Kiedy ogłoszony
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

@@ -217,8 +217,18 @@ W wersji dla systemu Linux wszystkie operacje wejścia-wyjścia korzystają
  Wersja przeznaczona dla systemów Windows używa w związku z tym symulowanego
  deskryptora plików.
  Zasadniczym problemem jest jednak brak obecności wywołania systemowego
- fork do tworzenia procesów potomnych, która w systemie Windows została
- zasymulowana poprzez umieszczenie sterty procesu Redis w 
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+fork
+\end_layout
+
+\end_inset
+
+ do tworzenia procesów potomnych, która w systemie Windows została zasymulowana
+ poprzez umieszczenie sterty procesu Redis w 
 \begin_inset Flex Emph
 status open
 
@@ -427,7 +437,7 @@ reference "sec:implementation-Logowanie-zdarzen"
 \end_inset
 
  na podstawie plików XML Schema udostępnionych 28 marca 2014 r.
- wraz wersją 2.0 bibliteki napotkano problemy przy próbie automatycznego
+ wraz z wersją 2.0 bibliteki napotkano problemy przy próbie automatycznego
  wygenerowania klas.
  W jednym z plików, 
 \begin_inset Flex Code
