@@ -271,6 +271,20 @@ windows-azure-hpc-scheduler-released.aspx
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+napisać coś o modelowaniu przepływu jako DAG (skierowany graf acykliczny),
+ bo pojawia się w tabeli podsumowującej rozdział
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Hadoop
 \end_layout
@@ -954,6 +968,16 @@ PVM
 
 \begin_layout Plain Layout
 C
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1052,7 +1076,7 @@ przepływ danych w DAG
 status open
 
 \begin_layout Plain Layout
-?
+??
 \end_layout
 
 \end_inset
@@ -1071,8 +1095,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-http://research.microsoft.com/en-us/downloads/03960cab-bb92-4c5c-be23-ce51aee0792c
-/
+(2)
 \end_layout
 
 \end_inset
@@ -1169,7 +1192,7 @@ niesprecyzowany
 status open
 
 \begin_layout Plain Layout
-?
+??
 \end_layout
 
 \end_inset
@@ -1183,7 +1206,16 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-/ 2014
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+ / 2014
 \end_layout
 
 \end_inset
@@ -1255,7 +1287,7 @@ przesyłanie komunikatów
 status open
 
 \begin_layout Plain Layout
-?
+??
 \end_layout
 
 \end_inset
@@ -1318,6 +1350,11 @@ status open
 \begin_layout Plain Layout
 (1) http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-p
 ython/
+\end_layout
+
+\begin_layout Plain Layout
+(2) http://research.microsoft.com/en-us/downloads/03960cab-bb92-4c5c-be23-ce51aee0
+792c/
 \end_layout
 
 \end_inset
