@@ -85,7 +85,7 @@ Definicje
 \end_layout
 
 \begin_layout Standard
-Węzeł
+...
 \end_layout
 
 \begin_layout Subsection
@@ -93,11 +93,75 @@ Nazewnictwo
 \end_layout
 
 \begin_layout Standard
-Biblioteka 
+Biblioteka Bluepath/środowisko Bluepath
+\end_layout
+
+\begin_layout Subsection
+Architektura systemu
 \end_layout
 
 \begin_layout Standard
-...
+Węzeł
+\end_layout
+
+\begin_layout Standard
+Usługa odnajdywania węzłów/usługa katalogowa
+\end_layout
+
+\begin_layout Subsection
+Obiekty
+\end_layout
+
+\begin_layout Standard
+Zarządca połączeń
+\end_layout
+
+\begin_layout Standard
+Rozproszony wątek
+\end_layout
+
+\begin_layout Standard
+Wykonawca/wykonawca lokalny/wykonawca zdalny
+\end_layout
+
+\begin_layout Standard
+Planista
+\end_layout
+
+\begin_layout Standard
+Pamięć współdzielona/rozproszona pamięć współdzielona
+\end_layout
+
+\begin_layout Standard
+Kolekcja rozproszona(współdzielona?)
+\end_layout
+
+\begin_layout Standard
+Operacje zbiorcze
+\end_layout
+
+\begin_layout Standard
+Zamek/zamek rozproszony/(zamek współdzielony)
+\end_layout
+
+\begin_layout Subsection
+Terminy technologiczne
+\end_layout
+
+\begin_layout Standard
+SOAP
+\end_layout
+
+\begin_layout Standard
+WCF
+\end_layout
+
+\begin_layout Standard
+Test jednostkowy
+\end_layout
+
+\begin_layout Standard
+Test integracyjny
 \end_layout
 
 \begin_layout Section

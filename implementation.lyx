@@ -143,6 +143,20 @@ key "Poznaj-SOAP"
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: przydałoby się przechwycić
+\begin_inset space \space{}
+\end_inset
+
+Wiresharkiem jakąś kopertę, może taką z uchwytem do metody?
+\end_layout
+
+\end_inset
+
 .
  Wątek nasłuchujący jest reprezentowany przez obiekt klasy 
 \begin_inset Flex Code
