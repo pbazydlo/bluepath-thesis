@@ -1264,8 +1264,8 @@ Usługa węzła obliczeniowego jest komponentem obecnym jedynie w wersji aplikac
  zbudowanej w oparciu o technologię WCF (środowisko Bluepath zapewnia możlwiość
  uruchamiania procesów roboczych na węzłach bez dodatkowego nakładu pracy
  ze strony programisty).
- Usługa ta zarządza procesami roboczymi na danym węźle o raz pełni rolę
- pośrednika między koordynatorem a procesami roboczymi.
+ Usługa ta zarządza procesami roboczymi na danym węźle oraz pełni rolę pośrednik
+a między koordynatorem a procesami roboczymi.
  Węzły mogą komunikować się między sobą w celu bezpośredniego przesłania
  plików pomiędzy fazami mapowania i redukcji.
  Interfejs usługi umożliwia:
