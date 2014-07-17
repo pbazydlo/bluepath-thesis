@@ -1817,7 +1817,7 @@ status open
 	template RasterImage
 	filename images/monte-carlo-pi.png
 	lyxscale 30
-	scale 45
+	scale 40
 
 \end_inset
 
