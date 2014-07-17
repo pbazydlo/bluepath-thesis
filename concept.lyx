@@ -557,7 +557,7 @@ Rozproszona pamięć współdzielona
 status open
 
 \begin_layout Plain Layout
-nie podoba mi się do 
+nie podoba mi się to 
 \begin_inset Quotes eld
 \end_inset
 
@@ -565,7 +565,10 @@ rozproszona
 \begin_inset Quotes erd
 \end_inset
 
-, bo w końcu testowaliśmy z 1 węzłem
+, bo w końcu testowaliśmy z 1 węzłem - jesteśmy na etapie koncepcji, a nasz
+ system nie bazuje na tym czy testowaliśmy z jednym węzłem czy nie - dopóki
+ działanie abstrakcji pozostaje niezmienne to mogło by to działać przy pomocy
+ listonoszy :P
 \end_layout
 
 \end_inset
@@ -674,17 +677,7 @@ pamięci współdzielonej
 
 \end_inset
 
- przewidziane zostały następujące operacje
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-przeniosłem 'kodowe' nazwy operacji do implementacji
-\end_layout
-
-\end_inset
-
-:
+ przewidziane zostały następujące operacje:
 \end_layout
 
 \begin_layout Itemize
@@ -816,6 +809,15 @@ pamięci współdzielonej
 
 .
  Aby uniknąć takiej sytuacji wprowadzone zostały trzy podstawowe kolekcje
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+licznik to nie do końca kolekcja...
+\end_layout
+
+\end_inset
+
  oparte na 
 \begin_inset Flex Name
 status open
@@ -834,7 +836,62 @@ Lista rozproszona
 \end_layout
 
 \begin_layout Standard
-na co pozwala, co zapewnia (operacje opisać w implementacji).
+Głównym zadaniem 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+listy rozproszonej
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+czy to jest nazwa?
+\end_layout
+
+\end_inset
+
+ jest przechowywanie i udostępnianie listy obiektów dostępnej wszystkim
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonym wątkom
+\end_layout
+
+\end_inset
+
+ w systemie, które znają jej identyfikator.
+ Dzięki temu użytkownik może zastosować strukturę danych zachowującą się
+ w taki sam sposób jak lista dostarczana przez środowisko .NET.
+ Podstawowe wykorzystanie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+listy rozproszonej
+\end_layout
+
+\end_inset
+
+ nie powinno wymagać wykorzystania dodatkowych mechanizmów takich jak np.
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamki rozproszone
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Paragraph
@@ -842,7 +899,42 @@ Słownik rozproszony
 \end_layout
 
 \begin_layout Standard
-na co pozwala, co zapewnia (operacje opisać w implementacji).
+Ze względu na charakter 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ (zapisywanie wartości pod pewnym konkretnym kluczem) naturalnym wydaje
+ się dostarczenie programiście abstrakcji wzorowanej na słowniku (ang.
+ dictionary).
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Słownik rozproszony
+\end_layout
+
+\end_inset
+
+ pozwoli użytkownikowi na łatwiejsze zarządzanie kolekcjami typu klucz-wartość
+ jednocześnie zapewniając poprawność wykonania pewnych operacji (np.
+ atomowe dodanie nowego klucza oraz zarejestrowanie go na liście kluczy).
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+trochę shitowy ten opis :(
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -850,7 +942,35 @@ Licznik rozproszony
 \end_layout
 
 \begin_layout Standard
-na co pozwala, co zapewnia (operacje opisać w implementacji).
+Jedną z podstawowych struktur rozproszonych jest 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+licznik rozproszony
+\end_layout
+
+\end_inset
+
+.
+ Jego główną cechą - oprócz atomowego zapisania wartości liczbowej - jest
+ jednoczesne pobranie i zmienienie wartości.
+ Pozwala to wykorzystać go jako np.
+ generatora kluczy, czy wykorzystać tę strukturę do dynamicznego podziału
+ kolekcji na fragmenty (każdy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszony wątek
+\end_layout
+
+\end_inset
+
+ pobiera wartość licznika i jednocześnie zwiększa jego wartość o 100 - w
+ ten sposób wątek może przetworzyć 100 elementów począwszy od uzyskanej
+ wartości mając pewność, że żaden inny wątek nie zacznie przetwarzać tych
+ elementów).
 \end_layout
 
 \begin_layout Standard
