@@ -118,6 +118,7 @@ Zbyt specyficznie na twarz - najpierw trzeba opisać, że jest usługa jaki
  jest jej cel a dopiero potem propozycje najprostszej realizacji.
  W ogólności ta usługa mogłaby być mocno powiązana ze storage i oparta na
  DHT.
+ [done]
 \end_layout
 
 \end_inset
@@ -126,12 +127,53 @@ Zbyt specyficznie na twarz - najpierw trzeba opisać, że jest usługa jaki
 \end_layout
 
 \begin_layout Standard
+Jednym z podstawowych założeń jest posiadanie przez wszystkie węzły w systemie
+ lokalnego obrazu stanu wszystkich innych węzłów w kalstrze.
+ Informacje dotyczące stanu poszczególnych węzłów są dostarczane przez 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługę odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+.
+ Usługa ta powinna obsługiwać sytuację rejestracji oraz wyrejestrowania
+ się węzłów.
+ System z założenia abstrachuje od sposobu realizacji tej usługi (czy będzie
+ to system zcentralizowany, czy rozproszony np.
+ oparty na algorytmie plotkującym).
+ W związku z pełnioną rolą 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługa odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+ jest kluczowym elementem przy implementacji wykrywania awarii węzłów w
+ klastrze.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Odkrywanie węzłów w sieci realizowane jest za pomocą usługi Service Discovery,
  która działa na jednym z węzłów.
  Dołączające się węzły muszą znać adres serwera Service Discovery w celu
  zarejestrowania się w usłudze.
  Rejestracja/wyrejestrowanie się węzła powoduje rozesłania powiadomienia
  o tym fakcie do wszystkich pozostałych węzłów w klastrze.
+\end_layout
+
+\end_inset
+
  
 \begin_inset Note Note
 status open
@@ -289,22 +331,34 @@ Wykonawca
 \end_layout
 
 \begin_layout Standard
-Wykonywanie wątków zarówno zdalne jak i lokalne jest zarządzane przez 
+W celu ograniczenia liczby zadań pełnionych przez 
 \begin_inset Flex Name
-status collapsed
+status open
 
 \begin_layout Plain Layout
-wykonawców
+rozproszony wątek
 \end_layout
 
 \end_inset
 
-.
+ zdefiniowano 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wykonawcę
+\end_layout
+
+\end_inset
+
+ - element odpowiedzialny za wykonywanie wątków zarówno zdalne jak i lokalne.
+ Zastosowanie takiej abstrakcji pozwala potraktować przetwarzanie lokalne
+ oraz zdalne w podobny sposób.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Coś jeszcze tu bo 1 zdanie to trochę mało
+Czy to ma sens?
 \end_layout
 
 \end_inset
