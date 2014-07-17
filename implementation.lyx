@@ -1721,7 +1721,7 @@ Info
 
 \end_inset
 
-, które powinny zostać odfiltrowane w pierwszej fazie analizy.
+ i powinny zostać odfiltrowane w pierwszej fazie analizy.
  Jeżeli użytkownik chce użyć własnej nazwy dla zdarzenia, może to zrobić
  korzystając z aktywności 
 \begin_inset Flex Code
@@ -1790,12 +1790,12 @@ eid
 \begin_layout Standard
 Zależności czasowe są istotną częścią analizy przebiegu procesu.
  Z wykorzystaniem serwerów czasu NTP możliwe jest zsynchronizowanie zegarów
- węzłów w klastrze z dokładnością do ?? 
+ węzłów w klastrze z dokładnością do ??
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-??
+hm, no właśnie??
 \end_layout
 
 \end_inset
@@ -1903,7 +1903,150 @@ Dystrybucja aplikacji w klastrze
 \end_layout
 
 \begin_layout Standard
-...
+PowerShell Remoting to usługa umożliwiająca wykonanie na zdalnych maszynach
+ pojedynczych komend lub stworzenie pełnej zdalnej sesji PowerShell.
+ Automatyzacja procesu dystrybucji plików binarnych systemu w klastrze została
+ zrealizowana za pomocą zestawu skryptów: 
+\begin_inset Flex Path
+status open
+
+\begin_layout Plain Layout
+Send-Folder
+\end_layout
+
+\end_inset
+
+ do przesyłania całych folderów i 
+\begin_inset Flex Path
+status open
+
+\begin_layout Plain Layout
+Send-File
+\end_layout
+
+\end_inset
+
+ do przesyłania pojedynczych plików, z którego korzysta ten pierwszy.
+ Skrypt do wysyłania pojedynczych plików został zaczerpnięty z książki 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Windows-PowerShell-Cookbook"
+
+\end_inset
+
+.
+ Przyjmuje 3 parametry: ścieżkę do pliku źródłowy znajdującego się na lokalnej
+ maszynie, ścieżkę docelową na zdalnej maszynie oraz referencję do obiektu
+ zdalnej sesji.
+ Skrypt do wysyłania folderów przyjmuje jako parametry: adres zdalnego komputera
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-server
+\end_layout
+
+\end_inset
+
+), opcjonalnie port, na którym nasłuchuje usługa PowerShell Remoting (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-port
+\end_layout
+
+\end_inset
+
+), nazwę użytkownika (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-user
+\end_layout
+
+\end_inset
+
+), hasło (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-password
+\end_layout
+
+\end_inset
+
+), ścieżkę do folderu źródłowego na lokalnej maszynie (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-source
+\end_layout
+
+\end_inset
+
+), ścieżkę do folderu docelowego na zdalnej maszynie (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-destination
+\end_layout
+
+\end_inset
+
+).
+ Skrypt tworzy obiekt zdalnej sesji uwierzytelniając się poprzez podaną
+ nazwę użytkownika i hasło, pobiera listę plików we wskazanym lokalnym folderze
+ i dla każdego z plików wywołuje skrypt 
+\begin_inset Flex Path
+status open
+
+\begin_layout Plain Layout
+Send-File
+\end_layout
+
+\end_inset
+
+.
+ Pomija przy tym pliki z symbolami (
+\begin_inset Flex Path
+status open
+
+\begin_layout Plain Layout
+.pdb
+\end_layout
+
+\end_inset
+
+), ponieważ ich rozmiar jest znaczący w stosunku do rozmiaru plików samej
+ aplikacji, a nie było konieczne podłączanie 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+debuggera
+\end_layout
+
+\end_inset
+
+ do procesów pracujących na zdalnych maszynach.
+ Po zakończeniu przesyłania plików zdalna sesja jest zamykana.
+ Łatwo zauważyć, że skrypt 
+\begin_inset Flex Path
+status open
+
+\begin_layout Plain Layout
+Send-Folder
+\end_layout
+
+\end_inset
+
+ można wywołać w pętli, aby przesłać pliki do każdego komputera w klastrze.
 \end_layout
 
 \end_body

@@ -502,6 +502,55 @@ Perspektywy dalszego rozwoju
 \end_layout
 
 \begin_layout Standard
+...
+\end_layout
+
+\begin_layout Subsection
+Niezawodność przetwarzania
+\end_layout
+
+\begin_layout Standard
+Aspektem, który nie został poruszony w niniejszej pracy jest zapewnienie
+ niezawodności przetwarzania w przypadku awarii węzłów.
+ Awarie mogą dotyczyć węzłów danych lub węzłów obliczeniowych.
+ 
+\end_layout
+
+\begin_layout Standard
+W przypadku węzłów danych zapewnienie bezpieczeństwa leży po stronie wybranej
+ do ich zrealizowania aplikacji.
+ System Redis może zostać uruchomiony w trybie z replikacją, w którym jeden
+ z węzłów jest punktem dostępowym do zapisu lub odczytu, a jego repliki
+ udostępniają dane tylko do odczytu.
+ Po awarii węzła nadrzędnego jedna z replik staje się nowym punktem dostępowym
+ z możliwością zapisu.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+jest jeszcze inna możliwość??
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Obsługa awarii węzłów obliczeniowych w przypadku, gdy aplikacja nie posiada
+ współdzielonego stanu, czyli nie wykorzystuje współdzielonych struktur
+ danych ani obiektów -- a więc wywołania są idempotentne -- mogłaby uwzględniać
+ drzewiasty charakter takiego przetwarzania.
+ Rozproszone wątki zainicjowane przez stracony węzeł musiałyby być wycofane,
+ a węzeł nadrzędny musiałby zlecić jeszcze raz wykonanie przerwanego wątku.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Lepsze implementacje poszczególnych części (i tu można się rozwodzić)
 \end_layout
 
@@ -544,6 +593,11 @@ implementacja service discovery jako zdecentralizowanego katalogu (DHT?)
 
 \begin_layout Itemize
 wykorzystanie w pełni asynchronicznych wzorców z .NET 4.5 (async, await)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
