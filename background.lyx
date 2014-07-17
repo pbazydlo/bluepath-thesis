@@ -245,6 +245,32 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+W roku 2011 Microsoft zaprzestał rozwijania środowiska Dryad w ramach 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+High Performance Comupting Pack
+\end_layout
+
+\end_inset
+
+, skupiając się na dostosowaniu Apache Hadoop do pracy pod kontrolą Windows
+ Server i Windows Azure.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+http://blogs.technet.com/b/windowshpc/archive/2011/11/11/hpc-pack-2008-r2-sp3-and-
+windows-azure-hpc-scheduler-released.aspx
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Hadoop
 \end_layout
@@ -305,6 +331,24 @@ key "HDFS-Architecture-Guide"
  aplikacjom interfejs, który pozwala zmienić miejsce wykonania tak, aby
  odbyło się tam, gdzie fizycznie znajdują się dane.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+2005 Doug Cutting, Mike Cafarella (http://web.eecs.umich.edu/~michjc/bio.html)
+\end_layout
+
+\begin_layout Plain Layout
+originally developed to support distribution for the Nutch search engine
+ project (http://hadoop.apache.org/core/)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -764,6 +808,23 @@ Podsumowanie
 \end_layout
 
 \begin_layout Standard
+[...] Z jednej strony język jest tylko narzędziem i dla programisty, który
+ poznał ich kilka, rozpoznanie kolejnego i napisanie w nim aplikacji zazwyczaj
+ nie stanowi problemu.
+ Z drugiej -- każdy ma język, podczas pisania w którym czuje się komfortowo,
+ wie jakich problemów może się spodziewać i jak je rozwiązać.
+ Mając świadomość, że język może być jednak istotnym czynnikiem przy wyborze
+ środowiska dla aplikacji rozproszonej, został on ujęty w tabeli 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:background-Podsumowanie-istniejacych-rozwiazan"
+
+\end_inset
+
+ podsumowującej rozdział.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
@@ -787,15 +848,14 @@ Porównanie wybranych środowisk przetwarzania rozproszonego
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="5">
+<lyxtabular version="3" rows="9" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -804,16 +864,7 @@ Porównanie wybranych środowisk przetwarzania rozproszonego
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Rok wydania
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -822,7 +873,36 @@ Język programowania
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Model programowania
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pierwsze
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+
+/ostatnie
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -831,11 +911,29 @@ Język programowania
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+wydanie
 \end_layout
 
 \end_inset
@@ -855,15 +953,6 @@ PVM
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 C
 \end_layout
 
@@ -873,7 +962,7 @@ C
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+przesyłanie komunikatów
 \end_layout
 
 \end_inset
@@ -882,7 +971,7 @@ C
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1989 / 2009
 \end_layout
 
 \end_inset
@@ -902,15 +991,6 @@ MPI
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 C/C++/Fortran
 \end_layout
 
@@ -920,7 +1000,7 @@ C/C++/Fortran
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+przesyłanie komunikatów
 \end_layout
 
 \end_inset
@@ -929,6 +1009,15 @@ C/C++/Fortran
 \begin_inset Text
 
 \begin_layout Plain Layout
+1994 / 2014
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -949,15 +1038,6 @@ DryadLINQ
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 .NET (C#/F#/VB)
 \end_layout
 
@@ -967,6 +1047,16 @@ DryadLINQ
 \begin_inset Text
 
 \begin_layout Plain Layout
+przepływ danych w DAG
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -976,6 +1066,17 @@ DryadLINQ
 \begin_inset Text
 
 \begin_layout Plain Layout
+2009 / 2011
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+http://research.microsoft.com/en-us/downloads/03960cab-bb92-4c5c-be23-ce51aee0792c
+/
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -988,15 +1089,6 @@ DryadLINQ
 
 \begin_layout Plain Layout
 Hadoop
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -1024,7 +1116,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+mapowanie i reducja
 \end_layout
 
 \end_inset
@@ -1033,7 +1125,17 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+2009
+\begin_inset Note Note
+status open
 
+\begin_layout Plain Layout
+Yahoo!
+\end_layout
+
+\end_inset
+
+ / 2014
 \end_layout
 
 \end_inset
@@ -1053,15 +1155,6 @@ Spark
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 Java/Scala/Python
 \end_layout
 
@@ -1071,6 +1164,16 @@ Java/Scala/Python
 \begin_inset Text
 
 \begin_layout Plain Layout
+niesprecyzowany
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1080,7 +1183,7 @@ Java/Scala/Python
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+/ 2014
 \end_layout
 
 \end_inset
@@ -1100,15 +1203,6 @@ Erlang
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 Erlang
 \end_layout
 
@@ -1118,7 +1212,7 @@ Erlang
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+przesyłanie komunikatów
 \end_layout
 
 \end_inset
@@ -1127,7 +1221,7 @@ Erlang
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2000 / 2014
 \end_layout
 
 \end_inset
@@ -1147,15 +1241,6 @@ Orleans
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 .NET (C#/F#/VB)
 \end_layout
 
@@ -1165,6 +1250,16 @@ Orleans
 \begin_inset Text
 
 \begin_layout Plain Layout
+przesyłanie komunikatów
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1174,7 +1269,7 @@ Orleans
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2014 / 2014
 \end_layout
 
 \end_inset
@@ -1185,6 +1280,30 @@ Orleans
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+
+Pierwsze publiczne wydanie
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+
+Implementacja Open MPI
 \end_layout
 
 \end_inset
