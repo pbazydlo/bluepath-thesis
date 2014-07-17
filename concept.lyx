@@ -114,6 +114,22 @@ Usługa odnajdywania węzłów
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Zbyt specyficznie na twarz - najpierw trzeba opisać, że jest usługa jaki
+ jest jej cel a dopiero potem propozycje najprostszej realizacji.
+ W ogólności ta usługa mogłaby być mocno powiązana ze storage i oparta na
+ DHT.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Odkrywanie węzłów w sieci realizowane jest za pomocą usługi Service Discovery,
  która działa na jednym z węzłów.
  Dołączające się węzły muszą znać adres serwera Service Discovery w celu
@@ -238,9 +254,19 @@ planistę
 
 \end_inset
 
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 (więcej o tym dalej, bo pisanie o interefejsie i własnym schedulerze to
  chyba nie tu).
  
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -278,6 +304,16 @@ wykonawców
 \end_inset
 
 .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Coś jeszcze tu bo 1 zdanie to trochę mało
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -297,23 +333,33 @@ wykonawców lokalnych
 \end_inset
 
 .
- Do ich (wykonawcy) zadań należą:
+ Do zadań 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wykonawcy lokalnego
+\end_layout
+
+\end_inset
+
+ należą:
 \end_layout
 
 \begin_layout Itemize
-rozpocząć przetwarzanie, 
+rozpoczęcie przetwarzania, 
 \end_layout
 
 \begin_layout Itemize
-przekierować parametry, 
+przekierowanie parametrów, 
 \end_layout
 
 \begin_layout Itemize
-przechwycić wyjątki,
+przechwycenie wyjątków,
 \end_layout
 
 \begin_layout Itemize
-po zakończeniu przetwarzania udostępnia wyniki wyższym warstwom.
+udostępnienie wyników wyższym warstwom po zakończeniu przetwarzania.
 \end_layout
 
 \begin_layout Subsection
@@ -321,7 +367,17 @@ Wykonawca zdalny
 \end_layout
 
 \begin_layout Standard
-Do opakowania zdalnego uruchomienia 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Coś, że niezbędna jest abstrakcja zdalnego wykonania w celu ładnie poukładanego
+ kodu (Single Responsibility Class itp.)
+\end_layout
+
+\end_inset
+
+Abstrakcją zdalnego uruchomienia 
 \begin_inset Flex Name
 status collapsed
 
@@ -331,7 +387,7 @@ rozproszonego wątku
 
 \end_inset
 
- zastosowany został 
+ jest 
 \begin_inset Flex Name
 status collapsed
 
@@ -471,7 +527,7 @@ name "sec:concept-Rozproszona-pamięć-współdzielona"
 \end_inset
 
 Często w ramach przetwarzania rozproszonego zachodzi potrzeba komunikacji.
- W celu jej zapewnienia jako część biblioteki 
+ W celu jej zapewnienia, jako część biblioteki 
 \begin_inset Flex Name
 status open
 
@@ -481,7 +537,7 @@ Bluepath
 
 \end_inset
 
- dostarczany jest mechanizm 
+, dostarczany jest mechanizm 
 \begin_inset Flex Name
 status open
 
@@ -516,6 +572,16 @@ Zastosowanie takiego mechanizmu pozwala ukryć problemy komunikacyjne związane
  z wymianą danych i udostępnić programiście interfejs do którego jest przyzwycza
 jony z programowania aplikacji równoległych.
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Coś z tym zdaniem przed tą notatką jest nie tak.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
