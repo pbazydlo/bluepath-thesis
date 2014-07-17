@@ -1295,12 +1295,50 @@ i na razie nie ma innych.
 status open
 
 \begin_layout Plain Layout
-TODO!
+TODO! round-robin?
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Poniżej opisane zostały szczegółowo ich implementacje.
+ Testy porównawcze i analiza wyników zaprezentowane zostały w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:performance-Porownanie-planistow"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Szeregowanie zadań
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+mocne stwierdzenie ;)
+\end_layout
+
+\end_inset
+
+ w oparciu o obciążenie węzłów
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Subsection
+Szeregowanie zadań za pomocą algorytmu karuzelowego
+\end_layout
+
+\begin_layout Standard
+...
 \end_layout
 
 \begin_layout Section

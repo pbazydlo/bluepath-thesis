@@ -1000,6 +1000,20 @@ Ubuntu Server
 \end_layout
 
 \begin_layout Subsection
+Porównanie dostępnych algorytmów szeregownia zadań
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:performance-Porownanie-planistow"
+
+\end_inset
+
+...
+\end_layout
+
+\begin_layout Subsection
 Prefixy
 \end_layout
 
