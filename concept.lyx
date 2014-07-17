@@ -553,6 +553,9 @@ ia i jest jednym z istotnych elementów modułowości sys
 
 \begin_layout Section
 Rozproszona pamięć współdzielona
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -569,6 +572,22 @@ rozproszona
  system nie bazuje na tym czy testowaliśmy z jednym węzłem czy nie - dopóki
  działanie abstrakcji pozostaje niezmienne to mogło by to działać przy pomocy
  listonoszy :P
+\end_layout
+
+\begin_layout Plain Layout
+-- mimo wszystko uważam, że nadużywamy tutaj słowa 'rozproszona', podaczas
+ gdy nam chodzi o 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+'pamięć współdzieloną', a jej ew.
+ rozproszenie jest kwestią implementacyjną
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -781,7 +800,7 @@ reference "sub:Koncepcja-Zamki-rozproszone"
 \end_layout
 
 \begin_layout Subsection
-Kolekcje rozproszone
+Współdzielone struktury danych i obiekty
 \end_layout
 
 \begin_layout Standard
@@ -808,12 +827,20 @@ pamięci współdzielonej
 \end_inset
 
 .
- Aby uniknąć takiej sytuacji wprowadzone zostały trzy podstawowe kolekcje
+ Aby uniknąć takiej sytuacji wprowadzone zostały struktury danych i obiekty
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-licznik to nie do końca kolekcja...
+\begin_inset Quotes eld
+\end_inset
+
+trzy podstawowe kolekcj
+\begin_inset Quotes erd
+\end_inset
+
+ -- licznik to nie do końca kolekcja...
+ (ale to Ty, Piotr, pisałeś to zdanie :D)
 \end_layout
 
 \end_inset
