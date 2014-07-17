@@ -83,30 +83,30 @@ tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
  Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
 iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
  komunikatów.
+ Klaster sysetmu Bluepath zakłada możliwość bezpośredniej komunikacji każdego
+ podłączonego do niego komputera z każdym innym poprzez sieć.
  
 \end_layout
 
 \begin_layout Standard
-(komputery połączone siecią, które mogą komunikować się każdy z każdym,
- nie może być NAT).
- Biblioteka zapewnia szkielet/środowisko (framework?) do tworzenia aplikacji
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Biblioteka zapewnia szkielet/środowisko (framework?) do tworzenia aplikacji
  rozproszonych.
- Aplikacja taka musi zostać rozdystrybuowana na węzły w klastrze przez użytkowni
-ka.
- Zakładamy, że na węzłach obliczeniowych [to określenie mi się podoba] znajduje
- się zgodna binarnie wersja aplikacji, tj.
- każdy z węzłów może wykonać dowolną metodę z dowolnej klasy będącej częścią
- aplikacji.
+ Ponadto na węzłach mogą działać dodatkowe usługi.
  
 \end_layout
 
-\begin_layout Standard
-[słabo, wiem ;p] 
+\begin_layout Plain Layout
+Aplikacja taka musi zostać rozdystrybuowana na węzły w klastrze przez użytkownik
+a.--dodałem punkt w implementacji, gdzie można opisać skrypt PowerShellowy
 \end_layout
 
-\begin_layout Standard
-Ponadto na węzłach mogą działać dodatkowe usługi.
- 
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
