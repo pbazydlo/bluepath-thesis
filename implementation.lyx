@@ -1433,12 +1433,35 @@ TraceMessage
 status open
 
 \begin_layout Plain Layout
-jest zahardcodowany new RedisStorage!! (?)
+jest zahardcodowany new RedisStorage!! (??)
 \end_layout
 
 \end_inset
 
- Udostępnia ona również metodę 
+ W tym celu należy ustawić flagę 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+WriteToRedis
+\end_layout
+
+\end_inset
+
+ oraz uzupełnić nazwę hosta współdzielonej pamięci (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+RedisHost
+\end_layout
+
+\end_inset
+
+), do którego ma odbywać się zapis.
+ Warto zwrócić uwagę, że tryb pracy ze zbieraniem historii zdarzeń we współdziel
+onej pamięci może istotnie ograniczać wydajność systemu.
+ W celu zmaterializowania zebranego logu udostępniona została metoda 
 \begin_inset Flex Code
 status open
 
@@ -1585,6 +1608,226 @@ xsd.exe" xesext.xsd /classes /o:../Bluepath/Reporting/
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zdarzenie jest wynikiem zarejestrowania 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+aktywności
+\end_layout
+
+\end_inset
+
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+activity
+\end_layout
+
+\end_inset
+
+).
+ Rodzaje aktywności zachodzących w systemie zostały zdefiniowane w formie
+ typu wyliczeniowego 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Bluepath.Reporting.Log.Activity
+\end_layout
+
+\end_inset
+
+.
+ Przykładowe z nich to: 
+\end_layout
+
+\begin_layout Itemize
+zgłoszenie przez węzeł gotowości do przyjęcia zleceń (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Service_is_ready
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+rozpoczęcie wykonywania kodu użytkownika w ramach rozproszonego wątku (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Local_executor_started_running_user_code
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+zakończenie wykonywania kodu użytkownika na węźle (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Local_executor_finished_running_user_code
+\end_layout
+
+\end_inset
+
+),
+\end_layout
+
+\begin_layout Itemize
+wysłanie wywołania zwrotnego z wynikiem działania wątku (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Sending_callback_with_result
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Wszystkie zdarzenia, które są mało istotne dla analizy procesu mogą być
+ grupowane w ramach aktywności 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Info
+\end_layout
+
+\end_inset
+
+, które powinny zostać odfiltrowane w pierwszej fazie analizy.
+ Jeżeli użytkownik chce użyć własnej nazwy dla zdarzenia, może to zrobić
+ korzystając z aktywności 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Custom
+\end_layout
+
+\end_inset
+
+, a właściwą nazwę przekazać jako parametr 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+message
+\end_layout
+
+\end_inset
+
+ do metody logowania zdarzeń.
+ 
+\end_layout
+
+\begin_layout Standard
+Jako 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zasób
+\end_layout
+
+\end_inset
+
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+resource
+\end_layout
+
+\end_inset
+
+) wskazywany jest zawsze wykonawca, który dokonał wpisu, korzystając z jego
+ unikalnego identyfikatora 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+eid
+\end_layout
+
+\end_inset
+
+.
+ Implementacja zakłada możliwość skrócenia zapisu do n ostatnich znaków
+ składających się na identyfikator w celu ułatwienia analizy przez człowieka.
+ Może to potencjalnie wpłynąć na fałszywe sklasyfikowanie różnych zasobów
+ jako tego samego w wyniku kolizji tak skonstruowanych identyfikatorów.
+\end_layout
+
+\begin_layout Standard
+Zależności czasowe są istotną częścią analizy przebiegu procesu.
+ Z wykorzystaniem serwerów czasu NTP możliwe jest zsynchronizowanie zegarów
+ węzłów w klastrze z dokładnością do ?? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+.
+ Aby zachować porządek zdarzeń w miejsce na milisekundy wpisywana jest wartość
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+współdzielonego licznika
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+chyba nie do końca jest to dobre, bo jak jeden węzeł jest jeszcze w poprzedniej
+ sekundzie a drugi już w bieżącej to mamy problem ;)
+\end_layout
+
+\begin_layout Plain Layout
+jakiś art.
+ o process mining basics: http://www.wiso.uni-hamburg.de/fileadmin/wiso_fs_wi/Publi
+kationen/Michael/Gehrke_und_Werner_-_2013_-_Process_Mining_Pre-print_Version.pdf
 \end_layout
 
 \end_inset

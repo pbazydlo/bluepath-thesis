@@ -311,11 +311,15 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
 \begin_layout Subsection
 Typy w systemie
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 W trakcie projektowania systemu założono, że wszystkie typy przesyłane pomiędzy
  węzłami muszą być serializowalne (posiadać atrybut 
 \begin_inset Flex Code
@@ -328,6 +332,11 @@ Serializable
 \end_inset
 
 ).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -809,7 +818,7 @@ pamięci współdzielonej
 \end_layout
 
 \begin_layout Paragraph
-Lista rozproszona
+Lista
 \end_layout
 
 \begin_layout Standard
@@ -872,7 +881,7 @@ zamki rozproszone
 \end_layout
 
 \begin_layout Paragraph
-Słownik rozproszony
+Słownik
 \end_layout
 
 \begin_layout Standard
@@ -915,7 +924,7 @@ trochę shitowy ten opis :(
 \end_layout
 
 \begin_layout Paragraph
-Licznik rozproszony
+Licznik
 \end_layout
 
 \begin_layout Standard
@@ -1118,14 +1127,52 @@ Logowanie zdarzeń
 \end_layout
 
 \begin_layout Standard
-jest
+W celu umożliwienia przeglądu przebiegu przetwarzania system udostępnia
+ mechanizmy do zapisu historii zdarzeń -- zarówno tych wewnętrznych jak
+ i zachodzących w kodzie użytkownika.
+ Opcjonalnie, korzystając z abstrakcji 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonej listy
 \end_layout
+
+\end_inset
+
+, log jest zbierany we 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+współdzielonej pamięci
+\end_layout
+
+\end_inset
+
+ i możliwe jest jego dalsze przetwarzanie i wizualizowanie np.
+ w narzędziach służących do eksploracji procesów
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+coś więcej??
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
 \begin_layout Subsection
 OpenXES
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 nasza implementacja standardu 
 \begin_inset Note Note
 status open
@@ -1139,20 +1186,25 @@ ale o implementacji to w implementacji
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 process mining
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 much image
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Wizualizacja logów
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Disco
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
