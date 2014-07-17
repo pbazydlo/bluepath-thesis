@@ -77,17 +77,8 @@ Implementacja
 \end_layout
 
 \begin_layout Standard
-System Bluepath działa na klastrze serwerów, na każdym z nich musi być uruchomio
-ny proces (jaki?).
- W ramach procesu działa wątek nasłuchujący na zlecenia.
-\end_layout
-
-\begin_layout Standard
-Implementacja systemu została wykonana w środowisku .NET Framework
-\begin_inset space ~
-\end_inset
-
-4.5
+Projekt systemu zakładał napisanie go w języku C# w środowisku .NET Framework
+ 4.5
 \begin_inset space ~
 \end_inset
 
@@ -98,7 +89,16 @@ key "Microsoft.NET"
 
 \end_inset
 
-.
+ i umożliwienie wykonywania kodu użytkownika z bibliotek skompilowanych
+ do kodu zarządzalnego pod w .NET Framework w wersji nie nowszej niż 4.5.
+ Testy wykonania kodu użytkownika zostały przeprowadzone z użyciem aplikacji
+ napisanych w językach C# oraz F#.
+\end_layout
+
+\begin_layout Standard
+System Bluepath działa na klastrze serwerów, na każdym z nich musi być uruchomio
+ny proces (jaki?).
+ W ramach procesu działa wątek nasłuchujący na zlecenia.
 \end_layout
 
 \begin_layout Section

@@ -77,9 +77,13 @@ Koncepcja i projekt systemu
 \end_layout
 
 \begin_layout Standard
-kod zarządzalny (testowane C#, F#), łatwy w użyciu, szybki start dla nuboof,
- wysoki poziom abstrakcji (wątki vs przesyłanie komunikatów, współdzielenie
- stanu vs erlang)
+Proponowany model programowania miał być jak najbardziej naturalny dla programos
+tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
+ z koncepcji wątków, współdzielonej pamięci, zamków.
+ Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
+iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
+ komunikatów.
+ 
 \end_layout
 
 \begin_layout Standard
