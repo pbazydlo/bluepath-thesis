@@ -1002,12 +1002,39 @@ name "sub:Koncepcja-Operacje-zbiorcze"
 \end_layout
 
 \begin_layout Standard
+Głównym kosztem przetwarzania rozproszonego są narzuty komunikacyjne.
+ Wykonywanie 1000 rządań w celu pobrania tysiąca elementów z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ jest wysoce nieefektywne.
+ W celu ominięcia tego problemu dla każdej operacji na 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ zdefiniowano jej odpowiednik przyjmujący jako parametr zbiór kluczy.
+ Dodanie tego typu operacji pozwoli użytkownikowi w znaczący sposób zwiększyć
+ efektywność swojego przetwarzania (np.
+ poprzez jednorazowe pobranie do pamięci lokalnej przetwarzanych danych).
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
 bo chcemy minimalizować narzuty komunikacyjne - znowu, czy to nie implementacja?
-?
+? - na razie napiszę - jeśli ustalimy, że jednak implementacja to przeniesiemy
+ tekst :)
 \end_layout
 
 \end_inset
@@ -1027,6 +1054,76 @@ name "sub:Koncepcja-Zamki-rozproszone"
 \end_layout
 
 \begin_layout Standard
+Przetwarzanie rozproszone oparte na 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonych wątkach
+\end_layout
+
+\end_inset
+
+ podobnie jak przetwarzanie równoległe może wymagać zastosowania sekcji
+ krytycznych.
+ Operacje na 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ zostały zdefiniowane w taki sposób, aby możliwe było stworzenie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamków rozproszonych
+\end_layout
+
+\end_inset
+
+ opartych o ten mechanizm.
+ W związku z tym tworzenie i zarządzanie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamkami rozproszonymi
+\end_layout
+
+\end_inset
+
+ jest częścią obowiązków pamięci współdzielonej.
+\end_layout
+
+\begin_layout Standard
+Ponieważ reszta infrastruktury nie polega na sposobie implementacji zamków
+ (a jedynie na zapewnieniach
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nie wiem jak to inaczej nazwać
+\end_layout
+
+\end_inset
+
+ jakie oferują) mogą one zostać zaimplementowane w oparciu o mechanizmy
+ nie związane z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięcią współdzieloną
+\end_layout
+
+\end_inset
+
+.
 \begin_inset Note Note
 status open
 
