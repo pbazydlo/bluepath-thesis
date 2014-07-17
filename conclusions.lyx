@@ -138,20 +138,16 @@ był problem żeby bootstrapować
 
 \end_layout
 
-\begin_layout Subsection
-Dystrybucja aplikacji do węzłów
-\end_layout
-
-\begin_layout Standard
-abc...
-\end_layout
-
 \begin_layout Standard
 \begin_inset Note Note
 status open
 
+\begin_layout Subsection
+Dystrybucja aplikacji do węzłów
+\end_layout
+
 \begin_layout Plain Layout
-rozwiązane skryptem w PowerShellu
+abc...rozwiązane skryptem w PowerShellu, w sumie opisane w implementacji
 \end_layout
 
 \end_inset

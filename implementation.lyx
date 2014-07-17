@@ -1927,7 +1927,11 @@ Send-File
 \end_inset
 
  do przesyłania pojedynczych plików, z którego korzysta ten pierwszy.
- Skrypt do wysyłania pojedynczych plików został zaczerpnięty z książki 
+ 
+\end_layout
+
+\begin_layout Standard
+Skrypt do wysyłania pojedynczych plików został zaczerpnięty z książki 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Windows-PowerShell-Cookbook"
@@ -1938,8 +1942,21 @@ key "Windows-PowerShell-Cookbook"
  Przyjmuje 3 parametry: ścieżkę do pliku źródłowy znajdującego się na lokalnej
  maszynie, ścieżkę docelową na zdalnej maszynie oraz referencję do obiektu
  zdalnej sesji.
- Skrypt do wysyłania folderów przyjmuje jako parametry: adres zdalnego komputera
- (
+ Plik jest wczytywany do pamięci jako tablica bajtów, następnie jego transfer
+ odbywa się strumieniowo w blokach o rozmiarze 1 MB.
+ Po zrekonstruowaniu tablicy bajtów na zdalnej stronie jest ona zapisywana
+ na dysk we wskazanej lokalizacji.
+\end_layout
+
+\begin_layout Standard
+Skrypt do wysyłania folderów przedstawiony na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-Send-Folder"
+
+\end_inset
+
+ przyjmuje jako parametry: adres zdalnego komputera (
 \begin_inset Flex Code
 status open
 
@@ -2001,8 +2018,33 @@ status open
 
 ).
  Skrypt tworzy obiekt zdalnej sesji uwierzytelniając się poprzez podaną
- nazwę użytkownika i hasło, pobiera listę plików we wskazanym lokalnym folderze
- i dla każdego z plików wywołuje skrypt 
+ nazwę użytkownika i hasło.
+ W celu uproszczenia etapu konfiguracji środowiska, do wywołania metody
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+New-PSSession
+\end_layout
+
+\end_inset
+
+ można dodać przełącznik 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+-SessionOption (New-PSSessionOption -SkipCACheck)
+\end_layout
+
+\end_inset
+
+.
+ Opcja ta powoduje jednak zmniejszenie bezpieczeństwa poprzez dopuszczenie
+ niezaufanych certyfikatów maszyn.
+ Następnie pobierana jest lista plików we wskazanym lokalnym folderze i
+ dla każdego z plików wywoływany skrypt 
 \begin_inset Flex Path
 status open
 
@@ -2013,7 +2055,7 @@ Send-File
 \end_inset
 
 .
- Pomija przy tym pliki z symbolami (
+ Pomijane przy tym są pliki z symbolami (
 \begin_inset Flex Path
 status open
 
@@ -2036,7 +2078,7 @@ debuggera
 
  do procesów pracujących na zdalnych maszynach.
  Po zakończeniu przesyłania plików zdalna sesja jest zamykana.
- Łatwo zauważyć, że skrypt 
+ Warto zauważyć, że skrypt 
 \begin_inset Flex Path
 status open
 
@@ -2047,6 +2089,150 @@ Send-Folder
 \end_inset
 
  można wywołać w pętli, aby przesłać pliki do każdego komputera w klastrze.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-Send-Folder"
+
+\end_inset
+
+Skrypt przesyłający pliki ze wskazanego folderu na zdalną maszynę
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+param (
+\end_layout
+
+\begin_layout Plain Layout
+
+	[string]$server = $(throw "-server is required."),
+\end_layout
+
+\begin_layout Plain Layout
+
+	[int]$port = 5986,
+\end_layout
+
+\begin_layout Plain Layout
+
+	[string]$user = $(throw "-user is required."),
+\end_layout
+
+\begin_layout Plain Layout
+
+	[string]$password = $(throw "-password is required."),
+\end_layout
+
+\begin_layout Plain Layout
+
+	[string]$source = $(throw "-source is required."),
+\end_layout
+
+\begin_layout Plain Layout
+
+	[string]$destination = $(throw "-destination is required.")
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$secPassword = ConvertTo-SecureString $password -AsPlainText -Force
+\end_layout
+
+\begin_layout Plain Layout
+
+$credential = New-Object System.Management.Automation.PSCredential($user, $secPassw
+ord)
+\end_layout
+
+\begin_layout Plain Layout
+
+$uri = New-Object System.Uri("https://" + $server + ":" + $port)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$session = New-PSSession -ConnectionUri $uri -Credential $credential
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Get-ChildItem -Path $source -File | Foreach-Object {
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ($_.Extension -ne ".pdb") {
+\end_layout
+
+\begin_layout Plain Layout
+
+		$target = $destination + $_.Name
+\end_layout
+
+\begin_layout Plain Layout
+
+		.
+\backslash
+Send-File.ps1 $_.FullName $target $session
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Disconnect-PSSession $session
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
