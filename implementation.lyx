@@ -93,12 +93,20 @@ key "Microsoft.NET"
  do kodu zarządzalnego pod w .NET Framework w wersji nie nowszej niż 4.5.
  Testy wykonania kodu użytkownika zostały przeprowadzone z użyciem aplikacji
  napisanych w językach C# oraz F#.
-\end_layout
+ System Bluepath działa na klastrze węzłów obliczeniowych.
+ Na każdym węźle musi zostać uruchomiona binarnie zgodna wersja aplikacji,
+ w stopniu umożliwiającym wykonanie dowolnej metody z dowolnej klasy będącej
+ częścią procesu za pomocą zserializowanego uchwytu otrzymanego w ramach
+ zlecenia (pod pewnymi warunkami opisanymi w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:implementation-Rozproszony-watek"
 
-\begin_layout Standard
-System Bluepath działa na klastrze serwerów, na każdym z nich musi być uruchomio
-ny proces (jaki?).
- W ramach procesu działa wątek nasłuchujący na zlecenia.
+\end_inset
+
+).
+ W ramach jednego z wątków uruchamiana jest usługa nasłuchująca na wywołania
+ -- zlecenia, zapytania -- przychodzące od pozostałych węzłów.
 \end_layout
 
 \begin_layout Section
@@ -158,6 +166,8 @@ Wiresharkiem jakąś kopertę, może taką z uchwytem do metody?
 \end_inset
 
 .
+ Firewall blokujący połączenia przychodzące na portach o wysokich numerach
+ lub NAT uniemożliwią poprawne działanie systemu.
  Wątek nasłuchujący jest reprezentowany przez obiekt klasy 
 \begin_inset Flex Code
 status open
@@ -1148,6 +1158,13 @@ Rozproszony wątek
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:implementation-Rozproszony-watek"
+
+\end_inset
+
+
 \begin_inset Flex Code
 status open
 
@@ -1636,6 +1653,14 @@ Nie po polsku jest to
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Dystrybucja aplikacji w klastrze
+\end_layout
+
+\begin_layout Standard
+...
 \end_layout
 
 \end_body
