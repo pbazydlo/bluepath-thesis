@@ -787,23 +787,6 @@ pamięci współdzielonej
 
 .
  Aby uniknąć takiej sytuacji wprowadzone zostały struktury danych i obiekty
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
-trzy podstawowe kolekcj
-\begin_inset Quotes erd
-\end_inset
-
- -- licznik to nie do końca kolekcja...
- (ale to Ty, Piotr, pisałeś to zdanie :D)
-\end_layout
-
-\end_inset
-
  oparte na 
 \begin_inset Flex Name
 status open
@@ -828,16 +811,6 @@ status open
 
 \begin_layout Plain Layout
 listy rozproszonej
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-czy to jest nazwa?
 \end_layout
 
 \end_inset
@@ -963,23 +936,6 @@ rozproszony wątek
  ten sposób wątek może przetworzyć 100 elementów począwszy od uzyskanej
  wartości mając pewność, że żaden inny wątek nie zacznie przetwarzać tych
  elementów).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Zapewniają łatwą w zrozumieniu i wykorzystaniu abstrakcję.
-\end_layout
-
-\begin_layout Plain Layout
-Distributed list, dictionary, counter
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -1116,16 +1072,6 @@ pamięcią współdzieloną
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-bo potrzebujemy sekcje krytyczne
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

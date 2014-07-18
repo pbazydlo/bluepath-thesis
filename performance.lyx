@@ -1063,8 +1063,7 @@ Bluepath
 \end_layout
 
 \begin_layout Enumerate
-Szeregowanie zadań w oparciu o obciążenie węzłów -- wykorzystujący informację
- o liczbie wątków obecnych na węzłach - opisany w 
+Szeregowanie zadań w oparciu o obciążenie węzłów -- opisany w 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:implementacja-szeregowanie-zadan-threadcount"
@@ -1075,7 +1074,14 @@ reference "sub:implementacja-szeregowanie-zadan-threadcount"
 \end_layout
 
 \begin_layout Enumerate
-Szeregowanie zadań za pomocą algorytmu karuzelowego
+Szeregowanie zadań za pomocą algorytmu karuzelowego -- opisany w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Implementacja-Szeregowanie-karuzelowy"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection

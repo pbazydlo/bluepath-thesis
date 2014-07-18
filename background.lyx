@@ -77,7 +77,8 @@ Podstawy teorytyczne
 \end_layout
 
 \begin_layout Standard
-tu jakiś wstęp do całego rozdziału
+W tym rozdziale przedstawione zostaną terminy wykorzystywane w dalszej części
+ pracy oraz zestawienie rozwiązań podobnych tematyką do tej pracy.
 \end_layout
 
 \begin_layout Section
@@ -229,17 +230,7 @@ MPI
 \end_layout
 
 \begin_layout Standard
-Biblioteka 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-MPI
-\end_layout
-
-\end_inset
-
- 
+Biblioteka MPI 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Using-MPI-Portable-Parallel-Programming-with-the-Message-Passing-Interface"
@@ -362,17 +353,7 @@ Hadoop
 \end_layout
 
 \begin_layout Standard
-Przetwarzanie w modelu mapowania i redukcji -- 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-MapReduce
-\end_layout
-
-\end_inset
-
- 
+Przetwarzanie w modelu mapowania i redukcji -- MapReduce 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Google-MapReduce"
@@ -380,17 +361,7 @@ key "Google-MapReduce"
 \end_inset
 
  -- zostało pierwotnie zaproponowane przez firmę Google.
- 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Hadoop
-\end_layout
-
-\end_inset
-
- to jego implementacja wydana na otwartej licencji.
+ Hadoop to jego implementacja wydana na otwartej licencji.
  Środowisko korzysta z 
 \begin_inset Flex Emph
 status open
@@ -465,17 +436,7 @@ Spark
 \end_layout
 
 \begin_layout Standard
-Środowisko obliczeniowe 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Spark
-\end_layout
-
-\end_inset
-
- 
+Środowisko obliczeniowe Spark 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Spark-Berkeley"
@@ -484,17 +445,7 @@ key "Spark-Berkeley"
 
  powstało w wyniku prac prowadzonych na University of California w Berkeley.
  Od 2013 r.
- jako 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Apache Spark
-\end_layout
-
-\end_inset
-
- jest rozwijane przez Apache Software Foundation.
+ jako Apache Spark jest rozwijane przez Apache Software Foundation.
  Środowisko to może być użyte do przetwarzania w modelu nieograniczonym
  do dwóch faz jak w MapReduce, co upodabnia je bardziej do Dryad.
  Zastosowane w środowisku optymalizacje pozwoliły znacząco poprawić czas
@@ -663,17 +614,7 @@ Erlang
 \end_layout
 
 \begin_layout Standard
-Język programowania 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Erlang
-\end_layout
-
-\end_inset
-
- 
+Język programowania Erlang 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Erlang-Armstrong:2010:ERL:1810891.1810910"
@@ -767,17 +708,7 @@ Opis co to jest + Kiedy ogłoszony
 \end_layout
 
 \begin_layout Standard
-W modelu programowania 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Orleans
-\end_layout
-
-\end_inset
-
- 
+W modelu programowania Orleans 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Orleans-export:210931"

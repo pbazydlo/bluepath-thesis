@@ -1316,33 +1316,37 @@ Koperta SOAP -- inicjalizacja zdalnego wykonawcy
 \end_layout
 
 \begin_layout Plain Layout
+
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
 \end_layout
 
 \begin_layout Plain Layout
+
 	<s:Body>
 \end_layout
 
 \begin_layout Plain Layout
+
 		<Initialize xmlns="http://tempuri.org/">
 \end_layout
 
 \begin_layout Plain Layout
-			<methodHandle>AAEAAAD/////AQAAAAAAAAAMAgAAAD9
-[...]
-\lang polish
-==</methodHandle>
+
+			<methodHandle>AAEAAAD/////AQAAAAAAAAAMAgAAAD9[...]==</methodHandle>
 \end_layout
 
 \begin_layout Plain Layout
+
 		</Initialize>
 \end_layout
 
 \begin_layout Plain Layout
+
 	</s:Body>
 \end_layout
 
 \begin_layout Plain Layout
+
 </s:Envelope>
 \end_layout
 
@@ -1547,6 +1551,12 @@ Szeregowanie zadań za pomocą algorytmu karuzelowego
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Implementacja-Szeregowanie-karuzelowy"
+
+\end_inset
+
 W pewnych zastosowaniach pewne zrównowarzenie obciążenia można osiągnąć
  poprzez zastosowanie algorytmu karuzelowego (ang.
  
