@@ -6,6 +6,9 @@
 \use_default_options true
 \begin_modules
 dcs
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
 \end_modules
 \maintain_unincluded_children false
 \language polish
@@ -86,11 +89,20 @@ Definicje
 \end_layout
 
 \begin_layout Standard
-Węzeł obliczeniowy
+...
 \end_layout
 
 \begin_layout Standard
-...
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -110,7 +122,30 @@ Architektura systemu
 \end_layout
 
 \begin_layout Standard
-Węzeł obliczeniowy/ Wężłęł
+...
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Węzeł obliczeniowy
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:Wezel-obliczeniowy"
+
+\end_inset
+
+także: węzeł [...]
 \end_layout
 
 \begin_layout Standard

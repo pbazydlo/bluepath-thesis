@@ -15,6 +15,9 @@
 \use_default_options false
 \begin_modules
 dcs
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
 \end_modules
 \maintain_unincluded_children false
 \language polish
