@@ -395,7 +395,33 @@ W celu przetestowania działania funkcji takich jak przesyłanie klas jako
  parametrów wskazane jest stworzenie testów integracyjnych.
  Ich zadaniem jest przetestowanie nie tylko logiki wykonywanego kodu, ale
  równierz wykrycie problemów jakie mogą się pojawić w związku z działaniem
- w  
+ w środowisku sieciowym (np.
+ wymagane uprawnienia do utworzenia serwisu, serializacja obiektów).
+\end_layout
+
+\begin_layout Standard
+Jednym z problemów związanych z testami integracyjnymi jest potrzeba stworzenia
+ środowiska testowego.
+ W momencie gdy zachodzi potrzeba uruchomienia zewnętrznego programu (np.
+ redis'a) system operacyjny nie dostarcza narzędzi, które pozwoliłyby określić
+ nie tylko czy dany proces jest już uruchomiony, ale równierz czy skończył
+ on proces inicjalizacji.
+ Należy równierz zwrócić uwagę, że testy nie powinny być od siebie zależne
+ - a więc efekt wykonania jednego testu nie powinien mieć wpływu na inne
+ testy.
+ Aby tego uniknąć, każdy test został wyposażony w taki zestaw parametrów,
+ który pozwoli mu się wykonać niezależnie od innych (np.
+ port na którym ma nasłuchiwać usługa 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -472,7 +498,7 @@ rozproszone zamki
 \end_layout
 
 \begin_layout Itemize
-a także testy struktury danych i obiekty zbudowanych na bazie współdzielonej
+a także testy struktur danych i obiektów zbudowanych na bazie współdzielonej
  pamięci -- lista, słownik, licznik.
 \end_layout
 
@@ -481,7 +507,26 @@ Testy wydajnościowe
 \end_layout
 
 \begin_layout Standard
-będą
+Ważną częścią tworzenia biblioteki programistycznej jest zweryfikowanie
+ jej zachowania w przykładowych zastosowaniach.
+ Pozwala to zweryfikować słuszność przyjętych założeń i rozwiązań.
+ 
+\end_layout
+
+\begin_layout Standard
+Przy okazji weryfikacji działania biblioteki 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+ przeprowadzone zostały testy wydajnościowe, zestawiające efekt wykonania
+ przetwarzania w klastrze w stosunku do przetwarzania na pojedynczym procesorze
+ oraz porównanie dostarczonych przykładowych algorytmów szeregowania zadań.
 \end_layout
 
 \begin_layout Subsection
@@ -1004,7 +1049,33 @@ name "sub:performance-Porownanie-planistow"
 
 \end_inset
 
-...
+Razem z biblioteką 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+ dostarczone zostały dwa algorytmy szeregujące zadania:
+\end_layout
+
+\begin_layout Enumerate
+Szeregowanie zadań w oparciu o obciążenie węzłów -- wykorzystujący informację
+ o liczbie wątków obecnych na węzłach - opisany w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:implementacja-szeregowanie-zadan-threadcount"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+Szeregowanie zadań za pomocą algorytmu karuzelowego
 \end_layout
 
 \begin_layout Subsection
@@ -1012,7 +1083,20 @@ Prefixy
 \end_layout
 
 \begin_layout Standard
-qwertyui
+Jednym z algorytmów wykorzystanych do pomiaru wydajności był algorytm tworzący
+ prefixy na potrzeby przeprowadzenia operacji uzupełniania tekstu (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+autocomplete
+\end_layout
+
+\end_inset
+
+).
+ Wyniki oraz ich interpretacja przedstawione zostały poniżej.
 \end_layout
 
 \begin_layout Subsection
@@ -1030,7 +1114,20 @@ name "sub:performance-Obliczanie-przyblizenia-Pi"
 
 \end_inset
 
-qwertyuiop
+Algorytm i sposób realizacji rozproszonej obliczania liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+ zostały przedstawione w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Przykladowe-zastosowania-liczba-pi"
+
+\end_inset
+
+.
+ Poniżej przedstawione zostały wyniki przeprowadzonych testów oraz wnioski
+ wysunięte na ich podstawie.
 \end_layout
 
 \begin_layout Standard

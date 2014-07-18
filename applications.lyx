@@ -1591,6 +1591,12 @@ Obliczanie przybliżenia liczby
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Przykladowe-zastosowania-liczba-pi"
+
+\end_inset
+
 Metoda Monte Carlo
 \begin_inset Note Note
 status open
