@@ -928,6 +928,12 @@ Licznik
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "par:koncepcja-distributed-counter"
+
+\end_inset
+
 Jedną z podstawowych struktur rozproszonych jest 
 \begin_inset Flex Name
 status open

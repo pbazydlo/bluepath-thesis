@@ -109,7 +109,7 @@ Architektura systemu
 \end_layout
 
 \begin_layout Standard
-Węzeł
+Węzeł obliczeniowy/ Wężłęł
 \end_layout
 
 \begin_layout Standard
@@ -1368,16 +1368,6 @@ Orleans
 
 \begin_layout Plain Layout
 przesyłanie komunikatów
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-??
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset

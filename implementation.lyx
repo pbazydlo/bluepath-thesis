@@ -125,17 +125,7 @@ remote procedure call
 
 \end_inset
 
-) za pomocą 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Windows Communication Foundation
-\end_layout
-
-\end_inset
-
- 
+) za pomocą Windows Communication Foundation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MSDN:WhatIsWindowsCommunicationFoundation"
@@ -886,7 +876,7 @@ persistent hash table
 \end_layout
 
 \begin_layout Standard
-Wybrane zostało rozwiązanie Rhino DHT
+Początkowo wybrane zostało rozwiązanie Rhino DHT
 \begin_inset Note Note
 status open
 
@@ -932,29 +922,28 @@ reference "par:problemy-rhino-dht"
 
 \begin_layout Standard
 Kolejnym rozwiązaniem wziętym pod uwagę był Redis.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Projekt ten jest utrzymywany przez StackExchange -- NIE!!!!
-\end_layout
-
-\end_inset
-
-Salvatore Sanfilippo i Pieter Noordhuis!!! i używany na co dzień jako mechanizm
- pamięci podręcznej tego serwisu internetowego.
- Rozwijana jest także jego wersja rozproszona -- Redis Cluster.
- System ten posiada bibliteki dla .NET Framework.
- Problemy, które napotkano podczas uruchamiania usługi Redis zostały opisane
- w punkcie 
+ Jest to otwarto-źródłowy system przechowujący dane typu klucz-wartość autorstwa
+ Salvatore Sanfilippo oraz Pieter'a Noordhuis.
+ Jest używany na co dzień jako mechanizm pamięci podręcznej wielu serwisów
+ internetowych (m.in.
+ cała rodzina StackExchange) - posiada przez to duże wsparcie i aktywnie
+ działającą społeczność.
+ Redis potrafi działać zarówno jako pojedynczy proces jak i w trybie master-slav
+e, ponadto rozwijana jest wersja rozproszona -- Redis Cluster.
+ System ten posiada biblitekę dla .NET Framework dostarczoną przez firmę
+ StackExchange.
+ Redis został napisany dla rodziny systemów operacyjnych linux, powstał
+ jednak port tego systemu do systemu operacyjnego Windows.
+ Problemy, które napotkano podczas uruchamiania usługi Redis (opisane w
+ punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:problemy-Windows-Redis"
 
 \end_inset
 
-.
+) udało się obejść, przez co system ten został wykorzystany w ostatecznej
+ wersji pracy i w testach.
 \end_layout
 
 \begin_layout Subsection
@@ -968,7 +957,7 @@ Struktury danych i obiekty, które mogą być współdzielone między wątkami
 status open
 
 \begin_layout Plain Layout
-rozszerzoną pamięć współdzieloną
+pamięć współdzieloną
 \end_layout
 
 \end_inset
@@ -983,7 +972,17 @@ IExtendedStorage
 
 \end_inset
 
-.
+ - pozwoliło to zastosować 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamki rozproszone
+\end_layout
+
+\end_inset
+
+ w celu zapewnienia poprawności przetwarzania.
  Każdy obiekt jest identyfikowany przez klucz będący łańcuchem znaków.
  W przypadku listy czy słownika na podstawie klucza wywiedzione zostają
  identyfikatory obiektów składających się na daną strukturę -- zamków, metadanyc
@@ -1028,6 +1027,60 @@ DistributedListEnumerator
 \end_inset
 
 , który umożliwia iterowanie po kolekcji.
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Lista rozproszona
+\end_layout
+
+\end_inset
+
+ została rozszerzona o operację 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+CopyPartTo
+\end_layout
+
+\end_inset
+
+ - jest to odpowiednik operacji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+CopyTo
+\end_layout
+
+\end_inset
+
+ (efektywnej operacji kopiowania całej zawartości listy do wskazanej tablicy),
+ który pozwala skopiować wybrany fragment listy w sposób efektywny i atomowy.
+ Operacja ta jest szczególnie przydatna przy przetwarzaniu rozproszonym,
+ gdzie dane znajdują się w wolnej 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ (w stosunku do pamięci podręcznej), a każdy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ przetwarza fragment danych.
 \end_layout
 
 \begin_layout Paragraph
@@ -1067,6 +1120,7 @@ DistributedDictionaryEnumerator
 \end_inset
 
 , który umożliwia iterowanie po kolekcji.
+ 
 \end_layout
 
 \begin_layout Paragraph
@@ -1074,7 +1128,14 @@ Licznik
 \end_layout
 
 \begin_layout Standard
-W wielu scenariuszach przydatnym obiektem może być współdzielony licznik.
+W wielu scenariuszach (przykładowy scenariusz opisany w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:koncepcja-distributed-counter"
+
+\end_inset
+
+) przydatnym obiektem może być współdzielony licznik.
  Zaimplementowana klasa 
 \begin_inset Flex Code
 status open
@@ -1150,7 +1211,8 @@ GetAndIncrease
 
 \end_inset
 
- -- atomowo pobiera aktualną wartość licznika i zwiększa ją o wskazaną liczbę.
+ -- atomowo pobiera aktualną wartość licznika i zwiększa ją o wskazaną liczbę,
+ gdzie liczba o którą ma zostać zwiększony licznik może być ujemna.
 \end_layout
 
 \begin_layout Section
@@ -1373,7 +1435,56 @@ mocne stwierdzenie ;)
 \end_layout
 
 \begin_layout Standard
-...
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:implementacja-szeregowanie-zadan-threadcount"
+
+\end_inset
+
+Jednym z podstawowych sposobów szeregowania zadań jest próba równomiernego
+ rozłożenia obciążenia węzłów.
+ Zakładając, że wszystkie zadania mają podobny rozmiar, jako miarę obciążenia
+ konkretnego węzła można przyjąć liczbę zadań, które są obecnie przetwarzane,
+ lub oczekują na rozpoczęcie przetwarzania.
+\end_layout
+
+\begin_layout Standard
+W przykładowej implementacji dostarczanej wraz z biblioteką 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+ informacje o obecnym obciążeniu węzłów są okresowo odświerzane prz pomocy
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługi odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+.
+ W zależności od szybkości tworzenia nowych 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątków rozproszonych
+\end_layout
+
+\end_inset
+
+ oraz częstotliwości odświerzania informacji o obciążeniu węzłów lokalne
+ dane mogą szybko stać się przeterminowane.
+ Można ten efekt złagodzić poprzez zwiększanie zapamiętanego obciążenia
+ o wysłane na dany węzeł wątki.
 \end_layout
 
 \begin_layout Subsection
@@ -1381,7 +1492,60 @@ Szeregowanie zadań za pomocą algorytmu karuzelowego
 \end_layout
 
 \begin_layout Standard
-...
+W pewnych zastosowaniach pewne zrównowarzenie obciążenia można osiągnąć
+ poprzez zastosowanie algorytmu karuzelowego (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+round robin
+\end_layout
+
+\end_inset
+
+)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+O! Tannenbaum!
+\end_layout
+
+\end_inset
+
+.
+ Algorytm ten nie wymaga pobierania informacji o obciążeniu węzłów z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługi odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+ przez co posiada mniejszy narzut komunikacyjny od algorytmów wymagających
+ tych informacji.
+ W sytuacji gdy tylko jeden węzeł tworzy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątki rozproszone
+\end_layout
+
+\end_inset
+
+ efekt działania algorytmu karuzelowego będzie identyczny z efektem osiągniętym
+ przez zastosowanie algorytmu opisanego w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:implementacja-szeregowanie-zadan-threadcount"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
