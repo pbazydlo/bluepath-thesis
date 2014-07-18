@@ -219,17 +219,6 @@ name "sec:background-Istniejące-rozwiązania"
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Przed stworzeniem środowiska ułatwiającego tworzenie aplikacji rozproszonych
- należy przeanalizować to co już istnieje.
-\end_layout
-
-\end_inset
-
 Poniżej przedstawiono wybrane środowiska umożliwiające tworzenie aplikacji
  do rozproszonych obliczeń.
  W tabeli 
@@ -313,11 +302,77 @@ Dryad i DryadLINQ
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Dryad provides reliable, distributed computing on thousands of servers for
  large-scale data parallel applications.
  LINQ enables developers to write and debug their applications in a SQL-like
  query language, relying on the entire .NET library and using Visual Studio.
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+System Dryad 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Microsoft-Research-Dryad"
+
+\end_inset
+
+ został stworzony przez zespół naukowców z Microsoft Research.
+ Jego celem było zapewnienie niezawodnego środowiska do obliczeń rozproszonych
+ na dużych zbiorach danych.
+ System ten miał pozwalać programiście pisać programy wykonywane w klastrze
+ bez posiadania umiejętności programowania równoległego bądź rozproszonego.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Przetwarzanie było modelowane przy pomocy kilku sekwencyjnych programów
+ połączonych jednokierunkowymi kanałami.
+ Prowadziło to do stworzenia skierowanego grafu acyklicznego, w którym kanały
+ tworzą krawędzie grafu.
+\end_layout
+
+\end_inset
+
+Przetwarzanie było modelowane jako skierowany graf acykliczny, w którym
+ wierzchołki reprezentowały sekwencyjne programy, a krawędzie przepływ danych
+ jednokierunkowymi kanałami.
+ System Dryad na podstawie tak zamodelowanego przetwarzania tworzył graf
+ przetwarzania, wykonywał go i w razie potrzeby modyfikował.
+\end_layout
+
+\begin_layout Standard
+Programy w wierzchołkach były zapisywane przy pomocy języka Scope (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Structured Computations Optimized for Parallel Execution
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SCOPE"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -360,20 +415,6 @@ status open
 \begin_layout Plain Layout
 http://blogs.technet.com/b/windowshpc/archive/2011/11/11/hpc-pack-2008-r2-sp3-and-
 windows-azure-hpc-scheduler-released.aspx
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-napisać coś o modelowaniu przepływu jako DAG (skierowany graf acykliczny),
- bo pojawia się w tabeli podsumowującej rozdział
 \end_layout
 
 \end_inset

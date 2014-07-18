@@ -77,6 +77,25 @@ dcs
 
 \begin_layout Abstract
 (abstract goes here...)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Bluepath is investigating programming models for writing parallel and distribute
+d programs to scale from a small cluster to a large data-center.
+\end_layout
+
+\begin_layout Plain Layout
+====
+\end_layout
+
+\begin_layout Plain Layout
+quite expressive YEAH!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
