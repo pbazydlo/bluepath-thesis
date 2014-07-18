@@ -92,7 +92,8 @@ Celem pracy było zaprojektowanie biblioteki, która pozwoli twórcom usług
  rozproszenia po dołączniu do klastra wielu węzłów.
  W tym przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, mogą wykonywać się na zdalnych maszynach.
- Przesyłanie komunikatów pomiędzy węzłami powinno być ukryte przed użytkownikiem.
+ Dla uzyskania transparentności procesu rozpraszania obliczeń przesyłanie
+ komunikatów pomiędzy węzłami powinno być ukryte przed użytkownikiem.
  Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdziel
 onych danych przez różne wątki (ang.
  
@@ -105,27 +106,10 @@ thread safety
 
 \end_inset
 
-), dostarczyć abstrakcje bezpiecznych kolekcji -- listy, słownika -- oraz
+), dostarczyć abstrakcje wpółdzielonych kolekcji -- listy, słownika -- oraz
  innych obiektów, np.
  licznika.
  Istotna była też łatwość analizowania błędów.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Użytkownik tworzy algorytm jak równoległy, system zapewnia rozproszenie
- (ukrycie przesyłania komunikatów, mechanizmy synchronizacji).
- Łatwość debugowania.
- Możliwość wykonania w ramach 1 wątku z przypiętym debuggerem.
- ?Czy to tu?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -133,12 +117,20 @@ Struktura pracy
 \end_layout
 
 \begin_layout Standard
-W niniejszej pracy omówiono koncepcję oraz implementację biblioteki Bluepath.
- W kolejnych rozdziałach zaprezentowany zostanie przegląd istniejących rozwiązań
- -- środowisk przetwarzania rozproszonego, przestawione zostaną przykładowe
- problemy, które można rozwiązać za pomocą proponowanej biblioteki wraz
- z implementacjami oraz wyniki testów.
- 
+W niniejszej pracy omówiono koncepcję oraz implementację biblioteki o kodowej
+ nazwie Bluepath.
+ Bieżący rozdział opisuje w dalszej części motywacje oraz wkład członków
+ zespołu.
+ Rozdział drugi stanowi wstęp teoretyczny obejmujący definicje oraz przegląd
+ istniejących rozwiązań -- środowisk przetwarzania rozproszonego.
+ W rozdziale trzecim została szczegółowo przedstawiona koncepcja i projekt
+ systemu, a rozdział czwarty opisuje implementacje poszczególnych komponentów.
+ Przykładowe zastosowania biblioteki przy implementowaniu aplikacji obliczeniowy
+ch przedstawia rozdział piąty, a wyniki testów jakościowych, wydajnościowych
+ i ich analizę -- rozdział szósty.
+ W rodziale siódmym podsumowano przebieg realizacji, opisano napotkane problemy
+ a także zaproponowano obszary, w których możnaby kontynuować prace nad
+ usprawnieniem biblioteki.
 \end_layout
 
 \begin_layout Section
@@ -147,7 +139,8 @@ Motywacja
 
 \begin_layout Standard
 W czasie, kiedy rozpoczynano pracę nie było dostępne aktywnie rozwijane
- środowisko do przetwarzania rozproszonego dla .NET Framework (patrz: 
+ i wspierane komercyjnie środowisko do przetwarzania rozproszonego dla .NET
+ Framework (patrz: 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:background-Istniejące-rozwiązania"

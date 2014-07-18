@@ -85,7 +85,28 @@ Przebieg realizacji
 \end_layout
 
 \begin_layout Standard
-abc...
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+może odnieść się do założonych celów w intro (1.1)??
+\end_layout
+
+\end_inset
+
+[...] Analizę błędów w aplikacjach powstających z użyciem biblioteki ułatwia
+ możliwość wykonania jej na jednej maszynie w ramach jednego procesu z dołączony
+m 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+debuggerem
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -291,11 +312,15 @@ s/vcredist2012.
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
 \begin_layout Subsection
 Wyładowywanie kodu z pamięci
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:problemy-Wyladowywanie-kodu-z-pamieci"
@@ -309,7 +334,7 @@ i procesu, z których każdy posiada swoją własną przestrzeń adresową.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Środowisko .NET Framework wprowadza koncepcję domen aplikacji
 \begin_inset Note Note
 status open
@@ -356,7 +381,7 @@ poszczególne aplikacje mogą być wyładowywane z pamięci bez zatrzymywania
  całego procesu.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Domena aplikacji jest najmniejszą jednostką, jaką można wyładować z pamięci.
  Nie jest to możliwe dla pojedynczych typów czy bibliotek
 \begin_inset Note Note
@@ -382,7 +407,7 @@ assembly
 ).
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Note Note
 status open
 
@@ -393,6 +418,11 @@ px
 
 \begin_layout Plain Layout
 Add-ony
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

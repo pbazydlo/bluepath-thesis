@@ -110,11 +110,67 @@ Nazewnictwo
 \end_layout
 
 \begin_layout Standard
-Biblioteka Bluepath/środowisko Bluepath
+...
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Biblioteka Bluepath
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Biblioteka/środowisko Bluepath...
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 Kod użytkownika
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -149,7 +205,39 @@ także: węzeł [...]
 \end_layout
 
 \begin_layout Standard
-Usługa odnajdywania węzłów/usługa katalogowa
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Usługa odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:Usluga-odnajdywania-wezlow"
+
+\end_inset
+
+także: usługa katalogowa [...]
 \end_layout
 
 \begin_layout Subsection
@@ -157,35 +245,234 @@ Obiekty
 \end_layout
 
 \begin_layout Standard
+...
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 Zarządca połączeń
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+...
+\end_layout
+
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 Rozproszony wątek
 \end_layout
 
-\begin_layout Standard
-Wykonawca/wykonawca lokalny/wykonawca zdalny
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+...
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Wykonawca
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Wykonawca/wykonawca lokalny/wykonawca zdalny...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 Planista
 \end_layout
 
-\begin_layout Standard
-Pamięć współdzielona/rozproszona pamięć współdzielona
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+...
 \end_layout
 
 \begin_layout Standard
-Kolekcja rozproszona(współdzielona?)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Pamięć współdzielona
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Pamięć współdzielona/rozproszona pamięć współdzielona...
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Kolekcja współdzielona
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Kolekcja rozproszona(współdzielona?)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 Operacje zbiorcze
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Operacje zbiorcze...
+\end_layout
+
 \begin_layout Standard
-Zamek/zamek rozproszony/(zamek współdzielony)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Zamek rozproszony
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Zamek/zamek rozproszony/(zamek współdzielony)...
 \end_layout
 
 \begin_layout Subsection
@@ -193,19 +480,67 @@ Terminy technologiczne
 \end_layout
 
 \begin_layout Standard
+...
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 SOAP
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+...
+\end_layout
+
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 WCF
 \end_layout
 
-\begin_layout Standard
-Test jednostkowy
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+...
 \end_layout
 
 \begin_layout Standard
-Test integracyjny
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
