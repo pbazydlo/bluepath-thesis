@@ -1,0 +1,14 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<Execute xmlns="http://tempuri.org/">
+			<eId>6a3ff0e2-601b-4683-a163-7f6da037c762</eId>
+			<parameters xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:anyType i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">10000</a:anyType>
+			</parameters>
+			<callbackUri xmlns:a="http://schemas.datacontract.org/2004/07/Bluepath.Services" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:Address>http://192.168.0.7:51000/BluepathExecutorService.svc</a:Address>
+				<a:BindingType>BasicHttpBinding</a:BindingType>
+			</callbackUri>
+		</Execute>
+	</s:Body>
+</s:Envelope>

@@ -1,0 +1,7 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<InitializeResponse xmlns="http://tempuri.org/">
+			<InitializeResult>6a3ff0e2-601b-4683-a163-7f6da037c762</InitializeResult>
+		</InitializeResponse>
+	</s:Body>
+</s:Envelope>

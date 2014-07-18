@@ -1,0 +1,34 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<GetPerformanceStatisticsResponse xmlns="http://tempuri.org/">
+			<GetPerformanceStatisticsResult xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:KeyValueOfServiceUriPerformanceStatisticsMC_ScS92d>
+					<a:Key xmlns:b="http://schemas.datacontract.org/2004/07/Bluepath.Services">
+						<b:Address>http://192.168.0.6:51001/BluepathExecutorService.svc</b:Address>
+						<b:BindingType>BasicHttpBinding</b:BindingType>
+					</a:Key>
+					<a:Value xmlns:b="http://schemas.datacontract.org/2004/07/Bluepath.Services">
+						<b:NumberOfTasks>
+							<a:KeyValueOfExecutorStateintkVy9VqPM>
+								<a:Key>NotStarted</a:Key>
+								<a:Value>0</a:Value>
+							</a:KeyValueOfExecutorStateintkVy9VqPM>
+							<a:KeyValueOfExecutorStateintkVy9VqPM>
+								<a:Key>Running</a:Key>
+								<a:Value>0</a:Value>
+							</a:KeyValueOfExecutorStateintkVy9VqPM>
+							<a:KeyValueOfExecutorStateintkVy9VqPM>
+								<a:Key>Finished</a:Key>
+								<a:Value>6</a:Value>
+							</a:KeyValueOfExecutorStateintkVy9VqPM>
+							<a:KeyValueOfExecutorStateintkVy9VqPM>
+								<a:Key>Faulted</a:Key>
+								<a:Value>0</a:Value>
+							</a:KeyValueOfExecutorStateintkVy9VqPM>
+						</b:NumberOfTasks>
+					</a:Value>
+				</a:KeyValueOfServiceUriPerformanceStatisticsMC_ScS92d>
+			</GetPerformanceStatisticsResult>
+		</GetPerformanceStatisticsResponse>
+	</s:Body>
+</s:Envelope>

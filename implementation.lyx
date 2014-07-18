@@ -1296,6 +1296,61 @@ Zapis do pamięci współdzielonej jest thread-safe? Jeżeli tak, można o tym
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=XML"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Koperta SOAP -- inicjalizacja zdalnego wykonawcy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+\end_layout
+
+\begin_layout Plain Layout
+	<s:Body>
+\end_layout
+
+\begin_layout Plain Layout
+		<Initialize xmlns="http://tempuri.org/">
+\end_layout
+
+\begin_layout Plain Layout
+			<methodHandle>AAEAAAD/////AQAAAAAAAAAMAgAAAD9
+[...]
+\lang polish
+==</methodHandle>
+\end_layout
+
+\begin_layout Plain Layout
+		</Initialize>
+\end_layout
+
+\begin_layout Plain Layout
+	</s:Body>
+\end_layout
+
+\begin_layout Plain Layout
+</s:Envelope>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Wykonawca
 \end_layout
