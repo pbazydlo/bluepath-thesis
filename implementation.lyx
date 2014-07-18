@@ -1355,6 +1355,59 @@ Koperta SOAP -- inicjalizacja zdalnego wykonawcy
 
 \end_layout
 
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=XML"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Zdekodowany fragment uchwytu do anonimowej metody
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[...] System.Type[]
+\end_layout
+
+\begin_layout Plain Layout
+
+<RunTest>b__0 MBluepath.DistributedPI, Version=1.0.0.0, Culture=neutral, 
+\end_layout
+
+\begin_layout Plain Layout
+
+PublicKeyToken=null Bluepath.DistributedPI.Program
+\end_layout
+
+\begin_layout Plain Layout
+
+Int64 <RunTest>b__0(Int32) (System.Int64 <RunTest>b__0(System.Int32) 
+\end_layout
+
+\begin_layout Plain Layout
+
+System.UnitySerializationHolder Data	UnityType AssemblyName
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Wykonawca
 \end_layout
