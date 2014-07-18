@@ -79,7 +79,7 @@ Koncepcja i projekt systemu
 \begin_layout Standard
 Proponowany model programowania miał być jak najbardziej naturalny dla programos
 tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
- z koncepcji wątków, współdzielonej pamięci, zamków.
+ z koncepcji wątków, współdzielonej pamięci oraz zamków.
  Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
 iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
  komunikatów.
@@ -88,46 +88,8 @@ iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
  
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Biblioteka zapewnia szkielet/środowisko (framework?) do tworzenia aplikacji
- rozproszonych.
- Ponadto na węzłach mogą działać dodatkowe usługi.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Aplikacja taka musi zostać rozdystrybuowana na węzły w klastrze przez użytkownik
-a.--dodałem punkt w implementacji, gdzie można opisać skrypt PowerShellowy
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Usługa odnajdywania węzłów
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Zbyt specyficznie na twarz - najpierw trzeba opisać, że jest usługa jaki
- jest jej cel a dopiero potem propozycje najprostszej realizacji.
- W ogólności ta usługa mogłaby być mocno powiązana ze storage i oparta na
- DHT.
- [done]
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -161,24 +123,13 @@ usługa odnajdywania węzłów
 
  jest kluczowym elementem przy implementacji wykrywania awarii węzłów w
  klastrze.
+ Nowe węzły muszą zarejstrować się w usłudze.
+ Po rejestracji są one monitorowane dopóki nie opuszczą kalstra i wyrejestrują
+ się lub ulegną awarii.
+ W drugim przypadku niedostępne węzły są usuwane z klastra.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Odkrywanie węzłów w sieci realizowane jest za pomocą usługi Service Discovery,
- która działa na jednym z węzłów.
- Dołączające się węzły muszą znać adres serwera Service Discovery w celu
- zarejestrowania się w usłudze.
- Rejestracja/wyrejestrowanie się węzła powoduje rozesłania powiadomienia
- o tym fakcie do wszystkich pozostałych węzłów w klastrze.
-\end_layout
-
-\end_inset
-
- 
 \begin_inset Note Note
 status open
 
@@ -223,7 +174,7 @@ zdalnych wykonawców
 
 \end_inset
 
-, nie musiał odpytywać usługi katalogowej.
+ nie musiał odpytywać usługi katalogowej.
  Tym zadaniem zajmuje się 
 \begin_inset Flex Name
 status open
@@ -235,22 +186,18 @@ zarządca połączeń
 \end_inset
 
 .
- Posiada też dodatkowe informacje, które mogą przydać
-\begin_inset space \space{}
-\end_inset
-
-się 
+ Posiada on też dodatkowe informacje, takie jak obciążenie węzłów, które
+ mogą zostać wykorzystane przez 
 \begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-planiście
+planistę
 \end_layout
 
 \end_inset
 
-, np.
- obciążenie węzłów.
+.
 \end_layout
 
 \begin_layout Section
@@ -297,46 +244,6 @@ planistę
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(więcej o tym dalej, bo pisanie o interefejsie i własnym schedulerze to
- chyba nie tu).
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Subsection
-Typy w systemie
-\end_layout
-
-\begin_layout Plain Layout
-W trakcie projektowania systemu założono, że wszystkie typy przesyłane pomiędzy
- węzłami muszą być serializowalne (posiadać atrybut 
-\begin_inset Flex Code
-status collapsed
-
-\begin_layout Plain Layout
-Serializable
-\end_layout
-
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

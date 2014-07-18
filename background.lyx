@@ -278,6 +278,14 @@ Dryad i DryadLINQ
 \end_layout
 
 \begin_layout Standard
+Dryad provides reliable, distributed computing on thousands of servers for
+ large-scale data parallel applications.
+ LINQ enables developers to write and debug their applications in a SQL-like
+ query language, relying on the entire .NET library and using Visual Studio.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -295,17 +303,7 @@ key "DryadLINQ-MSR"
 \end_inset
 
  jest specjalizowane do przetwarzania kolekcji.
- Wymaga Dryad - ciężki do postawienia i skonfigurowania
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
- [przydało by się jakieś wsparcie dla tego stwierdzenia]
-\end_layout
-
-\end_inset
-
-
+ Wymaga Dryad.
 \end_layout
 
 \begin_layout Standard
