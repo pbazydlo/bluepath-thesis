@@ -1,0 +1,13 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<ExecuteCallback xmlns="http://tempuri.org/">
+			<eid>6a3ff0e2-601b-4683-a163-7f6da037c762</eid>
+			<executeResult xmlns:a="http://schemas.datacontract.org/2004/07/Bluepath.Services" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:ElapsedTime>PT0.0125743S</a:ElapsedTime>
+				<a:Error i:nil="true" xmlns:b="http://schemas.datacontract.org/2004/07/System"/>
+				<a:ExecutorState>Finished</a:ExecutorState>
+				<a:Result i:type="b:long" xmlns:b="http://www.w3.org/2001/XMLSchema">7857</a:Result>
+			</executeResult>
+		</ExecuteCallback>
+	</s:Body>
+</s:Envelope>

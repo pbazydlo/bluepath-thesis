@@ -1,0 +1,10 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<Unregister xmlns="http://tempuri.org/">
+			<uri xmlns:a="http://schemas.datacontract.org/2004/07/Bluepath.Services" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:Address>http://192.168.0.6:51001/BluepathExecutorService.svc</a:Address>
+				<a:BindingType>BasicHttpBinding</a:BindingType>
+			</uri>
+		</Unregister>
+	</s:Body>
+</s:Envelope>
