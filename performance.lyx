@@ -77,7 +77,19 @@ Testy jakościowe i wydajnościowe
 \end_layout
 
 \begin_layout Standard
-ayuidsawsd
+W bibliotekach wykorzystywanych przez programistów równie ważne co duża
+ funkcjonalność i łatwość użycia jest stabilność działania i pewność, że
+ błąd w wykonaniu aplikacji nie leży po stronie biblioteki.
+ W związku z tym istotne jest pokrycie kodu biblioteki zestawem testów zarówno
+ jednostkowych jak i akceptacyjnych, które zostały opisane w dalszej części
+ rozdziału.
+\end_layout
+
+\begin_layout Standard
+Oprócz testów jakościowych przeprowadzone zostały testy wydajnościowe, które
+ pozwoliły określić wydajność biblioteki w obecnym stanie implementacyjnym
+ oraz określić wpływ rodzaju przetwarzania na zasadność prowadzenia przetwarzani
+a rozproszonego.
 \end_layout
 
 \begin_layout Section
@@ -85,53 +97,37 @@ Testy jakościowe
 \end_layout
 
 \begin_layout Standard
-Testy jakościowe, zarówno jednostkowe jak i integracyjne, działają w środowisku
- 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Microsoft Unit Test Framework
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Testy-jakościowe"
 
 \end_inset
 
+Testy jakościowe pozwalają na sprawdzenie konkretnych funkcji biblioteki
+ w spreparowanym środowisku testowym.
+ arghgsghbfkghgfhkhgfhidf uporządkować kod i zabezpieczyć się przed 'regression
+ testing???'.
  
+\end_layout
+
+\begin_layout Standard
+Testy jednostkowe i integracyjne, działają w środowisku Microsoft Unit Test
+ Framework 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Microsoft-Unit-Test-Framework-for-Managed-Code"
 
 \end_inset
 
-.
- Dodatkowo korzystają z bibliotek 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Shoudly
-\end_layout
-
-\end_inset
-
- 
+ zintegrowanym z środowiskiem Visual Studio.
+ Dodatkowo wykorzystana została biblioteka Shoudly 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Shouldly"
 
 \end_inset
 
- do zapisu asercji oraz 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Moq
-\end_layout
-
-\end_inset
-
- 
+ do zapisu asercji oraz Moq 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Moq"
@@ -146,22 +142,12 @@ Testy jednostkowe
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Są i są fajne (MSUNIT, shouldly...)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Równolegle z tworzonym kodem powstawały testy jednostkowe poszczególnych
- funkcji.
- 
+Testując niektóre funkcje biblioteki wskazane było sprawdzenie ich zachowania
+ abstrahując od ich zależności.
+ W tym celu równolegle z tworzonym kodem powstawały testy jednostkowe.
+ Należy również zwrócić uwagę, że testy jednostkowe wykonują się znacznie
+ szybciej od testów integracyjnych, co pozwala znacząco skrócić czas wykrycia
+ oraz poprawy ewentualnych błędów.
 \end_layout
 
 \begin_layout Itemize
@@ -402,6 +388,14 @@ uruchamianie redis'a i spawnowanie usług bluepath problematyczne bo nigdy
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+W celu przetestowania działania funkcji takich jak przesyłanie klas jako
+ parametrów wskazane jest stworzenie testów integracyjnych.
+ Ich zadaniem jest przetestowanie nie tylko logiki wykonywanego kodu, ale
+ równierz wykrycie problemów jakie mogą się pojawić w związku z działaniem
+ w  
 \end_layout
 
 \begin_layout Standard

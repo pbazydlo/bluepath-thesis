@@ -1156,61 +1156,20 @@ współdzielonej pamięci
 
 \end_inset
 
- i możliwe jest jego dalsze przetwarzanie i wizualizowanie np.
- w narzędziach służących do eksploracji procesów
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-coś więcej??
-\end_layout
-
-\end_inset
-
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Subsection
-OpenXES
-\end_layout
-
-\begin_layout Plain Layout
-nasza implementacja standardu 
-\begin_inset Note Note
+ Dzięki temu użytkownik nie musi samodzielnie zbierać logów z wszystkich
+ węzłów w klastrze - wystarczy, że na jednym z nich skopiuje zawartość 
+\begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-ale o implementacji to w implementacji
+rozproszonej listy
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-process mining
-\end_layout
-
-\begin_layout Plain Layout
-much image
-\end_layout
-
-\begin_layout Plain Layout
-Wizualizacja logów
-\end_layout
-
-\begin_layout Plain Layout
-Disco
-\end_layout
-
-\end_inset
-
-
+ w celu dalszego przetwarzania i wizualizacji np.
+ w narzędziach służących do eksploracji procesów.
 \end_layout
 
 \end_body

@@ -319,7 +319,12 @@ reference "lis:applications-MapReduce-IMapProvider-IReduceProvider"
  i składowany razem z danymi w pamięci współdzielonej.
  Kompilacja kodu miała odbywać się na węzłach bezpośrednio przed wykonaniem
  metody.
- Innym podejściem mogłoby być dostarczanie kodu w formie bibliotek dołączanych
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Innym podejściem mogłoby być dostarczanie kodu w formie bibliotek dołączanych
  dynamicznie (ang.
 \begin_inset space ~
 \end_inset
@@ -348,7 +353,12 @@ reference "sub:problemy-Wyladowywanie-kodu-z-pamieci"
 
 \end_inset
 
-), a do zrealizowania wykonywania kodu źródłowego wybrana została biblioteka
+), a
+\end_layout
+
+\end_inset
+
+Do zrealizowania wykonywania kodu źródłowego wybrana została biblioteka
  
 \begin_inset Flex Strong
 status open
