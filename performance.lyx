@@ -1084,7 +1084,7 @@ reference "sub:implementacja-szeregowanie-zadan-threadcount"
 \end_layout
 
 \begin_layout Enumerate
-za pomocą algorytmu karuzelowego -- opisany w punkcie 
+za pomocą algorytmu cyklicznego -- opisany w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Implementacja-Szeregowanie-karuzelowy"

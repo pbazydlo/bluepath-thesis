@@ -2023,17 +2023,34 @@ ych na nim wątków,
 \end_layout
 
 \begin_layout Itemize
-i na razie nie ma innych.
-\begin_inset Note Note
+\begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-TODO! round-robin?
+RoundRobinScheduler
 \end_layout
 
 \end_inset
 
+ -- szereguje zadania korzystając z algorytmu cyklicznego (ang.
+ 
+\begin_inset Flex Emph
+status open
 
+\begin_layout Plain Layout
+round robin
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tannenbaum-SOP"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2116,7 +2133,7 @@ wątków rozproszonych
 \end_layout
 
 \begin_layout Subsection
-Szeregowanie zadań za pomocą algorytmu karuzelowego
+Szeregowanie zadań za pomocą algorytmu cyklicznego
 \end_layout
 
 \begin_layout Standard
@@ -2127,28 +2144,7 @@ name "sub:Implementacja-Szeregowanie-karuzelowy"
 \end_inset
 
 W pewnych zastosowaniach pewne zrównowarzenie obciążenia można osiągnąć
- poprzez zastosowanie algorytmu karuzelowego (ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-round robin
-\end_layout
-
-\end_inset
-
-)
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-O! Tannenbaum!
-\end_layout
-
-\end_inset
-
-.
+ poprzez zastosowanie algorytmu cyklicznego.
  Algorytm ten nie wymaga pobierania informacji o obciążeniu węzłów z 
 \begin_inset Flex Name
 status open
@@ -2159,9 +2155,9 @@ usługi odnajdywania węzłów
 
 \end_inset
 
- przez co posiada mniejszy narzut komunikacyjny od algorytmów wymagających
+, przez co posiada mniejszy narzut komunikacyjny od algorytmów wymagających
  tych informacji.
- W sytuacji gdy tylko jeden węzeł tworzy 
+ W sytuacji, gdy tylko jeden węzeł tworzy 
 \begin_inset Flex Name
 status open
 
@@ -2171,8 +2167,8 @@ wątki rozproszone
 
 \end_inset
 
- efekt działania algorytmu karuzelowego będzie identyczny z efektem osiągniętym
- przez zastosowanie algorytmu opisanego w 
+, efekt działania algorytmu cyklicznego będzie identyczny z efektem osiągniętym
+ przez zastosowanie algorytmu opisanego w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:implementacja-szeregowanie-zadan-threadcount"
@@ -2180,6 +2176,16 @@ reference "sub:implementacja-szeregowanie-zadan-threadcount"
 \end_inset
 
 .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+na pewno? chyba jeszcze musi się to stać w krótkim czasie
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2616,7 +2622,8 @@ reference "def:background-NTP"
 \end_inset
 
 ) możliwe jest zsynchronizowanie zegarów węzłów w klastrze z dokładnością
- do dziesiątek milisekund 
+ do milisekund (przy dużych odległościach od serwera czasu -- dziesiątek
+ milisekund) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mills-NTP-IEEE-Trans"
