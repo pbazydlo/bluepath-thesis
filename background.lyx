@@ -127,7 +127,18 @@ Biblioteka Bluepath
 \end_layout
 
 \begin_layout Definition
-Biblioteka/środowisko Bluepath...
+Biblioteka Bluepath nazywana też 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+środowiskiem Bluepath
+\end_layout
+
+\end_inset
+
+ jest przedmiotem niniejszej pracy.
+ To zestaw klas, które wspomagają twórców aplikacji rozproszonych.
 \end_layout
 
 \begin_layout Standard
@@ -157,7 +168,19 @@ Kod użytkownika
 \end_layout
 
 \begin_layout Definition
-...
+Pod pojęciem kodu użytkownika rozumiemy kod źródłowy pochodzący spoza biblioteki
+ Bluepath -- będący częścią aplikacji, która ją wykorzystuje.
+ Termin ten odnosi się najczęściej do fragmentów kodu, które są wykonywane
+ w ramach rozproszonego wątku (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-Rozproszony-watek"
+
+\end_inset
+
+).
+ 
 \end_layout
 
 \begin_layout Standard
@@ -201,7 +224,24 @@ name "def:background-Wezel-obliczeniowy"
 
 \end_inset
 
-także: węzeł [...]
+Mianem węzła obliczeniowego lub 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+węzła
+\end_layout
+
+\end_inset
+
+ określamy komputer, na którym działa usługa bazowana na bibliotece Bluepath,
+ której celem jest zlecenie bądź wykonanie zleconych zadań.
+ Jeżeli na maszynie działa więcej niż jedna instancja aplikacji, każda z
+ nich zachowuje się
+\begin_inset space \space{}
+\end_inset
+
+jak odrębny węzeł.
 \end_layout
 
 \begin_layout Standard
@@ -237,7 +277,18 @@ name "def:background-Usluga-odnajdywania-wezlow"
 
 \end_inset
 
-także: usługa katalogowa [...]
+Usługa odnajdywania węzłów bądź 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+usługa katalogowa
+\end_layout
+
+\end_inset
+
+ to system umożliwiający węzłom odnajdywanie się wzajemnie w sieci i łączenie
+ w klaster obliczeniowy.
 \end_layout
 
 \begin_layout Subsection
@@ -262,7 +313,9 @@ Zarządca połączeń
 \end_layout
 
 \begin_layout Definition
-...
+Zarządca połączeń to klient usługi odnajdywania węzłów, który odpowiada
+ za rejestrowanie, wyrejestrowywanie i przechowywanie lokalnego obrazu stanu
+ klastra na każdym z węzłów.
 \end_layout
 
 \begin_layout Standard
@@ -292,7 +345,15 @@ Rozproszony wątek
 \end_layout
 
 \begin_layout Definition
-...
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Rozproszony-watek"
+
+\end_inset
+
+Rozproszony wątek reprezentuje jednostkę przetwarzania w systemie.
+ Opakowuje fragment kodu, który może być wykonany na dowolnym węźle obliczeniowy
+m.
 \end_layout
 
 \begin_layout Standard
@@ -322,7 +383,28 @@ Wykonawca
 \end_layout
 
 \begin_layout Definition
-Wykonawca/wykonawca lokalny/wykonawca zdalny...
+Wykonawca (i jego specjalizacje -- 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+wykonawca lokalny
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+wykonawca zdalny
+\end_layout
+
+\end_inset
+
+) to obiekt, który odpowiada za faktyczne zlecenie wykonania zadania (wykonawca
+ zdalny) bądź jego wykonanie (wykonawca lokalny).
 \end_layout
 
 \begin_layout Standard
@@ -352,7 +434,9 @@ Planista
 \end_layout
 
 \begin_layout Definition
-...
+Planista odpowiada za wybór węzła, do którego wysłane zostanie zlecenie
+ wykonania zadania.
+ Realizuje zdefiniowaną strategię szeregowania zadań w klastrze.
 \end_layout
 
 \begin_layout Standard
@@ -382,7 +466,18 @@ Pamięć współdzielona
 \end_layout
 
 \begin_layout Definition
-Pamięć współdzielona/rozproszona pamięć współdzielona...
+Pamięć współdzielona lub 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+rozproszona pamięć współdzielona
+\end_layout
+
+\end_inset
+
+ to pamięć masowa dostępna dla wszystkich węzłów, przez którą mogą wymieniać
+ się danymi.
 \end_layout
 
 \begin_layout Standard
@@ -403,7 +498,7 @@ status open
 status open
 
 \begin_layout Plain Layout
-Kolekcja współdzielona
+Obiekt współdzielony
 \end_layout
 
 \end_inset
@@ -412,7 +507,82 @@ Kolekcja współdzielona
 \end_layout
 
 \begin_layout Definition
-Kolekcja rozproszona(współdzielona?)...
+Obiekt współdzielony jest abstrakcją nadbudowaną nad pamięcią współdzieloną
+ udostępniającą dodatkowe metody specyficzne dla typu struktury danych:
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+listy współdzielonej
+\end_layout
+
+\end_inset
+
+ (nazywanej także 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+listą rozproszoną
+\end_layout
+
+\end_inset
+
+), 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+słownika współdzielonego
+\end_layout
+
+\end_inset
+
+ (nazywanego także 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+słownikiem rozproszonym
+\end_layout
+
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Standard
+bądź obiektu innego typu, np.
+ 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+licznika współdzielonego
+\end_layout
+
+\end_inset
+
+ (określanego też mianem 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+licznika rozproszonego
+\end_layout
+
+\end_inset
+
+).
+ Cechą charakterystyczną obiektów współdzielonych jest możliwość odwołania
+ się do nich z dowolnego węzła w klastrze.
 \end_layout
 
 \begin_layout Standard
@@ -442,7 +612,19 @@ Operacje zbiorcze
 \end_layout
 
 \begin_layout Definition
-Operacje zbiorcze...
+Operacje zbiorcze (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+bulk operations
+\end_layout
+
+\end_inset
+
+) to operacje wykonywane jednocześnie na grupie obiektów o podobnych właściwości
+ach.
 \end_layout
 
 \begin_layout Standard
@@ -472,7 +654,9 @@ Zamek rozproszony
 \end_layout
 
 \begin_layout Definition
-Zamek/zamek rozproszony/(zamek współdzielony)...
+Zamek rozproszony to zamek, który jest współdzielony przez wszystkie węzły
+ w klastrze (w odróżnieniu od zamków istniejących jedynie w obrębie jednego
+ procesu bądź jednego komputera).
 \end_layout
 
 \begin_layout Subsection
