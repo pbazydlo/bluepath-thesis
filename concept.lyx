@@ -347,7 +347,7 @@ Coś, że niezbędna jest abstrakcja zdalnego wykonania w celu ładnie poukłada
 
 \end_inset
 
-Abstrakcją zdalnego uruchomienia 
+Reprezentacją zdalnego uruchomienia 
 \begin_inset Flex Name
 status collapsed
 
@@ -357,12 +357,12 @@ rozproszonego wątku
 
 \end_inset
 
- jest 
+ jest obiekt 
 \begin_inset Flex Name
 status collapsed
 
 \begin_layout Plain Layout
-wykonawca zdalny
+wykonawcy zdalnego
 \end_layout
 
 \end_inset
@@ -390,7 +390,7 @@ planistę
 
  oraz monitoruje stan wykonania zadania (zakończenie, wystąpienie błędów).
  Jest on również odpowiedzialny za odebranie wyniku przetwarzania i udostępnieni
-e ich wyższym warstwom.
+e go do odczytu na węźle zlecającym zadanie.
 \end_layout
 
 \begin_layout Section

@@ -10,6 +10,18 @@
 \AtBeginDocument{% 
         \renewcommand{\tablename}{Tabela}% 
 }
+\definecolor{tomato}{RGB}{139, 54, 38}
+\definecolor{darkblue}{RGB}{36, 92, 165}
+\definecolor{darkgreen}{RGB}{0, 127, 14}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[s]{>}{<},
+  stringstyle=\color{tomato},
+  identifierstyle=\color{black},
+  keywordstyle=\color{darkblue},
+  morekeywords={type, Initialize, methodHandle, Execute, eId, parameters, callbackUri, Address, Binding, ExecuteCallback, eid, ExecuteResult, executeResult, ElapsedTime, Error, ExecutorState, Result, Register, Unregister}
+}
 \end_preamble
 \options thesis
 \use_default_options false

@@ -1248,7 +1248,18 @@ Func
 \end_inset
 
  opakowującego statyczną (nazwaną lub anonimową) metodę.
- Liczba parametrów wejściowych takiej metody to maksymalnie 16.
+ Liczba parametrów wejściowych takiej metody to maksymalnie 16 (jest to
+ ograniczenie wprowadzone przez deklaracje typu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Func
+\end_layout
+
+\end_inset
+
+ dostępne w .NET Framework).
  Wszystkie typy parametrów oraz typ zwracany muszą być oznaczone atrybutem
  
 \begin_inset Flex Code
@@ -1296,6 +1307,105 @@ Zapis do pamięci współdzielonej jest thread-safe? Jeżeli tak, można o tym
 
 \end_layout
 
+\begin_layout Section
+Wykonawca
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Subsection
+Inicjalizacja
+\end_layout
+
+\begin_layout Standard
+Każdy wykonawca jest identyfikowany przez 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+eid
+\end_layout
+
+\end_inset
+
+ -- unikalną 128-bitową liczbę (GUID), przy czym instancja 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zdalnego wykonawcy
+\end_layout
+
+\end_inset
+
+ używa takiego samego identyfikatora jak 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+lokalny wykonawca
+\end_layout
+
+\end_inset
+
+, który został zainicjowany do wykonania kodu użytkownika.
+ Wiadomość inicjująca wątek 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Initialize
+\end_layout
+
+\end_inset
+
+ zawiera element 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+methodHandle
+\end_layout
+
+\end_inset
+
+, w którym przesyłany jest zserializowany binarnie i zapisany w kodowaniu
+ Base64 uchwyt do metody.
+ W odpowiedzi przesyłany jest identyfikator wykonawcy.
+ Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-SOAP-Initialize"
+
+\end_inset
+
+ przedstawia w skróconej formie przykładową przechwyconą kopertę SOAP z
+ wiadomością 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Initialize
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+http://blogs.msdn.com/b/oldnewthing/archive/2008/06/27/8659071.aspx
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
 \begin_layout Standard
 \begin_inset listings
 lstparams "language=XML"
@@ -1307,6 +1417,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-SOAP-Initialize"
+
+\end_inset
+
 Koperta SOAP -- inicjalizacja zdalnego wykonawcy
 \end_layout
 
@@ -1356,12 +1472,91 @@ Koperta SOAP -- inicjalizacja zdalnego wykonawcy
 \end_layout
 
 \begin_layout Standard
-...
+Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-SOAP-Initialize-decBase64"
+
+\end_inset
+
+ prezentuje fragment uchwytu do metody po zdekodowaniu i usunięciu znaków
+ spoza drukowalnego zestawu symboli ASCII.
+ DistributedPI to przykładowyprogram opisany szerzej w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Przykladowe-zastosowania-liczba-pi"
+
+\end_inset
+
+.
+ Uchwyt dotyczy metody anonimowej (stąd wygenerowana przez kompilator nazwa
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+b__0
+\end_layout
+
+\end_inset
+
+) zdefiniowanej w klasie 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Bluepath.DistributedPI.Program
+\end_layout
+
+\end_inset
+
+, która jako parametr przyjmuje 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+int
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Int32
+\end_layout
+
+\end_inset
+
+) a typem zwracanym jest 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+long
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Int64
+\end_layout
+
+\end_inset
+
+).
+ 
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=XML"
+lstparams "language=C"
 inline false
 status open
 
@@ -1370,6 +1565,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-SOAP-Initialize-decBase64"
+
+\end_inset
+
 Zdekodowany fragment uchwytu do anonimowej metody
 \end_layout
 
@@ -1408,46 +1609,6 @@ System.UnitySerializationHolder Data	UnityType AssemblyName
 
 \end_layout
 
-\begin_layout Section
-Wykonawca
-\end_layout
-
-\begin_layout Standard
-Każdy wykonawca jest identyfikowany przez unikalną 128-bitową liczbę (GUID),
- przy czym instancja 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-zdalnego wykonawcy
-\end_layout
-
-\end_inset
-
- używa takiego samego identyfikatora jak 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-lokalny wykonawca
-\end_layout
-
-\end_inset
-
-, który został zainicjowany do wykonania kodu użytkownika.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-http://blogs.msdn.com/b/oldnewthing/archive/2008/06/27/8659071.aspx
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
 \begin_layout Standard
 \begin_inset Note Note
 status open
@@ -1455,6 +1616,156 @@ status open
 \begin_layout Plain Layout
 ThreadPool - zhejtować można (ale trochę) - nie można przerywać zadań.
  Sprawdzanie stanu wątków.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Przesłanie parametrów, wykonanie
+\end_layout
+
+\begin_layout Standard
+W kolejnej wiadomości węzeł zlecający przesyła parametry wywołania metody.
+ Przechwycona koperta z komunikatem 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Execute
+\end_layout
+
+\end_inset
+
+ znajduje się na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-SOAP-Execute"
+
+\end_inset
+
+.
+ Warto zauważyć, że ustawiona jest tutaj wartość pola 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+callbackUri
+\end_layout
+
+\end_inset
+
+, co oznacza, że węzeł wywołujący otrzyma komunikat 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ExecuteCallback
+\end_layout
+
+\end_inset
+
+ po zakończeniu przetwarzania po zdalnej stronie.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language=XML"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-SOAP-Execute"
+
+\end_inset
+
+Koperta SOAP -- przesłanie paramterów
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+\end_layout
+
+\begin_layout Plain Layout
+
+	<s:Body>
+\end_layout
+
+\begin_layout Plain Layout
+
+		<Execute xmlns="http://tempuri.org/">
+\end_layout
+
+\begin_layout Plain Layout
+
+			<eId>6a3ff0e2-601b-4683-a163-7f6da037c762</eId>
+\end_layout
+
+\begin_layout Plain Layout
+
+			<parameters xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+ xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+\end_layout
+
+\begin_layout Plain Layout
+
+				<a:anyType i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">10000</a:
+anyType>
+\end_layout
+
+\begin_layout Plain Layout
+
+			</parameters>
+\end_layout
+
+\begin_layout Plain Layout
+
+			<callbackUri xmlns:a="http://schemas.datacontract.org/2004/07/Bluepath.Services"
+ xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+\end_layout
+
+\begin_layout Plain Layout
+
+				<a:Address>http://192.168.0.7:51000/BluepathExecutorService.svc</a:Address>
+\end_layout
+
+\begin_layout Plain Layout
+
+				<a:BindingType>BasicHttpBinding</a:BindingType>
+\end_layout
+
+\begin_layout Plain Layout
+
+			</callbackUri>
+\end_layout
+
+\begin_layout Plain Layout
+
+		</Execute>
+\end_layout
+
+\begin_layout Plain Layout
+
+	</s:Body>
+\end_layout
+
+\begin_layout Plain Layout
+
+</s:Envelope>
 \end_layout
 
 \end_inset
@@ -1482,6 +1793,132 @@ ThreadPool
  W przypadku, gdy w kodzie użytkownika wystąpi wyjątek, zostanie on przechwycony
  przez środowisko, zserializowany i udostępniony wywołującemu wątkowi do
  odczytu.
+\end_layout
+
+\begin_layout Subsection
+Wywołanie zwrotne
+\end_layout
+
+\begin_layout Standard
+Po zakończeniu metody w trybie z wywołaniem zwrotnym, zdalna strona przesyła
+ wynik, ew.
+ wyjątki oraz czas jaki zajęło przetwarzanie do zlecającej maszyny.
+ Przykładowy komunikat 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ExecuteCallback
+\end_layout
+
+\end_inset
+
+ przedstawia listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-SOAP-ExecuteCallback"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language=XML"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-SOAP-ExecuteCallback"
+
+\end_inset
+
+Koperta SOAP -- wywołanie zwrotne z wynikiem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+\end_layout
+
+\begin_layout Plain Layout
+
+	<s:Body>
+\end_layout
+
+\begin_layout Plain Layout
+
+		<ExecuteCallback xmlns="http://tempuri.org/">
+\end_layout
+
+\begin_layout Plain Layout
+
+			<eid>6a3ff0e2-601b-4683-a163-7f6da037c762</eid>
+\end_layout
+
+\begin_layout Plain Layout
+
+			<executeResult xmlns:a="http://schemas.datacontract.org/2004/07/Bluepath.Service
+s" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+\end_layout
+
+\begin_layout Plain Layout
+
+				<a:ElapsedTime>PT0.0125743S</a:ElapsedTime>
+\end_layout
+
+\begin_layout Plain Layout
+
+				<a:Error i:nil="true" xmlns:b="http://schemas.datacontract.org/2004/07/System"
+/>
+\end_layout
+
+\begin_layout Plain Layout
+
+				<a:ExecutorState>Finished</a:ExecutorState>
+\end_layout
+
+\begin_layout Plain Layout
+
+				<a:Result i:type="b:long" xmlns:b="http://www.w3.org/2001/XMLSchema">7857</a:R
+esult>
+\end_layout
+
+\begin_layout Plain Layout
+
+			</executeResult>
+\end_layout
+
+\begin_layout Plain Layout
+
+		</ExecuteCallback>
+\end_layout
+
+\begin_layout Plain Layout
+
+	</s:Body>
+\end_layout
+
+\begin_layout Plain Layout
+
+</s:Envelope>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
