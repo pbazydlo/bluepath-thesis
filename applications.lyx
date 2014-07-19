@@ -186,17 +186,9 @@ DLINQ
 \end_layout
 
 \begin_layout Standard
-Jedną z aplikacji zaimplementowanych na bazie biblioteki Bluepath jest 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Distributed Language Integrated Query
-\end_layout
-
-\end_inset
-
- (DLINQ) -- zbiór metod roszerzających możliwości operowania na kolekcjach.
+Jedną z aplikacji zaimplementowanych na bazie biblioteki Bluepath jest Distribut
+ed Language Integrated Query (DLINQ) -- zbiór metod roszerzających możliwości
+ operowania na kolekcjach.
  
 \end_layout
 
@@ -235,17 +227,7 @@ name "sec:applications-MapReduce"
 W celu porównania pracochłonności implementacji aplikacji z użyciem bibliteki
  Bluepath i bez niej przygotowane zostały aplikacje do realizacji przetwarzania
  w modelu mapowania i redukcji zarówno w środowisku Bluepath jak i bezpośrednio
- z wykorzystaniem platformy 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Windows Communication Foundation
-\end_layout
-
-\end_inset
-
-
+ z wykorzystaniem platformy Windows Communication Foundation
 \begin_inset space ~
 \end_inset
 
@@ -359,17 +341,7 @@ reference "sub:problemy-Wyladowywanie-kodu-z-pamieci"
 \end_inset
 
 Do zrealizowania wykonywania kodu źródłowego wybrana została biblioteka
- 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-CS-Script
-\end_layout
-
-\end_inset
-
-
+ CS-Script
 \begin_inset space ~
 \end_inset
 

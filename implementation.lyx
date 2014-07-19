@@ -187,6 +187,23 @@ reference "lis:implementation-Interfejs-IRemoteExecutorService"
 
 \end_inset
 
+, a szczegółowy opis protokołu znajduje się w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:implementation-Wykonawca"
+
+\end_inset
+
+ poświęconym 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wykonawcom
+\end_layout
+
+\end_inset
+
 .
  Dokonywana jest też rejestracja w 
 \begin_inset Flex Name
@@ -1312,7 +1329,69 @@ Wykonawca
 \end_layout
 
 \begin_layout Standard
-...
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:implementation-Wykonawca"
+
+\end_inset
+
+Poniżej opisane zostały szczegóły protokołu komunikacyjnego (rys.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:implementation-Protokol-IRemoteExecutorService"
+
+\end_inset
+
+) używanego przez węzły obliczeniowe oraz szczegóły implementacji
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wykonawców
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename images/diagram-protokolu.png
+	lyxscale 15
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:implementation-Protokol-IRemoteExecutorService"
+
+\end_inset
+
+Diagram protokołu komunikacyjnego węzłów obliczeniowych
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
