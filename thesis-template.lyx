@@ -13,14 +13,23 @@
 \definecolor{tomato}{RGB}{139, 54, 38}
 \definecolor{darkblue}{RGB}{36, 92, 165}
 \definecolor{darkgreen}{RGB}{0, 127, 14}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
 
 \lstdefinelanguage{XML}
 {
   morestring=[s]{>}{<},
   stringstyle=\color{tomato},
   identifierstyle=\color{black},
-  keywordstyle=\color{darkblue},
+  keywordstyle=\bfseries\color{darkblue},
   morekeywords={type, Initialize, methodHandle, Execute, eId, parameters, callbackUri, Address, Binding, ExecuteCallback, eid, ExecuteResult, executeResult, ElapsedTime, Error, ExecutorState, Result, Register, Unregister}
+}
+
+\lstdefinelanguage{Assembler}
+{
+  keywordstyle=\bfseries\color{darkblue},
+  morekeywords={b__0, Int32, Int64, DistributedPI, Program, Bluepath}
 }
 \end_preamble
 \options thesis

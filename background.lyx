@@ -792,19 +792,18 @@ TODO
 
 \end_inset
 
-Środowisko DryadLINQ 
+Na bazie Dryad powstało środowisko DryadLINQ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DryadLINQ-MSR"
 
 \end_inset
 
- jest specjalizowane do przetwarzania kolekcji.
- Wymaga Dryad.
+ specjalizowane do przetwarzania kolekcji.
 \end_layout
 
 \begin_layout Standard
-W roku 2011 Microsoft zaprzestał rozwijania środowiska Dryad w ramach 
+W roku 2011 Microsoft zaprzestał rozwijania Dryad w ramach 
 \begin_inset Flex Emph
 status open
 

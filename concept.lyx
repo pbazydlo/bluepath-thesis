@@ -108,10 +108,10 @@ usługę odnajdywania węzłów
 .
  Usługa ta powinna obsługiwać sytuację rejestracji oraz wyrejestrowania
  się węzłów.
- System z założenia abstrachuje od sposobu realizacji tej usługi (czy będzie
- to system zcentralizowany, czy rozproszony np.
+ System z założenia abstrahuje od sposobu realizacji tej usługi (czy będzie
+ to system scentralizowany, czy rozproszony np.
  oparty na algorytmie plotkującym).
- W związku z pełnioną rolą 
+ W związku z pełnioną rolą, 
 \begin_inset Flex Name
 status open
 
@@ -124,9 +124,9 @@ usługa odnajdywania węzłów
  jest kluczowym elementem przy implementacji wykrywania awarii węzłów w
  klastrze.
  Nowe węzły muszą zarejstrować się w usłudze.
- Po rejestracji są one monitorowane dopóki nie opuszczą kalstra i wyrejestrują
+ Po rejestracji są one monitorowane dopóki nie opuszczą klastra i wyrejestrują
  się lub ulegną awarii.
- W drugim przypadku niedostępne węzły są usuwane z klastra.
+ Niedostępne węzły są usuwane z klastra.
 \end_layout
 
 \begin_layout Standard
@@ -510,20 +510,7 @@ status open
 
 \end_inset
 
-Zastosowanie takiego mechanizmu pozwala ukryć problemy komunikacyjne związane
- z wymianą danych i udostępnić programiście interfejs do którego jest przyzwycza
-jony z programowania aplikacji równoległych.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Coś z tym zdaniem przed tą notatką jest nie tak.
-\end_layout
-
-\end_inset
-
-
+ Umożliwia ona synchronizację i wymianę danych między działającymi wątkami.
 \end_layout
 
 \begin_layout Standard
@@ -541,7 +528,18 @@ pamięci współdzielonej
 
  nie przewidziano zapewnienia hierarchii kluczy.
  Tego typu mechanizm, choć przydatny w pewnych przypadkach, może zostać
- dostarczony przez warstwy obudowujące dostęp do 
+ dostarczony przez nadbudowane nad 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięcią współdzieloną
+\end_layout
+
+\end_inset
+
+ przez użytkownika abstrakcje.
+ Aby zapewnić wysoką użyteczność oraz możliwość rozbudowy 
 \begin_inset Flex Name
 status open
 
@@ -551,18 +549,7 @@ pamięci współdzielonej
 
 \end_inset
 
-.
- Aby zapewnić wysoką użyteczność, oraz możliwość rozbudowy 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci współdzielonej
-\end_layout
-
-\end_inset
-
- przewidziane zostały następujące operacje:
+, w podstawowym interfejsie przewidziane zostały następujące operacje:
 \end_layout
 
 \begin_layout Itemize
@@ -592,8 +579,8 @@ usunięcie -- operacja usuwająca dane -- powiedzie się tylko wtedy gdy podany
 
 \begin_layout Standard
 Operacje te, choć wystarczające w większości zastosowań, zostały rozwinięte
- o odpowiedniki operujące na wielu kluczach na raz - zostały one opisane
- w 
+ o odpowiedniki operujące jednocześnie na grupach kluczy -- zostały one
+ opisane w 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Koncepcja-Operacje-zbiorcze"
@@ -604,7 +591,7 @@ reference "sub:Koncepcja-Operacje-zbiorcze"
 \end_layout
 
 \begin_layout Standard
-Dzięki tak zdefiniowanej semantyce operacji na podstawie 
+Dzięki tak zdefiniowanej semantyce operacji, na podstawie 
 \begin_inset Flex Name
 status open
 
@@ -614,7 +601,7 @@ pamięci współdzielonej
 
 \end_inset
 
- można równierz zdefiniować bardziej złożone mechanizmy takie jak 
+ można również zbudować bardziej złożone mechanizmy, takie jak 
 \begin_inset Flex Name
 status open
 
@@ -625,37 +612,18 @@ zamki rozproszone
 \end_inset
 
 .
- Ponieważ część mechanizmów zapewniających realizację 
+ Zamki są wbudowanym mechanizmem w proponowanej bibliotece i są dostępne
+ poprzez interfejs 
 \begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+rozszerzonej pamięci współdzielonej
 \end_layout
 
 \end_inset
 
- może posiadać wbudowane mechanizmy zapewniające 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-zamki rozproszone
-\end_layout
-
-\end_inset
-
- zdefiniowano 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-rozszerzoną pamięć współdzieloną
-\end_layout
-
-\end_inset
-
-, której operacje zostały opisane w 
+, który został opisany w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Koncepcja-Zamki-rozproszone"
@@ -679,10 +647,10 @@ Pamięć współdzielona
 
 \end_inset
 
- mimo tego, że zapewnia operacje niezbędne do komunikacji w trakcie przetwarzani
-a, może okazać się mechanizmem o zbyt niskim poziomie abstrakcji.
- Efektem mogło by być wielokrotne pisanie przez programistę podobnych fragmentów
- kodu w celu obsługi 
+ -- pomimo tego, że zapewnia operacje niezbędne do komunikacji w trakcie
+ przetwarzania -- może okazać się mechanizmem o zbyt niskim poziomie abstrakcji.
+ W związku z tym biblioteka dostarcza struktury danych i obiekty oparte
+ na 
 \begin_inset Flex Name
 status open
 
@@ -692,19 +660,7 @@ pamięci współdzielonej
 
 \end_inset
 
-.
- Aby uniknąć takiej sytuacji wprowadzone zostały struktury danych i obiekty
- oparte na 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci współdzielonej
-\end_layout
-
-\end_inset
-
-: lista, słownik oraz licznik.
+: listę, słownik oraz licznik.
 \end_layout
 
 \begin_layout Paragraph
@@ -722,21 +678,20 @@ listy rozproszonej
 
 \end_inset
 
- jest przechowywanie i udostępnianie listy obiektów dostępnej wszystkim
- 
+ jest przechowywanie i udostępnianie listy obiektów dostępnej w każdym 
 \begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-rozproszonym wątkom
+rozproszonym wątku
 \end_layout
 
 \end_inset
 
- w systemie, które znają jej identyfikator.
- Dzięki temu użytkownik może zastosować strukturę danych zachowującą się
- w taki sam sposób jak lista dostarczana przez środowisko .NET.
- Podstawowe wykorzystanie 
+ w systemie, który zna jej identyfikator.
+ Lista ta zachowuje zgodność na poziomie interfejsu z listą dostarczaną
+ przez środowisko .NET Framework.
+ Podstawowe scenariusze wykorzystania 
 \begin_inset Flex Name
 status open
 
@@ -746,18 +701,7 @@ listy rozproszonej
 
 \end_inset
 
- nie powinno wymagać wykorzystania dodatkowych mechanizmów takich jak np.
- 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-zamki rozproszone
-\end_layout
-
-\end_inset
-
-.
+ nie powinny wymagać stosowania dodatkowych mechanizmów synchronizacji.
 \end_layout
 
 \begin_layout Paragraph
@@ -825,11 +769,13 @@ licznik rozproszony
 \end_inset
 
 .
- Jego główną cechą - oprócz atomowego zapisania wartości liczbowej - jest
+ Jego główną cechą -- oprócz atomowego zapisania wartości liczbowej -- jest
  jednoczesne pobranie i zmienienie wartości.
- Pozwala to wykorzystać go jako np.
- generatora kluczy, czy wykorzystać tę strukturę do dynamicznego podziału
- kolekcji na fragmenty (każdy 
+ Pozwala to wykorzystać go jako m.
+ in.
+ generator kluczy, czy wykorzystać tę strukturę do dynamicznego podziału
+ kolekcji na fragmenty -- np.
+ każdy 
 \begin_inset Flex Name
 status open
 
@@ -839,10 +785,17 @@ rozproszony wątek
 
 \end_inset
 
- pobiera wartość licznika i jednocześnie zwiększa jego wartość o 100 - w
- ten sposób wątek może przetworzyć 100 elementów począwszy od uzyskanej
- wartości mając pewność, że żaden inny wątek nie zacznie przetwarzać tych
- elementów).
+ pobiera wartość licznika i jednocześnie zwiększa jego wartość o 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ W ten sposób wątek rezerwuje sobie 
+\begin_inset Formula $n$
+\end_inset
+
+ obiektów począwszy od odczytanej wartości identyfikatora.
+ Dzięki temu każdy wątek może operować na rozłącznym zbiorze obiektów.
 \end_layout
 
 \begin_layout Subsection
@@ -858,7 +811,15 @@ name "sub:Koncepcja-Operacje-zbiorcze"
 
 \begin_layout Standard
 Głównym kosztem przetwarzania rozproszonego są narzuty komunikacyjne.
- Wykonywanie 1000 rządań w celu pobrania tysiąca elementów z 
+ Wykonywanie 
+\begin_inset Formula $n$
+\end_inset
+
+ rządań w celu pobrania 
+\begin_inset Formula $n$
+\end_inset
+
+ elementów z 
 \begin_inset Flex Name
 status open
 
@@ -869,7 +830,7 @@ pamięci współdzielonej
 \end_inset
 
  jest wysoce nieefektywne.
- W celu ominięcia tego problemu dla każdej operacji na 
+ W celu zminimalizowania kosztu komunikacji, dla każdej operacji na 
 \begin_inset Flex Name
 status open
 
@@ -883,18 +844,6 @@ pamięci współdzielonej
  Dodanie tego typu operacji pozwoli użytkownikowi w znaczący sposób zwiększyć
  efektywność swojego przetwarzania (np.
  poprzez jednorazowe pobranie do pamięci lokalnej przetwarzanych danych).
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-bo chcemy minimalizować narzuty komunikacyjne - znowu, czy to nie implementacja?
-? - na razie napiszę - jeśli ustalimy, że jednak implementacja to przeniesiemy
- tekst :)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -919,7 +868,7 @@ rozproszonych wątkach
 
 \end_inset
 
- podobnie jak przetwarzanie równoległe może wymagać zastosowania sekcji
+, podobnie jak przetwarzanie równoległe, może wymagać zastosowania sekcji
  krytycznych.
  Operacje na 
 \begin_inset Flex Name
@@ -952,7 +901,18 @@ zamkami rozproszonymi
 
 \end_inset
 
- jest częścią obowiązków pamięci współdzielonej.
+ jest częścią obowiązków 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozszerzonej pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1011,7 +971,8 @@ współdzielonej pamięci
 
 .
  Dzięki temu użytkownik nie musi samodzielnie zbierać logów z wszystkich
- węzłów w klastrze - wystarczy, że na jednym z nich skopiuje zawartość 
+ węzłów w klastrze -- wystarczy, że na jednym z nich zmaterializuje zawartość
+ 
 \begin_inset Flex Name
 status open
 
@@ -1021,7 +982,7 @@ rozproszonej listy
 
 \end_inset
 
- w celu dalszego przetwarzania i wizualizacji np.
+ do pliku w celu dalszego przetwarzania i wizualizacji np.
  w narzędziach służących do eksploracji procesów.
 \end_layout
 
