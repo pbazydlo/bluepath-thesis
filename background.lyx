@@ -197,7 +197,7 @@ Węzeł obliczeniowy
 \begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Wezel-obliczeniowy"
+name "def:background-Wezel-obliczeniowy"
 
 \end_inset
 
@@ -233,7 +233,7 @@ Usługa odnajdywania węzłów
 \begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Usluga-odnajdywania-wezlow"
+name "def:background-Usluga-odnajdywania-wezlow"
 
 \end_inset
 
@@ -527,6 +527,78 @@ WCF
 \end_layout
 
 \begin_layout Definition
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+XSD
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-XSD"
+
+\end_inset
+
+XML Schema Definition...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+NTP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-NTP"
+
+\end_inset
+
 ...
 \end_layout
 

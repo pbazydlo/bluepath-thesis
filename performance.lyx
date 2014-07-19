@@ -1073,7 +1073,7 @@ Bluepath
 \end_layout
 
 \begin_layout Enumerate
-Szeregowanie zadań w oparciu o obciążenie węzłów -- opisany w 
+w oparciu o obciążenie węzłów -- opisany w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:implementacja-szeregowanie-zadan-threadcount"
@@ -1084,7 +1084,7 @@ reference "sub:implementacja-szeregowanie-zadan-threadcount"
 \end_layout
 
 \begin_layout Enumerate
-Szeregowanie zadań za pomocą algorytmu karuzelowego -- opisany w 
+za pomocą algorytmu karuzelowego -- opisany w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Implementacja-Szeregowanie-karuzelowy"
@@ -1095,7 +1095,7 @@ reference "sub:Implementacja-Szeregowanie-karuzelowy"
 \end_layout
 
 \begin_layout Subsection
-Prefixy
+Generowanie słownika prefiksów
 \end_layout
 
 \begin_layout Standard

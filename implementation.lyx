@@ -2276,8 +2276,22 @@ SaveXes
 
 \begin_layout Standard
 Implementacja standardu została wykonana na podstawie zmodyfikowanych plików
- XML Schema (XSD) udostępnionych wraz z biblioteką OpenXES 2.0 (przyczyny
- i sposób modyfikacji został opisany w punkcie 
+ XSD (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-XSD"
+
+\end_inset
+
+) udostępnionych wraz z biblioteką OpenXES 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OpenXES"
+
+\end_inset
+
+ w wersji 2.0 (przyczyny i sposób modyfikacji został opisany w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:problemy-Implementacja-standardu-OpenXES-z-XSD"
@@ -2285,17 +2299,8 @@ reference "sub:problemy-Implementacja-standardu-OpenXES-z-XSD"
 \end_inset
 
 ).
- Szkielet klas został wygenerowany przy użyciu narzędzia 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-XML Schema Definition Tool
-\end_layout
-
-\end_inset
-
- 
+ Szkielet klas został wygenerowany przy użyciu narzędzia XML Schema Definition
+ Tool 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "XML-Schema-Definition-Tool"
@@ -2313,7 +2318,17 @@ xsd.exe
 \end_inset
 
 ) dostarczanego wraz ze środowiskiem programistycznym .NET Framework 4.5.1.
- Przykład użycia narzędzia xsd.exe został zaprezentowany na listingu 
+ Przykład użycia programu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+xsd.exe
+\end_layout
+
+\end_inset
+
+ został zaprezentowany na listingu 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:implementation-Skrypt-generujący-klasy-z-XSD"
@@ -2452,7 +2467,6 @@ Bluepath.Reporting.Log.Activity
 \end_layout
 
 \begin_layout Itemize
-zgłoszenie przez węzeł gotowości do przyjęcia zleceń (
 \begin_inset Flex Code
 status open
 
@@ -2462,11 +2476,10 @@ Service_is_ready
 
 \end_inset
 
-),
+ -- zgłoszenie przez węzeł gotowości do przyjęcia zleceń,
 \end_layout
 
 \begin_layout Itemize
-rozpoczęcie wykonywania kodu użytkownika w ramach rozproszonego wątku (
 \begin_inset Flex Code
 status open
 
@@ -2476,11 +2489,10 @@ Local_executor_started_running_user_code
 
 \end_inset
 
-),
+ -- rozpoczęcie wykonywania kodu użytkownika w ramach rozproszonego wątku,
 \end_layout
 
 \begin_layout Itemize
-zakończenie wykonywania kodu użytkownika na węźle (
 \begin_inset Flex Code
 status open
 
@@ -2490,11 +2502,10 @@ Local_executor_finished_running_user_code
 
 \end_inset
 
-),
+ -- zakończenie wykonywania kodu użytkownika na węźle ,
 \end_layout
 
 \begin_layout Itemize
-wysłanie wywołania zwrotnego z wynikiem działania wątku (
 \begin_inset Flex Code
 status open
 
@@ -2504,7 +2515,7 @@ Sending_callback_with_result
 
 \end_inset
 
-).
+ -- wysłanie wywołania zwrotnego z wynikiem działania wątku.
 \end_layout
 
 \begin_layout Standard
@@ -2587,8 +2598,16 @@ eid
 
 \begin_layout Standard
 Zależności czasowe są istotną częścią analizy przebiegu procesu.
- Z wykorzystaniem serwerów czasu NTP możliwe jest zsynchronizowanie zegarów
- węzłów w klastrze z dokładnością do ??
+ Z wykorzystaniem serwerów czasu NTP (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-NTP"
+
+\end_inset
+
+) możliwe jest zsynchronizowanie zegarów węzłów w klastrze z dokładnością
+ do ??
 \begin_inset Note Note
 status open
 
