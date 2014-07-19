@@ -2429,6 +2429,15 @@ xsd.exe" xesext.xsd /classes /o:../Bluepath/Reporting/
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tutaj jakby czegoś brakuje
+\end_layout
+
+\end_inset
+
 Zdarzenie jest wynikiem zarejestrowania 
 \begin_inset Flex Name
 status open
@@ -2607,13 +2616,10 @@ reference "def:background-NTP"
 \end_inset
 
 ) możliwe jest zsynchronizowanie zegarów węzłów w klastrze z dokładnością
- do ??
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-hm, no właśnie??
-\end_layout
+ do dziesiątek milisekund 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mills-NTP-IEEE-Trans"
 
 \end_inset
 
