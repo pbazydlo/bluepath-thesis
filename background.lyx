@@ -149,6 +149,17 @@ biblioteką
 
  jest przedmiotem niniejszej pracy.
  To zestaw klas, które wspomagają twórców aplikacji rozproszonych.
+ Zbudowane za jego pomocą klastry określane są mianem 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+systemu
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -211,7 +222,64 @@ Architektura systemu
 \end_layout
 
 \begin_layout Standard
-...
+System składa się z węzłów obliczeniowych połączonych siecią, które posiadają
+ informacje o pozostałych zarejestrowanych węzłach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?? 
+\end_layout
+
+\end_inset
+
+ Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:background-schemat-systemu"
+
+\end_inset
+
+ przedstawiony został schemat architektury systemu.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename images/schemat-systemu.png
+	lyxscale 10
+	scale 85
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:background-schemat-systemu"
+
+\end_inset
+
+Schemat architektury systemu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -299,6 +367,47 @@ usługa katalogowa
 
  to system umożliwiający węzłom odnajdywanie się wzajemnie w sieci i łączenie
  w klaster obliczeniowy.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Pamięć współdzielona
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Pamięć współdzielona lub 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+rozproszona pamięć współdzielona
+\end_layout
+
+\end_inset
+
+ to pamięć masowa dostępna dla wszystkich węzłów, przez którą mogą wymieniać
+ się danymi.
 \end_layout
 
 \begin_layout Subsection
@@ -464,47 +573,6 @@ Planista
 Planista odpowiada za wybór węzła, do którego wysłane zostanie zlecenie
  wykonania zadania.
  Realizuje zdefiniowaną strategię szeregowania zadań w klastrze.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Pamięć współdzielona
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Pamięć współdzielona lub 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-rozproszona pamięć współdzielona
-\end_layout
-
-\end_inset
-
- to pamięć masowa dostępna dla wszystkich węzłów, przez którą mogą wymieniać
- się danymi.
 \end_layout
 
 \begin_layout Standard

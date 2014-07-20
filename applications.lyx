@@ -1731,7 +1731,6 @@ Inicjowanie generatora przez domyślny konstruktor używa aktualnego czasu.
  Z tego powodu utworzenie wielu jego instancji w krótkim czasie, np.
  w środowisku wielowątkowym, może prowadzić do otrzymania takich samych
  sekwencji liczb.
- 
 \end_layout
 
 \begin_layout Itemize
