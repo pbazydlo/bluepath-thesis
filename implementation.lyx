@@ -398,7 +398,7 @@ w.
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=C"
+lstparams "language={[Sharp]C}"
 inline false
 status open
 
@@ -566,7 +566,7 @@ GetPerformanceStatistics
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=C"
+lstparams "language={[Sharp]C}"
 inline false
 status open
 
