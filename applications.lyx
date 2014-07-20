@@ -382,7 +382,7 @@ i czy metoda Reduce nie powinna zwracać IEnumerable<KeyValuePair<..,..>>?
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=C"
+lstparams "breaklines=true,language={[Sharp]C}"
 inline false
 status open
 
@@ -818,7 +818,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset listings
-lstparams "breaklines=true,language=C"
+lstparams "breaklines=true,language={[Sharp]C}"
 inline false
 status open
 
@@ -1144,7 +1144,7 @@ Uri
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=C"
+lstparams "breaklines=true,language={[Sharp]C}"
 inline false
 status open
 
@@ -1352,7 +1352,7 @@ GetPerformanceStatistics
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=C"
+lstparams "breaklines=true,language={[Sharp]C}"
 inline false
 status open
 
