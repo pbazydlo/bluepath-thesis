@@ -83,7 +83,7 @@ name "chap:concept"
 
 \end_inset
 
-Proponowany model programowania miał być jak najbardziej naturalny dla programos
+Proponowany model programowania miał być jak najbardziej naturalny dla programis
 tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
  z koncepcji wątków, współdzielonej pamięci oraz zamków.
  Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik

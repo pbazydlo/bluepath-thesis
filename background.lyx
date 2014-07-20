@@ -767,6 +767,42 @@ Terminy technologiczne
 status open
 
 \begin_layout Plain Layout
+HTTP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-HTTP"
+
+\end_inset
+
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 SOAP
 \end_layout
 
@@ -776,7 +812,67 @@ SOAP
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-SOAP"
+
+\end_inset
+
+cytowanie: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Poznaj-SOAP"
+
+\end_inset
+
 ...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+RPC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-RPC"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+remote procedure call
+\end_layout
+
+\end_inset
+
+)...
 \end_layout
 
 \begin_layout Standard
@@ -806,6 +902,19 @@ WCF
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-WCF"
+
+\end_inset
+
+Windows Communication Foundation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MSDN:WhatIsWindowsCommunicationFoundation"
+
+\end_inset
+
 ...
 \end_layout
 
@@ -875,6 +984,78 @@ NTP
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-NTP"
+
+\end_inset
+
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Zapora ogniowa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Firewall"
+
+\end_inset
+
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+NAT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-NAT"
 
 \end_inset
 
