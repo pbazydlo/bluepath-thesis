@@ -137,6 +137,16 @@ status open
 
 \end_inset
 
+ bądź 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+biblioteką
+\end_layout
+
+\end_inset
+
  jest przedmiotem niniejszej pracy.
  To zestaw klas, które wspomagają twórców aplikacji rozproszonych.
 \end_layout
@@ -296,7 +306,24 @@ Obiekty
 \end_layout
 
 \begin_layout Standard
-...
+Poniżej zdefiniowano niektóre typy obiektów, z których składa się biblioteka.
+ Ich charakterystyka od strony koncepcyjnej została rozwinięta w rozdziale
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:concept"
+
+\end_inset
+
+, a od strony implementacyjnej w rozdziale 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:implementation"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Definition

@@ -77,6 +77,12 @@ Koncepcja i projekt systemu
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:concept"
+
+\end_inset
+
 Proponowany model programowania miał być jak najbardziej naturalny dla programos
 tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
  z koncepcji wątków, współdzielonej pamięci oraz zamków.

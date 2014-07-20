@@ -1084,7 +1084,7 @@ reference "sub:implementacja-szeregowanie-zadan-threadcount"
 \end_layout
 
 \begin_layout Enumerate
-za pomocą algorytmu cyklicznego -- opisany w punkcie 
+korzystają z algorytmu cyklicznego -- opisany w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Implementacja-Szeregowanie-karuzelowy"
@@ -1100,7 +1100,7 @@ Generowanie słownika prefiksów
 
 \begin_layout Standard
 Jednym z algorytmów wykorzystanych do pomiaru wydajności był algorytm tworzący
- prefixy na potrzeby przeprowadzenia operacji uzupełniania tekstu (ang.
+ prefiksy na potrzeby przeprowadzenia operacji uzupełniania tekstu (ang.
  
 \begin_inset Flex Emph
 status open
@@ -1134,7 +1134,7 @@ Algorytm i sposób realizacji rozproszonej obliczania liczby
 \begin_inset Formula $\pi$
 \end_inset
 
- zostały przedstawione w 
+ zostały przedstawione w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Przykladowe-zastosowania-liczba-pi"

@@ -77,6 +77,12 @@ Implementacja
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:implementation"
+
+\end_inset
+
 Projekt systemu zakładał napisanie go w języku C# w środowisku .NET Framework
  4.5
 \begin_inset space ~
