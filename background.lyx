@@ -767,6 +767,53 @@ Terminy technologiczne
 status open
 
 \begin_layout Plain Layout
+TCP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-TCP"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Transfer Control Protocol
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
 HTTP
 \end_layout
 
@@ -782,7 +829,65 @@ name "def:background-HTTP"
 
 \end_inset
 
-...
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Hypertext Transfer Protocol
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+XML
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-XML"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Extensible Markup Language
+\end_layout
+
+\end_inset
+
+)...
 \end_layout
 
 \begin_layout Standard
@@ -822,6 +927,16 @@ cytowanie:
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Poznaj-SOAP"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+słaba ta pozycja jak na pierwszą w bibliografii ;)
+\end_layout
 
 \end_inset
 
@@ -867,7 +982,7 @@ name "def:background-RPC"
 status open
 
 \begin_layout Plain Layout
-remote procedure call
+Remote Procedure Call
 \end_layout
 
 \end_inset
@@ -951,7 +1066,18 @@ name "def:background-XSD"
 
 \end_inset
 
-XML Schema Definition...
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+XML Schema Definition
+\end_layout
+
+\end_inset
+
+)...
 \end_layout
 
 \begin_layout Standard
@@ -987,7 +1113,18 @@ name "def:background-NTP"
 
 \end_inset
 
-...
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Network Time Protocol
+\end_layout
+
+\end_inset
+
+)...
 \end_layout
 
 \begin_layout Standard
@@ -1023,7 +1160,18 @@ name "def:background-Firewall"
 
 \end_inset
 
-...
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+firewall
+\end_layout
+
+\end_inset
+
+)...
 \end_layout
 
 \begin_layout Standard
@@ -1059,7 +1207,18 @@ name "def:background-NAT"
 
 \end_inset
 
-...
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Network Address Translation
+\end_layout
+
+\end_inset
+
+)...
 \end_layout
 
 \begin_layout Standard

@@ -331,8 +331,15 @@ To 'ale przydaje się'...
 Zastosowane protokoły nie zapewniają żadnych gwarancji co do kolejności
  dostarczonych wiadomości.
  Nie zapewniają również niezawodności dostarczania wiadomości ponad to,
- co oferuje protokół działający w warstwie transportowej -- TCP -- czyli
- potwierdzenia i retransmisje.
+ co oferuje protokół działający w warstwie transportowej -- TCP (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-TCP"
+
+\end_inset
+
+) -- czyli potwierdzenia i retransmisje.
  Zakładamy jednak, że połączenia w obrębie jednego klastra są na tyle stabilne,
  że nie będzie to powodowało problemów.
 \end_layout
