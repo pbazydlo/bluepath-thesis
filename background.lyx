@@ -1103,17 +1103,59 @@ PVM
 \end_layout
 
 \begin_layout Standard
+PVM (ang.
+ Parallel Virtual Machine) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PVM"
+
+\end_inset
+
+ powstał w 1989 r.
+ w Oak Ridge National Laboratory, a jego dalszy rozwój odbywał się na University
+ of Tennessee.
+ W 1993 r.
+ została wydana wersja 3.0.
+ Jest to zintegrowany zestaw bibliotek i narzędzi, które służą do projektowania
+ aplikacji rozproszonych działąjących w środowisku połączonych siecią komputerów
+ heterogenicznych.
+ Główne założenia systemu obejmowały:
+\end_layout
+
+\begin_layout Itemize
+używanie puli maszyn określonej przez użytkownika do realizacji przetwarzania
+ oraz możliwość dodawania i usuwania komputerów podczas pracy,
+\end_layout
+
+\begin_layout Itemize
+brak pełnego abstrahowania od typów maszyn, tj.
+ aplikacje, które wykorzystywały specyficzne własności określonych maszyn
+ mogły zostać im przypisane,
+\end_layout
+
+\begin_layout Itemize
+model przetwarzania oparty o zadania, które można utożsamiać z procesami
+ w systemie Unix oraz jawne przesyłanie komunikatów pomiędzy zadaniami,
+\end_layout
+
+\begin_layout Itemize
+wsparcie dla heterogenicznych środowisk -- różnych typów komputerów, sieci
+ i aplikacji, a także obsługa sytuacji, w których różne maszyny korzystają
+ z różnych reprezentacji danych.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-TODO
+jawny message passing, trudne do debugowania, brak możliwości dołączania
+ węzłów w trakcie przetwarzania.
 \end_layout
 
 \end_inset
 
-jawny message passing, trudne do debugowania, brak możliwości dołączania
- węzłów w trakcie przetwarzania.
+
 \end_layout
 
 \begin_layout Subsection
@@ -1923,17 +1965,7 @@ PVM
 \begin_inset Text
 
 \begin_layout Plain Layout
-C
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-??
-\end_layout
-
-\end_inset
-
-
+C/C++/Fortran
 \end_layout
 
 \end_inset
