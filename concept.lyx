@@ -644,6 +644,13 @@ Współdzielone struktury danych i obiekty
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:----Koncepcja-wspoldzielone-struktury-danych"
+
+\end_inset
+
+
 \begin_inset Flex Name
 status open
 

@@ -199,7 +199,210 @@ pamięci współdzielonej
 \end_inset
 
 .
+ Obecna implementacja służy jako przykład (ang.
  
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+proof of concept
+\end_layout
+
+\end_inset
+
+) wykorzystania możliwości dostarczanych przez bibliotekę Bluepath i dlatego
+ dostarcza podzbioru metod standardowego zestawu LINQ:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Select
+\end_layout
+
+\end_inset
+
+ -- operacja ta pozwala przetransformować obiekt, np.
+ wybierając jedynie podzbiór jego atrybutów, lub zmieniając typ obiektu,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SelectMany
+\end_layout
+
+\end_inset
+
+ -- operacja podobna do 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Select
+\end_layout
+
+\end_inset
+
+ z tą różnicą, że pojedynczy obiekt w wyniku transformacji zmieniany jest
+ w kolekcję obiektów, a powstałe w ten sposób kolekcje są łączone w jedną,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Where
+\end_layout
+
+\end_inset
+
+ -- operacja ta pozwala wyfiltrować te obiekty, które spełniają podany warunek,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GroupBy
+\end_layout
+
+\end_inset
+
+ -- operacja pozwalająca grupować obiekty według zadanego klucza.
+ 
+\end_layout
+
+\begin_layout Standard
+Operacje te mogą być wykonywane zarówno na dostarczonej z biblioteką Bluepath
+ liście rozproszonej (opisanej w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:----Koncepcja-wspoldzielone-struktury-danych"
+
+\end_inset
+
+) jak i na wszystkich obiektach implementujących interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IEnumerable
+\end_layout
+
+\end_inset
+
+.
+ W drugim przypadku kolekcja źródłowa zostanie najpierw przetransformowana
+ do listy rozproszonej, a następnie poddana dalszemu przetwarzaniu.
+\end_layout
+
+\begin_layout Standard
+Sposób wykorzystania rozszerzeń DLINQ jest wzorowany na Parallel Language
+ Integrated Query (PLINQ).
+ Aby poddać kolekcję przetwarzaniu rozproszonemu wykonujemy najpierw metodę
+ rozszerzającą 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AsDistributed
+\end_layout
+
+\end_inset
+
+.
+ Metoda ta posiada jeden obowiązkowy argument - obiekt zapewniający dostęp
+ do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+.
+ Następnie na otrzymanym z tej metody obiekcie można wykonywać operacje
+ zdefiniowane w DLINQ.
+ Należy jednak mieć na uwadze, że operacje te podlegają założeniom biblioteki
+ Bluepath i funkcje podawane jako argumenty muszą być funkcjami statycznymi.
+ Na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Transformacja-kolekcji-DLINQ"
+
+\end_inset
+
+ przedstawiono przykładowy kod poddający kolekcję transformacji przy użyciu
+ metody 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Select
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language={[Sharp]C}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Transformacja-kolekcji-DLINQ"
+
+\end_inset
+
+Transformacja kolekcji przypomocy metod dostarczonych w DLINQ
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var inputCollection = new List<double>(100);
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+var processedCollection = (from num in inputCollection.AsDistributed(storage)
+\end_layout
+
+\begin_layout Plain Layout
+
+							select Math.Sqrt(num)).ToList();
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1559,8 +1762,63 @@ Generowanie słownika prefiksów
 \end_layout
 
 \begin_layout Standard
-Przetwarzania dokumentów - prefixy do autocomplete...
+Wiele aplikacji operujących na dużej liczbie danych próbuje wspomóc swoich
+ użytkowników pozwalając filtrować dane przy pomocy zapytań tekstowych.
+ Ponieważ formułowanie zapytań nie jest proste (trzeba się wpasować w dane
+ posiadane przez część aplikacji odpowiedzialną za wyszukiwanie) można stosować
+ techniki wspomagające użytkownika w tym działaniu.
  
+\end_layout
+
+\begin_layout Standard
+Jedną z technik wspomagających użytkownika w formułowaniu zapytań jest system
+ podpowiedzi (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+autocomplete
+\end_layout
+
+\end_inset
+
+).
+ Można go zrealizować poprzez porównanie wprowadzonego słowa z słowami występują
+cymi w przetwarzanych danych.
+ Ponieważ przetwarzanie wszystkich posiadanych danych w czasie rzeczywistym
+ byłoby bardzo powolne można je poddać wstępnej obróbce - np.
+ wytworzenie wszystkich możliwych prefiksów.
+\end_layout
+
+\begin_layout Standard
+System generujący wszystkie możliwe prefiksy na podstawie zadanych danych
+ został zaimplementowany jako przykład zastosowania biblioteki Bluepath.
+ Przetwarzanie zostało oparte o kolekcję dokumentów, która jest rozsyłana
+ do poszczególnych węzłów (każdy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ łączy się z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięcią współdzieloną
+\end_layout
+
+\end_inset
+
+ z której pobiera dokumenty, które ma przetworzyć).
+ Po przetworzeniu wszystkich dokumentów wszystkie prefiksy są zachowywane
+ lokalnie w celu późniejszego wykorzystania przy wyszukiwaniu (wyszukiwany
+ prefiks jest rozsyłany do wszystkich węzłów przetwarzających).
 \end_layout
 
 \begin_layout Section
