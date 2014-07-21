@@ -1762,8 +1762,63 @@ Generowanie słownika prefiksów
 \end_layout
 
 \begin_layout Standard
-Przetwarzania dokumentów - prefixy do autocomplete...
+Wiele aplikacji operujących na dużej liczbie danych próbuje wspomóc swoich
+ użytkowników pozwalając filtrować dane przy pomocy zapytań tekstowych.
+ Ponieważ formułowanie zapytań nie jest proste (trzeba się wpasować w dane
+ posiadane przez część aplikacji odpowiedzialną za wyszukiwanie) można stosować
+ techniki wspomagające użytkownika w tym działaniu.
  
+\end_layout
+
+\begin_layout Standard
+Jedną z technik wspomagających użytkownika w formułowaniu zapytań jest system
+ podpowiedzi (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+autocomplete
+\end_layout
+
+\end_inset
+
+).
+ Można go zrealizować poprzez porównanie wprowadzonego słowa z słowami występują
+cymi w przetwarzanych danych.
+ Ponieważ przetwarzanie wszystkich posiadanych danych w czasie rzeczywistym
+ byłoby bardzo powolne można je poddać wstępnej obróbce - np.
+ wytworzenie wszystkich możliwych prefiksów.
+\end_layout
+
+\begin_layout Standard
+System generujący wszystkie możliwe prefiksy na podstawie zadanych danych
+ został zaimplementowany jako przykład zastosowania biblioteki Bluepath.
+ Przetwarzanie zostało oparte o kolekcję dokumentów, która jest rozsyłana
+ do poszczególnych węzłów (każdy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ łączy się z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięcią współdzieloną
+\end_layout
+
+\end_inset
+
+ z której pobiera dokumenty, które ma przetworzyć).
+ Po przetworzeniu wszystkich dokumentów wszystkie prefiksy są zachowywane
+ lokalnie w celu późniejszego wykorzystania przy wyszukiwaniu (wyszukiwany
+ prefiks jest rozsyłany do wszystkich węzłów przetwarzających).
 \end_layout
 
 \begin_layout Section
