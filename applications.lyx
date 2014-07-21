@@ -199,7 +199,210 @@ pamięci współdzielonej
 \end_inset
 
 .
+ Obecna implementacja służy jako przykład (ang.
  
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+proof of concept
+\end_layout
+
+\end_inset
+
+) wykorzystania możliwości dostarczanych przez bibliotekę Bluepath i dlatego
+ dostarcza podzbioru metod standardowego zestawu LINQ:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Select
+\end_layout
+
+\end_inset
+
+ -- operacja ta pozwala przetransformować obiekt, np.
+ wybierając jedynie podzbiór jego atrybutów, lub zmieniając typ obiektu,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SelectMany
+\end_layout
+
+\end_inset
+
+ -- operacja podobna do 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Select
+\end_layout
+
+\end_inset
+
+ z tą różnicą, że pojedynczy obiekt w wyniku transformacji zmieniany jest
+ w kolekcję obiektów, a powstałe w ten sposób kolekcje są łączone w jedną,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Where
+\end_layout
+
+\end_inset
+
+ -- operacja ta pozwala wyfiltrować te obiekty, które spełniają podany warunek,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GroupBy
+\end_layout
+
+\end_inset
+
+ -- operacja pozwalająca grupować obiekty według zadanego klucza.
+ 
+\end_layout
+
+\begin_layout Standard
+Operacje te mogą być wykonywane zarówno na dostarczonej z biblioteką Bluepath
+ liście rozproszonej (opisanej w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:----Koncepcja-wspoldzielone-struktury-danych"
+
+\end_inset
+
+) jak i na wszystkich obiektach implementujących interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IEnumerable
+\end_layout
+
+\end_inset
+
+.
+ W drugim przypadku kolekcja źródłowa zostanie najpierw przetransformowana
+ do listy rozproszonej, a następnie poddana dalszemu przetwarzaniu.
+\end_layout
+
+\begin_layout Standard
+Sposób wykorzystania rozszerzeń DLINQ jest wzorowany na Parallel Language
+ Integrated Query (PLINQ).
+ Aby poddać kolekcję przetwarzaniu rozproszonemu wykonujemy najpierw metodę
+ rozszerzającą 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AsDistributed
+\end_layout
+
+\end_inset
+
+.
+ Metoda ta posiada jeden obowiązkowy argument - obiekt zapewniający dostęp
+ do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+.
+ Następnie na otrzymanym z tej metody obiekcie można wykonywać operacje
+ zdefiniowane w DLINQ.
+ Należy jednak mieć na uwadze, że operacje te podlegają założeniom biblioteki
+ Bluepath i funkcje podawane jako argumenty muszą być funkcjami statycznymi.
+ Na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Transformacja-kolekcji-DLINQ"
+
+\end_inset
+
+ przedstawiono przykładowy kod poddający kolekcję transformacji przy użyciu
+ metody 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Select
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language={[Sharp]C}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Transformacja-kolekcji-DLINQ"
+
+\end_inset
+
+Transformacja kolekcji przypomocy metod dostarczonych w DLINQ
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var inputCollection = new List<double>(100);
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+var processedCollection = (from num in inputCollection.AsDistributed(storage)
+\end_layout
+
+\begin_layout Plain Layout
+
+							select Math.Sqrt(num)).ToList();
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
