@@ -2066,7 +2066,7 @@ a
 
 \end_inset
 
-/ostatnie
+/najnowsze
 \end_layout
 
 \end_inset
@@ -2200,7 +2200,7 @@ b
 \begin_inset Text
 
 \begin_layout Plain Layout
-DryadLINQ
+Dryad
 \end_layout
 
 \end_inset
@@ -2209,7 +2209,7 @@ DryadLINQ
 \begin_inset Text
 
 \begin_layout Plain Layout
-.NET (C#/F#/VB)
+SCOPE / .NET (DryadLINQ)
 \end_layout
 
 \end_inset
