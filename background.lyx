@@ -1441,26 +1441,57 @@ key "SCOPE"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
+ Język ten posiadał składnię podobną do języka SQL (and.
+ 
+\begin_inset Flex Emph
 status open
 
 \begin_layout Plain Layout
-TODO
+Structured Query Language
 \end_layout
 
 \end_inset
 
-Na bazie Dryad powstało środowisko DryadLINQ 
+)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tu jakieś cytowanko?
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+W celu uproszczenia przetwarzania na bazie systemu Dryad powstało środowisko
+ DryadLINQ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DryadLINQ-MSR"
 
 \end_inset
 
- specjalizowane do przetwarzania kolekcji.
+.
+ Środowisko to dostarczało implementacji LINQ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Language Integrated Query
+\end_layout
+
+\end_inset
+
+), która wykorzystywała środowisko Dryad do rozproszonego przetwarzania
+ kolekcji.
+ Jednym z ograniczeń wprowadzonych przez DryadLINQ w stosunku do LINQ było
+ założenie, że funkcje przetwarzające obiekty kolekcji nie będą modyfikowały
+ zmiennych zdefiniowanych poza nimi - w przypadku wykonania takiej operacji
+ twórcy nie definiowali zachowania systemu.
 \end_layout
 
 \begin_layout Standard
