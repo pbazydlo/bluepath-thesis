@@ -1711,8 +1711,8 @@ System.Random
 
 \end_inset
 
- w .NET Framework 4.0 posiada kilka cech, które sprawiają, że (co właściwie??
- :D).
+ w .NET Framework 4.0 posiada kilka cech, które sprawiają, że nie nadaje się
+ ona do zastosowań, w których oczekujemy ciągu o wysokim stopniu losowości.
  
 \begin_inset Note Note
 status open
