@@ -1731,11 +1731,27 @@ Inicjowanie generatora przez domyślny konstruktor używa aktualnego czasu.
  Z tego powodu utworzenie wielu jego instancji w krótkim czasie, np.
  w środowisku wielowątkowym, może prowadzić do otrzymania takich samych
  sekwencji liczb.
+ Co więcej, przestrzeń inicujująca generator jest stosunkowo mała -- mając
+ już 
+\begin_inset Formula $2^{16}$
+\end_inset
+
+ instancji generatora zainicjowanego losowymi wartościami istnieje duże
+ prawdopodobieństwo otrzymania tej samej sekwencji wielokrotnie.
 \end_layout
 
 \begin_layout Itemize
-Dla niektórych wartości parametrów metoda Next zwraca sekwencje, których
- rozkład nie jest równomierny.
+Dla niektórych wartości parametrów metoda 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Next
+\end_layout
+
+\end_inset
+
+ zwraca sekwencje, których rozkład nie jest równomierny.
  
 \begin_inset Note Note
 status open
