@@ -149,7 +149,21 @@ biblioteką
 
  jest przedmiotem niniejszej pracy.
  To zestaw klas, które wspomagają twórców aplikacji rozproszonych.
- Zbudowane za jego pomocą klastry określane są mianem 
+ 
+\end_layout
+
+\begin_layout Standard
+Zbudowane za jego pomocą
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+ klastry określane są mianem 
 \begin_inset Flex Strong
 status open
 
@@ -189,9 +203,13 @@ Kod użytkownika
 \end_layout
 
 \begin_layout Definition
-Pod pojęciem kodu użytkownika rozumiemy kod źródłowy pochodzący spoza biblioteki
- Bluepath -- będący częścią aplikacji, która ją wykorzystuje.
- Termin ten odnosi się najczęściej do fragmentów kodu, które są wykonywane
+Pod pojęciem kodu użytkownika rozumiany jest kod źródłowy pochodzący spoza
+ biblioteki Bluepath -- będący częścią aplikacji, która ją wykorzystuje.
+ 
+\end_layout
+
+\begin_layout Standard
+Termin ten odnosi się najczęściej do fragmentów kodu, które są wykonywane
  w ramach rozproszonego wątku (def.
  
 \begin_inset CommandInset ref
@@ -302,7 +320,7 @@ name "def:background-Wezel-obliczeniowy"
 
 \end_inset
 
-Mianem węzła obliczeniowego lub 
+Mianem węzła obliczeniowego (w skrócie: 
 \begin_inset Flex Strong
 status open
 
@@ -312,14 +330,25 @@ węzła
 
 \end_inset
 
- określamy komputer, na którym działa usługa bazowana na bibliotece Bluepath,
- której celem jest zlecenie bądź wykonanie zleconych zadań.
- Jeżeli na maszynie działa więcej niż jedna instancja aplikacji, każda z
+) określamy komputer, na którym działa usługa zaimplementowana z użyciem
+ biblioteki Bluepath, której celem jest zlecenie bądź wykonanie zleconych
+ zadań.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Jeżeli na maszynie działa więcej niż jedna instancja aplikacji, każda z
  nich zachowuje się
 \begin_inset space \space{}
 \end_inset
 
 jak odrębny węzeł.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -355,18 +384,8 @@ name "def:background-Usluga-odnajdywania-wezlow"
 
 \end_inset
 
-Usługa odnajdywania węzłów bądź 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-usługa katalogowa
-\end_layout
-
-\end_inset
-
- to system umożliwiający węzłom odnajdywanie się wzajemnie w sieci i łączenie
- w klaster obliczeniowy.
+Usługa odnajdywania węzłów to system umożliwiający węzłom odnajdywanie się
+ wzajemnie w sieci i łączenie w klaster obliczeniowy.
 \end_layout
 
 \begin_layout Standard
@@ -396,18 +415,8 @@ Pamięć współdzielona
 \end_layout
 
 \begin_layout Definition
-Pamięć współdzielona lub 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-rozproszona pamięć współdzielona
-\end_layout
-
-\end_inset
-
- to pamięć masowa dostępna dla wszystkich węzłów, przez którą mogą wymieniać
- się danymi.
+Pamięć współdzielona to pamięć masowa dostępna dla wszystkich węzłów, przez
+ którą mogą wymieniać się danymi.
 \end_layout
 
 \begin_layout Subsection
@@ -617,17 +626,7 @@ listy współdzielonej
 
 \end_inset
 
- (nazywanej także 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-listą rozproszoną
-\end_layout
-
-\end_inset
-
-), 
+, 
 \end_layout
 
 \begin_layout Itemize
@@ -640,17 +639,7 @@ słownika współdzielonego
 
 \end_inset
 
- (nazywanego także 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-słownikiem rozproszonym
-\end_layout
-
-\end_inset
-
-) 
+ 
 \end_layout
 
 \begin_layout Standard
@@ -665,17 +654,7 @@ licznika współdzielonego
 
 \end_inset
 
- (określanego też mianem 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-licznika rozproszonego
-\end_layout
-
-\end_inset
-
-).
+.
  Cechą charakterystyczną obiektów współdzielonych jest możliwość odwołania
  się do nich z dowolnego węzła w klastrze.
 \end_layout
@@ -762,7 +741,7 @@ Terminy technologiczne
 ...
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -775,7 +754,7 @@ TCP
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-TCP"
@@ -809,7 +788,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -822,7 +801,7 @@ HTTP
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-HTTP"
@@ -856,7 +835,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -869,7 +848,7 @@ XML
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout LyX-Code
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-XML"
@@ -903,7 +882,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -916,7 +895,7 @@ SOAP
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-SOAP"
@@ -956,7 +935,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -969,7 +948,7 @@ RPC
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-RPC"
@@ -1003,7 +982,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -1016,7 +995,7 @@ WCF
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-WCF"
@@ -1046,7 +1025,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -1059,7 +1038,7 @@ XSD
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-XSD"
@@ -1093,7 +1072,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -1106,7 +1085,7 @@ NTP
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-NTP"
@@ -1140,7 +1119,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -1153,7 +1132,7 @@ Zapora ogniowa
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-Firewall"
@@ -1187,7 +1166,7 @@ status open
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Subsubsection
 \begin_inset Flex Strong
 status open
 
@@ -1200,7 +1179,7 @@ NAT
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-NAT"
@@ -1303,20 +1282,6 @@ wsparcie dla heterogenicznych środowisk -- różnych typów komputerów, sieci
  z różnych reprezentacji danych.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-jawny message passing, trudne do debugowania, brak możliwości dołączania
- węzłów w trakcie przetwarzania.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 MPI
 \end_layout
@@ -1363,6 +1328,16 @@ linked
 \end_inset
 
 ) z biblioteką MPI.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+rozbudować opis MPI
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1634,7 +1609,8 @@ key "Spark-Berkeley-Performance"
 \end_layout
 
 \begin_layout Standard
-Spark udostępnia abstrakcję pamięci nazwaną 
+Warto zwrócić w tym miejscu uwagę na udostępnianą przez środowisk Spark
+ abstrakcję pamięci nazwaną 
 \begin_inset Flex Emph
 status open
 
@@ -1898,10 +1874,10 @@ wirtualnych aktorów
 \end_inset
 
 .
- W porównaniu do Erlanga, środowisko wykonwacze działa tu na wyższym poziomie
- abstrakcji, uwalniając programistę od problemów takich jak obsługa awarii,
- odtwarzanie aktorów i zarządzanie rozproszonymi zasobami -- w szczególności
- rozłożeniem aktorów na poszczególne węzły.
+ W porównaniu do języka Erlang, środowisko wykonwacze działa tu na wyższym
+ poziomie abstrakcji, uwalniając programistę od problemów takich jak obsługa
+ awarii, odtwarzanie aktorów i zarządzanie rozproszonymi zasobami -- w szczególn
+ości rozłożeniem aktorów na poszczególne węzły.
  W systemie Orleans przyjęto następujące założenia:
 \end_layout
 
@@ -2007,13 +1983,23 @@ odel-everything-you-wanted-to-know-but-were-afraid-to-ask)
 
 \begin_layout Subsection
 Podsumowanie
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+do poprawy
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 [...] Z jednej strony język jest tylko narzędziem i dla programisty, który
  poznał ich kilka, rozpoznanie kolejnego i napisanie w nim aplikacji zazwyczaj
  nie stanowi problemu.
- Z drugiej -- każdy ma język, podczas pisania w którym czuje się komfortowo,
+ Z drugiej strony każdy ma język, podczas pisania w którym czuje się komfortowo,
  wie jakich problemów może się spodziewać i jak je rozwiązać.
  Mając świadomość, że język może być jednak istotnym czynnikiem przy wyborze
  środowiska dla aplikacji rozproszonej, został on ujęty w tabeli 

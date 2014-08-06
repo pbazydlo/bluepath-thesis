@@ -77,12 +77,12 @@ Testy jakościowe i wydajnościowe
 \end_layout
 
 \begin_layout Standard
-W bibliotekach wykorzystywanych przez programistów równie ważne co duża
- funkcjonalność i łatwość użycia jest stabilność działania i pewność, że
- błąd w wykonaniu aplikacji nie leży po stronie biblioteki.
+W bibliotekach wykorzystywanych przez programistów równie ważna jak bogata
+ funkcjonalność czy łatwość użycia jest stabilność działania i pewność,
+ że błąd w wykonaniu aplikacji nie leży po stronie biblioteki.
  W związku z tym istotne jest pokrycie kodu biblioteki zestawem testów zarówno
- jednostkowych jak i akceptacyjnych, które zostały opisane w dalszej części
- rozdziału.
+ jednostkowych jak i akceptacyjnych, które zostały opisane w niniejszym
+ rozdziale.
 \end_layout
 
 \begin_layout Standard
@@ -581,7 +581,17 @@ Small VM (Basic A1)
 \end_inset
 
  dysponowały po 1 wirtualnym rdzeniu AMD Opteron 1,6 GHz i 1,75 GB pamięci
- operacyjnej, natomiast węzeł hosta Redis była to instancja typu 
+ operacyjnej, natomiast węzeł hosta Redis
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+ była to instancja typu 
 \begin_inset Flex Name
 status open
 
@@ -613,20 +623,27 @@ DIP
 
 \end_inset
 
+, przydzielony automatycznie przez Windows Azure z użyciem DHCP).
+ Do dystrybucji nowych wersji bibliotek systemu Bluepath na wszystkie maszyny
+ w klastrze przygotowany został skrypt PowerShell wykorzystujący opisany
+ w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:implementation-Skrypt-Send-Folder"
 
-\begin_inset Foot
+\end_inset
+
+ skrypt 
+\begin_inset Flex Path
 status open
 
 \begin_layout Plain Layout
-DIP -- wewnętrzny adres IP przydzielony automatycznie przez Windows Azure
- z użyciem DHCP
+Send-Folder
 \end_layout
 
 \end_inset
 
-).
- Do dystrybucji nowych wersji bibliotek systemu Bluepath na wszystkie maszyny
- w klastrze przygotowany został skrypt PowerShell.
+.
 \end_layout
 
 \begin_layout Standard
