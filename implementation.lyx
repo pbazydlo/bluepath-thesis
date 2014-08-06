@@ -112,6 +112,15 @@ reference "sec:implementation-Rozproszony-watek"
 
 ).
  W ramach jednego z wątków uruchamiana jest usługa nasłuchująca na wywołania
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+czy 'nasłuchująca wywołań'??
+\end_layout
+
+\end_inset
+
  -- zlecenia, zapytania -- przychodzące od pozostałych węzłów.
 \end_layout
 
@@ -328,6 +337,14 @@ To 'ale przydaje się'...
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+to powinno być raczej w koncepcji??
+\end_layout
+
+\begin_layout Plain Layout
 Zastosowane protokoły nie zapewniają żadnych gwarancji co do kolejności
  dostarczonych wiadomości.
  Nie zapewniają również niezawodności dostarczania wiadomości ponad to,
@@ -342,6 +359,11 @@ reference "def:background-TCP"
 ) -- czyli potwierdzenia i retransmisje.
  Zakładamy jednak, że połączenia w obrębie jednego klastra są na tyle stabilne,
  że nie będzie to powodowało problemów.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -704,6 +726,16 @@ IStorage
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tutaj niewiadomo skąd pojawia się nagle nazwa 'IStorage', brakuje wprowadzenia
+\end_layout
+
+\end_inset
+
  wymaga implementacji metod do operacji na pojedynczych wartościach: 
 \begin_inset Flex Code
 status open
@@ -876,15 +908,45 @@ współdzielonej pamięci
 
 .
  Pod uwagę brane były następujące aplikacje:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+dodać cytowania i Redisa, zaznaczyć 2 fazy
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Memcached -- niestety projekt był aktualizowany ostatni raz w roku 2013
- a jego implementacja opiera się o .NET Framework 2.0 wydany w 2005 roku,
+Memcached
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[#]
+\end_layout
+
+\end_inset
+
+ -- niestety projekt był aktualizowany ostatni raz w roku 2013 a jego implementa
+cja opiera się o .NET Framework 2.0 wydany w 2005 roku,
 \end_layout
 
 \begin_layout Itemize
-Riak -- który jest implementacją Amazon Dynamo 
+Riak
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[#]
+\end_layout
+
+\end_inset
+
+ -- który jest implementacją Amazon Dynamo 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Amazon-Dynamo"
@@ -895,13 +957,33 @@ key "Amazon-Dynamo"
 \end_layout
 
 \begin_layout Itemize
-Polyphony -- eksperymentalny projekt rozproszonej tablicy haszowej napisany
- w języku F#, nie wybrano ze względu na wczesnorozwojowy charakter projektu,
+Polyphony
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[#]
+\end_layout
+
+\end_inset
+
+ -- eksperymentalny projekt rozproszonej tablicy haszowej napisany w języku
+ F#, nie wybrano ze względu na wczesnorozwojowy charakter projektu,
 \end_layout
 
 \begin_layout Itemize
-Rhino DHT -- implementacja rozproszonej tablicy haszowej w języku C#; posiada
- zależności do Rhino PHT (
+Rhino DHT
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[#]
+\end_layout
+
+\end_inset
+
+ -- implementacja rozproszonej tablicy haszowej w języku C#; posiada zależności
+ do Rhino PHT (
 \begin_inset Flex Emph
 status open
 
@@ -911,7 +993,21 @@ persistent hash table
 
 \end_inset
 
-) oraz Rhino Queues.
+) oraz Rhino Queues,
+\end_layout
+
+\begin_layout Itemize
+Redis
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[#]
+\end_layout
+
+\end_inset
+
+ -- ...
 \end_layout
 
 \begin_layout Standard
@@ -948,7 +1044,7 @@ zamków
 \end_inset
 
 .
- Szczegóły tego problemu zostały przedstawione punkcie 
+ Szczegóły tego problemu zostały przedstawione w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:problemy-rhino-dht"
@@ -961,7 +1057,7 @@ reference "par:problemy-rhino-dht"
 
 \begin_layout Standard
 Kolejnym rozwiązaniem wziętym pod uwagę był Redis.
- Jest to otwarto-źródłowy system przechowujący dane typu klucz-wartość autorstwa
+ Jest to otwartoźródłowy system przechowujący dane typu klucz-wartość autorstwa
  Salvatore Sanfilippo oraz Pietera Noordhuisa.
  Jest używany na co dzień jako mechanizm pamięci podręcznej wielu serwisów
  internetowych (m.in.
@@ -1582,7 +1678,7 @@ reference "lis:implementation-SOAP-Initialize-decBase64"
 
  prezentuje fragment uchwytu do metody po zdekodowaniu i usunięciu znaków
  spoza drukowalnego zestawu symboli ASCII.
- DistributedPI to przykładowyprogram opisany szerzej w punkcie 
+ DistributedPI to przykładowy program opisany szerzej w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Przykladowe-zastosowania-liczba-pi"
@@ -1729,7 +1825,17 @@ Przesłanie parametrów, wykonanie
 \end_layout
 
 \begin_layout Standard
-W kolejnej wiadomości węzeł zlecający przesyła parametry wywołania metody.
+W kolejnej wiadomości
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nie jest jasne, że kontynuujemy opis protokołu
+\end_layout
+
+\end_inset
+
+ węzeł zlecający przesyła parametry wywołania metody.
  Przechwycona koperta z komunikatem 
 \begin_inset Flex Code
 status open
@@ -2149,7 +2255,7 @@ wątków rozproszonych
 \end_inset
 
  oraz częstotliwości odświerzania informacji o obciążeniu węzłów lokalne
- dane mogą szybko stać się przeterminowane.
+ dane mogą szybko stać się nieaktualne.
  Można ten efekt złagodzić poprzez zwiększanie zapamiętanego obciążenia
  o wysłane na dany węzeł wątki.
 \end_layout
@@ -2499,8 +2605,8 @@ Bluepath.Reporting.Log.Activity
 
 \end_inset
 
-.
- Przykładowe z nich to: 
+, obejmuje on m.
+ in.:
 \end_layout
 
 \begin_layout Itemize
@@ -2755,8 +2861,24 @@ Dystrybucja aplikacji w klastrze
 \end_layout
 
 \begin_layout Standard
-PowerShell Remoting to usługa umożliwiająca wykonanie na zdalnych maszynach
- pojedynczych komend lub stworzenie pełnej zdalnej sesji PowerShell.
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:implementation-Skrypt-Send-Folder"
+
+\end_inset
+
+PowerShell Remoting
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[#]
+\end_layout
+
+\end_inset
+
+ to usługa umożliwiająca wykonanie na zdalnych maszynach pojedynczych komend
+ lub stworzenie pełnej zdalnej sesji PowerShell.
  Automatyzacja procesu dystrybucji plików binarnych systemu w klastrze została
  zrealizowana za pomocą zestawu skryptów: 
 \begin_inset Flex Path
@@ -2808,7 +2930,11 @@ reference "lis:implementation-Send-Folder"
 
 \end_inset
 
- przyjmuje jako parametry: adres zdalnego komputera (
+ przyjmuje jako parametry: 
+\end_layout
+
+\begin_layout Itemize
+adres zdalnego komputera (
 \begin_inset Flex Code
 status open
 
@@ -2818,7 +2944,11 @@ status open
 
 \end_inset
 
-), opcjonalnie port, na którym nasłuchuje usługa PowerShell Remoting (
+), 
+\end_layout
+
+\begin_layout Itemize
+opcjonalnie port, na którym nasłuchuje usługa PowerShell Remoting (
 \begin_inset Flex Code
 status open
 
@@ -2828,7 +2958,11 @@ status open
 
 \end_inset
 
-), nazwę użytkownika (
+), 
+\end_layout
+
+\begin_layout Itemize
+nazwę użytkownika (
 \begin_inset Flex Code
 status open
 
@@ -2838,7 +2972,11 @@ status open
 
 \end_inset
 
-), hasło (
+), 
+\end_layout
+
+\begin_layout Itemize
+hasło (
 \begin_inset Flex Code
 status open
 
@@ -2848,7 +2986,11 @@ status open
 
 \end_inset
 
-), ścieżkę do folderu źródłowego na lokalnej maszynie (
+), 
+\end_layout
+
+\begin_layout Itemize
+ścieżkę do folderu źródłowego na lokalnej maszynie (
 \begin_inset Flex Code
 status open
 
@@ -2858,7 +3000,11 @@ status open
 
 \end_inset
 
-), ścieżkę do folderu docelowego na zdalnej maszynie (
+), 
+\end_layout
+
+\begin_layout Itemize
+oraz ścieżkę do folderu docelowego na zdalnej maszynie (
 \begin_inset Flex Code
 status open
 
@@ -2869,8 +3015,12 @@ status open
 \end_inset
 
 ).
- Skrypt tworzy obiekt zdalnej sesji uwierzytelniając się poprzez podaną
- nazwę użytkownika i hasło.
+ 
+\end_layout
+
+\begin_layout Standard
+Skrypt tworzy obiekt zdalnej sesji uwierzytelniając się poprzez podaną nazwę
+ użytkownika i hasło.
  W celu uproszczenia etapu konfiguracji środowiska, do wywołania metody
  
 \begin_inset Flex Code
@@ -2893,7 +3043,7 @@ status open
 \end_inset
 
 .
- Opcja ta powoduje jednak zmniejszenie bezpieczeństwa poprzez dopuszczenie
+ Opcja ta powoduje jednak obniżenie poziomu bezpieczeństwa poprzez dopuszczenie
  niezaufanych certyfikatów maszyn.
  Następnie pobierana jest lista plików we wskazanym lokalnym folderze i
  dla każdego z plików wywoływany skrypt 

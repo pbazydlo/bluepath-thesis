@@ -89,8 +89,8 @@ tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
  Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
 iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
  komunikatów.
- Klaster sysetmu Bluepath zakłada możliwość bezpośredniej komunikacji każdego
- podłączonego do niego komputera z każdym innym poprzez sieć.
+ Klaster systemu Bluepath zakłada możliwość bezpośredniej komunikacji poprzez
+ sieć każdego podłączonego do niego komputera z każdym innym.
  
 \end_layout
 
@@ -100,7 +100,7 @@ Usługa odnajdywania węzłów
 
 \begin_layout Standard
 Jednym z podstawowych założeń jest posiadanie przez wszystkie węzły w systemie
- lokalnego obrazu stanu wszystkich innych węzłów w kalstrze.
+ lokalnego obrazu stanu wszystkich innych węzłów w klastrze.
  Informacje dotyczące stanu poszczególnych węzłów są dostarczane przez 
 \begin_inset Flex Name
 status open
@@ -559,28 +559,83 @@ pamięci współdzielonej
 \end_layout
 
 \begin_layout Itemize
-zapis -- operacja zapisująca dane; w przypadku gdy podany klucz już istnieje
+zapis (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+store
+\end_layout
+
+\end_inset
+
+) -- operacja zapisująca dane; w przypadku gdy podany klucz już istnieje
  operacja nie powiedzie się,
 \end_layout
 
 \begin_layout Itemize
-zapis lub aktualizacja -- operacja zapisująca dane; w przypadku gdy podany
- klucz istnieje, wartość zostanie nadpisana,
+zapis lub aktualizacja (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+store or update
+\end_layout
+
+\end_inset
+
+) -- operacja zapisująca dane; w przypadku gdy podany klucz istnieje, wartość
+ zostanie nadpisana,
 \end_layout
 
 \begin_layout Itemize
-aktualizacja -- operacja aktualizująca dane -- powiedzie się tylko wtedy,
- gdy podany klucz został wcześniej utworzony w pamięci współdzielonej,
+aktualizacja (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+update
+\end_layout
+
+\end_inset
+
+) -- operacja aktualizująca dane -- powiedzie się tylko wtedy, gdy podany
+ klucz został wcześniej utworzony w pamięci współdzielonej,
 \end_layout
 
 \begin_layout Itemize
-pobranie -- operacja pobierająca dane -- powiedzie się tylko wtedy gdy podany
- klucz został wcześniej utworzony,
+pobranie (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+retrieve
+\end_layout
+
+\end_inset
+
+) -- operacja pobierająca dane -- powiedzie się tylko wtedy gdy podany klucz
+ został wcześniej utworzony,
 \end_layout
 
 \begin_layout Itemize
-usunięcie -- operacja usuwająca dane -- powiedzie się tylko wtedy gdy podany
- klucz został wcześniej utworzony w pamięci współdzielonej.
+usunięcie (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+remove
+\end_layout
+
+\end_inset
+
+) -- operacja usuwająca dane -- powiedzie się tylko wtedy gdy podany klucz
+ został wcześniej utworzony w pamięci współdzielonej.
 \end_layout
 
 \begin_layout Standard
@@ -762,6 +817,16 @@ trochę shitowy ten opis :(
 
 \begin_layout Paragraph
 Licznik
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+do poprawy
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -828,7 +893,7 @@ Głównym kosztem przetwarzania rozproszonego są narzuty komunikacyjne.
 \begin_inset Formula $n$
 \end_inset
 
- rządań w celu pobrania 
+ żądań w celu pobrania 
 \begin_inset Formula $n$
 \end_inset
 
@@ -929,8 +994,17 @@ rozszerzonej pamięci współdzielonej
 \end_layout
 
 \begin_layout Standard
-Ponieważ reszta infrastruktury nie polega na sposobie implementacji zamków
- (a jedynie na zapewnieniach
+Ponieważ reszta infrastruktury
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+co to infrastruktura??
+\end_layout
+
+\end_inset
+
+ nie polega na sposobie implementacji zamków (a jedynie na zapewnieniach
 \begin_inset Note Note
 status open
 
