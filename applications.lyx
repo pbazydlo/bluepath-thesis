@@ -1758,7 +1758,7 @@ może jakieś zestawienie 'co trzeba zakodzić - Bluepath vs.
 \end_layout
 
 \begin_layout Section
-Generowanie słownika prefiksów
+System uzupełniania wyrazów
 \end_layout
 
 \begin_layout Standard
@@ -1771,7 +1771,7 @@ Wiele aplikacji operujących na dużej liczbie danych próbuje wspomóc swoich
 \end_layout
 
 \begin_layout Standard
-Jedną z takich technik jest system automatycznego uzupełniania (ang.
+Jedną z takich technik jest system uzupełniania wyrazów (ang.
  
 \begin_inset Flex Emph
 status open
@@ -1783,18 +1783,154 @@ autocomplete
 \end_inset
 
 ).
- Można go zrealizować poprzez porównanie wprowadzonego słowa z słowami występują
-cymi w przetwarzanych danych.
- Ponieważ przetwarzanie wszystkich posiadanych danych w czasie rzeczywistym
- byłoby bardzo powolne, można je poddać wstępnej obróbce -- np.
- wytworzenie wszystkich możliwych prefiksów.
+ W trakcie wpisywania zapytania użytkownikowi prezentowana jest lista zawierając
+a sugerowane zakończenia wpisywanego wyrazu.
+ W przypadku gdy wyraz, który użytkownik miał zamiar wpisać, znajduje się
+ na liście może on zostać wybrany.
+ W przeciwnym przypadku użytkownik musi kontynuować wpisywanie wyrazu.
 \end_layout
 
 \begin_layout Standard
-System generujący wszystkie możliwe prefiksy na podstawie zadanych danych
- został zaimplementowany jako przykład zastosowania biblioteki Bluepath.
- Przetwarzanie zostało oparte o kolekcję dokumentów, która jest rozsyłana
- do poszczególnych węzłów (każdy 
+System tego typu można zrealizować poprzez porównanie wprowadzonego słowa
+ ze słowami występującymi w przetwarzanych danych.
+ Ponieważ przetwarzanie wszystkich posiadanych danych w czasie rzeczywistym
+ byłoby bardzo powolne, można je poddać wstępnej obróbce
+\begin_inset space ~
+\end_inset
+
+--
+\begin_inset space ~
+\end_inset
+
+np.
+ wygenerowaniu i powiązaniu prefiksów z ich możliwymi rozwinięciami.
+\end_layout
+
+\begin_layout Standard
+System uzupełniania wyrazów został zaimplementowany jako przykład zastosowania
+ biblioteki 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+.
+ Przetwarzanie zostało podzielone na trzy odrębne części:
+\end_layout
+
+\begin_layout Itemize
+Wczytywanie danych
+\begin_inset space ~
+\end_inset
+
+--
+\begin_inset space ~
+\end_inset
+
+odpowiedzialna za wytworzenie i powiązanie prefiksów i ich rozwinięć, opisana
+ w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:zastosowania-autocomplete-Wczytywanie-danych"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+Uzupełnianie wyrazów
+\begin_inset space ~
+\end_inset
+
+--
+\begin_inset space ~
+\end_inset
+
+demonstrująca realizację funkcji podpowiadania możliwych zakończeń prefiksu,
+ opisana w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:zastosowania-autocomplete-Uzupełnianie-wyrazów"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+Czyszczenie stanu systemu
+\begin_inset space ~
+\end_inset
+
+--
+\begin_inset space ~
+\end_inset
+
+wykorzystywana w celu przywrócenia całego systemu do stanu początkowego
+ bez konieczności ponownego uruchamiania aplikacji.
+\end_layout
+
+\begin_layout Standard
+Na podział ten miały wpływ dwa czynniki:
+\end_layout
+
+\begin_layout Itemize
+z założenia przygotowywanie prefiksów (wraz z rozwinięciami) miało być czynności
+ą niezależną od wyszukiwania możliwych rozwinięć wpisanego wyrazu
+\begin_inset space ~
+\end_inset
+
+--
+\begin_inset space ~
+\end_inset
+
+system udziela odpowiedzi na podstawie najświerzszych posiadanych danych,
+\end_layout
+
+\begin_layout Itemize
+w trakcie pisania systemu okazało się, że przydatna jest metoda przywracająca
+ system do stanu początkowego, a nie będąca częścią głównego przetwarzania.
+\end_layout
+
+\begin_layout Subsection
+Wczytywanie danych
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:zastosowania-autocomplete-Wczytywanie-danych"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zaimplementowany system uzupełniania wyrazów, przed rozpoczęciem wyszukiwania
+ możliwych zakończeń zadanego prefiksu, musi zostać zainicjalizowany.
+ Dokumenty zawierające przykładowe słowa są wczytywane przez węzeł inicjalizując
+y operację wczytywania danych i dodawane jako elementy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+listy rozproszonej
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:----Koncepcja-wspoldzielone-struktury-danych"
+
+\end_inset
+
+.
+ Następnie każdy 
 \begin_inset Flex Name
 status open
 
@@ -1804,20 +1940,408 @@ wątek rozproszony
 
 \end_inset
 
- łączy się z 
-\begin_inset Flex Name
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:implementation-Rozproszony-watek"
+
+\end_inset
+
+ pobiera nie przetworzony fragment listy i na podstawie zawartych w nim
+ dokumentów uzupełnia słownik (ang.
+ 
+\begin_inset Flex Emph
 status open
 
 \begin_layout Plain Layout
-pamięcią współdzieloną
+Dictionary
 \end_layout
 
 \end_inset
 
-, z której pobiera dokumenty, które ma przetworzyć).
- Po przetworzeniu wszystkich dokumentów wszystkie prefiksy są zachowywane
- lokalnie w celu późniejszego wykorzystania przy wyszukiwaniu (wyszukiwany
- prefiks jest rozsyłany do wszystkich węzłów przetwarzających).
+) prefiksów i możliwych dla nich uzupełnień.
+ Gdy na liście nie ma już elementów do przetworzenia 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ kończy przetwarzanie.
+ Gdy wszystkie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątki rozproszone
+\end_layout
+
+\end_inset
+
+ zakończą przetwarzanie, każdy z węzłów zawiera częściową informację dotyczącą
+ prefiksów i ich uzupełnień.
+ Fragment funkcji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+LoadDocuments
+\end_layout
+
+\end_inset
+
+ odpowiedzialnej za operację wczytywania danych wykonywaną przez 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ został przedstawiony na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Fragment-funkcji-LoadDocuments"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language={[Sharp]C}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Fragment-funkcji-LoadDocuments"
+
+\end_inset
+
+Fragment funkcji LoadDocuments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private static int LoadDocuments(string inputKey, string counterKey, int
+ chunkSize, IBluepathCommunicationFramework bluepath)        
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	var inputList = new DistributedList<string>(bluepath.Storage as IExtendedStorage
+, inputKey);
+\end_layout
+
+\begin_layout Plain Layout
+
+	var inputCount = inputList.Count;
+\end_layout
+
+\begin_layout Plain Layout
+
+	var counter = new DistributedCounter(bluepath.Storage as IExtendedStorage,
+ counterKey);
+\end_layout
+
+\begin_layout Plain Layout
+
+	int indexEnd = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	do
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		int noOfElements = chunkSize; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		int indexStart = counter.GetAndIncrease(chunkSize); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+		var inputDocuments = new string[noOfElements];    
+\end_layout
+
+\begin_layout Plain Layout
+
+		inputList.CopyPartTo(indexStart, noOfElements, inputDocuments); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		foreach (var document in inputDocuments)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		{               
+\end_layout
+
+\begin_layout Plain Layout
+
+			var words = document.Split(' ');    
+\end_layout
+
+\begin_layout Plain Layout
+
+			foreach (var word in words)   
+\end_layout
+
+\begin_layout Plain Layout
+
+			{                     
+\end_layout
+
+\begin_layout Plain Layout
+
+				[...] // wygenerowanie prefiksów i zapisanie ich w pamięci lokalnej   
+               
+\end_layout
+
+\begin_layout Plain Layout
+
+			}                 
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	} while (indexEnd <= inputCount);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;     
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Uzupełnianie wyrazów
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:zastosowania-autocomplete-Uzupełnianie-wyrazów"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Głównym celem systemu uzupełniania wyrazów jest wyszukiwania możliwych zakończeń
+ zadanego prefiksu.
+ W tym celu należy przeszukać informacje posiadane przez każdy z węzłów,
+ a następnie uzyskane wyniki częściowe zagregować.
+ Aby mieć pewność, że każdy węzeł zostanie przeszukany zastosowano planistę
+ szeregującego zadania za pomocą algorytmu karuzelowego (opisanego w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Implementacja-Szeregowanie-karuzelowy"
+
+\end_inset
+
+) i uruchomiono tyle 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątków rozproszonych
+\end_layout
+
+\end_inset
+
+ ile znajduje się węzłów w systemie.
+ Inicjalizacja planisty została przedstawiona na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:zastosowania-autocomplete-Inicjalizacja-planisty-szeregują"
+
+\end_inset
+
+.
+ 
+\begin_inset listings
+lstparams "breaklines=true,language={[Sharp]C}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:zastosowania-autocomplete-Inicjalizacja-planisty-szeregują"
+
+\end_inset
+
+Inicjalizacja planisty szeregującego zadania za pomocą algorytmu karuzelowego
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var services = connectionManager.RemoteServices.Select(s => s.Key).ToArray();
+\end_layout
+
+\begin_layout Plain Layout
+
+var scheduler = new RoundRobinLocalScheduler(services);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Po zakończeniu przetwarzania przez wszystkie wątki należy zagregować dane.
+ Częścią tej operacji, oprócz połączenia wyników, jest usunięcie duplikatów,
+ które mogą się pojawić ze względu na to, że w tej implementacji każdy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ wykonuje przetwarzanie lokalnie (niezależnie od pozostałych wątków).
+ Na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:zastosowania-autocomplete-Zebranie-wyników-w"
+
+\end_inset
+
+ przedstawiono zebranie wyników, oraz usunięcie duplikatów.
+\begin_inset listings
+lstparams "breaklines=true,language={[Sharp]C}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:zastosowania-autocomplete-Zebranie-wyników-w"
+
+\end_inset
+
+Zebranie wyników w systemie uzupełniania wyrazów
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var joinedResult = new List<string>();
+\end_layout
+
+\begin_layout Plain Layout
+
+foreach (var thread in threads)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	thread.Join();
+\end_layout
+
+\begin_layout Plain Layout
+
+	joinedResult.AddRange(thread.Result as string[]);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var endResult = joinedResult.Distinct().ToArray();
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
