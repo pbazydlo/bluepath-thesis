@@ -334,7 +334,7 @@ status open
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language={[Sharp]C}"
+lstparams "language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -456,7 +456,17 @@ Usługa odnajdywania węzłów
 \begin_layout Standard
 Obecna implementacja zawiera usługę odnajdywania węzłów zrealizowaną w sposób
  scentralizowany, a każdy z węzłów podłączających się do klastra musi znać
- adres IP i numer portu, pod którym działa usługa katalogowa.
+ adres IP i numer portu, pod którym działa 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługa odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+.
  Usługa udostępnia metody służące do zarejestrowania się węzła (
 \begin_inset Flex Code
 status open
@@ -502,7 +512,7 @@ GetPerformanceStatistics
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language={[Sharp]C}"
+lstparams "language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -598,7 +608,7 @@ public interface ICentralizedDiscoveryService
 \end_layout
 
 \begin_layout Section
-Rozproszona pamięć współdzielona
+Pamięć rozproszona
 \end_layout
 
 \begin_layout Standard
@@ -768,7 +778,7 @@ IStorage
 status open
 
 \begin_layout Plain Layout
-rozproszonych zamków
+zamków rozproszonych
 \end_layout
 
 \end_inset
@@ -807,7 +817,7 @@ ia koncepcji
 status open
 
 \begin_layout Plain Layout
-współdzielonej pamięci
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -927,7 +937,7 @@ wane i nie było możliwe wykonanie atomowej operacji ,,odczytaj i zapisz'',
 status open
 
 \begin_layout Plain Layout
-zamków
+zamków rozproszonych
 \end_layout
 
 \end_inset
@@ -971,7 +981,7 @@ reference "par:problemy-Windows-Redis"
 \end_layout
 
 \begin_layout Subsection
-Współdzielone struktury danych i obiekty
+Rozproszone struktury danych i obiekty
 \end_layout
 
 \begin_layout Standard
@@ -981,7 +991,7 @@ Struktury danych i obiekty, które mogą być współdzielone między wątkami
 status open
 
 \begin_layout Plain Layout
-pamięć współdzieloną
+pamięć rozproszoną
 \end_layout
 
 \end_inset
@@ -1089,7 +1099,7 @@ CopyTo
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1159,7 +1169,17 @@ reference "par:koncepcja-distributed-counter"
 
 \end_inset
 
-) przydatnym obiektem może być współdzielony licznik.
+) przydatnym obiektem może być 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+licznik rozproszony
+\end_layout
+
+\end_inset
+
+.
  Zaimplementowana klasa 
 \begin_inset Flex Code
 status open
@@ -1240,7 +1260,7 @@ GetAndIncrease
 \end_layout
 
 \begin_layout Section
-Rozproszony wątek
+Wątek rozproszony
 \end_layout
 
 \begin_layout Standard
@@ -1300,7 +1320,17 @@ Serializable
  jednego procesu--hosta nie mogą komunikować się ze sobą poprzez pamięć
  operacyjną, a parametry, z którymi wywoływana jest metoda są kopiowane
  do nowych instancji klas i struktur.
- Wyjątkiem jest tutaj dostarczana przez środowisko pamięć współdzielona.
+ Wyjątkiem jest tutaj dostarczana przez środowisko 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięć rozproszona
+\end_layout
+
+\end_inset
+
+.
  W tym przypadku programista powinien stosować dostarczone wraz z nią mechanizmy
  synchronizacji.
 \end_layout
@@ -1338,7 +1368,7 @@ reference "fig:implementation-Protokol-IRemoteExecutorService"
 
 \end_inset
 
-) używanego przez węzły obliczeniowe oraz szczegóły implementacji
+) używanego przez węzły obliczeniowe oraz szczegóły implementacji 
 \begin_inset Flex Name
 status open
 
@@ -1629,7 +1659,7 @@ System.Int64
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=Assembler"
+lstparams "language=Assembler,numbers=left"
 inline false
 status open
 
@@ -1755,7 +1785,7 @@ ExecuteCallback
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=XML"
+lstparams "breaklines=true,language=XML,numbers=left"
 inline false
 status open
 
@@ -1908,7 +1938,7 @@ reference "lis:implementation-SOAP-ExecuteCallback"
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language=XML"
+lstparams "breaklines=true,language=XML,numbers=left"
 inline false
 status open
 
@@ -2080,14 +2110,7 @@ key "Tannenbaum-SOP"
 
 \begin_layout Standard
 Poniżej opisane zostały szczegółowo ich implementacje.
- Testy porównawcze i analiza wyników zaprezentowane zostały w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:performance-Porownanie-planistow"
-
-\end_inset
-
-.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -2229,31 +2252,59 @@ TraceMessage
 \end_layout
 
 \begin_layout Standard
-Istnieje możliwość przekierowania wszystkich informacji do współdzielonej
- pamięci.
+Istnieje możliwość przekierowania wszystkich informacji do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+.
  W tym celu należy ustawić flagę 
 \begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-WriteToSharedMemory
+WriteToDistributedMemory
 \end_layout
 
 \end_inset
 
- oraz uzupełnić nazwę hosta współdzielonej pamięci (
+ oraz uzupełnić nazwę hosta 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ (
 \begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-SharedMemoryHost
+DistributedMemoryHost
 \end_layout
 
 \end_inset
 
 ), do którego ma odbywać się zapis.
- Warto zwrócić uwagę, że tryb pracy ze zbieraniem historii zdarzeń we współdziel
-onej pamięci może istotnie ograniczać wydajność systemu.
+ Warto zwrócić uwagę, że tryb pracy ze zbieraniem historii zdarzeń w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci współdzielonej
+\end_layout
+
+\end_inset
+
+ może istotnie ograniczać wydajność systemu.
  W celu zmaterializowania zebranego logu udostępniona została metoda 
 \begin_inset Flex Code
 status open
@@ -2264,14 +2315,23 @@ SaveXes
 
 \end_inset
 
-, która zapisuje wszystkie zgromadzone we współdzielonej pamięci zdarzenia
- do pliku XML w formacie OpenXES.
+, która zapisuje wszystkie zgromadzone we 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ zdarzenia do pliku XML w formacie OpenXES.
  
 \end_layout
 
 \begin_layout Standard
 Implementacja standardu została wykonana na podstawie zmodyfikowanych plików
- XSD (def.
+ XSD (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2351,7 +2411,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset listings
-lstparams "breaklines=true,language=bash"
+lstparams "breaklines=true,language=bash,numbers=left"
 inline false
 status open
 
@@ -2602,7 +2662,7 @@ eid
 
 \begin_layout Standard
 Zależności czasowe są istotną częścią analizy przebiegu procesu.
- Z wykorzystaniem serwerów czasu NTP (def.
+ Z wykorzystaniem serwerów czasu NTP (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2626,7 +2686,7 @@ key "Mills-NTP-IEEE-Trans"
 status open
 
 \begin_layout Plain Layout
-współdzielonego licznika
+licznika rozproszonego
 \end_layout
 
 \end_inset
@@ -2693,7 +2753,7 @@ wykonawcy
 status open
 
 \begin_layout Plain Layout
-wspóldzielonej pamięci
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -2703,7 +2763,7 @@ wspóldzielonej pamięci
 status open
 
 \begin_layout Plain Layout
-rozproszonego wątku
+wątku rozproszonego
 \end_layout
 
 \end_inset
@@ -2904,7 +2964,17 @@ New-PSSession
 status open
 
 \begin_layout Plain Layout
--SessionOption (New-PSSessionOption -SkipCACheck)
+-SessionOption
+\end_layout
+
+\end_inset
+
+ z parametrem 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+New-PSSessionOption -SkipCACheck
 \end_layout
 
 \end_inset
@@ -2962,7 +3032,7 @@ Send-Folder
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=bash"
+lstparams "language=bash,numbers=left"
 inline false
 status open
 

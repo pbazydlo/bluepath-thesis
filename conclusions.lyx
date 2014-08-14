@@ -390,8 +390,8 @@ jest jeszcze inna możliwość??
 
 \begin_layout Standard
 Obsługa awarii węzłów obliczeniowych w przypadku, gdy aplikacja nie posiada
- współdzielonego stanu, czyli nie wykorzystuje współdzielonych struktur
- danych ani obiektów -- a więc wywołania są idempotentne -- mogłaby uwzględniać
+ współdzielonego stanu, czyli nie wykorzystuje rozproszonych struktur danych
+ ani obiektów -- a więc wywołania są idempotentne -- mogłaby uwzględniać
  drzewiasty charakter takiego przetwarzania.
  Rozproszone wątki zainicjowane przez stracony węzeł musiałyby być wycofane,
  a węzeł nadrzędny musiałby zlecić jeszcze raz wykonanie przerwanego wątku.

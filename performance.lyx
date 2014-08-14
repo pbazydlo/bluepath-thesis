@@ -279,7 +279,7 @@ IBluepathCommunicationFramework
 status open
 
 \begin_layout Plain Layout
-rozproszony wątek
+wątek rozproszony
 \end_layout
 
 \end_inset
@@ -428,7 +428,7 @@ W ramach testów integracyjnych przetestowane zostały następujące aspekty:
 status open
 
 \begin_layout Plain Layout
-rozproszone wątki
+wątki rozproszone
 \end_layout
 
 \end_inset
@@ -450,9 +450,19 @@ zarządca połączeń
 
 \end_inset
 
- -- pobieranie listy dostępnych węzłów z usługi katalogowej i aktualizowanie
- swojej lokalnej kopii listy (dodawanie nowych węzłów i usuwanie wyrejestrowanyc
-h), pobieranie informacji o obciążeniu węzłów zarejestrowanych w klastrze,
+ -- pobieranie listy dostępnych węzłów z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługi odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+ i aktualizowanie swojej lokalnej kopii listy (dodawanie nowych węzłów i
+ usuwanie wyrejestrowanych), pobieranie informacji o obciążeniu węzłów zarejestr
+owanych w klastrze,
 \end_layout
 
 \begin_layout Itemize
@@ -460,7 +470,7 @@ h), pobieranie informacji o obciążeniu węzłów zarejestrowanych w klastrze,
 status open
 
 \begin_layout Plain Layout
-współdzielona pamięć
+pamięć rozproszona
 \end_layout
 
 \end_inset
@@ -473,7 +483,7 @@ współdzielona pamięć
 status open
 
 \begin_layout Plain Layout
-rozproszone zamki
+zamki rozproszone
 \end_layout
 
 \end_inset
@@ -483,8 +493,17 @@ rozproszone zamki
 \end_layout
 
 \begin_layout Itemize
-a także testy struktur danych i obiektów zbudowanych na bazie współdzielonej
- pamięci -- lista, słownik, licznik.
+a także testy struktur danych i obiektów zbudowanych na bazie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ -- lista, słownik, licznik.
 \end_layout
 
 \begin_layout Section
@@ -531,8 +550,18 @@ key "Microsoft-Azure"
  Klaster składał się z 7 maszyn wirtualnych -- na sześciu z nich działały
  usługi systemu Bluepath pod kontrolą systemu operacyjnego Windows Server
  2012 R2 Datacenter (wydanego 17 czerwca 2014 r.), a na jednej maszynie uruchomio
-ny został host współdzielonej pamięci Redis pod kontrolą systemu operacyjnego
- Ubuntu Server 14.04 LTS (wydanego 20 czerwca 2014 r.).
+ny został host 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ Redis pod kontrolą systemu operacyjnego Ubuntu Server 14.04 LTS (wydanego
+ 20 czerwca 2014 r.).
  Maszyny różniły się konfiguracją sprzętową w zależności od przeznaczenia:
 \end_layout
 
@@ -1059,7 +1088,7 @@ Send-Folder
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language=bash,numbers=left"
 inline false
 status open
 
@@ -1092,66 +1121,20 @@ Send-Folder.ps1 -server [adres węzła 1] -user [nazwa użytkownika] -password
 
 \begin_layout Plain Layout
 
-.
-\backslash
-Send-Folder.ps1 -server [adres węzła 2] -user [nazwa użytkownika] -password
- [hasło] -source [folder źródłowy] -destination [folder docelowy] 
-\end_layout
-
-\begin_layout Plain Layout
-
 ...
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Porównanie dostępnych algorytmów szeregownia zadań
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:performance-Porownanie-planistow"
-
-\end_inset
-
-Razem z biblioteką 
-\begin_inset Flex Name
-status open
-
 \begin_layout Plain Layout
-Bluepath
-\end_layout
-
-\end_inset
-
- dostarczone zostały dwa algorytmy szeregujące zadania:
-\end_layout
-
-\begin_layout Enumerate
-w oparciu o obciążenie węzłów -- opisany w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:implementacja-szeregowanie-zadan-threadcount"
-
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Enumerate
-korzystają z algorytmu cyklicznego -- opisany w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Implementacja-Szeregowanie-karuzelowy"
-
-\end_inset
 
 .
+\backslash
+Send-Folder.ps1 -server [adres węzła n] -user [nazwa użytkownika] -password
+ [hasło] -source [folder źródłowy] -destination [folder docelowy]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1160,19 +1143,85 @@ Generowanie słownika prefiksów
 
 \begin_layout Standard
 Jednym z algorytmów wykorzystanych do pomiaru wydajności był algorytm tworzący
- prefiksy na potrzeby przeprowadzenia operacji uzupełniania tekstu (ang.
- 
-\begin_inset Flex Emph
+ prefiksy na potrzeby przeprowadzenia operacji uzupełniania tekstu opisany
+ w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:zastosowania-autocomplete-Wczytywanie-danych"
+
+\end_inset
+
+.
+ Dla określonej liczby dokumentów znajdujących się w 
+\begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-autocomplete
+pamięci rozproszonej
 \end_layout
 
 \end_inset
 
-).
- Wyniki oraz ich interpretacja przedstawione zostały poniżej.
+ pomiar czasu przetwarzania był powtarzany dziesięć razy.
+ Wykres 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:performance-Generowanie-prefixow"
+
+\end_inset
+
+ przedstawia porównanie uśrednionych czasów generowania słownika prefiksów
+ na pojedynczym węźle oraz w klastrze.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+.....??
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename images/prefixy-6.PNG
+	lyxscale 57
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:performance-Generowanie-prefixow"
+
+\end_inset
+
+Porównanie czasu generowania słownika prefiksów 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1190,11 +1239,12 @@ name "sub:performance-Obliczanie-przyblizenia-Pi"
 
 \end_inset
 
-Algorytm i sposób realizacji rozproszonej obliczania liczby 
+Kolejnym algorytmem, przy pomocy którego zmierzono zysk związany z zastosowaniem
+ biblioteki Bluepath było obliczanie przybliżenia liczby 
 \begin_inset Formula $\pi$
 \end_inset
 
- zostały przedstawione w punkcie 
+ metodą przedstawioną w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Przykladowe-zastosowania-liczba-pi"
@@ -1202,8 +1252,134 @@ reference "sec:Przykladowe-zastosowania-liczba-pi"
 \end_inset
 
 .
- Poniżej przedstawione zostały wyniki przeprowadzonych testów oraz wnioski
- wysunięte na ich podstawie.
+ Wykres 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:performace-Porównanie-czasu-obliczania-pi"
+
+\end_inset
+
+ przedstawia porównanie uśrednionych czasów przetwarzania na pojedynczym
+ węźle oraz w klastrze w zależności od rozmiaru instancji.
+ Czas został przedstawiony w skali logarytmicznej
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+w skali? na skali??
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename images/pi-5-machines.png
+	lyxscale 57
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:performace-Porównanie-czasu-obliczania-pi"
+
+\end_inset
+
+Porównanie czasu obliczania przybliżenia liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dla dużych instancji przetwarzanie przy pomocy biblioteki Bluepath jest
+ dużo szybsze niż przetwarzanie na pojedynczm węźle.
+ Jednak dla małych instancji narzut generowany przez bibliotekę sprawia,
+ że przetwarzanie w klastrze staje się mniej efektywne niż przetwarzanie
+ lokalne.
+ Można to również zauważyć na wykresie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:performace-Przyspieszenie-pi"
+
+\end_inset
+
+.
+ Przedstawia on przyspieszenie uzyskane w związku z zastosowaniem biblioteki
+ Bluepath do przetwarzania w klastrze w stosunku do przetwarzania na pojedynczym
+ węźle.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename images/pi-5-speedup.png
+	lyxscale 57
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:performace-Przyspieszenie-pi"
+
+\end_inset
+
+Przyspieszenie w stosunku do przetwarzania lokalnego
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Narzut widoczny na obu wykresach jest częstym zjawiskiem w systemach rozproszony
+ch i wynika z konieczności przeprowadzenia komunikacji sieciowej.
 \end_layout
 
 \end_body

@@ -88,7 +88,7 @@ name "chap:concept"
 
 Proponowany model programowania miał być jak najbardziej naturalny dla programis
 tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
- z koncepcji wątków, współdzielonej pamięci oraz zamków.
+ z koncepcji wątków, pamięci rozproszonej oraz zamków.
  Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
 iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
  komunikatów.
@@ -416,7 +416,17 @@ zdalnych wykonawców
 
 \end_inset
 
- nie musiał odpytywać usługi katalogowej.
+ nie musiał odpytywać 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługi odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+.
  Tym zadaniem zajmuje się 
 \begin_inset Flex Name
 status open
@@ -484,7 +494,7 @@ Jednostką przetwarzania w systemie jest
 status collapsed
 
 \begin_layout Plain Layout
-rozproszony wątek
+wątek rozproszony
 \end_layout
 
 \end_inset
@@ -526,7 +536,7 @@ postawiony cel/specyfika wymaga rozróżnienia wątku systemu op.
 status open
 
 \begin_layout Plain Layout
-Rozproszony wątek
+Wątek rozproszony
 \end_layout
 
 \end_inset
@@ -541,7 +551,7 @@ name "def:background-Rozproszony-watek"
 
 \end_inset
 
-Rozproszony wątek reprezentuje jednostkę przetwarzania w systemie.
+Wątek rozproszony reprezentuje jednostkę przetwarzania w systemie.
  Opakowuje fragment kodu, który może być wykonany na dowolnym węźle obliczeniowy
 m.
 \end_layout
@@ -569,7 +579,7 @@ W celu ograniczenia liczby zadań pełnionych przez
 status open
 
 \begin_layout Plain Layout
-rozproszony wątek
+wątek rozproszony
 \end_layout
 
 \end_inset
@@ -599,59 +609,8 @@ status open
 
 \end_layout
 
-\begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Wykonawca
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Wykonawca (i jego specjalizacje -- 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-wykonawca lokalny
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-wykonawca zdalny
-\end_layout
-
-\end_inset
-
-) to obiekt, który odpowiada za faktyczne zlecenie wykonania zadania (wykonawca
- zdalny) bądź jego wykonanie (wykonawca lokalny).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-Wykonawca lokalny
+Lokalny wykonawca
 \end_layout
 
 \begin_layout Standard
@@ -661,7 +620,7 @@ Wszystkie wątki wykonywane lokalnie (zarówno te które pochodzą z lokalnego
 status collapsed
 
 \begin_layout Plain Layout
-wykonawców lokalnych
+lokalnych wykonawców
 \end_layout
 
 \end_inset
@@ -672,7 +631,7 @@ wykonawców lokalnych
 status open
 
 \begin_layout Plain Layout
-wykonawcy lokalnego
+lokalnego wykonawcy
 \end_layout
 
 \end_inset
@@ -696,8 +655,38 @@ przechwycenie wyjątków,
 udostępnienie wyników wyższym warstwom po zakończeniu przetwarzania.
 \end_layout
 
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Lokalny wykonawca
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Lokalny wykonawca to obiekt, który odpowiada za faktyczne wykonanie zadania.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Wykonawca zdalny
+Zdalny wykonawca
 \end_layout
 
 \begin_layout Standard
@@ -706,7 +695,7 @@ Reprezentacją zdalnego uruchomienia
 status collapsed
 
 \begin_layout Plain Layout
-rozproszonego wątku
+wątku rozproszonego
 \end_layout
 
 \end_inset
@@ -716,7 +705,7 @@ rozproszonego wątku
 status collapsed
 
 \begin_layout Plain Layout
-wykonawcy zdalnego
+zdalnego wykonawcy
 \end_layout
 
 \end_inset
@@ -737,6 +726,36 @@ planistę
 e go do odczytu na węźle zlecającym zadanie.
 \end_layout
 
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Zdalny wykonawca
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Zdalny wykonawca to obiekt, który odpowiada za zlecenie wykonania zadania.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Planista
 \end_layout
@@ -747,7 +766,7 @@ Elementem systemu decydującym o wyborze miejsca wykonywania
 status collapsed
 
 \begin_layout Plain Layout
-rozproszonego wątku
+wątku rozproszonego
 \end_layout
 
 \end_inset
@@ -811,7 +830,7 @@ status open
 \end_layout
 
 \begin_layout Section
-Pamięć współdzielona
+Pamięć rozproszona
 \end_layout
 
 \begin_layout Standard
@@ -837,7 +856,7 @@ Bluepath
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -856,15 +875,43 @@ status open
  Umożliwia ona synchronizację i wymianę danych między działającymi wątkami.
 \end_layout
 
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Pamięć rozproszona
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Pamięć rozproszona to pamięć masowa dostępna dla wszystkich węzłów, przez
+ którą mogą wymieniać się danymi.
+\end_layout
+
 \begin_layout Standard
-W celu identyfikacji danych w pamięci współdzielonej zastosowano klucze.
+W celu identyfikacji danych w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ zastosowano klucze.
  Klucz jest unikalnym ciągiem znaków jednoznacznie identyfikującym dane.
  W trakcie projektowania 
 \begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -876,7 +923,7 @@ pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-pamięcią współdzieloną
+pamięcią rozproszoną
 \end_layout
 
 \end_inset
@@ -887,7 +934,7 @@ pamięcią współdzieloną
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -940,7 +987,17 @@ update
 \end_inset
 
 ) -- operacja aktualizująca dane -- powiedzie się tylko wtedy, gdy podany
- klucz został wcześniej utworzony w pamięci współdzielonej,
+ klucz został wcześniej utworzony w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Itemize
@@ -972,7 +1029,17 @@ remove
 \end_inset
 
 ) -- operacja usuwająca dane -- powiedzie się tylko wtedy gdy podany klucz
- został wcześniej utworzony w pamięci współdzielonej.
+ został wcześniej utworzony w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -994,7 +1061,7 @@ Dzięki tak zdefiniowanej semantyce operacji, na podstawie
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1016,7 +1083,7 @@ zamki rozproszone
 status open
 
 \begin_layout Plain Layout
-rozszerzonej pamięci współdzielonej
+rozszerzonej pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1036,7 +1103,7 @@ reference "sub:Koncepcja-Zamki-rozproszone"
 status open
 
 \begin_layout Plain Layout
-Pamięć współdzielona
+Rozszerzona pamięć rozproszona
 \end_layout
 
 \end_inset
@@ -1045,12 +1112,12 @@ Pamięć współdzielona
 \end_layout
 
 \begin_layout Definition
-Pamięć współdzielona to pamięć masowa dostępna dla wszystkich węzłów, przez
- którą mogą wymieniać się danymi.
+Rozszerzona pamięć rozproszona to pamięć masowa dostępna dla wszystkich
+ węzłów, przez którą mogą wymieniać się danymi.
 \end_layout
 
 \begin_layout Subsection
-Współdzielone struktury danych i obiekty
+Rozproszone struktury danych i obiekty
 \end_layout
 
 \begin_layout Standard
@@ -1065,7 +1132,7 @@ name "sub:----Koncepcja-wspoldzielone-struktury-danych"
 status open
 
 \begin_layout Plain Layout
-Pamięć współdzielona
+Pamięć rozproszona
 \end_layout
 
 \end_inset
@@ -1078,7 +1145,7 @@ Pamięć współdzielona
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1106,7 +1173,7 @@ listy rozproszonej
 status open
 
 \begin_layout Plain Layout
-rozproszonym wątku
+wątku rozproszonym
 \end_layout
 
 \end_inset
@@ -1137,7 +1204,7 @@ Ze względu na charakter
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1213,7 +1280,7 @@ licznik rozproszony
 status open
 
 \begin_layout Plain Layout
-rozproszony wątek
+wątek rozproszony
 \end_layout
 
 \end_inset
@@ -1257,7 +1324,7 @@ Głównym kosztem przetwarzania rozproszonego są narzuty komunikacyjne.
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1268,7 +1335,7 @@ pamięci współdzielonej
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1338,7 +1405,7 @@ Przetwarzanie rozproszone oparte na
 status open
 
 \begin_layout Plain Layout
-rozproszonych wątkach
+wątkach rozproszonych
 \end_layout
 
 \end_inset
@@ -1350,7 +1417,7 @@ rozproszonych wątkach
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1381,7 +1448,7 @@ zamkami rozproszonymi
 status open
 
 \begin_layout Plain Layout
-rozszerzonej pamięci współdzielonej
+rozszerzonej pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1391,33 +1458,14 @@ rozszerzonej pamięci współdzielonej
 \end_layout
 
 \begin_layout Standard
-Ponieważ reszta infrastruktury
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-co to infrastruktura??
-\end_layout
-
-\end_inset
-
- nie polega na sposobie implementacji zamków (a jedynie na zapewnieniach
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nie wiem jak to inaczej nazwać
-\end_layout
-
-\end_inset
-
- jakie oferują) mogą one zostać zaimplementowane w oparciu o mechanizmy
- nie związane z 
+Ponieważ reszta biblioteki nie polega na sposobie implementacji zamków (a
+ jedynie na gwarancjach jakie oferują) mogą one zostać zaimplementowane
+ przez użytkownika w oparciu o mechanizmy niezwiązane z 
 \begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-pamięcią współdzieloną
+pamięcią rozproszoną
 \end_layout
 
 \end_inset
@@ -1457,17 +1505,17 @@ W celu umożliwienia przeglądu przebiegu przetwarzania system udostępnia
 status open
 
 \begin_layout Plain Layout
-rozproszonej listy
+listy rozproszonej
 \end_layout
 
 \end_inset
 
-, log jest zbierany we 
+, log jest zbierany w 
 \begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-współdzielonej pamięci
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -1480,7 +1528,7 @@ współdzielonej pamięci
 status open
 
 \begin_layout Plain Layout
-rozproszonej listy
+listy rozproszonej
 \end_layout
 
 \end_inset

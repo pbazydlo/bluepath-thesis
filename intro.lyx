@@ -86,8 +86,8 @@ Cel i zakres pracy
 \end_layout
 
 \begin_layout Standard
-Celem pracy było zaprojektowanie biblioteki, która pozwoli użytkownikom
- (def.
+Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigura
+cji czy instalowania wielu składników, pozwoli użytkownikom (def.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -128,33 +128,20 @@ Motywacja
 \end_layout
 
 \begin_layout Standard
-W czasie, kiedy rozpoczynano pracę nie było dostępne aktywnie rozwijane
- i wspierane komercyjnie środowisko do przetwarzania rozproszonego dla .NET
- Framework (patrz: 
+W czasie, kiedy rozpoczynano pracę nie było dostępne popularne, aktywnie
+ rozwijane i wspierane komercyjnie środowisko do przetwarzania rozproszonego
+ dla .NET Framework (por.
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:background-Istniejące-rozwiązania"
 
 \end_inset
 
-.
- Istniejące rozwiązania).
- Celem pracy było stworzenie środowiska, które można w prosty sposób uruchomić,
- bez instalowania wielu składników i skomplikowanej konfiguracji.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(tutaj wstaw opowieść o tym, że systemy rozproszone to przyszłość i bez
- nich zginiemy) 
-\end_layout
-
-\end_inset
-
-
+).
+ Tego typu środowisko pozwoliłoby użytkownikom uniknąć wielu nietrywialnych
+ do rozwiązania błędów, oraz zaoszczędzić czas poprzez wykorzystanie dostarczony
+ch mechanizmów.
 \end_layout
 
 \begin_layout Section

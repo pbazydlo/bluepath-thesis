@@ -78,8 +78,28 @@ Przykładowe zastosowania
 
 \begin_layout Standard
 W tym rozdziale przedstawione zostaną przykladowe zastosowania systemu Bluepath.
- Na bazie rozproszonych wątków, współdzielonej rozproszonej pamięci i nadbudowan
-ych nad nią abstrakcji listy i słownika przygotowane zostały projekty:
+ Na bazie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątków rozproszonych
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ i nadbudowanych nad nią abstrakcji listy i słownika przygotowane zostały
+ projekty:
 \end_layout
 
 \begin_layout Itemize
@@ -156,8 +176,17 @@ Obliczanie przybliżenia liczby
 \end_inset
 
 , który umożliwił przeprowadzenie testów porównawczych szybkości obliczeń
- w klastrze bez wykorzystania pamięci współdzielonej w stosunku do obliczeń
- prowadzonych na pojedynczym węźle.
+ w klastrze bez wykorzystania 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ w stosunku do obliczeń prowadzonych na pojedynczym węźle.
 \end_layout
 
 \begin_layout Section
@@ -172,7 +201,7 @@ Jednym z przykładowych zastosowań biblioteki Bluepath jest Distributed Languag
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -316,7 +345,7 @@ AsDistributed
 status open
 
 \begin_layout Plain Layout
-pamięci współdzielonej
+pamięci rozproszonej
 \end_layout
 
 \end_inset
@@ -349,7 +378,7 @@ Select
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -639,7 +668,17 @@ reference "lis:applications-MapReduce-IMapProvider-IReduceProvider"
 
 \end_inset
 
- i składowany razem z danymi w pamięci współdzielonej.
+ i składowany razem z danymi w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+.
  Kompilacja kodu miała odbywać się na węzłach bezpośrednio przed wykonaniem
  metody, do zrealizowania tego celu wybrana została biblioteka CS-Script
 \begin_inset space ~
@@ -658,7 +697,7 @@ key "CS-Script"
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -774,7 +813,7 @@ ia do uruchomienia
 status open
 
 \begin_layout Plain Layout
-rozproszonych wątków
+wątków rozproszonych
 \end_layout
 
 \end_inset
@@ -803,7 +842,17 @@ Map
 
 \end_inset
 
- ze współdzielonej pamięci, 
+ z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+, 
 \end_layout
 
 \begin_layout Itemize
@@ -817,15 +866,45 @@ mappera
 
 \end_inset
 
- na wskazanym fragmencie danych wejściowych ze współdzielonej pamięci,
+ na wskazanym fragmencie danych wejściowych z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Itemize
-zapisywała wygenerowane pary klucz--wartość do współdzielonej pamięci,
+zapisywała wygenerowane pary klucz-wartość do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Itemize
-zwracała listę kluczy jako wynik wykonania rozproszonego wątku do 
+zwracała listę kluczy jako wynik wykonania 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątku rozproszonego
+\end_layout
+
+\end_inset
+
+ do 
 \begin_inset Flex Name
 status open
 
@@ -878,7 +957,17 @@ Reduce
 
 \end_inset
 
- ze współdzielonej pamięci,
+ z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Itemize
@@ -892,11 +981,31 @@ reducera
 
 \end_inset
 
- na wskazanym fragmencie danych wejściowych ze współdzielonej pamięci,
+ na wskazanym fragmencie danych wejściowych z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Itemize
-zapisywała wygenerowane pary klucz--wartość do współdzielonej pamięci,
+zapisywała wygenerowane pary klucz-wartość do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Itemize
@@ -1094,7 +1203,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -1357,8 +1466,17 @@ BluepathStorage
 
 \end_inset
 
- wykorzystująca współdzieloną pamięć -- jak i bez niego -- w tym przypadku
- jest to 
+ wykorzystująca 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięć rozproszoną
+\end_layout
+
+\end_inset
+
+ -- jak i bez niego -- w tym przypadku jest to 
 \begin_inset Flex Code
 status open
 
@@ -1420,7 +1538,7 @@ Uri
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -1628,7 +1746,7 @@ GetPerformanceStatistics
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -1963,16 +2081,15 @@ w trakcie pisania systemu okazało się, że przydatna jest metoda przywracając
 
 \begin_layout Subsection
 Wczytywanie danych
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:zastosowania-autocomplete-Wczytywanie-danych"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Zaimplementowany system uzupełniania wyrazów, przed rozpoczęciem wyszukiwania
  możliwych zakończeń zadanego prefiksu, musi zostać zainicjalizowany.
  Dokumenty zawierające przykładowe słowa są wczytywane przez węzeł inicjalizując
@@ -2079,7 +2196,7 @@ reference "lis:Fragment-funkcji-LoadDocuments"
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -2280,7 +2397,7 @@ reference "lis:zastosowania-autocomplete-Inicjalizacja-planisty-szeregują"
 .
  
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
 status open
 
@@ -2341,7 +2458,7 @@ reference "lis:zastosowania-autocomplete-Zebranie-wyników-w"
 
  przedstawiono zebranie wyników, oraz usunięcie duplikatów.
 \begin_inset listings
-lstparams "breaklines=true,language={[Sharp]C}"
+lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
 status open
 
