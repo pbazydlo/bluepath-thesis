@@ -148,13 +148,13 @@ Reduce
 status open
 
 \begin_layout Plain Layout
-Generowanie słownika prefiksów
+System uzupełniania wyrazów
 \end_layout
 
 \end_inset
 
- -- algorytm przygotowujący na podstawie podanej kolekcji dokumentów bazę
- prefiksów, która może zostać wykorzystana do zrealizowania systemu podpowiedzi
+ -- system przygotowujący na podstawie podanej kolekcji dokumentów bazę
+ prefiksów, która jest wykorzystywana do realizacji systemu podpowiedzi
  słów na podstawie pierwszych liter wpisywanych przez użytkownika,
 \end_layout
 
@@ -186,9 +186,9 @@ DLINQ
 \end_layout
 
 \begin_layout Standard
-Jedną z aplikacji zaimplementowanych na bazie biblioteki Bluepath jest Distribut
-ed Language Integrated Query (DLINQ) -- zbiór metod roszerzających możliwości
- operowania na kolekcjach bazowanych na 
+Jednym z przykładowych zastosowań biblioteki Bluepath jest Distributed Language
+ Integrated Query (DLINQ) -- zbiór metod roszerzających możliwości operowania
+ na kolekcjach bazowanych na 
 \begin_inset Flex Name
 status open
 
@@ -275,7 +275,20 @@ GroupBy
 
 \end_inset
 
- -- operacja pozwalająca grupować obiekty według zadanego klucza.
+ -- operacja pozwalająca grupować obiekty według zadanego klucza,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Count
+\end_layout
+
+\end_inset
+
+ -- operacja zliczające obiekty spełniające zadany warunek.
  
 \end_layout
 
@@ -318,7 +331,7 @@ AsDistributed
 \end_inset
 
 .
- Metoda ta posiada jeden obowiązkowy argument - obiekt zapewniający dostęp
+ Metoda ta posiada jeden obowiązkowy argument -- obiekt zapewniający dostęp
  do 
 \begin_inset Flex Name
 status open
@@ -403,6 +416,163 @@ var processedCollection = (from num in inputCollection.AsDistributed(storage)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+W implementacji DLINQ można wyróżnić 3 podstawowe klasy: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedQuery
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedEnumerable
+\end_layout
+
+\end_inset
+
+ oraz 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+UnaryQueryOperator
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+DistributedQuery
+\end_layout
+
+\begin_layout Standard
+W celu zapewnienia jednoznacznego rozróżnienia pomiędzy metodami LINQ, oraz
+ DLINQ wprowadzono klasę 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedQuery
+\end_layout
+
+\end_inset
+
+.
+ Klasa ta częściowo implementuje interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IEnumerable
+\end_layout
+
+\end_inset
+
+ zapewniając powiązania pomiędzy metodami tego interfejsu.
+ Stanowi ona bazę z której wywodzą się wszystkie klasy realizujące poszczególne
+ wywołania DLINQ (np.
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Select
+\end_layout
+
+\end_inset
+
+) co pozwala na wykonywanie tych samych metod na instancjach różnych klas
+ składowych DLINQ.
+\end_layout
+
+\begin_layout Subsection
+DistributedEnumerable
+\end_layout
+
+\begin_layout Standard
+Statyczna klasa 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedEnumerable
+\end_layout
+
+\end_inset
+
+ zawiera wszystkie metody rozszerzające DLINQ.
+ Każda z tych metod weryfikuje parametry wejściowe w celu przekazania użytkownik
+owi zrozumiałych informacji w przypadku podania błędnych parametrów.
+ Następnie tworzona jest klasa realizująca wywołanie DLINQ i zwracana użytkownik
+owi w celu dalszego przetwarzania (samo wykonanie podobnie jak w LINQ następuje
+ dopiero wtedy gdy potrzebne są wyniki np.
+ wywołanie metody 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ToList
+\end_layout
+
+\end_inset
+
+, lub enumeracja).
+\end_layout
+
+\begin_layout Standard
+Specjalną metodą rozszerzającą zaimplementowaną w klasie 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedEnumerable
+\end_layout
+
+\end_inset
+
+ jest metoda 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AsDistributed
+\end_layout
+
+\end_inset
+
+.
+ Służy ona przygotowaniu kolekcji wejściowej do przetwarzania przez metody
+ DLINQ.
+ Jest to realizowane poprzez opakowanie kolekcji wejściowej klasą 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedEnumerableWrapper
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+UnaryQueryOperator
+\end_layout
+
+\begin_layout Standard
+hejo!
 \end_layout
 
 \begin_layout Standard
