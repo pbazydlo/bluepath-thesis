@@ -83,53 +83,23 @@ W tym rozdziale przedstawione zostaną założony cel oraz zakres pracy, jej
 
 \begin_layout Section
 Cel i zakres pracy
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-przepisać, powinno być bardziej ogólnie
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-Celem pracy było zaprojektowanie biblioteki, która pozwoli twórcom usług
- w prosty sposób zaimplementować przetwarzanie rozproszone.
- Użytkownik pisząc program równoległy, powinien otrzymać możliwość jego
- rozproszenia po dołączniu do klastra wielu węzłów.
- W tym przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
+Celem pracy było zaprojektowanie biblioteki, która pozwoli użytkownikom
+ (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:podstawy-teorytyczne-uzytkownik"
+
+\end_inset
+
+) w prosty sposób zaimplementować przetwarzanie rozproszone.
+ Użytkownik pisząc program jak równoległy, powinien uzyskać program wykorzystują
+cy moc obliczeniową wielu w węzłów w klastrze.
+ W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, mogą wykonywać się na zdalnych maszynach.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Dla uzyskania transparentności procesu rozpraszania obliczeń przesyłanie
- komunikatów pomiędzy węzłami powinno być ukryte przed użytkownikiem.
- Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdziel
-onych danych przez różne wątki (ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-thread safety
-\end_layout
-
-\end_inset
-
-), dostarczyć abstrakcje wpółdzielonych kolekcji -- listy, słownika -- oraz
- innych obiektów, np.
- licznika.
- Istotna była też łatwość analizowania błędów.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

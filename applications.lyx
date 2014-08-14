@@ -1812,8 +1812,8 @@ status open
 status open
 
 \begin_layout Plain Layout
-może jakieś zestawienie 'co trzeba zakodzić - Bluepath vs.
- WCF'
+może jakieś zestawienie 'co trzeba zakodzić - Bluepath[194LOC] vs.
+ WCF[585LOC]'
 \end_layout
 
 \end_inset

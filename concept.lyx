@@ -6,6 +6,9 @@
 \use_default_options true
 \begin_modules
 dcs
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
 \end_modules
 \maintain_unincluded_children false
 \language polish
@@ -83,7 +86,169 @@ name "chap:concept"
 
 \end_inset
 
+Proponowany model programowania miał być jak najbardziej naturalny dla programis
+tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
+ z koncepcji wątków, współdzielonej pamięci oraz zamków.
+ Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
+iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
+ komunikatów.
+ Klaster systemu Bluepath zakłada możliwość bezpośredniej komunikacji poprzez
+ sieć każdego podłączonego do niego komputera z każdym innym.
+ 
+\end_layout
 
+\begin_layout Section
+Architektura systemu
+\end_layout
+
+\begin_layout Standard
+System składa się z węzłów obliczeniowych połączonych siecią, które posiadają
+ informacje o pozostałych zarejestrowanych węzłach.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?? 
+\end_layout
+
+\end_inset
+
+ Na rysunku 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:background-schemat-systemu"
+
+\end_inset
+
+ przedstawiony został schemat architektury systemu.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename images/schemat-systemu.png
+	lyxscale 10
+	scale 85
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:background-schemat-systemu"
+
+\end_inset
+
+Schemat architektury systemu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Projektując bibliotekę przyjęliśmy następujące założenia (chodzi np.
+ o brak FIFO)
+\end_layout
+
+\begin_layout Plain Layout
+zarysować problem globalnego obrazu systemu (usługa odnajdywania węzłów)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Węzeł obliczeniowy
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Wezel-obliczeniowy"
+
+\end_inset
+
+Mianem węzła obliczeniowego (w skrócie: 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+węzła
+\end_layout
+
+\end_inset
+
+) określamy komputer, na którym działa usługa zaimplementowana z użyciem
+ biblioteki Bluepath, której celem jest zlecenie bądź wykonanie zleconych
+ zadań.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Jeżeli na maszynie działa więcej niż jedna instancja aplikacji, każda z
+ nich zachowuje się
+\begin_inset space \space{}
+\end_inset
+
+jak odrębny węzeł.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Komunikacja
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -122,15 +287,37 @@ ____
 
 \end_inset
 
-Proponowany model programowania miał być jak najbardziej naturalny dla programis
-tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
- z koncepcji wątków, współdzielonej pamięci oraz zamków.
- Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
-iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
- komunikatów.
- Klaster systemu Bluepath zakłada możliwość bezpośredniej komunikacji poprzez
- sieć każdego podłączonego do niego komputera z każdym innym.
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Dla uzyskania transparentności procesu rozpraszania obliczeń przesyłanie
+ komunikatów pomiędzy węzłami powinno być ukryte przed użytkownikiem.
+ Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdziel
+onych danych przez różne wątki (ang.
  
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+thread safety
+\end_layout
+
+\end_inset
+
+), dostarczyć abstrakcje wpółdzielonych kolekcji -- listy, słownika -- oraz
+ innych obiektów, np.
+ licznika.
+ Istotna była też łatwość analizowania błędów.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -176,6 +363,43 @@ usługa odnajdywania węzłów
  z klastra.
 \end_layout
 
+\begin_layout Definition
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Usługa odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Usluga-odnajdywania-wezlow"
+
+\end_inset
+
+Usługa odnajdywania węzłów to system umożliwiający węzłom odnajdywanie się
+ wzajemnie w sieci i łączenie w klaster obliczeniowy.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Zarządca połączeń
 \end_layout
@@ -218,6 +442,38 @@ planistę
 .
 \end_layout
 
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Zarządca połączeń
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Zarządca połączeń to klient usługi odnajdywania węzłów, który odpowiada
+ za rejestrowanie, wyrejestrowywanie i przechowywanie lokalnego obrazu stanu
+ klastra na każdym z węzłów.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Rozproszony wątek
 \end_layout
@@ -252,6 +508,55 @@ planistę
 \end_inset
 
 .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+postawiony cel/specyfika wymaga rozróżnienia wątku systemu op.
+ od naszego
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Rozproszony wątek
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Rozproszony-watek"
+
+\end_inset
+
+Rozproszony wątek reprezentuje jednostkę przetwarzania w systemie.
+ Opakowuje fragment kodu, który może być wykonany na dowolnym węźle obliczeniowy
+m.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -282,6 +587,67 @@ wykonawcę
  -- element odpowiedzialny za wykonywanie wątków zarówno zdalne jak i lokalne.
  Zastosowanie takiej abstrakcji pozwala potraktować przetwarzanie lokalne
  oraz zdalne w podobny sposób.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[wykonawca] specjalizacje wynikają z...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Wykonawca
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Wykonawca (i jego specjalizacje -- 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+wykonawca lokalny
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+wykonawca zdalny
+\end_layout
+
+\end_inset
+
+) to obiekt, który odpowiada za faktyczne zlecenie wykonania zadania (wykonawca
+ zdalny) bądź jego wykonanie (wykonawca lokalny).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -410,6 +776,38 @@ planisty
 
  dostosowaną do prowadzonego przetwarzania lub wybrać jedną z dostarczonych
  razem z biblioteką.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Planista
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Planista odpowiada za wybór węzła, do którego wysłane zostanie zlecenie
+ wykonania zadania.
+ Realizuje zdefiniowaną strategię szeregowania zadań w klastrze.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -631,6 +1029,24 @@ reference "sub:Koncepcja-Zamki-rozproszone"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Pamięć współdzielona
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Pamięć współdzielona to pamięć masowa dostępna dla wszystkich węzłów, przez
+ którą mogą wymieniać się danymi.
 \end_layout
 
 \begin_layout Subsection
@@ -863,6 +1279,48 @@ pamięci współdzielonej
  poprzez jednorazowe pobranie do pamięci lokalnej przetwarzanych danych).
 \end_layout
 
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Operacje zbiorcze
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Operacje zbiorcze (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+bulk operations
+\end_layout
+
+\end_inset
+
+) to operacje wykonywane jednocześnie na grupie obiektów o podobnych właściwości
+ach.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Zamki rozproszone
 \begin_inset CommandInset label
@@ -965,6 +1423,25 @@ pamięcią współdzieloną
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Zamek rozproszony
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Zamek rozproszony to zamek, który jest współdzielony przez wszystkie węzły
+ w klastrze (w odróżnieniu od zamków istniejących jedynie w obrębie jednego
+ procesu bądź jednego komputera).
 \end_layout
 
 \begin_layout Section

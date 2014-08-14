@@ -1404,7 +1404,17 @@ eid
 
 \end_inset
 
- -- unikalną 128-bitową liczbę (GUID), przy czym instancja 
+ (
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Executor ID
+\end_layout
+
+\end_inset
+
+) -- unikalną 128-bitową liczbę (GUID), przy czym instancja 
 \begin_inset Flex Name
 status open
 
@@ -1471,7 +1481,7 @@ Initialize
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=XML"
+lstparams "language=XML,numbers=left"
 inline false
 status open
 
