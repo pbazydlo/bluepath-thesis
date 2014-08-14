@@ -102,7 +102,12 @@ Celem pracy było zaprojektowanie biblioteki, która pozwoli twórcom usług
  rozproszenia po dołączniu do klastra wielu węzłów.
  W tym przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, mogą wykonywać się na zdalnych maszynach.
- Dla uzyskania transparentności procesu rozpraszania obliczeń przesyłanie
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Dla uzyskania transparentności procesu rozpraszania obliczeń przesyłanie
  komunikatów pomiędzy węzłami powinno być ukryte przed użytkownikiem.
  Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdziel
 onych danych przez różne wątki (ang.
@@ -120,6 +125,11 @@ thread safety
  innych obiektów, np.
  licznika.
  Istotna była też łatwość analizowania błędów.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -195,17 +205,7 @@ Piotr Bazydło
 \end_layout
 
 \begin_layout Itemize
-przykładowe aplikacje -- DLINQ, autocomplete 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-może jakaś lepsza nazwa?
-\end_layout
-
-\end_inset
-
-
+przykładowe aplikacje -- DLINQ, system uzupełniania wyrazów
 \end_layout
 
 \begin_layout Paragraph

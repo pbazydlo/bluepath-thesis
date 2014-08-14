@@ -902,24 +902,7 @@ name "def:background-SOAP"
 
 \end_inset
 
-cytowanie: 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Poznaj-SOAP"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-słaba ta pozycja jak na pierwszą w bibliografii ;)
-\end_layout
-
-\end_inset
-
-...
+cytowanie: ...
 \end_layout
 
 \begin_layout Standard
@@ -1345,23 +1328,6 @@ Dryad i DryadLINQ
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Dryad provides reliable, distributed computing on thousands of servers for
- large-scale data parallel applications.
- LINQ enables developers to write and debug their applications in a SQL-like
- query language, relying on the entire .NET library and using Visual Studio.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 System Dryad 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1377,18 +1343,6 @@ key "Microsoft-Research-Dryad"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Przetwarzanie było modelowane przy pomocy kilku sekwencyjnych programów
- połączonych jednokierunkowymi kanałami.
- Prowadziło to do stworzenia skierowanego grafu acyklicznego, w którym kanały
- tworzą krawędzie grafu.
-\end_layout
-
-\end_inset
-
 Przetwarzanie było modelowane jako skierowany graf acykliczny, w którym
  wierzchołki reprezentowały sekwencyjne programy, a krawędzie przepływ danych
  jednokierunkowymi kanałami.
@@ -1427,13 +1381,10 @@ Structured Query Language
 
 \end_inset
 
-)
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-tu jakieś cytowanko?
-\end_layout
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SQL"
 
 \end_inset
 
@@ -1450,7 +1401,7 @@ key "DryadLINQ-MSR"
 \end_inset
 
 .
- Środowisko to dostarczało implementacji LINQ (ang.
+ Środowisko to dostarczało implementację LINQ (ang.
  
 \begin_inset Flex Emph
 status open
@@ -1480,19 +1431,15 @@ High Performance Comupting Pack
 
 \end_inset
 
-, skupiając się na dostosowaniu Apache Hadoop do pracy pod kontrolą Windows
- Server i Windows Azure.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-http://blogs.technet.com/b/windowshpc/archive/2011/11/11/hpc-pack-2008-r2-sp3-and-
-windows-azure-hpc-scheduler-released.aspx
-\end_layout
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DryadLINQ-discarded"
 
 \end_inset
 
-
+, skupiając się na dostosowaniu Apache Hadoop do pracy pod kontrolą Windows
+ Server i Windows Azure.
 \end_layout
 
 \begin_layout Subsection
@@ -1548,29 +1495,6 @@ status open
 \begin_layout Plain Layout
 originally developed to support distribution for the Nutch search engine
  project (http://hadoop.apache.org/core/)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-opis hadoopa i na koniec: Proponowane w niniejszej pracy środowisko przetwarzani
-a rozproszonego ma szerszą klasę zastosowań, możliwe jest także zaimplementowani
-e na jego bazie obliczeń w modelu mapowania i redukcji, co zostało zaprezentowan
-e w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:applications-MapReduce"
-
-\end_inset
-
-.
 \end_layout
 
 \end_inset
@@ -1821,16 +1745,8 @@ Może: Procesy nazywane są też aktorami ze względu na podobieństwa do modelu
  Agha.
  A model of concurrent computation in distributed systems.
  W MIT Series in Artificial Intelligence.
- MIT Press, Cambridge, MA, USA, 1986.]
-\end_layout
-
-\begin_layout Plain Layout
-Lekkie wątki, akcje na odebrane wiadomości(przetwarzanie message-centric),
- nie ma współdzielonego stanu pomiędzy wątkami.
-\end_layout
-
-\begin_layout Plain Layout
-Wolimy znany model zamków i innych mutexów.
+ MIT Press, Cambridge, MA, USA, 1986.] -- por.
+ z kolejną notatką :D
 \end_layout
 
 \end_inset
@@ -1947,24 +1863,6 @@ stateless worker
 \begin_layout Standard
 \begin_inset Note Note
 status open
-
-\begin_layout Plain Layout
-http://research.microsoft.com/en-us/projects/orleans/
-\end_layout
-
-\begin_layout Plain Layout
-Orleans-MSR-TR-2014-41.pdf -- http://research.microsoft.com/apps/pubs/default.aspx?i
-d=210931
-\end_layout
-
-\begin_layout Plain Layout
-http://blogs.msdn.com/b/dotnet/archive/2014/04/02/available-now-preview-of-project
--orleans-cloud-services-at-scale.aspx
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
 
 \begin_layout Plain Layout
 The actor model is a long-standing model for concurrent computation, dating

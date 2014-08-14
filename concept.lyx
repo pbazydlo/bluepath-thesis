@@ -83,6 +83,45 @@ name "chap:concept"
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+to powinno być raczej w koncepcji??
+\end_layout
+
+\begin_layout Plain Layout
+Zastosowane protokoły nie zapewniają żadnych gwarancji co do kolejności
+ dostarczonych wiadomości.
+ Nie zapewniają również niezawodności dostarczania wiadomości ponad to,
+ co oferuje protokół działający w warstwie transportowej -- TCP (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-TCP"
+
+\end_inset
+
+) -- czyli potwierdzenia i retransmisje.
+ Zakładamy jednak, że połączenia w obrębie jednego klastra są na tyle stabilne,
+ że nie będzie to powodowało problemów.
+\end_layout
+
+\begin_layout Plain Layout
+____
+\end_layout
+
+\begin_layout Plain Layout
++kolejność wiadomości - dowolna
+\end_layout
+
+\begin_layout Plain Layout
++niezawodność dostarczania - jeżeli protokół TCP zgubi wiadomość, mamy problem
+\end_layout
+
+\end_inset
+
 Proponowany model programowania miał być jak najbardziej naturalny dla programis
 tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
  z koncepcji wątków, współdzielonej pamięci oraz zamków.
@@ -132,40 +171,13 @@ usługa odnajdywania węzłów
  Nowe węzły muszą zarejstrować się w usłudze.
  Po rejestracji są one monitorowane dopóki nie opuszczą klastra i wyrejestrują
  się lub ulegną awarii.
- Niedostępne węzły są usuwane z klastra.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-chyba nie za bardzo: Usługa ta okresowo monitoruje obciążenie węzłów.
- W przypadku braku odpowiedzi stwierdzana jest awaria węzła i jest on wyrejestro
-wywany z klastra.
- 
-\end_layout
-
-\end_inset
-
-
+ Niedostępne węzły -- tzn.
+ takie, które nie odpowiedziały na zapytanie w określonym czasie -- są usuwane
+ z klastra.
 \end_layout
 
 \begin_layout Subsection
 Zarządca połączeń
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ConnectionManager
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -221,16 +233,6 @@ rozproszony wątek
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nazwa?
-\end_layout
-
-\end_inset
-
 .
  Jest on tworzony na podstawie statycznej metody, która przyjmuje dowolną,
  liczbę parametrów i zwraca wartość.
@@ -277,19 +279,9 @@ wykonawcę
 
 \end_inset
 
- - element odpowiedzialny za wykonywanie wątków zarówno zdalne jak i lokalne.
+ -- element odpowiedzialny za wykonywanie wątków zarówno zdalne jak i lokalne.
  Zastosowanie takiej abstrakcji pozwala potraktować przetwarzanie lokalne
  oraz zdalne w podobny sposób.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Czy to ma sens?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -343,16 +335,6 @@ Wykonawca zdalny
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Coś, że niezbędna jest abstrakcja zdalnego wykonania w celu ładnie poukładanego
- kodu (Single Responsibility Class itp.)
-\end_layout
-
-\end_inset
-
 Reprezentacją zdalnego uruchomienia 
 \begin_inset Flex Name
 status collapsed
@@ -374,17 +356,7 @@ wykonawcy zdalnego
 \end_inset
 
 .
- Zleca on wykonanie zadania 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[wyspecyfikowanemu]
-\end_layout
-
-\end_inset
-
-węzłowi wybranemu przez 
+ Zleca on wykonanie zadania węzłowi wybranemu przez 
 \begin_inset Flex Name
 status open
 
@@ -414,16 +386,6 @@ rozproszonego wątku
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nazwa?
-\end_layout
-
-\end_inset
-
  jest 
 \begin_inset Flex Name
 status collapsed
@@ -448,29 +410,6 @@ planisty
 
  dostosowaną do prowadzonego przetwarzania lub wybrać jedną z dostarczonych
  razem z biblioteką.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Musi on implementować interfejs 
-\begin_inset Flex Code
-status collapsed
-
-\begin_layout Plain Layout
-IScheduler
-\end_layout
-
-\end_inset
-
-.
- Pozwala to zastosować implementację Planisty dostosowaną do potrzeb przetwarzan
-ia i jest jednym z istotnych elementów modułowości sys
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

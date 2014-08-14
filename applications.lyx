@@ -118,29 +118,8 @@ MapReduce
 \end_inset
 
  -- abstrakcja specjalizowana do uruchamiania zadań w modelu mapowania i
- redukcji z możliwością zlecania zadań bez rekompilacji systemu i dystrybuowania
- nowej wersji plików wykonywalnych na węzły -- kod metod 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Map
-\end_layout
-
-\end_inset
-
- i 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Reduce
-\end_layout
-
-\end_inset
-
- jest pobierany ze współdzielonej pamięci i kompilowany przed wykonaniem
- na węzłach, 
+ redukcji z możliwością zlecania zadań bez konieczności ponownej kompilacji
+ systemu i dystrybuowania nowej wersji plików wykonywalnych na węzły,
 \end_layout
 
 \begin_layout Itemize
@@ -575,27 +554,6 @@ UnaryQueryOperator
 hejo!
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Częściowa implementacja proof of concept
-\end_layout
-
-\begin_layout Plain Layout
-AsDistributed -- co właściwie robi?
-\end_layout
-
-\begin_layout Plain Layout
-GroupBy, SelectMany, Select, Where
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 MapReduce
 \end_layout
@@ -696,70 +654,6 @@ key "CS-Script"
 
 .
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Innym podejściem mogłoby być dostarczanie kodu w formie bibliotek dołączanych
- dynamicznie (ang.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-.NET
-\begin_inset space ~
-\end_inset
-
-assembly
-\end_layout
-
-\end_inset
-
-).
- Rozwiązanie zostało odrzucone z powodu potencjalnych komplikacji związanych
- z wyładowywaniem kodu z pamięci przed rozpoczęciem kolejnego zadania (patrz
- punkt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:problemy-Wyladowywanie-kodu-z-pamieci"
-
-\end_inset
-
-), a
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-piszemy o tym? więcej w problemach? były małe testy z addonami.
- I czy na pewno wyładowujemy tak jak trzeba? :D http://www.csscript.net/help/scrip
-t_hosting_guideline_.html (nie potrzeba AsmHelper?)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-i czy metoda Reduce nie powinna zwracać IEnumerable<KeyValuePair<..,..>>?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1993,7 +1887,7 @@ Bluepath
 \end_layout
 
 \begin_layout Itemize
-Wczytywanie danych
+wczytywanie danych
 \begin_inset space ~
 \end_inset
 
@@ -2013,7 +1907,7 @@ reference "sub:zastosowania-autocomplete-Wczytywanie-danych"
 \end_layout
 
 \begin_layout Itemize
-Uzupełnianie wyrazów
+uzupełnianie wyrazów
 \begin_inset space ~
 \end_inset
 
@@ -2033,7 +1927,7 @@ reference "sub:zastosowania-autocomplete-Uzupełnianie-wyrazów"
 \end_layout
 
 \begin_layout Itemize
-Czyszczenie stanu systemu
+czyszczenie stanu systemu
 \begin_inset space ~
 \end_inset
 

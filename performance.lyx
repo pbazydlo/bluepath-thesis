@@ -110,8 +110,7 @@ Testy jakościowe pozwalają na sprawdzenie konkretnych funkcji biblioteki
 status open
 
 \begin_layout Plain Layout
-arghgsghbfkghgfhkhgfhidf uporządkować kod i zabezpieczyć się przed 'regression
- testing???'.
+uporządkować kod i zabezpieczyć się przed 'regression testing???'.
  
 \end_layout
 
@@ -285,16 +284,6 @@ rozproszony wątek
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nazwa?
-\end_layout
-
-\end_inset
-
  -- wykonanie z użyciem 
 \begin_inset Flex Name
 status open
@@ -387,11 +376,7 @@ Testy integracyjne
 status open
 
 \begin_layout Plain Layout
-imho we wstępie do tego punktu można opisać środowisko, nie robić podpunktu
-\end_layout
-
-\begin_layout Plain Layout
-uruchamianie redis'a i spawnowanie usług bluepath problematyczne bo nigdy
+uruchamianie Redis'a i spawnowanie usług bluepath problematyczne bo nigdy
  do końca nie wiemy czy już chodzi
 \end_layout
 
@@ -406,14 +391,14 @@ W celu przetestowania działania funkcji takich jak przesyłanie klas jako
  Ich zadaniem jest przetestowanie nie tylko logiki wykonywanego kodu, ale
  równierz wykrycie problemów jakie mogą się pojawić w związku z działaniem
  w środowisku sieciowym (np.
- wymagane uprawnienia do utworzenia serwisu, serializacja obiektów).
+ wymagane uprawnienia do utworzenia usługi nasłuchującej, serializacja obiektów).
 \end_layout
 
 \begin_layout Standard
 Jednym z problemów związanych z testami integracyjnymi jest potrzeba stworzenia
  środowiska testowego.
  W momencie gdy zachodzi potrzeba uruchomienia zewnętrznego programu (np.
- redis'a) system operacyjny nie dostarcza narzędzi, które pozwoliłyby określić
+ Redisa) system operacyjny nie dostarcza narzędzi, które pozwoliłyby określić
  nie tylko czy dany proces jest już uruchomiony, ale równierz czy skończył
  on proces inicjalizacji.
  Należy równierz zwrócić uwagę, że testy nie powinny być od siebie zależne
@@ -450,19 +435,9 @@ rozproszone wątki
 
  -- zachowanie systemu w wyniku próby wykonania metod akceptujących różne
  typy parametrów i zwracające wyniki różnego typu -- tablice, klasy (także
- generyczne), delegaty
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(?)
-\end_layout
-
-\end_inset
-
-, a także obsługa wyjątków w kodzie użytkownika oraz w przypadku nieprawidłowego
- wywołania; test obejmował także wykonanie metody z biblioteki napisanej
- w języku F#,
+ generyczne), delegaty, a także obsługa wyjątków w kodzie użytkownika oraz
+ w przypadku nieprawidłowego wywołania; test obejmował także wykonanie metody
+ z biblioteki napisanej w języku F#,
 \end_layout
 
 \begin_layout Itemize
@@ -558,8 +533,11 @@ key "Microsoft-Azure"
  2012 R2 Datacenter (wydanego 17 czerwca 2014 r.), a na jednej maszynie uruchomio
 ny został host współdzielonej pamięci Redis pod kontrolą systemu operacyjnego
  Ubuntu Server 14.04 LTS (wydanego 20 czerwca 2014 r.).
- Maszyny różniły się konfiguracją sprzętową w zależności od przeznaczenia,
- węzeł inicjujący przetwarzanie był typu 
+ Maszyny różniły się konfiguracją sprzętową w zależności od przeznaczenia:
+\end_layout
+
+\begin_layout Itemize
+węzeł inicjujący przetwarzanie był typu 
 \begin_inset Flex Name
 status open
 
@@ -570,7 +548,11 @@ Medium VM (Basic A2)
 \end_inset
 
  i posiadał 2 wirtualne rdzenie AMD Operton 1,6 GHz i 3,5 GB pamięci operacyjnej
-, węzły obliczeniowe typu 
+, 
+\end_layout
+
+\begin_layout Itemize
+węzły obliczeniowe były typu 
 \begin_inset Flex Name
 status open
 
@@ -581,17 +563,11 @@ Small VM (Basic A1)
 \end_inset
 
  dysponowały po 1 wirtualnym rdzeniu AMD Opteron 1,6 GHz i 1,75 GB pamięci
- operacyjnej, natomiast węzeł hosta Redis
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-??
+ operacyjnej, 
 \end_layout
 
-\end_inset
-
- była to instancja typu 
+\begin_layout Itemize
+węzeł hostujący usługę Redis była to instancja typu 
 \begin_inset Flex Name
 status open
 
@@ -602,7 +578,11 @@ Large VM (Basic A3)
 \end_inset
 
  posiadająca cztery rdzenie AMD Opteron 1,6 GHZ i 7 GB pamięci operacyjnej.
- Szczegóły konfiguracji zestawiono w tabeli 
+ 
+\end_layout
+
+\begin_layout Standard
+Szczegóły konfiguracji zestawiono w tabeli 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:performance-Konfiguracja-testowego-klastra"
@@ -624,26 +604,7 @@ DIP
 \end_inset
 
 , przydzielony automatycznie przez Windows Azure z użyciem DHCP).
- Do dystrybucji nowych wersji bibliotek systemu Bluepath na wszystkie maszyny
- w klastrze przygotowany został skrypt PowerShell wykorzystujący opisany
- w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:implementation-Skrypt-Send-Folder"
-
-\end_inset
-
- skrypt 
-\begin_inset Flex Path
-status open
-
-\begin_layout Plain Layout
-Send-Folder
-\end_layout
-
-\end_inset
-
-.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1065,6 +1026,88 @@ Ubuntu Server
 
 \end_layout
 
+\begin_layout Standard
+Do dystrybucji nowych wersji bibliotek systemu Bluepath na wszystkie maszyny
+ w klastrze przygotowany został skrypt PowerShell przedstawiony na listingu
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:performance-Skrypt-dystrybuujący-biblioteki"
+
+\end_inset
+
+.
+ Wykorzystuje on opisany w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:implementation-Skrypt-Send-Folder"
+
+\end_inset
+
+ skrypt 
+\begin_inset Flex Path
+status open
+
+\begin_layout Plain Layout
+Send-Folder
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true,language={[Sharp]C}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:performance-Skrypt-dystrybuujący-biblioteki"
+
+\end_inset
+
+Skrypt dystrybuujący biblioteki w klastrze
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+.
+\backslash
+Send-Folder.ps1 -server [adres węzła 1] -user [nazwa użytkownika] -password
+ [hasło] -source [folder źródłowy] -destination [folder docelowy]
+\end_layout
+
+\begin_layout Plain Layout
+
+.
+\backslash
+Send-Folder.ps1 -server [adres węzła 2] -user [nazwa użytkownika] -password
+ [hasło] -source [folder źródłowy] -destination [folder docelowy] 
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Porównanie dostępnych algorytmów szeregownia zadań
 \end_layout
@@ -1161,19 +1204,6 @@ reference "sec:Przykladowe-zastosowania-liczba-pi"
 .
  Poniżej przedstawione zostały wyniki przeprowadzonych testów oraz wnioski
  wysunięte na ich podstawie.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--> Metoda Monte Carlo
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body

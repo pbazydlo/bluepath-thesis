@@ -99,7 +99,11 @@ key "Microsoft.NET"
  do kodu zarządzalnego dla .NET Framework w wersji nie nowszej niż 4.5.
  Testy wykonania kodu użytkownika zostały przeprowadzone z użyciem aplikacji
  napisanych w językach C# oraz F#.
- System Bluepath działa na klastrze węzłów obliczeniowych.
+ 
+\end_layout
+
+\begin_layout Standard
+System Bluepath działa na klastrze węzłów obliczeniowych.
  Na każdym węźle musi zostać uruchomiona binarnie zgodna wersja aplikacji
  (w stopniu umożliwiającym wykonanie dowolnej metody z dowolnej klasy będącej
  częścią procesu za pomocą zserializowanego uchwytu otrzymanego w ramach
@@ -111,16 +115,7 @@ reference "sec:implementation-Rozproszony-watek"
 \end_inset
 
 ).
- W ramach jednego z wątków uruchamiana jest usługa nasłuchująca na wywołania
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-czy 'nasłuchująca wywołań'??
-\end_layout
-
-\end_inset
-
+ W ramach jednego z wątków uruchamiana jest usługa nasłuchująca wywołań
  -- zlecenia, zapytania -- przychodzące od pozostałych węzłów.
 \end_layout
 
@@ -129,7 +124,7 @@ Komunikacja
 \end_layout
 
 \begin_layout Standard
-Komunikacja między węzłami została zrezlizowana w modelu RPC (def.
+Komunikacja między węzłami została zrealizowana w modelu RPC (def.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -181,7 +176,11 @@ reference "def:background-NAT"
 \end_inset
 
 ) uniemożliwią poprawne działanie systemu.
- Wątek nasłuchujący jest reprezentowany przez obiekt klasy 
+ 
+\end_layout
+
+\begin_layout Standard
+Wątek nasłuchujący jest reprezentowany przez obiekt klasy 
 \begin_inset Flex Code
 status open
 
@@ -315,110 +314,17 @@ polling
 \end_inset
 
 ).
- Wydaje się, że nie ma to sensu w przypadku prowadzenia w klastrze faktycznych
- obliczeń, gdyż wprowadza dodatkowe opóźnienia, ale przydaje się w niektórych
- scenariuszach realizowanych środowisku testowym.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-To 'ale przydaje się'...
- brzmi trochę lamersko - może trzeba wymyślić przypadek kiedy może być użyteczne
- - np.
- callbacki często giną, więc lepiej overhead i polling - przynajmniej nie
- zawiśniemy [a co w pollingu jak wyślemy zapytanie o status, ale nie dostaniemy
- odpowiedzi[mimo że doszło], a następnie wyślemy takie samo zapytanie jeszcze
- raz?
-\end_layout
-
-\end_inset
-
-
+ Wprowadza on dodatkowe opóźnienia, co dyskwalifikuje go w przypadku prowadzenia
+ w klastrze faktycznych obliczeń, znajduje jednak zastosowanie w niektórych
+ scenariuszach realizowanych w środowisku testowym.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
 status open
-
-\begin_layout Plain Layout
-to powinno być raczej w koncepcji??
-\end_layout
-
-\begin_layout Plain Layout
-Zastosowane protokoły nie zapewniają żadnych gwarancji co do kolejności
- dostarczonych wiadomości.
- Nie zapewniają również niezawodności dostarczania wiadomości ponad to,
- co oferuje protokół działający w warstwie transportowej -- TCP (def.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:background-TCP"
-
-\end_inset
-
-) -- czyli potwierdzenia i retransmisje.
- Zakładamy jednak, że połączenia w obrębie jednego klastra są na tyle stabilne,
- że nie będzie to powodowało problemów.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-+??? WCF, HTTP, SOAP
-\end_layout
 
 \begin_layout Plain Layout
 -można przekonfigurować na coś innego
-\end_layout
-
-\begin_layout Plain Layout
-+bluepathlistener - tworzy serwis hosta, który implementuje 
-\begin_inset Flex Code
-status collapsed
-
-\begin_layout Plain Layout
-IRemoteExecutorService
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Plain Layout
-+Jeżeli w ramach procesu działa więcej niż 1 listener każdy ma swój port
- i swoją kolekcję lokalnych wykonawców, ale współdzielą listę zdalnych wykonawcó
-w.
- 
-\end_layout
-
-\begin_layout Plain Layout
-+Callbacki (wywołania zwrotne) vs.
- pooling
-\end_layout
-
-\begin_layout Plain Layout
-+pod spodem jest to właściwie tradycyjny model RPC, ale abstrakcja rozproszonych
- wątków ukrywa to przed użytkownikiem.
-\end_layout
-
-\begin_layout Plain Layout
-+komunikacja z użyciem asynchronicznych wiadomości
-\end_layout
-
-\begin_layout Plain Layout
-+kolejność wiadomości - dowolna
-\end_layout
-
-\begin_layout Plain Layout
-+niezawodność dostarczania - jeżeli protokół TCP zgubi wiadomość, mamy problem
 \end_layout
 
 \end_inset
@@ -907,7 +813,7 @@ współdzielonej pamięci
 \end_inset
 
 .
- Pod uwagę brane były następujące aplikacje:
+ Początkowo pod uwagę brane były następujące aplikacje:
 \begin_inset Note Note
 status open
 
@@ -972,13 +878,10 @@ status open
 \end_layout
 
 \begin_layout Itemize
-Rhino DHT
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[#]
-\end_layout
+Rhino DHT 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rhino-DHT"
 
 \end_inset
 
@@ -996,6 +899,10 @@ persistent hash table
 ) oraz Rhino Queues,
 \end_layout
 
+\begin_layout Standard
+a w późniejszym okresie również:
+\end_layout
+
 \begin_layout Itemize
 Redis
 \begin_inset Note Note
@@ -1011,29 +918,11 @@ status open
 \end_layout
 
 \begin_layout Standard
-Początkowo wybrane zostało rozwiązanie Rhino DHT
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-throw new NotImplementedException(); https://github.com/ayende/rhino-dht
-\end_layout
-
-\end_inset
-
-, które było aktywnie rozwijane przez rozpoznawalnego autora -- Ayende Rahiena.
+Początkowo wybrane zostało rozwiązanie Rhino DHT, które było aktywnie rozwijane
+ przez rozpoznawalnego autora -- Ayende Rahiena.
  Niestety, okazało się, że wersjonowanie danych nie zostało w pełni zaimplemento
-wane i nie było możliwe wykonanie atomowej 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-warunkowej? test?
-\end_layout
-
-\end_inset
-
-operacji ,,odczytaj i zapisz'', która była niezbędna do zrealizowania 
+wane i nie było możliwe wykonanie atomowej operacji ,,odczytaj i zapisz'',
+ która była niezbędna do zrealizowania 
 \begin_inset Flex Name
 status open
 
@@ -1414,18 +1303,6 @@ Serializable
  Wyjątkiem jest tutaj dostarczana przez środowisko pamięć współdzielona.
  W tym przypadku programista powinien stosować dostarczone wraz z nią mechanizmy
  synchronizacji.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Czy użycie własnych typów może wymagać dodatnia adnotacji KnownType do DataContr
-act? http://msdn.microsoft.com/en-us/library/ms730167(v=vs.110).aspx
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1590,17 +1467,6 @@ Initialize
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-http://blogs.msdn.com/b/oldnewthing/archive/2008/06/27/8659071.aspx
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Standard
@@ -2133,6 +1999,27 @@ Planista
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Musi on implementować interfejs 
+\begin_inset Flex Code
+status collapsed
+
+\begin_layout Plain Layout
+IScheduler
+\end_layout
+
+\end_inset
+
+.
+ Pozwala to zastosować implementację Planisty dostosowaną do potrzeb przetwarzan
+ia i jest jednym z istotnych elementów modułowości sys
+\end_layout
+
+\end_inset
+
 Wraz z systemem dostarczone zostały następujące typy planistów:
 \end_layout
 
@@ -2194,17 +2081,7 @@ reference "sub:performance-Porownanie-planistow"
 \end_layout
 
 \begin_layout Subsection
-Szeregowanie zadań
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-mocne stwierdzenie ;)
-\end_layout
-
-\end_inset
-
- w oparciu o obciążenie węzłów
+Szeregowanie zadań w oparciu o obciążenie węzłów
 \end_layout
 
 \begin_layout Standard
@@ -2285,35 +2162,7 @@ usługi odnajdywania węzłów
 
 , przez co posiada mniejszy narzut komunikacyjny od algorytmów wymagających
  tych informacji.
- W sytuacji, gdy tylko jeden węzeł tworzy 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-wątki rozproszone
-\end_layout
-
-\end_inset
-
-, efekt działania algorytmu cyklicznego będzie identyczny z efektem osiągniętym
- przez zastosowanie algorytmu opisanego w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:implementacja-szeregowanie-zadan-threadcount"
-
-\end_inset
-
-.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-na pewno? chyba jeszcze musi się to stać w krótkim czasie
-\end_layout
-
-\end_inset
-
-
+ 
 \end_layout
 
 \begin_layout Section
@@ -2338,7 +2187,12 @@ Log
 
 \end_inset
 
- udostępniająca statyczne metody 
+ udostępniająca m.
+ in.
+ statyczne metody:
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Flex Code
 status open
 
@@ -2348,7 +2202,10 @@ ExceptionMessage
 
 \end_inset
 
- -- do logowania wyjątków i 
+ -- do logowania wyjątków,
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Flex Code
 status open
 
@@ -2359,23 +2216,17 @@ TraceMessage
 \end_inset
 
  -- do logowania pozostałych zdarzeń.
- Istnieje możliwość przekierowania wszystkich informacji do współdzielonej
- pamięci.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-jest zahardcodowany new RedisStorage!! (??)
 \end_layout
 
-\end_inset
-
+\begin_layout Standard
+Istnieje możliwość przekierowania wszystkich informacji do współdzielonej
+ pamięci.
  W tym celu należy ustawić flagę 
 \begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-WriteToRedis
+WriteToSharedMemory
 \end_layout
 
 \end_inset
@@ -2385,7 +2236,7 @@ WriteToRedis
 status open
 
 \begin_layout Plain Layout
-RedisHost
+SharedMemoryHost
 \end_layout
 
 \end_inset
@@ -2771,6 +2622,7 @@ współdzielonego licznika
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2802,10 +2654,6 @@ Interfejs do komunikacji z systemem
 status open
 
 \begin_layout Plain Layout
-[Communication framework] Shared storage access,
-\end_layout
-
-\begin_layout Plain Layout
 Udostępnianie logu (bo jest statyczny)
 \end_layout
 
@@ -2830,10 +2678,29 @@ wykonawcy
 
 \end_inset
 
- czy dostęp do wspóldzielonej rozproszonej pamięci) wewnątrz rozproszonego
- wątku, użytkownik musi uzyskać przeznaczony do tego obiekt.
+ czy dostęp do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wspóldzielonej pamięci
+\end_layout
+
+\end_inset
+
+) wewnątrz 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozproszonego wątku
+\end_layout
+
+\end_inset
+
+, użytkownik musi uzyskać przeznaczony do tego obiekt.
  System automatycznie wstrzykuje go do metod jako jeden z parametrów --
- wystarczy, by był on typu interfejsu 
+ wystarczy, by był on typu 
 \begin_inset Flex Code
 status open
 
@@ -2844,16 +2711,6 @@ IBluepathCommunicationFramework
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Nie po polsku jest to
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
