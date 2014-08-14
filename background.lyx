@@ -107,656 +107,6 @@ logowanie jest /tricky/ ale my to zrobiliśmy!
 \end_layout
 
 \begin_layout Section
-Definicje
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Nazewnictwo
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Biblioteka Bluepath
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Biblioteka Bluepath nazywana też 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-środowiskiem Bluepath
-\end_layout
-
-\end_inset
-
- bądź 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-biblioteką
-\end_layout
-
-\end_inset
-
- jest przedmiotem niniejszej pracy.
- To zestaw klas, które wspomagają twórców aplikacji rozproszonych.
- 
-\end_layout
-
-\begin_layout Standard
-Zbudowane za jego pomocą
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-??
-\end_layout
-
-\end_inset
-
- klastry określane są mianem 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-systemu
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Użytkownik
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset CommandInset label
-LatexCommand label
-name "def:podstawy-teorytyczne-uzytkownik"
-
-\end_inset
-
-Kto to taki?
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Kod użytkownika
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Pod pojęciem kodu użytkownika rozumiany jest kod źródłowy pochodzący spoza
- biblioteki Bluepath -- będący częścią aplikacji, która ją wykorzystuje.
- 
-\end_layout
-
-\begin_layout Standard
-Termin ten odnosi się najczęściej do fragmentów kodu, które są wykonywane
- w ramach rozproszonego wątku (def.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:background-Rozproszony-watek"
-
-\end_inset
-
-).
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Terminy technologiczne
-\end_layout
-
-\begin_layout Standard
-...
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-TCP
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-TCP"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Transfer Control Protocol
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-HTTP
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-HTTP"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Hypertext Transfer Protocol
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-XML
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout LyX-Code
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-XML"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Extensible Markup Language
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-SOAP
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-SOAP"
-
-\end_inset
-
-cytowanie: ...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-RPC
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-RPC"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Remote Procedure Call
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-WCF
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-WCF"
-
-\end_inset
-
-Windows Communication Foundation 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MSDN:WhatIsWindowsCommunicationFoundation"
-
-\end_inset
-
-...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-XSD
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-XSD"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-XML Schema Definition
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-NTP
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-NTP"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Network Time Protocol
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Zapora ogniowa
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-Firewall"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-firewall
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-NAT
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-NAT"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Network Address Translation
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 Istniejące rozwiązania
 \end_layout
 
@@ -1982,6 +1332,656 @@ ython/
 \begin_layout Plain Layout
 (2) http://research.microsoft.com/en-us/downloads/03960cab-bb92-4c5c-be23-ce51aee0
 792c/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definicje
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Nazewnictwo
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Biblioteka Bluepath
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Biblioteka Bluepath nazywana też 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+środowiskiem Bluepath
+\end_layout
+
+\end_inset
+
+ bądź 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+biblioteką
+\end_layout
+
+\end_inset
+
+ jest przedmiotem niniejszej pracy.
+ To zestaw klas, które wspomagają twórców aplikacji rozproszonych.
+ 
+\end_layout
+
+\begin_layout Standard
+Zbudowane za jego pomocą
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+ klastry określane są mianem 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+systemu
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Użytkownik
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:podstawy-teorytyczne-uzytkownik"
+
+\end_inset
+
+Kto to taki?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Kod użytkownika
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Pod pojęciem kodu użytkownika rozumiany jest kod źródłowy pochodzący spoza
+ biblioteki Bluepath -- będący częścią aplikacji, która ją wykorzystuje.
+ 
+\end_layout
+
+\begin_layout Standard
+Termin ten odnosi się najczęściej do fragmentów kodu, które są wykonywane
+ w ramach rozproszonego wątku (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-Rozproszony-watek"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Terminy technologiczne
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+TCP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-TCP"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Transfer Control Protocol
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+HTTP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-HTTP"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Hypertext Transfer Protocol
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+XML
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-XML"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Extensible Markup Language
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+SOAP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-SOAP"
+
+\end_inset
+
+cytowanie: ...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+RPC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-RPC"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Remote Procedure Call
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+WCF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-WCF"
+
+\end_inset
+
+Windows Communication Foundation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MSDN:WhatIsWindowsCommunicationFoundation"
+
+\end_inset
+
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+XSD
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-XSD"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+XML Schema Definition
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+NTP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-NTP"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Network Time Protocol
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Zapora ogniowa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Firewall"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+firewall
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+NAT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-NAT"
+
+\end_inset
+
+(ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Network Address Translation
+\end_layout
+
+\end_inset
+
+)...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
 \end_layout
 
 \end_inset
