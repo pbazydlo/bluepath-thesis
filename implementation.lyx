@@ -2680,29 +2680,95 @@ key "Mills-NTP-IEEE-Trans"
 \end_inset
 
 .
- Aby zachować porządek zdarzeń w miejsce na milisekundy wpisywana jest wartość
- 
+ Może to być niewystarczające do jednoznacznego określenia porządku zdarzeń.
+ Klasa 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Log
+\end_layout
+
+\end_inset
+
+ zawiera flagę 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+monotonicallyIncreasingLogTime
+\end_layout
+
+\end_inset
+
+, której ustawienie uniemożliwia zapisanie dwóch zdarzeń z tym samym znacznikiem
+ czasowym poprzez realizowanie dodatkowych operacji podczas zapisu do logu:
+\end_layout
+
+\begin_layout Itemize
+pobranie 
 \begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-licznika rozproszonego
+zamka rozproszonego
+\end_layout
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+odczyt ostatnio zapisanej wartości znacznika czasowego z 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+w przypadku gdy lokalna wartość znacznika jest mniejsza lub równa odczytanemu,
+ jest ona zamieniana na odczytaną wartość zwiększoną o 1 milisekundę,
+\end_layout
+
+\begin_layout Itemize
+zapis bieżącej wartości znacznika czasowego do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+zwolnienie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamka rozproszonego
 \end_layout
 
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
 status open
-
-\begin_layout Plain Layout
-chyba nie do końca jest to dobre, bo jak jeden węzeł jest jeszcze w poprzedniej
- sekundzie a drugi już w bieżącej to mamy problem ;)
-\end_layout
 
 \begin_layout Plain Layout
 jakiś art.
@@ -2776,6 +2842,25 @@ status open
 
 \begin_layout Plain Layout
 IBluepathCommunicationFramework
+\end_layout
+
+\end_inset
+
+.
+ Użytkownika ma również możliwość zapisywania własnych zdarzeń zachodzących
+ w aplikacji do logu z użyciem opisanej w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:implementation-Logowanie-zdarzen"
+
+\end_inset
+
+ statycznej klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Log
 \end_layout
 
 \end_inset
@@ -3027,7 +3112,8 @@ Send-Folder
 
 \end_inset
 
- można wywołać w pętli, aby przesłać pliki do każdego komputera w klastrze.
+ można wywołać wielokrotnie przekazując w parametrze -server kolejne adresy
+ maszyn, aby rozdystrybuować pliki w całym klastrze.
 \end_layout
 
 \begin_layout Standard

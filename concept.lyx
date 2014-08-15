@@ -218,12 +218,9 @@ węzła
 status open
 
 \begin_layout Plain Layout
-Jeżeli na maszynie działa więcej niż jedna instancja aplikacji, każda z
- nich zachowuje się
-\begin_inset space \space{}
-\end_inset
-
-jak odrębny węzeł.
+def.
+ maszyna? def.
+ klaster?
 \end_layout
 
 \end_inset
