@@ -124,7 +124,7 @@ Komunikacja
 \end_layout
 
 \begin_layout Standard
-Komunikacja między węzłami została zrealizowana w modelu RPC (def.
+Komunikacja między węzłami została zrealizowana w modelu RPC (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -132,7 +132,7 @@ reference "def:background-RPC"
 
 \end_inset
 
-) za pomocą WCF (def.
+) za pomocą WCF (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -141,7 +141,7 @@ reference "def:background-WCF"
 \end_inset
 
 ).
- Połączenia realizowane są za pomocą protokołu HTTP (def.
+ Połączenia realizowane są za pomocą protokołu HTTP (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -149,7 +149,7 @@ reference "def:background-HTTP"
 
 \end_inset
 
-), a wiadomości są przesyłane zgodnie z protokołem SOAP (def.
+), a wiadomości są przesyłane zgodnie z protokołem SOAP (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -158,7 +158,7 @@ reference "def:background-SOAP"
 \end_inset
 
 ).
- Zapora ogniowa (def.
+ Zapora ogniowa (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -167,7 +167,7 @@ reference "def:background-Firewall"
 \end_inset
 
 ) blokująca połączenia przychodzące na portach o wysokich numerach lub mechanizm
- NAT (def.
+ NAT (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -837,13 +837,10 @@ dodać cytowania i Redisa, zaznaczyć 2 fazy
 \end_layout
 
 \begin_layout Itemize
-Memcached
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[#]
-\end_layout
+Memcached 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Memcached"
 
 \end_inset
 
@@ -852,13 +849,10 @@ cja opiera się o .NET Framework 2.0 wydany w 2005 roku,
 \end_layout
 
 \begin_layout Itemize
-Riak
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[#]
-\end_layout
+Riak 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Riak"
 
 \end_inset
 
@@ -873,13 +867,10 @@ key "Amazon-Dynamo"
 \end_layout
 
 \begin_layout Itemize
-Polyphony
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[#]
-\end_layout
+Polyphony 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Polyphony-blog-1,Polyphony-blog-2,Polyphony-blog-3,Polyphony-repo"
 
 \end_inset
 
@@ -906,7 +897,21 @@ persistent hash table
 
 \end_inset
 
-) oraz Rhino Queues,
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rhino-PHT"
+
+\end_inset
+
+ oraz Rhino Queues 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rhino-Queues"
+
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Standard
@@ -914,13 +919,10 @@ a w późniejszym okresie również:
 \end_layout
 
 \begin_layout Itemize
-Redis
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[#]
-\end_layout
+Redis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Redis"
 
 \end_inset
 

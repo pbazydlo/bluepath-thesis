@@ -1461,27 +1461,17 @@ Biblioteka Bluepath
 \end_layout
 
 \begin_layout Definition
-Biblioteka Bluepath nazywana też 
+Biblioteka Bluepath (w skrócie: 
 \begin_inset Flex Strong
 status open
 
 \begin_layout Plain Layout
-środowiskiem Bluepath
+biblioteka
 \end_layout
 
 \end_inset
 
- bądź 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-biblioteką
-\end_layout
-
-\end_inset
-
- jest przedmiotem niniejszej pracy.
+) jest przedmiotem niniejszej pracy.
  To zestaw klas, które wspomagają twórców aplikacji rozproszonych.
  
 \end_layout
@@ -1543,7 +1533,8 @@ name "def:podstawy-teorytyczne-uzytkownik"
 
 \end_inset
 
-Kto to taki?
+Mianem użytkownika określany jest programista korzystający z funkcji udostępnian
+ych przez bibliotekę Bluepath podczas tworzenia aplikacji.
 \end_layout
 
 \begin_layout Standard
@@ -1610,7 +1601,8 @@ Terminy technologiczne
 \end_layout
 
 \begin_layout Standard
-...
+W pracy pojawia się szereg terminów technologicznych -- głównie akronimów
+ -- które, w celu uniknięcia nieporozumień, zdefiniowano poniżej.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1720,7 +1712,7 @@ XML
 
 \end_layout
 
-\begin_layout LyX-Code
+\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-XML"

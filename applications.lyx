@@ -414,11 +414,7 @@ var inputCollection = new List<double>(100);
 \begin_layout Plain Layout
 
 var processedCollection = (from num in inputCollection.AsDistributed(storage)
-\end_layout
-
-\begin_layout Plain Layout
-
-							select Math.Sqrt(num)).ToList();
+ select Math.Sqrt(num)).ToList();
 \end_layout
 
 \end_inset
