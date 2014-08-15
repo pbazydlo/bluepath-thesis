@@ -858,8 +858,8 @@ Porównanie wybranych środowisk przetwarzania rozproszonego
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<lyxtabular version="3" rows="11" columns="4">
+<features rotate="90" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
@@ -1284,12 +1284,9 @@ przesyłanie komunikatów
 \end_inset
 </cell>
 </row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
+<row>
+<cell multicolumn="1" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 \begin_inset script superscript
@@ -1303,6 +1300,40 @@ a
 Pierwsze publiczne stabilne wydanie
 \end_layout
 
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
 \begin_layout Plain Layout
 \begin_inset script superscript
 
@@ -1313,6 +1344,43 @@ b
 \end_inset
 
 Implementacja Open MPI
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

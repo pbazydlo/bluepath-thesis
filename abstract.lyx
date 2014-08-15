@@ -76,6 +76,19 @@ dcs
 \begin_body
 
 \begin_layout Abstract
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Bluepath -- library supporting creating distributed applications
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
 (abstract goes here...)
 \begin_inset Note Note
 status open
