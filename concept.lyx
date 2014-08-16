@@ -92,17 +92,47 @@ tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
  Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
 iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
  komunikatów.
- Klaster systemu Bluepath zakłada możliwość bezpośredniej komunikacji poprzez
- sieć każdego podłączonego do niego komputera z każdym innym.
  
 \end_layout
 
-\begin_layout Section
-Architektura systemu
+\begin_layout Definition
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Węzeł obliczeniowy
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Wezel-obliczeniowy"
+
+\end_inset
+
+Mianem węzła obliczeniowego (w skrócie: 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+węzła
+\end_layout
+
+\end_inset
+
+) określamy komputer, na którym działa usługa zaimplementowana z użyciem
+ biblioteki Bluepath, której celem jest zlecenie bądź wykonanie zleconych
+ zadań.
 \end_layout
 
 \begin_layout Standard
-System składa się z węzłów obliczeniowych połączonych siecią.
+Klaster systemu Bluepath składa się z węzłów obliczeniowych połączonych
+ siecią.
  Rysunek 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -111,6 +141,48 @@ reference "fig:background-schemat-systemu"
 \end_inset
 
  przedstawia schemat architektury systemu.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Flex Strong
+status collapsed
+
+\begin_layout Plain Layout
+Klaster
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Klaster"
+
+\end_inset
+
+Klaster to zbiór węzłów obliczeniowych, które są zarejestrowane we wspólnej
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usłudze odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+ (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-Usluga-odnajdywania-wezlow"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -152,86 +224,7 @@ Schemat architektury systemu
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Projektując bibliotekę przyjęliśmy następujące założenia (chodzi np.
- o brak FIFO)
-\end_layout
-
-\begin_layout Plain Layout
-zarysować problem globalnego obrazu systemu (usługa odnajdywania węzłów)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Flex Strong
-status collapsed
-
-\begin_layout Plain Layout
-Węzeł obliczeniowy
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Definition
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-Wezel-obliczeniowy"
-
-\end_inset
-
-Mianem węzła obliczeniowego (w skrócie: 
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-węzła
-\end_layout
-
-\end_inset
-
-) określamy komputer, na którym działa usługa zaimplementowana z użyciem
- biblioteki Bluepath, której celem jest zlecenie bądź wykonanie zleconych
- zadań.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-def.
- maszyna? def.
- klaster?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
+\begin_layout Section
 Komunikacja
 \end_layout
 
@@ -302,6 +295,15 @@ Usługa odnajdywania węzłów
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+zarysować problem globalnego obrazu systemu
+\end_layout
+
+\end_inset
+
 Jednym z podstawowych założeń jest posiadanie przez wszystkie węzły w systemie
  lokalnego obrazu stanu wszystkich innych węzłów w klastrze.
  Informacje dotyczące stanu poszczególnych węzłów są dostarczane przez 
@@ -466,18 +468,29 @@ Rozproszony wątek
 \end_layout
 
 \begin_layout Standard
-Jednostką przetwarzania w systemie jest 
+Specyfika systemu Bluepath wymaga rozróżnienia wątku systemu operacyjnego
+ oraz 
 \begin_inset Flex Name
-status collapsed
+status open
 
 \begin_layout Plain Layout
-wątek rozproszony
+wątku rozproszonego
 \end_layout
 
 \end_inset
 
-.
- Jest on tworzony na podstawie statycznej metody, która przyjmuje dowolną,
+ rozumianego jako jednostki przetwarzania w systemie.
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Wątek rozproszony
+\end_layout
+
+\end_inset
+
+ jest tworzony na podstawie statycznej metody, która przyjmuje dowolną,
  liczbę parametrów i zwraca wartość.
  Wynik przechwytywany jest przez środowisko i udostępniany do odczytu na
  węźle, który zlecił wykonanie wątku.
@@ -495,17 +508,6 @@ planistę
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-postawiony cel/specyfika wymaga rozróżnienia wątku systemu op.
- od naszego
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Definition
@@ -571,19 +573,32 @@ wykonawcę
 
 \end_inset
 
- -- element odpowiedzialny za wykonywanie wątków zarówno zdalne jak i lokalne.
+ -- element odpowiedzialny za wykonywanie wątków.
  Zastosowanie takiej abstrakcji pozwala potraktować przetwarzanie lokalne
  oraz zdalne w podobny sposób.
-\begin_inset Note Note
+ Specjalizacje -- 
+\begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-[wykonawca] specjalizacje wynikają z...
+lokalny wykonawca
 \end_layout
 
 \end_inset
 
+ i 
+\begin_inset Flex Name
+status open
 
+\begin_layout Plain Layout
+zdalny wykonawca
+\end_layout
+
+\end_inset
+
+ -- wynikają z potrzeby realizacji innej logiki w przypadku wykonania kodu
+ na lokalnej i zdalnej maszynie.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -646,7 +661,8 @@ Lokalny wykonawca
 \end_layout
 
 \begin_layout Definition
-Lokalny wykonawca to obiekt, który odpowiada za faktyczne wykonanie zadania.
+Lokalny wykonawca to obiekt, który odpowiada za faktyczne wykonanie otrzymanego
+ zadania.
 \end_layout
 
 \begin_layout Standard
@@ -717,7 +733,8 @@ Zdalny wykonawca
 \end_layout
 
 \begin_layout Definition
-Zdalny wykonawca to obiekt, który odpowiada za zlecenie wykonania zadania.
+Zdalny wykonawca to obiekt, który odpowiada za zlecenie wykonania zadania
+ na zdalnej maszynie.
 \end_layout
 
 \begin_layout Standard
@@ -858,8 +875,8 @@ Pamięć rozproszona
 \end_layout
 
 \begin_layout Definition
-Pamięć rozproszona to pamięć masowa dostępna dla wszystkich węzłów, przez
- którą mogą wymieniać się danymi.
+Pamięć rozproszona to pamięć dostępna dla wszystkich węzłów, przez którą
+ mogą wymieniać się danymi.
 \end_layout
 
 \begin_layout Standard
