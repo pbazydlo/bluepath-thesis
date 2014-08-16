@@ -1857,52 +1857,5 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-NAT
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-NAT"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Network Address Translation
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \end_body
 \end_document

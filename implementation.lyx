@@ -192,15 +192,14 @@ reference "def:background-Firewall"
 \end_inset
 
 ) blokująca połączenia przychodzące na portach o wysokich numerach.
- W sieci nie może także działać mechanizm NAT (pkt.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:background-NAT"
+ W sieci nie może także działać mechanizm NAT 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rfc1631,rfc3022"
 
 \end_inset
 
-), co uniemożliwiłoby realizację bezpośredniej komunikacji między węzłami.
+, co uniemożliwiłoby realizację bezpośredniej komunikacji między węzłami.
  
 \end_layout
 

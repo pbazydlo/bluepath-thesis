@@ -508,6 +508,9 @@ planistę
 \end_inset
 
 .
+ Wątek rozproszony musi wykonać się w całości na jednym z węzłów -- nie
+ ma możliwości wstrzymania przetwarzania, przeniesienia wątku razem z aktualnym
+ stanem i wznowienia obliczeń na innym węźle.
 \end_layout
 
 \begin_layout Definition
@@ -875,6 +878,12 @@ Pamięć rozproszona
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:concept-Pamiec-rozproszona"
+
+\end_inset
+
 Pamięć rozproszona to pamięć dostępna dla wszystkich węzłów, przez którą
  mogą wymieniać się danymi.
 \end_layout
@@ -914,6 +923,29 @@ jeszcze jakieś założenia?
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Warto zauważyć, że zgodnie z definicją 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:concept-Pamiec-rozproszona"
+
+\end_inset
+
+ pod pojęciem 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ będziemy rozumieć pamięć, która jest udostępniana przez co najmniej jeden
+ węzeł i umożliwia współdzielenie danych między wszystkimi węzłami obliczeniowym
+i w klastrze.
 \end_layout
 
 \begin_layout Standard
@@ -1395,7 +1427,7 @@ bulk operations
 \end_inset
 
 ) to operacje wykonywane jednocześnie na grupie obiektów o podobnych właściwości
-ach.
+ach znajdujących się w pamięci rozproszonej.
 \end_layout
 
 \begin_layout Standard
@@ -1455,7 +1487,9 @@ zamków rozproszonych
 
 \end_inset
 
- opartych o ten mechanizm.
+ -- współdzielonych przez wszystkie węzły w klastrze (w odróżnieniu od zamków
+ istniejących jedynie w obrębie jednego procesu bądź jednego komputera)
+ -- opartych o ten mechanizm.
  W związku z tym tworzenie i zarządzanie 
 \begin_inset Flex Name
 status open
@@ -1481,8 +1515,8 @@ rozszerzonej pamięci rozproszonej
 \end_layout
 
 \begin_layout Standard
-Ponieważ reszta biblioteki nie polega na sposobie implementacji zamków (a
- jedynie na gwarancjach jakie oferują) mogą one zostać zaimplementowane
+Ponieważ reszta biblioteki nie polega na sposobie implementacji zamków,
+ a jedynie na gwarancjach jakie oferują, mogą one zostać zaimplementowane
  przez użytkownika w oparciu o mechanizmy niezwiązane z 
 \begin_inset Flex Name
 status open
@@ -1511,8 +1545,7 @@ Zamek rozproszony
 
 \begin_layout Definition
 Zamek rozproszony to zamek, który jest współdzielony przez wszystkie węzły
- w klastrze (w odróżnieniu od zamków istniejących jedynie w obrębie jednego
- procesu bądź jednego komputera).
+ w klastrze.
 \end_layout
 
 \begin_layout Section
