@@ -2689,15 +2689,14 @@ eid
 
 \begin_layout Standard
 Zależności czasowe są istotną częścią analizy przebiegu procesu.
- Z wykorzystaniem serwerów czasu NTP (pkt.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:background-NTP"
+ Z wykorzystaniem serwerów czasu NTP 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rfc5905"
 
 \end_inset
 
-) możliwe jest zsynchronizowanie zegarów węzłów w klastrze z dokładnością
+ możliwe jest zsynchronizowanie zegarów węzłów w klastrze z dokładnością
  do milisekund (przy dużych odległościach od serwera czasu -- dziesiątek
  milisekund) 
 \begin_inset CommandInset citation
