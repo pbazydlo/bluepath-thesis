@@ -102,25 +102,15 @@ Architektura systemu
 \end_layout
 
 \begin_layout Standard
-System składa się z węzłów obliczeniowych połączonych siecią, które posiadają
- informacje o pozostałych zarejestrowanych węzłach.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-?? 
-\end_layout
-
-\end_inset
-
- Na rysunku 
+System składa się z węzłów obliczeniowych połączonych siecią.
+ Rysunek 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:background-schemat-systemu"
 
 \end_inset
 
- przedstawiony został schemat architektury systemu.
+ przedstawia schemat architektury systemu.
 \end_layout
 
 \begin_layout Standard
@@ -277,48 +267,6 @@ ci z uwagi na to, że w kanale znajduje się w danym momencie co najwyżej
  jedna wiadomość.
  Dla uzyskania transparentności procesu rozpraszania obliczeń sam proces
  przesyłania komunikatów pomiędzy węzłami jest ukryty przed użytkownikiem.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-to powinno być raczej w koncepcji??
-\end_layout
-
-\begin_layout Plain Layout
-Zastosowane protokoły nie zapewniają żadnych gwarancji co do kolejności
- dostarczonych wiadomości.
- Nie zapewniają również niezawodności dostarczania wiadomości ponad to,
- co oferuje protokół działający w warstwie transportowej -- TCP (def.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:background-TCP"
-
-\end_inset
-
-) -- czyli potwierdzenia i retransmisje.
- Zakładamy jednak, że połączenia w obrębie jednego klastra są na tyle stabilne,
- że nie będzie to powodowało problemów.
-\end_layout
-
-\begin_layout Plain Layout
-____
-\end_layout
-
-\begin_layout Plain Layout
-+kolejność wiadomości - dowolna
-\end_layout
-
-\begin_layout Plain Layout
-+niezawodność dostarczania - jeżeli protokół TCP zgubi wiadomość, mamy problem
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

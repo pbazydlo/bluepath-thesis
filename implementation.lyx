@@ -116,7 +116,7 @@ reference "sec:implementation-Rozproszony-watek"
 
 ).
  W ramach jednego z wątków uruchamiana jest usługa nasłuchująca wywołań
- -- zlecenia, zapytania -- przychodzące od pozostałych węzłów.
+ -- zleceń, zapytań przychodzących od pozostałych węzłów.
 \end_layout
 
 \begin_layout Section
@@ -124,9 +124,16 @@ Komunikacja
 \end_layout
 
 \begin_layout Standard
-W sieci komunikacyjnej w warstwie transportowej działa protokół TCP, który
- realizuje gwarancje niezawodnego dostarczenia wiadomości z użyciem mechanizmu
- potwierdzeń i retransmisji zgodnie z założeniem przyjętym w punkcie 
+W sieci komunikacyjnej w warstwie transportowej działa protokół TCP 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rfc675,rfc793,rfc1122"
+
+\end_inset
+
+, który realizuje gwarancje niezawodnego dostarczenia wiadomości z użyciem
+ mechanizmu potwierdzeń i retransmisji zgodnie z założeniem przyjętym w
+ punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:concept-Komunikacja"
@@ -152,23 +159,21 @@ reference "def:background-WCF"
 \end_inset
 
 ).
- Połączenia realizowane są za pomocą protokołu HTTP (pkt.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:background-HTTP"
+ Połączenia realizowane są za pomocą protokołu HTTP 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rfc2616"
 
 \end_inset
 
-), a wiadomości są przesyłane zgodnie z protokołem SOAP (pkt.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:background-SOAP"
+, a wiadomości są przesyłane zgodnie z protokołem SOAP 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "W3C-SOAP11,W3C-SOAP12-part0,W3C-SOAP12-part1"
 
 \end_inset
 
-), co spełnia wymagania postawione w punkcie 
+, co spełnia wymagania postawione w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:concept-Komunikacja"
