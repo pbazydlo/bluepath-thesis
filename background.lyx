@@ -135,7 +135,17 @@ PVM
 
 \begin_layout Standard
 PVM (ang.
- Parallel Virtual Machine) 
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Parallel Virtual Machine
+\end_layout
+
+\end_inset
+
+) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PVM"
@@ -180,7 +190,18 @@ MPI
 \end_layout
 
 \begin_layout Standard
-Biblioteka MPI 
+Biblioteka MPI (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Message Passing Interface
+\end_layout
+
+\end_inset
+
+) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Using-MPI-Portable-Parallel-Programming-with-the-Message-Passing-Interface"

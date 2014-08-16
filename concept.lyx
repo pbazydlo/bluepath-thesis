@@ -246,6 +246,40 @@ Komunikacja
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:concept-Komunikacja"
+
+\end_inset
+
+Każdy z węzłów w klastrze może komunikować
+\begin_inset space \space{}
+\end_inset
+
+się poprzez sieć z każdym innym.
+ Przyjęto następujące założenia co do protokołów komunikacyjnych:
+\end_layout
+
+\begin_layout Enumerate
+protokół zastosowany w warstwie transportowej powinien zapewnić niezawodne
+ dostarczenie wszystkich wiadomości,
+\end_layout
+
+\begin_layout Enumerate
+protokół działający w warstwie aplikacji powinien oczekiwać odpowiedzi na
+ wysyłane żądania.
+ 
+\end_layout
+
+\begin_layout Standard
+Nie jest wymagane zachowanie kolejności dostarczania wiadomości -- w szczególnoś
+ci z uwagi na to, że w kanale znajduje się w danym momencie co najwyżej
+ jedna wiadomość.
+ Dla uzyskania transparentności procesu rozpraszania obliczeń sam proces
+ przesyłania komunikatów pomiędzy węzłami jest ukryty przed użytkownikiem.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -292,10 +326,8 @@ ____
 status open
 
 \begin_layout Plain Layout
-Dla uzyskania transparentności procesu rozpraszania obliczeń przesyłanie
- komunikatów pomiędzy węzłami powinno być ukryte przed użytkownikiem.
- Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdziel
-onych danych przez różne wątki (ang.
+Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdzielo
+nych danych przez różne wątki (ang.
  
 \begin_inset Flex Emph
 status open
@@ -837,8 +869,9 @@ name "sec:concept-Rozproszona-pamięć-współdzielona"
 
 \end_inset
 
-Często w ramach przetwarzania rozproszonego zachodzi potrzeba komunikacji.
- W celu jej zapewnienia, jako część biblioteki 
+Często w ramach przetwarzania rozproszonego zachodzi potrzeba przesyłania
+ danych między węzłami.
+ W celu jej zrealizowania, jako część biblioteki 
 \begin_inset Flex Name
 status open
 
@@ -848,7 +881,7 @@ Bluepath
 
 \end_inset
 
-, dostarczany jest mechanizm 
+, dostarczana jest abstrakcja 
 \begin_inset Flex Name
 status open
 
@@ -859,17 +892,8 @@ pamięci rozproszonej
 \end_inset
 
 .
- Pamięć ta ma charakter pamięci masowej, a nie pamięci operacyjnej.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(?) 
-\end_layout
-
-\end_inset
-
  Umożliwia ona synchronizację i wymianę danych między działającymi wątkami.
+ 
 \end_layout
 
 \begin_layout Definition
@@ -891,7 +915,44 @@ Pamięć rozproszona to pamięć masowa dostępna dla wszystkich węzłów, prze
 \end_layout
 
 \begin_layout Standard
-W celu identyfikacji danych w 
+Implementacja pamięci rozproszonej nie była przedmiotem niniejszej pracy.
+ Zdecydowano się zastosować jedno z istniejących rozwiązań spełniających
+ następujące założenia:
+\end_layout
+
+\begin_layout Itemize
+silna spójność danych -- wszystkie węzły odczytują zawsze tę samą, najbardziej
+ aktualną wartość,
+\end_layout
+
+\begin_layout Itemize
+dostępność mechanizmów umożliwiających realizację operacji o semantyce atomowego
+ porównania i zapisu (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+test and set
+\end_layout
+
+\end_inset
+
+) lub atomowego odczytu i zapisu.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+jeszcze jakieś założenia?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+W celu identyfikacji krotek w 
 \begin_inset Flex Name
 status open
 

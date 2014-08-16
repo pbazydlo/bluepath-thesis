@@ -124,7 +124,18 @@ Komunikacja
 \end_layout
 
 \begin_layout Standard
-Komunikacja między węzłami została zrealizowana w modelu RPC (pkt.
+W sieci komunikacyjnej w warstwie transportowej działa protokół TCP, który
+ realizuje gwarancje niezawodnego dostarczenia wiadomości z użyciem mechanizmu
+ potwierdzeń i retransmisji zgodnie z założeniem przyjętym w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:concept-Komunikacja"
+
+\end_inset
+
+ ppkt.
+ 1.
+ Komunikacja między węzłami została zrealizowana w modelu RPC (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -157,8 +168,17 @@ reference "def:background-SOAP"
 
 \end_inset
 
-).
- Zapora ogniowa (pkt.
+), co spełnia wymagania postawione w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:concept-Komunikacja"
+
+\end_inset
+
+ ppkt.
+ 2.
+ Z uwagi na losowy wybór numerów portów założono, że na maszynach nie działa
+ zapora ogniowa (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -166,8 +186,8 @@ reference "def:background-Firewall"
 
 \end_inset
 
-) blokująca połączenia przychodzące na portach o wysokich numerach lub mechanizm
- NAT (pkt.
+) blokująca połączenia przychodzące na portach o wysokich numerach.
+ W sieci nie może także działać mechanizm NAT (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -175,7 +195,7 @@ reference "def:background-NAT"
 
 \end_inset
 
-) uniemożliwią poprawne działanie systemu.
+), co uniemożliwiłoby realizację bezpośredniej komunikacji między węzłami.
  
 \end_layout
 
