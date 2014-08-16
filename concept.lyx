@@ -366,19 +366,6 @@ Usługa odnajdywania węzłów to system umożliwiający węzłom odnajdywanie s
  wzajemnie w sieci i łączenie w klaster obliczeniowy.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Zarządca połączeń
 \end_layout
@@ -448,19 +435,6 @@ Zarządca połączeń
 Zarządca połączeń to klient usługi odnajdywania węzłów, który odpowiada
  za rejestrowanie, wyrejestrowywanie i przechowywanie lokalnego obrazu stanu
  klastra na każdym z węzłów.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -536,19 +510,6 @@ name "def:background-Rozproszony-watek"
 Wątek rozproszony reprezentuje jednostkę przetwarzania w systemie.
  Opakowuje fragment kodu, który może być wykonany na dowolnym węźle obliczeniowy
 m.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -668,19 +629,6 @@ Lokalny wykonawca to obiekt, który odpowiada za faktyczne wykonanie otrzymanego
  zadania.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Zdalny wykonawca
 \end_layout
@@ -738,19 +686,6 @@ Zdalny wykonawca
 \begin_layout Definition
 Zdalny wykonawca to obiekt, który odpowiada za zlecenie wykonania zadania
  na zdalnej maszynie.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -811,19 +746,6 @@ Planista
 Planista odpowiada za wybór węzła, do którego wysłane zostanie zlecenie
  wykonania zadania.
  Realizuje zdefiniowaną strategię szeregowania zadań w klastrze.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -1167,8 +1089,15 @@ Rozszerzona pamięć rozproszona
 \end_layout
 
 \begin_layout Definition
-Rozszerzona pamięć rozproszona to pamięć masowa dostępna dla wszystkich
- węzłów, przez którą mogą wymieniać się danymi.
+Rozszerzona pamięć rozproszona to pamięć rozproszona (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:concept-Pamiec-rozproszona"
+
+\end_inset
+
+), która dodatkowo udostępnia abstrakcję zamków.
 \end_layout
 
 \begin_layout Subsection
@@ -1233,7 +1162,7 @@ wątku rozproszonym
 
 \end_inset
 
- w systemie, który zna jej identyfikator.
+, który zna jej identyfikator.
  Lista ta zachowuje zgodność na poziomie interfejsu z listą dostarczaną
  przez środowisko .NET Framework.
  Podstawowe scenariusze wykorzystania 
@@ -1254,19 +1183,7 @@ Słownik
 \end_layout
 
 \begin_layout Standard
-Ze względu na charakter 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci rozproszonej
-\end_layout
-
-\end_inset
-
- (zapisywanie wartości pod pewnym konkretnym kluczem) naturalnym wydaje
- się dostarczenie programiście abstrakcji wzorowanej na słowniku (ang.
- dictionary).
+Oprócz listy, często wykorzystywaną strukturą danych jest słownik.
  
 \begin_inset Flex Name
 status open
@@ -1277,33 +1194,17 @@ Słownik rozproszony
 
 \end_inset
 
- pozwoli użytkownikowi na łatwiejsze zarządzanie kolekcjami typu klucz-wartość
- jednocześnie zapewniając poprawność wykonania pewnych operacji (np.
- atomowe dodanie nowego klucza oraz zarejestrowanie go na liście kluczy).
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-trochę shitowy ten opis :(
-\end_layout
-
-\end_inset
-
-
+ pozwala użytkownikowi na współdzielenie między wątkami kolekcji typu klucz-wart
+ość.
+ Jednocześnie zapewnia poprawność wykonania współbieżnych operacji, np.
+ atomowego dodania nowego klucza oraz zarejestrowania go w wewnętrznym indeksie
+ kluczy.
+ Podobnie jak lista rozproszona słownik identyfikowany jest przez ciąg znaków,
+ który musi być znany wszystkim wątkom chcącym uzyskać do niego dostęp.
 \end_layout
 
 \begin_layout Paragraph
 Licznik
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-do poprawy
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1324,13 +1225,14 @@ licznik rozproszony
 \end_inset
 
 .
- Jego główną cechą -- oprócz atomowego zapisania wartości liczbowej -- jest
- jednoczesne pobranie i zmienienie wartości.
- Pozwala to wykorzystać go jako m.
- in.
- generator kluczy, czy wykorzystać tę strukturę do dynamicznego podziału
- kolekcji na fragmenty -- np.
- każdy 
+ Oprócz standardowych operacji odczytu i ustawienia wartości, umożliwia
+ on także atomowe pobranie i zwiększenie wartości.
+ 
+\end_layout
+
+\begin_layout Standard
+Obiekt ten może być wykorzystany jako generator unikalnych kluczy lub do
+ dynamicznego podziału kolekcji na fragmenty -- każdy 
 \begin_inset Flex Name
 status open
 
@@ -1340,17 +1242,18 @@ wątek rozproszony
 
 \end_inset
 
- pobiera wartość licznika i jednocześnie zwiększa jego wartość o 
+ może pobierać wartość licznika i jednocześnie zwiększać jego wartość o
+ 
 \begin_inset Formula $n$
 \end_inset
 
 .
- W ten sposób wątek rezerwuje sobie 
+ W ten sposób rezerwuje sobie 
 \begin_inset Formula $n$
 \end_inset
 
- obiektów począwszy od odczytanej wartości identyfikatora.
- Dzięki temu każdy wątek może operować na rozłącznym zbiorze obiektów.
+ obiektów począwszy od odczytanej wartości identyfikatora i każdy z wątków
+ może operować na rozłącznym zbiorze obiektów.
 \end_layout
 
 \begin_layout Subsection
@@ -1428,19 +1331,6 @@ bulk operations
 
 ) to operacje wykonywane jednocześnie na grupie obiektów o podobnych właściwości
 ach znajdujących się w pamięci rozproszonej.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection

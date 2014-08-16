@@ -636,194 +636,12 @@ Pamięć rozproszona
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nie implementujemy sami bo nie taki cel pracy
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Zgodnie z założeniami zaprezentowanymi w punkcie 
+Ponieważ celem pracy nie było kompletne implementowanie pamięci rozproszonej,
+ skupiono się na wyborze istniejącego rozwiązania, które spełniałoby wymagania
+ zaprezentowane w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:concept-Rozproszona-pamięć-współdzielona"
-
-\end_inset
-
-, interfejs 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IStorage
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-tutaj niewiadomo skąd pojawia się nagle nazwa 'IStorage', brakuje wprowadzenia
-\end_layout
-
-\end_inset
-
- wymaga implementacji metod do operacji na pojedynczych wartościach: 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Store
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-StoreOrUpdate
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Update
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Retrieve
-\end_layout
-
-\end_inset
-
- i 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Remove
-\end_layout
-
-\end_inset
-
- oraz operacji zbiorczych: 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkStore
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkStoreOrUpdate
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkUpdate
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkRetrieve
-\end_layout
-
-\end_inset
-
- i 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkRemove
-\end_layout
-
-\end_inset
-
-.
- Dodatkowo zdefiniowany został interfejs 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IExtendedStorage
-\end_layout
-
-\end_inset
-
- rozszerzający podstawowy interfejs 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IStorage
-\end_layout
-
-\end_inset
-
- o operacje pobrania i zwolnienia 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-zamków rozproszonych
-\end_layout
-
-\end_inset
-
-: 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-AcquireLock
-\end_layout
-
-\end_inset
-
- (w wersji z limitem czasu i bez) oraz 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-ReleaseLock
-\end_layout
 
 \end_inset
 
@@ -835,19 +653,7 @@ Rozważane rozwiązania
 \end_layout
 
 \begin_layout Standard
-Podjęto decyzje o skorzystaniu z jednego z istniejących rozwiązań do zrealizowan
-ia koncepcji 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci rozproszonej
-\end_layout
-
-\end_inset
-
-.
- Początkowo pod uwagę brane były następujące aplikacje:
+Początkowo pod uwagę brane były następujące aplikacje:
 \begin_inset Note Note
 status open
 
@@ -954,7 +760,7 @@ key "Redis"
 \end_layout
 
 \begin_layout Standard
-Początkowo wybrane zostało rozwiązanie Rhino DHT, które było aktywnie rozwijane
+Pierwszym wybranym rozwiązaniem było Rhino DHT, które było aktywnie rozwijane
  przez rozpoznawalnego autora -- Ayende Rahiena.
  Niestety, okazało się, że wersjonowanie danych nie zostało w pełni zaimplemento
 wane i nie było możliwe wykonanie atomowej operacji ,,odczytaj i zapisz'',
@@ -1004,6 +810,227 @@ reference "par:problemy-Windows-Redis"
 
 ) udało się rozwiązać, przez co system ten został wykorzystany w ostatecznej
  wersji pracy i w testach.
+\end_layout
+
+\begin_layout Subsection
+Interfejsy pamięci rozproszonej
+\end_layout
+
+\begin_layout Standard
+Definicje 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ oraz 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozszerzonej pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ zostały sformalizowane w formie interfejsów odpowiednio 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorage
+\end_layout
+
+\end_inset
+
+ oraz 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IExtendedStorage
+\end_layout
+
+\end_inset
+
+.
+ Interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorage
+\end_layout
+
+\end_inset
+
+ wymaga implementacji metod do operacji na pojedynczych wartościach: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Store
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+StoreOrUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Update
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Retrieve
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Remove
+\end_layout
+
+\end_inset
+
+ oraz operacji zbiorczych: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkStore
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkStoreOrUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkRetrieve
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkRemove
+\end_layout
+
+\end_inset
+
+.
+ Interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IExtendedStorage
+\end_layout
+
+\end_inset
+
+ rozszerza podstawowy interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorage
+\end_layout
+
+\end_inset
+
+ o operacje pobrania i zwolnienia 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamków rozproszonych
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AcquireLock
+\end_layout
+
+\end_inset
+
+ (w wersji z limitem czasu i bez) oraz 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ReleaseLock
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nie tylko
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
