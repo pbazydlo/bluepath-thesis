@@ -263,6 +263,14 @@ ci z uwagi na to, że w kanale znajduje się w danym momencie co najwyżej
 \end_layout
 
 \begin_layout Standard
+Zakładamy również, że bezpieczeństwo klastra opiera się na tym, iż działa
+ on w odseparowanej sieci, tj.
+ bez bezpośredniego dostępu z sieci publicznej (internetu).
+ W związku z tym zastosowane protokoły komunikacyjne nie muszą zapewniać
+ mechanizmów uwierzytelniania i autoryzacji.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -783,7 +791,16 @@ pamięci rozproszonej
 
 .
  Umożliwia ona synchronizację i wymianę danych między działającymi wątkami.
- 
+ Zaleca się jednak myślenie i korzystanie z niej jako pamięci masowej (a
+ nie DSM opisanej w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:background-Przetwarzanie-rozproszone"
+
+\end_inset
+
+), ponieważ koszt dostępu do niej może być znacznie wyższy niż do pamięci
+ operacyjnej.
 \end_layout
 
 \begin_layout Definition
@@ -871,7 +888,17 @@ i w klastrze.
 \end_layout
 
 \begin_layout Standard
-W celu identyfikacji krotek w 
+W celu identyfikacji krotek
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+??
+\end_layout
+
+\end_inset
+
+ w 
 \begin_inset Flex Name
 status open
 
@@ -1481,6 +1508,16 @@ listy rozproszonej
 
  do pliku w celu dalszego przetwarzania i wizualizacji np.
  w narzędziach służących do eksploracji procesów.
+\end_layout
+
+\begin_layout Section
+Obsługa awarii
+\end_layout
+
+\begin_layout Standard
+W obecnej wersji systemu nie przewiduje się mechanizmów odtwarzania i kontynuowa
+nia przetwarzania w przypadku awarii jednego lub większej liczby węzłów.
+ Temat ten może być przedmiotem dalszych prac.
 \end_layout
 
 \end_body

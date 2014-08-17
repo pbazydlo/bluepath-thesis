@@ -89,18 +89,217 @@ Przetwarzanie rozproszone
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:background-Przetwarzanie-rozproszone"
+
+\end_inset
+
+...
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Przetwarzanie rozproszone rządzi się swoimi prawami, opisać problemy i odnieść
- się z 3.6.1[współdzielone struktury danych i obiekty]
+Przetwarzanie rozproszone
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArpaciDusseau14-Book"
+
+\end_inset
+
+ rządzi się swoimi prawami, opisać problemy i odnieść się z 3.6.1[współdzielone
+ struktury danych i obiekty]
 \end_layout
 
 \begin_layout Plain Layout
 logowanie jest /tricky/ ale my to zrobiliśmy!
 \end_layout
 
+\begin_layout Itemize
+awarie
+\end_layout
+
+\begin_layout Itemize
+komunikacja, 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+stracone pakiety
+\end_layout
+
+\begin_layout Itemize
+wydajność (minimalizowanie liczby komunikatów, minimalizowanie opóźnienia,
+ maksymalizacja przepustowości),
+\end_layout
+
+\begin_layout Itemize
+sumy kontrolne, potwierdzenia odbioru
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+problem zgubionego potwierdzenia -- chcemy zapewnić, że wiadomość zostanie
+ dostarczona dokładnie raz
+\end_layout
+
+\begin_layout Itemize
+wykorzystywane w praktyce protokoły (np.
+ TCP) starają się rozwiązać jeszcze wiele innych problemów, jak np.
+ zatory w sieci, zaległe żądania i wiele innych.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+bezpieczeństwo -- poufność, integralność (komunikat nie został zmieniony),
+ autentyczność (nadawca jest tym, za kogo się podaje).
+\end_layout
+
+\begin_layout Itemize
+wprowadzanie abstrakcji komunikacyjnych
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+DSM (distributed shared memory) [[LH89] “Memory Coherence in Shared Virtual
+ Memory Systems” Kai Li and Paul Hudak ACM TOCS, 7:4, November 1989 The
+ introduction of software-based shared memory via virtual memory.
+ An intriguing idea for sure, but not a lasting or good one in the end.]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+mechanizm implementowany na poziomie systemu operacyjnego
+\end_layout
+
+\begin_layout Itemize
+wspólna przestrzeń adresowa dla wszystkich komputerów
+\end_layout
+
+\begin_layout Itemize
+w przypadku wystąpienia błędu braku strony w pamięci lokalnej, strona musi
+ zostać sprowadzona
+\end_layout
+
+\begin_layout Itemize
+mechanizm DSM nie jest obecnie wykorzystywany przy tworzeniu systemów rozproszon
+ych
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+RPC (remote procedure call) [[BN84] “Implementing Remote Procedure Calls”
+ Andrew D.
+ Birrell, Bruce Jay Nelson ACM TOCS, Volume 2:1, February 1984 The foundational
+ RPC system upon which all others build.
+ Yes, another pioneering effort from our friends at Xerox PARC.]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+mechanizm implementowany na poziomie języka programowania
+\end_layout
+
+\begin_layout Itemize
+cel: sprawić, by wywołanie metody na zdalnym komputerze było tak proste,
+ jak wywołanie jej lokalnie; wysyłane jest zlecenie, a po zakończeniu wykonania
+ wynik wraca do wywołującego
+\end_layout
+
+\begin_layout Itemize
+serwer definiuje metody, które chce udostępnić, reszta jest ukryta w abstrakcji
+ RPC
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+stub generator (protocol compiler)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+- automatyzacja generowania wiadomości, kodowanie/dekodowanie parametrów
+ wywołania oraz wyniku wykonania,
+\end_layout
+
+\begin_layout Itemize
+- client stub
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a) utworzenie bufora na wiadomość (np.
+ pustej tablicy bajtów o określonym rozmiarze),
+\end_layout
+
+\begin_layout Itemize
+b) zapis informacji do bufora wiadomości (zarówno jakiegoś rodzaju wskaźnika/uch
+wytu do metody jak i parametrów wywołania); proces ten jest nazywany serializacj
+ą lub rzadziej przetaczaniem (ang.
+ serialization, mashalling),
+\end_layout
+
+\begin_layout Itemize
+c) wysłanie wiadomości do serwera RPC, przy czym sam proces komunikacji
+ jest obsługiwany przez RPC run-time library opisaną poniżej,
+\end_layout
+
+\begin_layout Itemize
+d) w przypadku synchronicznego wywołanai metody -- oczekiwanie na jej zakończeni
+e,
+\end_layout
+
+\begin_layout Itemize
+e) dekodowanie otrzymanego wyniku; preces ten jest nazywany deserializacją
+ (ang.
+ deserialization, unmarshalling),
+\end_layout
+
+\begin_layout Itemize
+f) powrót sterowania do metody wywołującej stub,
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+- server stub
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a) rozpakowanie/deserializacja otrzymanej wiadomości,
+\end_layout
+
+\begin_layout Itemize
+b) właściwe wywołanie wskazanej metody z przekazanymi parametrami,
+\end_layout
+
+\begin_layout Itemize
+c) przygotowanie wiadomości z wynikiem,
+\end_layout
+
+\begin_layout Itemize
+d) wysłanie odpowiedzi do wywołującego,
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+- pojawiają się tutaj problemy, np.
+ serializacja złożonych struktur danych, współbieżność serwera (thread pool),
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+run-time library
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
 \end_inset
 
 
