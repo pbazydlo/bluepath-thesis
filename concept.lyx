@@ -795,7 +795,7 @@ pamięci rozproszonej
  nie DSM opisanej w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:background-Przetwarzanie-rozproszone"
+reference "sub:background-DSM"
 
 \end_inset
 

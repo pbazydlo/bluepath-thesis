@@ -86,6 +86,16 @@ W tym rozdziale przedstawione zostaną terminy wykorzystywane w dalszej części
 
 \begin_layout Section
 Przetwarzanie rozproszone
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+todo
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -95,7 +105,100 @@ name "sec:background-Przetwarzanie-rozproszone"
 
 \end_inset
 
-...
+ Przetwarzanie rozproszone
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArpaciDusseau14-Book"
+
+\end_inset
+
+ jest szeroko stosowanym podejściem w przypadku przetwarzania dużej ilości
+ danych, konieczności obsługi wielu zleceń użytkowników w jednostce czasu
+ czy zapewnienia niezawodności systemu.
+ 
+\end_layout
+
+\begin_layout Standard
+[...]
+\end_layout
+
+\begin_layout Standard
+W celu przyspieszenia tworzenia systemów rozproszonych zaproponowano wprowadzeni
+e abstrakcji realizujących komunikację sieciową bez udziału programisty.
+\end_layout
+
+\begin_layout Subsection
+DSM
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:background-DSM"
+
+\end_inset
+
+Model rozproszonej pamięci współdzielonej (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+distributed shared memory
+\end_layout
+
+\end_inset
+
+, DSM) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DSM"
+
+\end_inset
+
+ implementowany jest na poziomie systemu operacyjnego.
+ Zakłada on udostępnienie wspólnej przestrzeni adresowej dla wszystkich
+ komputerów biorących udział w przetwarzaniu.
+ Aplikacje odwołują się do pamięci w tradycyjny sposób.
+ W przypadku wystąpienia błędu braku strony, system operacyjny zajmuje się
+ sprowadzeniem jej do lokalnej pamięci.
+ Mechanizm DSM nie jest obecnie wykorzystywany przy konstruowaniu systemów
+ rozproszonych.
+\end_layout
+
+\begin_layout Subsection
+RPC
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-RPC"
+
+\end_inset
+
+Zdalne wywoływanie procedur (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+remote procedure call
+\end_layout
+
+\end_inset
+
+, RPC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RPC"
+
+\end_inset
+
+ jest realizowane na poziomie języka programowania.
+ Jego celem jest sprawić, by wywołanie metody na zdalnym komputerze było
+ dla programisty tak proste, jak wywołanie lokalnej metody.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -103,15 +206,8 @@ name "sec:background-Przetwarzanie-rozproszone"
 status open
 
 \begin_layout Plain Layout
-Przetwarzanie rozproszone
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ArpaciDusseau14-Book"
-
-\end_inset
-
- rządzi się swoimi prawami, opisać problemy i odnieść się z 3.6.1[współdzielone
- struktury danych i obiekty]
+Przetwarzanie rozproszone rządzi się swoimi prawami, opisać problemy i odnieść
+ się z 3.6.1[współdzielone struktury danych i obiekty]
 \end_layout
 
 \begin_layout Plain Layout
@@ -297,6 +393,22 @@ d) wysłanie odpowiedzi do wywołującego,
 run-time library
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+- rozwiązuje problemy związane z wydajnością i niezawodnością
+\end_layout
+
+\begin_layout Itemize
+- odnajdywanie serwera RPC (nazwy, DNS, IP),
+\end_layout
+
+\begin_layout Itemize
+- wybór protokołu transportowego (niezawodny TCP czy zawodny UDP? w drugim
+ przypadku musimy tutaj zadbać o potwierdzenia, aby zrealizować semantykę
+ dokładnie raz/co najwyżej raz)
+\end_layout
+
+\end_deeper
 \end_deeper
 \end_deeper
 \end_deeper
@@ -1852,53 +1964,6 @@ status open
 
 \begin_layout Plain Layout
 Extensible Markup Language
-\end_layout
-
-\end_inset
-
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-RPC
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-RPC"
-
-\end_inset
-
-(ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-Remote Procedure Call
 \end_layout
 
 \end_inset
