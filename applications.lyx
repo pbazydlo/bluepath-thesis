@@ -219,7 +219,7 @@ proof of concept
 \end_inset
 
 ) wykorzystania możliwości dostarczanych przez bibliotekę Bluepath i dlatego
- dostarcza podzbioru metod standardowego zestawu LINQ:
+ dostarcza implementację podzbioru metod standardowego zestawu LINQ:
 \end_layout
 
 \begin_layout Itemize
@@ -568,7 +568,27 @@ DistributedEnumerableWrapper
 
 \end_inset
 
-.
+, która przenosi zawartość kolekcji wejściowej do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+listy rozproszonej
+\end_layout
+
+\end_inset
+
+ (wyjątkiem jest sytuacja, w której kolekcja wejściowa jest 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+listą rozproszoną
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -576,7 +596,84 @@ UnaryQueryOperator
 \end_layout
 
 \begin_layout Standard
-hejo!
+Klasą bazową dla klas implementujących metody DLINQ jest 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+UnaryQueryOperator
+\end_layout
+
+\end_inset
+
+.
+ Jest to klasa, która gromadzi wszystkie metody wspólne dla metod DLINQ
+ takich jak tworzenie 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątków rozproszonych
+\end_layout
+
+\end_inset
+
+ z wykorzystaniem ustawień przekazanych przez użytkownika w metodzie 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AsDistributed
+\end_layout
+
+\end_inset
+
+, czy zebranie wyników przetwarzania z poszczególnych 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątków rozproszonych
+\end_layout
+
+\end_inset
+
+.
+ Nazwa 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+UnaryQueryOperator
+\end_layout
+
+\end_inset
+
+ wynika z faktu, że wszystkie metody DLINQ oparte na tej klasie operują
+ na jednej kolekcji.
+ W przypadku implementacji metod takich jak 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Union
+\end_layout
+
+\end_inset
+
+ - metoda odpowiadająca za połączenie dwóch kolekcji - należałoby stworzyć
+ kolejne klasy - np.
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BinaryQueryOperator
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
