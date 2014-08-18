@@ -654,16 +654,6 @@ Rozważane rozwiązania
 
 \begin_layout Standard
 Początkowo pod uwagę brane były następujące aplikacje:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-dodać cytowania i Redisa, zaznaczyć 2 fazy
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -674,8 +664,9 @@ key "Memcached"
 
 \end_inset
 
- -- niestety projekt był aktualizowany ostatni raz w roku 2013 a jego implementa
-cja opiera się o .NET Framework 2.0 wydany w 2005 roku,
+ -- system dostarczający rozproszoną pamięć przechowującą dane w postaci
+ par klucz-wartość.
+ Nie znaleziono aktywnie rozwijanego klienta dla platformy .NET,
 \end_layout
 
 \begin_layout Itemize
@@ -686,7 +677,7 @@ key "Riak"
 
 \end_inset
 
- -- który jest implementacją Amazon Dynamo 
+ -- implementacja Amazon Dynamo 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Amazon-Dynamo"
@@ -717,7 +708,7 @@ key "Rhino-DHT"
 \end_inset
 
  -- implementacja rozproszonej tablicy haszowej w języku C#; posiada zależności
- do Rhino PHT (
+ od Rhino PHT (
 \begin_inset Flex Emph
 status open
 
@@ -756,7 +747,7 @@ key "Redis"
 
 \end_inset
 
- -- ...
+ -- otwartoźródłowy system przechowujący dane typu klucz-wartość.
 \end_layout
 
 \begin_layout Standard
@@ -787,11 +778,11 @@ reference "par:problemy-rhino-dht"
 \end_layout
 
 \begin_layout Standard
-Kolejnym rozwiązaniem wziętym pod uwagę był Redis.
- Jest to otwartoźródłowy system przechowujący dane typu klucz-wartość autorstwa
- Salvatore Sanfilippo oraz Pietera Noordhuisa.
+Kolejnym rozwiązaniem wziętym pod uwagę był Redis -- system autorstwa Salvatore
+ Sanfilippo oraz Pietera Noordhuisa.
  Jest używany na co dzień jako mechanizm pamięci podręcznej wielu serwisów
- internetowych (m.in.
+ internetowych (m.
+ in.
  cała rodzina StackExchange) - posiada przez to duże wsparcie i aktywnie
  działającą społeczność.
  Redis potrafi działać zarówno jako pojedynczy proces jak i w trybie master-slav
@@ -969,7 +960,18 @@ BulkRemove
 \end_inset
 
 .
- Interfejs 
+ Semantyka tych operacji odpowiada operacjom zdefiniowanym w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:concept-Rozproszona-pamięć-współdzielona"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Interfejs 
 \begin_inset Flex Code
 status open
 
@@ -1009,7 +1011,7 @@ AcquireLock
 
 \end_inset
 
- (w wersji z limitem czasu i bez) oraz 
+ (w wersji z limitem czasu oczekiwania na pobranie zamka i bez) oraz 
 \begin_inset Flex Code
 status open
 
@@ -1021,16 +1023,6 @@ ReleaseLock
 
 .
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nie tylko
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection

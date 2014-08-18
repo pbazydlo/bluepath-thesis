@@ -1332,6 +1332,13 @@ Operacje zbiorcze
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "def:concept-Operacje-zbiorcze-def"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
