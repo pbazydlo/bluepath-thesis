@@ -2715,7 +2715,18 @@ eid
 
 \begin_layout Standard
 Zależności czasowe są istotną częścią analizy przebiegu procesu.
- Z wykorzystaniem serwerów czasu NTP 
+ Z wykorzystaniem serwerów czasu NTP
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ang.
+ ?
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rfc5905"
