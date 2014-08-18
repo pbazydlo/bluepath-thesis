@@ -119,7 +119,10 @@ key "ArpaciDusseau14-Book"
 \end_layout
 
 \begin_layout Standard
-[...]
+[...] Problemy, z jakimi zmagają się programiści systemów rozproszonych dotyczą
+ m.
+ in.
+ obsługi awarii (w systemie składającym się z wielu elementów 
 \end_layout
 
 \begin_layout Standard
@@ -198,7 +201,102 @@ key "RPC"
  jest realizowane na poziomie języka programowania.
  Jego celem jest sprawić, by wywołanie metody na zdalnym komputerze było
  dla programisty tak proste, jak wywołanie lokalnej metody.
+ Zadaniem serwera jest zdefiniowanie listy metod, które udostępnia i które
+ mogą być wywoływane przez klienta.
+ Abstrakcja RPC składa się z biblioteki odpowiedzialnej za realizację komunikacj
+i oraz korzystających z niej, generowanych automatycznie, namiastki klienta
+ (ang.
  
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+client stub
+\end_layout
+
+\end_inset
+
+) i namiastki serwera (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+server stub
+\end_layout
+
+\end_inset
+
+).
+ Namiastka klienta odpowiada za:
+\end_layout
+
+\begin_layout Itemize
+utworzenie bufora na wiadomość, 
+\end_layout
+
+\begin_layout Itemize
+wypełnienie go danymi -- umieszczenie w nim jakiegoś rodzaju wskaźnika/uchwytu
+ do metody oraz parametry wywołania -- w procesie serializacji (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+serialization
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+marshalling
+\end_layout
+
+\end_inset
+
+), 
+\end_layout
+
+\begin_layout Itemize
+wysłanie wiadomości przy pomocy biblioteki realizującej proces komunikacji,
+\end_layout
+
+\begin_layout Itemize
+dekodowanie otrzymanego rezultatu -- proces ten jest nazywany deserializacją
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+deserialization
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+unmarshalling
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Namiastka serwera natomiast dekoduje otrzymane zlecenie, dokonuje właściwego
+ wywołania wskazanej metody, przygotowuje wiadomość zawierającą wynik oraz
+ zleca wysłanie jej do klienta.
+ Głównym problemem w modelu RPC są: serializacja złożonych struktur danych,
+ obsługa wskaźników oraz obsługa współbieżnych żądań przez serwer.
 \end_layout
 
 \begin_layout Standard
@@ -261,155 +359,14 @@ wprowadzanie abstrakcji komunikacyjnych
 
 \begin_deeper
 \begin_layout Itemize
-DSM (distributed shared memory) [[LH89] “Memory Coherence in Shared Virtual
- Memory Systems” Kai Li and Paul Hudak ACM TOCS, 7:4, November 1989 The
- introduction of software-based shared memory via virtual memory.
- An intriguing idea for sure, but not a lasting or good one in the end.]
+RPC (remote procedure call) 
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-mechanizm implementowany na poziomie systemu operacyjnego
+wysyłane jest zlecenie, a po zakończeniu wykonania wynik wraca do wywołującego
 \end_layout
 
-\begin_layout Itemize
-wspólna przestrzeń adresowa dla wszystkich komputerów
-\end_layout
-
-\begin_layout Itemize
-w przypadku wystąpienia błędu braku strony w pamięci lokalnej, strona musi
- zostać sprowadzona
-\end_layout
-
-\begin_layout Itemize
-mechanizm DSM nie jest obecnie wykorzystywany przy tworzeniu systemów rozproszon
-ych
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-RPC (remote procedure call) [[BN84] “Implementing Remote Procedure Calls”
- Andrew D.
- Birrell, Bruce Jay Nelson ACM TOCS, Volume 2:1, February 1984 The foundational
- RPC system upon which all others build.
- Yes, another pioneering effort from our friends at Xerox PARC.]
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-mechanizm implementowany na poziomie języka programowania
-\end_layout
-
-\begin_layout Itemize
-cel: sprawić, by wywołanie metody na zdalnym komputerze było tak proste,
- jak wywołanie jej lokalnie; wysyłane jest zlecenie, a po zakończeniu wykonania
- wynik wraca do wywołującego
-\end_layout
-
-\begin_layout Itemize
-serwer definiuje metody, które chce udostępnić, reszta jest ukryta w abstrakcji
- RPC
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-stub generator (protocol compiler)
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-- automatyzacja generowania wiadomości, kodowanie/dekodowanie parametrów
- wywołania oraz wyniku wykonania,
-\end_layout
-
-\begin_layout Itemize
-- client stub
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-a) utworzenie bufora na wiadomość (np.
- pustej tablicy bajtów o określonym rozmiarze),
-\end_layout
-
-\begin_layout Itemize
-b) zapis informacji do bufora wiadomości (zarówno jakiegoś rodzaju wskaźnika/uch
-wytu do metody jak i parametrów wywołania); proces ten jest nazywany serializacj
-ą lub rzadziej przetaczaniem (ang.
- serialization, mashalling),
-\end_layout
-
-\begin_layout Itemize
-c) wysłanie wiadomości do serwera RPC, przy czym sam proces komunikacji
- jest obsługiwany przez RPC run-time library opisaną poniżej,
-\end_layout
-
-\begin_layout Itemize
-d) w przypadku synchronicznego wywołanai metody -- oczekiwanie na jej zakończeni
-e,
-\end_layout
-
-\begin_layout Itemize
-e) dekodowanie otrzymanego wyniku; preces ten jest nazywany deserializacją
- (ang.
- deserialization, unmarshalling),
-\end_layout
-
-\begin_layout Itemize
-f) powrót sterowania do metody wywołującej stub,
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-- server stub
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-a) rozpakowanie/deserializacja otrzymanej wiadomości,
-\end_layout
-
-\begin_layout Itemize
-b) właściwe wywołanie wskazanej metody z przekazanymi parametrami,
-\end_layout
-
-\begin_layout Itemize
-c) przygotowanie wiadomości z wynikiem,
-\end_layout
-
-\begin_layout Itemize
-d) wysłanie odpowiedzi do wywołującego,
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-- pojawiają się tutaj problemy, np.
- serializacja złożonych struktur danych, współbieżność serwera (thread pool),
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-run-time library
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-- rozwiązuje problemy związane z wydajnością i niezawodnością
-\end_layout
-
-\begin_layout Itemize
-- odnajdywanie serwera RPC (nazwy, DNS, IP),
-\end_layout
-
-\begin_layout Itemize
-- wybór protokołu transportowego (niezawodny TCP czy zawodny UDP? w drugim
- przypadku musimy tutaj zadbać o potwierdzenia, aby zrealizować semantykę
- dokładnie raz/co najwyżej raz)
-\end_layout
-
-\end_deeper
-\end_deeper
 \end_deeper
 \end_deeper
 \end_inset
