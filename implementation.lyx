@@ -2357,6 +2357,310 @@ GetAndIncrease
  gdzie liczba o którą ma zostać zwiększony licznik może być ujemna.
 \end_layout
 
+\begin_layout Subsection
+Zamki rozproszone
+\end_layout
+
+\begin_layout Standard
+Odpowiednikiem definicji 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamków rozproszonych
+\end_layout
+
+\end_inset
+
+ z punktu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Koncepcja-Zamki-rozproszone"
+
+\end_inset
+
+ jest interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorageLock
+\end_layout
+
+\end_inset
+
+.
+ Zdefiniowane w nim zostały następujące operacje:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Acquire
+\end_layout
+
+\end_inset
+
+ -- operacja pobrania zamka.
+ Posiada wariant, który pozwala określić czas oczekiwania na pobranie zamka
+ - jeśli czas ten zostanie przekroczony przed pobraniem zamka użytkownik
+ dostanie informację o niepowodzeniu i będzie mógł kontynuować przetwarzanie.
+ Operacja pobrania zamka bez podania czasu oczekiwania jest blokująca -
+ przetwarzanie będzie kontynuowane dopiero po pobraniu zamka,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Release
+\end_layout
+
+\end_inset
+
+ -- operacja zwolnienia zamka,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Wait
+\end_layout
+
+\end_inset
+
+ -- wykonanie tej operacji powoduje rozpoczęcie oczekiwania na sygnał (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Pulse
+\end_layout
+
+\end_inset
+
+) od innego procesu.
+ Wykonanie tej operacji powoduje tymczasowe zwolnienie dostępu do zamka
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sekcji krytycznej?
+\end_layout
+
+\end_inset
+
+.
+ Po otrzymaniu sygnału proces próbuje ponownie pobrać zamek.
+ Podobnie jak 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Acquire
+\end_layout
+
+\end_inset
+
+ operacja ta posiada wariant, który pozwala określić czas oczekiwania na
+ sygnał,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Pulse
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+PulseAll
+\end_layout
+
+\end_inset
+
+ -- wykonanie tych operacji powoduje wysłanie sygnału do procesów oczekujących
+ na operacji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Wait
+\end_layout
+
+\end_inset
+
+.
+ W pierwszym przypadku sygnał dotrze do conajmniej jednego oczekującego
+ procesu, a w drugim do wszystkich oczekujących procesów.
+\end_layout
+
+\begin_layout Standard
+Interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorageLock
+\end_layout
+
+\end_inset
+
+ dziedziczy z interfejsu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IDisposable
+\end_layout
+
+\end_inset
+
+ -- sprawia to, że zamek można wykorzystać w podobny sposób jak słowo kluczowe
+ 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+lock
+\end_layout
+
+\end_inset
+
+, korzystając w tym celu z bloku 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+using
+\end_layout
+
+\end_inset
+
+, co przedstawiono na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-Realizacja-sekcji-krytycznej"
+
+\end_inset
+
+.
+ Cechą bloku 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+using
+\end_layout
+
+\end_inset
+
+ jest automatyczne wywołanie na jego końcu operacji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Dispose
+\end_layout
+
+\end_inset
+
+, która w przypadku 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamków rozproszonych
+\end_layout
+
+\end_inset
+
+ powoduje zwolnienie zamka.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Box Frameless
+position "t"
+hor_pos "s"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "breaklines=true,language=bash,numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-Realizacja-sekcji-krytycznej"
+
+\end_inset
+
+Realizacja sekcji krytycznej z wykorzystaniem zamka rozproszonego
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+using(var @lock = storage.AcquireLock("sampleLock"))
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	// sekcja krytyczna
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Logowanie zdarzeń
 \end_layout
