@@ -1369,10 +1369,51 @@ Serializable
 \end_inset
 
 .
- Środowisko zakłada izolację pomiędzy wątkami: wątki działające w ramach
- jednego procesu--hosta nie mogą komunikować się ze sobą poprzez pamięć
- operacyjną, a parametry, z którymi wywoływana jest metoda są kopiowane
- do nowych instancji klas i struktur.
+ Przykład tworzenia i uruchamiania przez użytkownika 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątku rozproszonego
+\end_layout
+
+\end_inset
+
+ z użyciem domyślnego 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zarządcy połączeń
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+planisty
+\end_layout
+
+\end_inset
+
+ został przedstawiony na listingu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:implementation-Tworzenie-i-uruchamianie-watku"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Środowisko zakłada izolację pomiędzy wątkami: wątki działające w ramach
+ jednego procesu-hosta nie mogą komunikować się ze sobą poprzez pamięć operacyjn
+ą, a parametry, z którymi wywoływana jest metoda są kopiowane do nowych
+ instancji klas i struktur.
  Wyjątkiem jest tutaj dostarczana przez środowisko 
 \begin_inset Flex Name
 status open
@@ -1384,7 +1425,7 @@ pamięć rozproszona
 \end_inset
 
 .
- W tym przypadku programista powinien stosować dostarczone wraz z nią mechanizmy
+ W tym przypadku użytkownik powinien stosować dostarczone wraz z nią mechanizmy
  synchronizacji.
 \end_layout
 
@@ -1395,6 +1436,79 @@ status open
 \begin_layout Plain Layout
 Zapis do pamięci współdzielonej jest thread-safe? Jeżeli tak, można o tym
  napisać.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language={[Sharp]C},numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:implementation-Tworzenie-i-uruchamianie-watku"
+
+\end_inset
+
+Tworzenie i uruchamianie rozproszonego wątku
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var thread = DistributedThread.Create(
+\end_layout
+
+\begin_layout Plain Layout
+
+    new Func<..., IBluepathCommunicationFramework, ...>((..., bluepath) => { 
+\end_layout
+
+\begin_layout Plain Layout
+
+        ...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        return ...; 
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+)); 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+thread.Start(...);
 \end_layout
 
 \end_inset
