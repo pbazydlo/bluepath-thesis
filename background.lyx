@@ -313,6 +313,20 @@ Namiastka serwera natomiast dekoduje otrzymane zlecenie, dokonuje właściwego
  obsługa wskaźników oraz obsługa współbieżnych żądań przez serwer.
 \end_layout
 
+\begin_layout Subsection
+Obraz stanu globalnego
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:background-Obraz-stanu-globalnego"
+
+\end_inset
+
+...
+\end_layout
+
 \begin_layout Section
 Istniejące rozwiązania
 \end_layout

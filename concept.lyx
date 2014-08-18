@@ -303,17 +303,16 @@ Usługa odnajdywania węzłów
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-zarysować problem globalnego obrazu systemu
-\end_layout
+Jednym z podstawowych założeń jest posiadanie przez wszystkie węzły w systemie
+ lokalnej wiedzy o wszystkich innych węzłach obecnych w klastrze (pkt.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:background-Obraz-stanu-globalnego"
 
 \end_inset
 
-Jednym z podstawowych założeń jest posiadanie przez wszystkie węzły w systemie
- lokalnego obrazu stanu wszystkich innych węzłów w klastrze.
+).
  Informacje dotyczące stanu poszczególnych węzłów są dostarczane przez 
 \begin_inset Flex Name
 status open
