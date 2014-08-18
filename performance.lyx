@@ -105,23 +105,8 @@ name "sec:Testy-jakościowe"
 
 Testy jakościowe pozwalają na sprawdzenie konkretnych funkcji biblioteki
  w spreparowanym środowisku testowym.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-uporządkować kod i zabezpieczyć się przed 'regression testing???'.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Testy jednostkowe i integracyjne, działają w środowisku Microsoft Unit Test
- Framework 
+ Testy jednostkowe i integracyjne, działają w środowisku Microsoft Unit
+ Test Framework 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Microsoft-Unit-Test-Framework-for-Managed-Code"
@@ -157,6 +142,7 @@ Testując niektóre funkcje biblioteki wskazane było sprawdzenie ich zachowania
  Należy również zwrócić uwagę, że testy jednostkowe wykonują się znacznie
  szybciej od testów integracyjnych, co pozwala znacząco skrócić czas wykrycia
  oraz poprawy ewentualnych błędów.
+ Poniżej przedstawiono przykładowe przypadki testowe:
 \end_layout
 
 \begin_layout Itemize
@@ -364,7 +350,7 @@ ServiceUri
 
 \end_inset
 
- jako klucza w słowniku, testujemy też taki scenariusz.
+ jako klucza w słowniku, testowano też taki scenariusz.
 \end_layout
 
 \begin_layout Subsection
@@ -372,24 +358,10 @@ Testy integracyjne
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-uruchamianie Redis'a i spawnowanie usług bluepath problematyczne bo nigdy
- do końca nie wiemy czy już chodzi
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 W celu przetestowania działania funkcji takich jak przesyłanie klas jako
  parametrów wskazane jest stworzenie testów integracyjnych.
  Ich zadaniem jest przetestowanie nie tylko logiki wykonywanego kodu, ale
- równierz wykrycie problemów jakie mogą się pojawić w związku z działaniem
+ również wykrycie problemów jakie mogą się pojawić w związku z działaniem
  w środowisku sieciowym (np.
  wymagane uprawnienia do utworzenia usługi nasłuchującej, serializacja obiektów).
 \end_layout
@@ -399,9 +371,9 @@ Jednym z problemów związanych z testami integracyjnymi jest potrzeba stworzeni
  środowiska testowego.
  W momencie gdy zachodzi potrzeba uruchomienia zewnętrznego programu (np.
  Redisa) system operacyjny nie dostarcza narzędzi, które pozwoliłyby określić
- nie tylko czy dany proces jest już uruchomiony, ale równierz czy skończył
+ nie tylko czy dany proces jest już uruchomiony, ale również czy skończył
  on proces inicjalizacji.
- Należy równierz zwrócić uwagę, że testy nie powinny być od siebie zależne
+ Należy również zwrócić uwagę, że testy nie powinny być od siebie zależne
  - a więc efekt wykonania jednego testu nie powinien mieć wpływu na inne
  testy.
  Aby tego uniknąć, każdy test został wyposażony w taki zestaw parametrów,

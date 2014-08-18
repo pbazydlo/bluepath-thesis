@@ -114,7 +114,8 @@ Napotkane problemy
 \end_layout
 
 \begin_layout Standard
-abc...
+W trakcie realizacji pracy napotkano problemy, których nie sposób było przewidzi
+eć na początku.
 \end_layout
 
 \begin_layout Subsection
@@ -445,6 +446,26 @@ implementacja service discovery jako zdecentralizowanego katalogu (DHT?)
 
 \begin_layout Itemize
 wykorzystanie w pełni asynchronicznych wzorców z .NET 4.5 (async, await)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Wydajność
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+W trakcie implementacji zauważono pewne apokrdsssss związane z wydajnością
+ i je realizowano.
+ Nie skupiano się jednak na tym.
+ Wykorzystując dostępną wiedzę można zwiększyć wydajność biblioteki............
 \end_layout
 
 \end_inset
