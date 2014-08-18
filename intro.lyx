@@ -157,24 +157,97 @@ Niniejsza praca została stworzona przez dwie osoby.
 Piotr Bazydło
 \end_layout
 
-\begin_layout Standard
-----
+\begin_layout Itemize
+koncepcja rozwiązania,
 \end_layout
 
 \begin_layout Itemize
-przykładowe aplikacje -- DLINQ, system uzupełniania wyrazów
+przegląd i analiza mechanizmów pamięci współdzielonej,
+\end_layout
+
+\begin_layout Itemize
+przykładowe aplikacje -- DLINQ, system uzupełniania wyrazów,
+\end_layout
+
+\begin_layout Itemize
+implementacja części testów jakościowych i wydajnościowych,
+\end_layout
+
+\begin_layout Itemize
+przygotowanie środowiska do przeprowadzenia testów wydajnościowych,
+\end_layout
+
+\begin_layout Itemize
+implementacja zamków rozproszonych,
+\end_layout
+
+\begin_layout Itemize
+implementacja planisty szeregującego zadania w oparciu o obciążenie węzłów,
+\end_layout
+
+\begin_layout Itemize
+implementacja planisty szeregującego zadania wykorzystującego algorytm cykliczny
+,
+\end_layout
+
+\begin_layout Itemize
+implementacja pamięci rozproszonej na bazie istniejącego rozwiązania,
+\end_layout
+
+\begin_layout Itemize
+implementacja rozproszonych struktur danych i obiektów.
 \end_layout
 
 \begin_layout Paragraph
 Zachariusz Karwacki
 \end_layout
 
-\begin_layout Standard
-----
+\begin_layout Itemize
+przegląd istniejących rozwiązań,
 \end_layout
 
 \begin_layout Itemize
-przykładowa aplikacja -- MapReduce
+koncepcja rozwiązania,
+\end_layout
+
+\begin_layout Itemize
+implementacja logiki wątku rozproszonego,
+\end_layout
+
+\begin_layout Itemize
+implementacja zdalnego wykonawcy,
+\end_layout
+
+\begin_layout Itemize
+implementacja lokalnego wykonawcy,
+\end_layout
+
+\begin_layout Itemize
+implementacja mechanizmów logowania zdarzeń,
+\end_layout
+
+\begin_layout Itemize
+implementacja usługi odnajdywania węzłów,
+\end_layout
+
+\begin_layout Itemize
+implementacja zarządcy połączeń,
+\end_layout
+
+\begin_layout Itemize
+implementacja interfejsu do komunikacji z systemem,
+\end_layout
+
+\begin_layout Itemize
+implementacja części testów jakościowych i wydajnościowych,
+\end_layout
+
+\begin_layout Itemize
+przykładowe aplikacje -- MapReduce, obliczanie liczby PI,
+\end_layout
+
+\begin_layout Itemize
+stworzenie skryptów dystrybuujących aplikację w klastrze.
 \end_layout
 
 \end_body
