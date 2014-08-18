@@ -632,679 +632,6 @@ public interface ICentralizedDiscoveryService
 \end_layout
 
 \begin_layout Section
-Pamięć rozproszona
-\end_layout
-
-\begin_layout Standard
-Ponieważ celem pracy nie było kompletne implementowanie pamięci rozproszonej,
- skupiono się na wyborze istniejącego rozwiązania, które spełniałoby wymagania
- zaprezentowane w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:concept-Rozproszona-pamięć-współdzielona"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-Rozważane rozwiązania 
-\end_layout
-
-\begin_layout Standard
-Początkowo pod uwagę brane były następujące aplikacje:
-\end_layout
-
-\begin_layout Itemize
-Memcached 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Memcached"
-
-\end_inset
-
- -- system dostarczający rozproszoną pamięć przechowującą dane w postaci
- par klucz-wartość.
- Nie znaleziono aktywnie rozwijanego klienta dla platformy .NET,
-\end_layout
-
-\begin_layout Itemize
-Riak 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Riak"
-
-\end_inset
-
- -- implementacja Amazon Dynamo 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Amazon-Dynamo"
-
-\end_inset
-
-, odrzucony ze względu na brak API dla .NET Framework,
-\end_layout
-
-\begin_layout Itemize
-Polyphony 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Polyphony-blog-1,Polyphony-blog-2,Polyphony-blog-3,Polyphony-repo"
-
-\end_inset
-
- -- eksperymentalny projekt rozproszonej tablicy haszowej napisany w języku
- F#, nie wybrano ze względu na wczesnorozwojowy charakter projektu,
-\end_layout
-
-\begin_layout Itemize
-Rhino DHT 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rhino-DHT"
-
-\end_inset
-
- -- implementacja rozproszonej tablicy haszowej w języku C#; posiada zależności
- od Rhino PHT (
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-persistent hash table
-\end_layout
-
-\end_inset
-
-) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rhino-PHT"
-
-\end_inset
-
- oraz Rhino Queues 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rhino-Queues"
-
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Standard
-a w późniejszym okresie również:
-\end_layout
-
-\begin_layout Itemize
-Redis 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Redis"
-
-\end_inset
-
- -- otwartoźródłowy system przechowujący dane typu klucz-wartość.
-\end_layout
-
-\begin_layout Standard
-Pierwszym wybranym rozwiązaniem było Rhino DHT, które było aktywnie rozwijane
- przez rozpoznawalnego autora -- Ayende Rahiena.
- Niestety, okazało się, że wersjonowanie danych nie zostało w pełni zaimplemento
-wane i nie było możliwe wykonanie atomowej operacji ,,odczytaj i zapisz'',
- która była niezbędna do zrealizowania 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-zamków rozproszonych
-\end_layout
-
-\end_inset
-
-.
- Szczegóły tego problemu zostały przedstawione w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:problemy-rhino-dht"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Kolejnym rozwiązaniem wziętym pod uwagę był Redis -- system autorstwa Salvatore
- Sanfilippo oraz Pietera Noordhuisa.
- Jest używany na co dzień jako mechanizm pamięci podręcznej wielu serwisów
- internetowych (m.
- in.
- cała rodzina StackExchange) - posiada przez to duże wsparcie i aktywnie
- działającą społeczność.
- Redis potrafi działać zarówno jako pojedynczy proces jak i w trybie master-slav
-e, ponadto rozwijana jest wersja rozproszona -- Redis Cluster.
- System ten posiada biblitekę dla .NET Framework dostarczoną przez firmę
- StackExchange.
- Redis został napisany dla rodziny systemów operacyjnych Linux, powstał
- jednak port tego systemu do systemu operacyjnego Windows.
- Problemy, które napotkano podczas uruchamiania usługi Redis (opisane w
- punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:problemy-Windows-Redis"
-
-\end_inset
-
-) udało się rozwiązać, przez co system ten został wykorzystany w ostatecznej
- wersji pracy i w testach.
-\end_layout
-
-\begin_layout Subsection
-Interfejsy pamięci rozproszonej
-\end_layout
-
-\begin_layout Standard
-Definicje 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci rozproszonej
-\end_layout
-
-\end_inset
-
- oraz 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-rozszerzonej pamięci rozproszonej
-\end_layout
-
-\end_inset
-
- zostały sformalizowane w formie interfejsów odpowiednio 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IStorage
-\end_layout
-
-\end_inset
-
- oraz 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IExtendedStorage
-\end_layout
-
-\end_inset
-
-.
- Interfejs 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IStorage
-\end_layout
-
-\end_inset
-
- wymaga implementacji metod do operacji na pojedynczych wartościach: 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Store
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-StoreOrUpdate
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Update
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Retrieve
-\end_layout
-
-\end_inset
-
- i 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Remove
-\end_layout
-
-\end_inset
-
- oraz operacji zbiorczych: 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkStore
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkStoreOrUpdate
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkUpdate
-\end_layout
-
-\end_inset
-
-, 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkRetrieve
-\end_layout
-
-\end_inset
-
- i 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-BulkRemove
-\end_layout
-
-\end_inset
-
-.
- Semantyka tych operacji odpowiada operacjom zdefiniowanym w punkcie 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:concept-Rozproszona-pamięć-współdzielona"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Interfejs 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IExtendedStorage
-\end_layout
-
-\end_inset
-
- rozszerza podstawowy interfejs 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IStorage
-\end_layout
-
-\end_inset
-
- o operacje pobrania i zwolnienia 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-zamków rozproszonych
-\end_layout
-
-\end_inset
-
-: 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-AcquireLock
-\end_layout
-
-\end_inset
-
- (w wersji z limitem czasu oczekiwania na pobranie zamka i bez) oraz 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-ReleaseLock
-\end_layout
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Subsection
-Rozproszone struktury danych i obiekty
-\end_layout
-
-\begin_layout Standard
-Struktury danych i obiekty, które mogą być współdzielone między wątkami
- zaimplementowane zostały w oparciu o 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięć rozproszoną
-\end_layout
-
-\end_inset
-
-, zdefiniowaną za pomocą interfejsu 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IExtendedStorage
-\end_layout
-
-\end_inset
-
- - pozwoliło to zastosować 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-zamki rozproszone
-\end_layout
-
-\end_inset
-
- w celu zapewnienia poprawności przetwarzania.
- Każdy obiekt jest identyfikowany przez klucz będący łańcuchem znaków.
- W przypadku listy czy słownika na podstawie klucza wywiedzione zostają
- identyfikatory obiektów składających się na daną strukturę -- zamków, metadanyc
-h i poszczególnych wartości.
- 
-\end_layout
-
-\begin_layout Paragraph
-Lista
-\end_layout
-
-\begin_layout Standard
-Lista implementuje standardowy generyczny interfejs 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IList<T>
-\end_layout
-
-\end_inset
-
- z przestrzeni nazw 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-System.Collections.Generic
-\end_layout
-
-\end_inset
-
-.
- Próba pobrania enumeratora zwraca obiekt klasy 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-DistributedListEnumerator
-\end_layout
-
-\end_inset
-
-, który umożliwia iterowanie po kolekcji.
- 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-Lista rozproszona
-\end_layout
-
-\end_inset
-
- została rozszerzona o operację 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-CopyPartTo
-\end_layout
-
-\end_inset
-
- - jest to odpowiednik operacji 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-CopyTo
-\end_layout
-
-\end_inset
-
- (efektywnej operacji kopiowania całej zawartości listy do wskazanej tablicy),
- który pozwala skopiować wybrany fragment listy w sposób efektywny i atomowy.
- Operacja ta jest szczególnie przydatna przy przetwarzaniu rozproszonym,
- gdzie dane znajdują się w wolnej 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-pamięci rozproszonej
-\end_layout
-
-\end_inset
-
- (w stosunku do pamięci podręcznej), a każdy 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-wątek rozproszony
-\end_layout
-
-\end_inset
-
- przetwarza fragment danych.
-\end_layout
-
-\begin_layout Paragraph
-Słownik
-\end_layout
-
-\begin_layout Standard
-Słownik implementuje standardowy generyczny interfejs 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-IDictionary<TKey, TValue>
-\end_layout
-
-\end_inset
-
- z przestrzeni nazw 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-System.Collections.Generic
-\end_layout
-
-\end_inset
-
-.
- Próba pobrania enumeratora zwraca obiekt klasy 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-DistributedDictionaryEnumerator
-\end_layout
-
-\end_inset
-
-, który umożliwia iterowanie po kolekcji.
- 
-\end_layout
-
-\begin_layout Paragraph
-Licznik
-\end_layout
-
-\begin_layout Standard
-W wielu scenariuszach (przykładowy scenariusz opisany w 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:koncepcja-distributed-counter"
-
-\end_inset
-
-) przydatnym obiektem może być 
-\begin_inset Flex Name
-status open
-
-\begin_layout Plain Layout
-licznik rozproszony
-\end_layout
-
-\end_inset
-
-.
- Zaimplementowana klasa 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-DistributedCounter
-\end_layout
-
-\end_inset
-
- udostępnia następujące operacje: 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-GetValue
-\end_layout
-
-\end_inset
-
- -- pobiera aktualną wartość licznika,
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-SetValue
-\end_layout
-
-\end_inset
-
- -- ustawia podaną liczbę jako wartość licznika,
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Increase
-\end_layout
-
-\end_inset
-
- -- zwiększa wartość licznika o podaną wartość,
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-Decrease
-\end_layout
-
-\end_inset
-
- -- zmniejsza wartość licznika o podaną wartość,
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-GetAndIncrease
-\end_layout
-
-\end_inset
-
- -- atomowo pobiera aktualną wartość licznika i zwiększa ją o wskazaną liczbę,
- gdzie liczba o którą ma zostać zwiększony licznik może być ujemna.
-\end_layout
-
-\begin_layout Section
 Wątek rozproszony
 \end_layout
 
@@ -2355,6 +1682,679 @@ usługi odnajdywania węzłów
 , przez co posiada mniejszy narzut komunikacyjny od algorytmów wymagających
  tych informacji.
  
+\end_layout
+
+\begin_layout Section
+Pamięć rozproszona
+\end_layout
+
+\begin_layout Standard
+Ponieważ celem pracy nie było kompletne implementowanie pamięci rozproszonej,
+ skupiono się na wyborze istniejącego rozwiązania, które spełniałoby wymagania
+ zaprezentowane w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:concept-Rozproszona-pamięć-współdzielona"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Rozważane rozwiązania 
+\end_layout
+
+\begin_layout Standard
+Początkowo pod uwagę brane były następujące aplikacje:
+\end_layout
+
+\begin_layout Itemize
+Memcached 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Memcached"
+
+\end_inset
+
+ -- system dostarczający rozproszoną pamięć przechowującą dane w postaci
+ par klucz-wartość.
+ Nie znaleziono aktywnie rozwijanego klienta dla platformy .NET,
+\end_layout
+
+\begin_layout Itemize
+Riak 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Riak"
+
+\end_inset
+
+ -- implementacja Amazon Dynamo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Amazon-Dynamo"
+
+\end_inset
+
+, odrzucony ze względu na brak API dla .NET Framework,
+\end_layout
+
+\begin_layout Itemize
+Polyphony 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Polyphony-blog-1,Polyphony-blog-2,Polyphony-blog-3,Polyphony-repo"
+
+\end_inset
+
+ -- eksperymentalny projekt rozproszonej tablicy haszowej napisany w języku
+ F#, nie wybrano ze względu na wczesnorozwojowy charakter projektu,
+\end_layout
+
+\begin_layout Itemize
+Rhino DHT 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rhino-DHT"
+
+\end_inset
+
+ -- implementacja rozproszonej tablicy haszowej w języku C#; posiada zależności
+ od Rhino PHT (
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+persistent hash table
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rhino-PHT"
+
+\end_inset
+
+ oraz Rhino Queues 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rhino-Queues"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+a w późniejszym okresie również:
+\end_layout
+
+\begin_layout Itemize
+Redis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Redis"
+
+\end_inset
+
+ -- otwartoźródłowy system przechowujący dane typu klucz-wartość.
+\end_layout
+
+\begin_layout Standard
+Pierwszym wybranym rozwiązaniem było Rhino DHT, które było aktywnie rozwijane
+ przez rozpoznawalnego autora -- Ayende Rahiena.
+ Niestety, okazało się, że wersjonowanie danych nie zostało w pełni zaimplemento
+wane i nie było możliwe wykonanie atomowej operacji ,,odczytaj i zapisz'',
+ która była niezbędna do zrealizowania 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamków rozproszonych
+\end_layout
+
+\end_inset
+
+.
+ Szczegóły tego problemu zostały przedstawione w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:problemy-rhino-dht"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Kolejnym rozwiązaniem wziętym pod uwagę był Redis -- system autorstwa Salvatore
+ Sanfilippo oraz Pietera Noordhuisa.
+ Jest używany na co dzień jako mechanizm pamięci podręcznej wielu serwisów
+ internetowych (m.
+ in.
+ cała rodzina StackExchange) - posiada przez to duże wsparcie i aktywnie
+ działającą społeczność.
+ Redis potrafi działać zarówno jako pojedynczy proces jak i w trybie master-slav
+e, ponadto rozwijana jest wersja rozproszona -- Redis Cluster.
+ System ten posiada biblitekę dla .NET Framework dostarczoną przez firmę
+ StackExchange.
+ Redis został napisany dla rodziny systemów operacyjnych Linux, powstał
+ jednak port tego systemu do systemu operacyjnego Windows.
+ Problemy, które napotkano podczas uruchamiania usługi Redis (opisane w
+ punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:problemy-Windows-Redis"
+
+\end_inset
+
+) udało się rozwiązać, przez co system ten został wykorzystany w ostatecznej
+ wersji pracy i w testach.
+\end_layout
+
+\begin_layout Subsection
+Interfejsy pamięci rozproszonej
+\end_layout
+
+\begin_layout Standard
+Definicje 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ oraz 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozszerzonej pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ zostały sformalizowane w formie interfejsów odpowiednio 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorage
+\end_layout
+
+\end_inset
+
+ oraz 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IExtendedStorage
+\end_layout
+
+\end_inset
+
+.
+ Interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorage
+\end_layout
+
+\end_inset
+
+ wymaga implementacji metod do operacji na pojedynczych wartościach: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Store
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+StoreOrUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Update
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Retrieve
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Remove
+\end_layout
+
+\end_inset
+
+ oraz operacji zbiorczych: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkStore
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkStoreOrUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkUpdate
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkRetrieve
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+BulkRemove
+\end_layout
+
+\end_inset
+
+.
+ Semantyka tych operacji odpowiada operacjom zdefiniowanym w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:concept-Rozproszona-pamięć-współdzielona"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IExtendedStorage
+\end_layout
+
+\end_inset
+
+ rozszerza podstawowy interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IStorage
+\end_layout
+
+\end_inset
+
+ o operacje pobrania i zwolnienia 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamków rozproszonych
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AcquireLock
+\end_layout
+
+\end_inset
+
+ (w wersji z limitem czasu oczekiwania na pobranie zamka i bez) oraz 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ReleaseLock
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Rozproszone struktury danych i obiekty
+\end_layout
+
+\begin_layout Standard
+Struktury danych i obiekty, które mogą być współdzielone między wątkami
+ zaimplementowane zostały w oparciu o 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięć rozproszoną
+\end_layout
+
+\end_inset
+
+, zdefiniowaną za pomocą interfejsu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IExtendedStorage
+\end_layout
+
+\end_inset
+
+ - pozwoliło to zastosować 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamki rozproszone
+\end_layout
+
+\end_inset
+
+ w celu zapewnienia poprawności przetwarzania.
+ Każdy obiekt jest identyfikowany przez klucz będący łańcuchem znaków.
+ W przypadku listy czy słownika na podstawie klucza wywiedzione zostają
+ identyfikatory obiektów składających się na daną strukturę -- zamków, metadanyc
+h i poszczególnych wartości.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Lista
+\end_layout
+
+\begin_layout Standard
+Lista implementuje standardowy generyczny interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IList<T>
+\end_layout
+
+\end_inset
+
+ z przestrzeni nazw 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Collections.Generic
+\end_layout
+
+\end_inset
+
+.
+ Próba pobrania enumeratora zwraca obiekt klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedListEnumerator
+\end_layout
+
+\end_inset
+
+, który umożliwia iterowanie po kolekcji.
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Lista rozproszona
+\end_layout
+
+\end_inset
+
+ została rozszerzona o operację 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+CopyPartTo
+\end_layout
+
+\end_inset
+
+ - jest to odpowiednik operacji 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+CopyTo
+\end_layout
+
+\end_inset
+
+ (efektywnej operacji kopiowania całej zawartości listy do wskazanej tablicy),
+ który pozwala skopiować wybrany fragment listy w sposób efektywny i atomowy.
+ Operacja ta jest szczególnie przydatna przy przetwarzaniu rozproszonym,
+ gdzie dane znajdują się w wolnej 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ (w stosunku do pamięci podręcznej), a każdy 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ przetwarza fragment danych.
+\end_layout
+
+\begin_layout Paragraph
+Słownik
+\end_layout
+
+\begin_layout Standard
+Słownik implementuje standardowy generyczny interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IDictionary<TKey, TValue>
+\end_layout
+
+\end_inset
+
+ z przestrzeni nazw 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+System.Collections.Generic
+\end_layout
+
+\end_inset
+
+.
+ Próba pobrania enumeratora zwraca obiekt klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedDictionaryEnumerator
+\end_layout
+
+\end_inset
+
+, który umożliwia iterowanie po kolekcji.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Licznik
+\end_layout
+
+\begin_layout Standard
+W wielu scenariuszach (przykładowy scenariusz opisany w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:koncepcja-distributed-counter"
+
+\end_inset
+
+) przydatnym obiektem może być 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+licznik rozproszony
+\end_layout
+
+\end_inset
+
+.
+ Zaimplementowana klasa 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DistributedCounter
+\end_layout
+
+\end_inset
+
+ udostępnia następujące operacje: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetValue
+\end_layout
+
+\end_inset
+
+ -- pobiera aktualną wartość licznika,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+SetValue
+\end_layout
+
+\end_inset
+
+ -- ustawia podaną liczbę jako wartość licznika,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Increase
+\end_layout
+
+\end_inset
+
+ -- zwiększa wartość licznika o podaną wartość,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Decrease
+\end_layout
+
+\end_inset
+
+ -- zmniejsza wartość licznika o podaną wartość,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+GetAndIncrease
+\end_layout
+
+\end_inset
+
+ -- atomowo pobiera aktualną wartość licznika i zwiększa ją o wskazaną liczbę,
+ gdzie liczba o którą ma zostać zwiększony licznik może być ujemna.
 \end_layout
 
 \begin_layout Section
