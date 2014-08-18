@@ -89,7 +89,7 @@ name "chap:concept"
 Proponowany model programowania miał być jak najbardziej naturalny dla programis
 tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
  z koncepcji wątków, pamięci rozproszonej oraz zamków.
- Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przez użytkownik
+ Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przed użytkownik
 iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
  komunikatów.
  
@@ -888,17 +888,7 @@ i w klastrze.
 \end_layout
 
 \begin_layout Standard
-W celu identyfikacji krotek
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-??
-\end_layout
-
-\end_inset
-
- w 
+W 
 \begin_inset Flex Name
 status open
 
@@ -908,8 +898,8 @@ pamięci rozproszonej
 
 \end_inset
 
- zastosowano klucze.
- Klucz jest unikalnym ciągiem znaków jednoznacznie identyfikującym dane.
+ zastosowano klucze -- unikalne ciągi znaków -- jednoznacznie identyfikujące
+ dane.
  W trakcie projektowania 
 \begin_inset Flex Name
 status open
