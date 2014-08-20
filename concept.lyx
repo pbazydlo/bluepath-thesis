@@ -304,15 +304,7 @@ Usługa odnajdywania węzłów
 
 \begin_layout Standard
 Jednym z podstawowych założeń jest posiadanie przez wszystkie węzły w systemie
- lokalnej wiedzy o wszystkich innych węzłach obecnych w klastrze (pkt.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:background-Obraz-stanu-globalnego"
-
-\end_inset
-
-).
+ lokalnej wiedzy o wszystkich innych węzłach obecnych w klastrze.
  Informacje dotyczące stanu poszczególnych węzłów są dostarczane przez 
 \begin_inset Flex Name
 status open
@@ -411,8 +403,8 @@ zarządca połączeń
 \end_inset
 
 .
- Posiada on też dodatkowe informacje, takie jak obciążenie węzłów, które
- mogą zostać wykorzystane przez 
+ Przechowuje on też dodatkowe informacje, które mogą zostać wykorzystane
+ przez 
 \begin_inset Flex Name
 status open
 
@@ -422,7 +414,7 @@ planistę
 
 \end_inset
 
-.
+, takie jak statystyki obciążenia węzłów.
 \end_layout
 
 \begin_layout Definition
@@ -790,16 +782,16 @@ pamięci rozproszonej
 
 .
  Umożliwia ona synchronizację i wymianę danych między działającymi wątkami.
- Zaleca się jednak myślenie i korzystanie z niej jako pamięci masowej (a
- nie DSM opisanej w punkcie 
+ Zaleca się jednak myślenie i korzystanie z niej jako pamięci masowej, ponieważ
+ koszt dostępu do niej może być znacznie wyższy niż do pamięci operacyjnej.
+ W szczególności nie należy jej mylić z DSM opisaną w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:background-DSM"
 
 \end_inset
 
-), ponieważ koszt dostępu do niej może być znacznie wyższy niż do pamięci
- operacyjnej.
+.
 \end_layout
 
 \begin_layout Definition
@@ -1153,7 +1145,7 @@ pamięci rozproszonej
 : listę, słownik oraz licznik.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection*
 Lista
 \end_layout
 
@@ -1194,7 +1186,7 @@ listy rozproszonej
  nie powinny wymagać stosowania dodatkowych mechanizmów synchronizacji.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection*
 Słownik
 \end_layout
 
@@ -1219,7 +1211,7 @@ ość.
  który musi być znany wszystkim wątkom chcącym uzyskać do niego dostęp.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection*
 Licznik
 \end_layout
 
@@ -1511,9 +1503,23 @@ Obsługa awarii
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:concept-Obsluga-awarii"
+
+\end_inset
+
 W obecnej wersji systemu nie przewiduje się mechanizmów odtwarzania i kontynuowa
 nia przetwarzania w przypadku awarii jednego lub większej liczby węzłów.
- Temat ten może być przedmiotem dalszych prac.
+ Temat ten może być przedmiotem dalszych prac (por.
+ punkt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:conclusions-Obsluga-awarii"
+
+\end_inset
+
+).
 \end_layout
 
 \end_body

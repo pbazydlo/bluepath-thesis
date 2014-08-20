@@ -40,7 +40,7 @@ morekeywords={ abstract, event, new, struct, as, explicit, null, switch, base, e
 keywordstyle=\color{darkblue},
 identifierstyle=\color{black},
 emph=[1]{ IRemoteExecutorService, Guid, ServiceUri, RemoteExecutorServiceResult, PerformanceStatistics, ServiceContract, OperationContract, Task, Dictionary, ICoordinatorService, Uri, MapReduceResult, Tuple, DataContract, DataMember, IEnumerable, KeyValuePair, List, IBluepathCommunicationFramework, IExtendedStorage, DistributedCounter, RoundRobinLocalScheduler, DistributedThread },
-emph=[2]{ var, from, select },
+emph=[2]{ var, from, select, using },
 emphstyle=[1]\color{darkgreen},
 emphstyle=[2]\color{darkblue}
 }

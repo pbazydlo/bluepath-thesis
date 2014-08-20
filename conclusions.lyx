@@ -363,18 +363,35 @@ Niezawodność przetwarzania
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:conclusions-Obsluga-awarii"
+
+\end_inset
+
 Aspektem, który nie został poruszony w niniejszej pracy jest zapewnienie
  niezawodności przetwarzania w przypadku awarii węzłów.
  Awarie mogą dotyczyć węzłów danych lub węzłów obliczeniowych.
- 
+\end_layout
+
+\begin_layout Subsubsection*
+Obsługa awarii węzłów danych
 \end_layout
 
 \begin_layout Standard
-W przypadku węzłów danych zapewnienie bezpieczeństwa leży po stronie wybranej
- do ich zrealizowania aplikacji.
- System Redis może zostać uruchomiony w trybie z replikacją, w którym jeden
- z węzłów jest punktem dostępowym do zapisu lub odczytu, a jego repliki
- udostępniają dane tylko do odczytu.
+Zapewnienie bezpieczeństwa węzłów danych leży po stronie wybranej do ich
+ zrealizowania aplikacji (por.
+ punkt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:concept-Rozproszona-pamięć-współdzielona"
+
+\end_inset
+
+).
+ Wykorzystywany obecnie system Redis może zostać uruchomiony w trybie z
+ replikacją, w którym jeden z węzłów jest punktem dostępowym do zapisu lub
+ odczytu, a jego repliki udostępniają dane tylko do odczytu.
  Po awarii węzła nadrzędnego jedna z replik staje się nowym punktem dostępowym
  z możliwością zapisu.
 \begin_inset Note Note
@@ -389,14 +406,87 @@ jest jeszcze inna możliwość??
 
 \end_layout
 
+\begin_layout Subsubsection*
+Obsługa awarii węzłów obliczeniowych
+\end_layout
+
 \begin_layout Standard
-Obsługa awarii węzłów obliczeniowych w przypadku, gdy aplikacja nie posiada
- współdzielonego stanu, czyli nie wykorzystuje rozproszonych struktur danych
- ani obiektów -- a więc wywołania są idempotentne -- mogłaby uwzględniać
+W przypadku, gdy aplikacja nie posiada współdzielonego stanu, czyli nie
+ wykorzystuje rozproszonych struktur danych ani obiektów -- a więc wywołania
+ są idempotentne -- obsługa awarii węzłów obliczeniowych mogłaby uwzględniać
  drzewiasty charakter takiego przetwarzania.
  Rozproszone wątki zainicjowane przez stracony węzeł musiałyby być wycofane,
  a węzeł nadrzędny musiałby zlecić jeszcze raz wykonanie przerwanego wątku.
  
+\end_layout
+
+\begin_layout Subsubsection*
+Obsługa awarii serwera usługi odnajdywania węzłów
+\end_layout
+
+\begin_layout Standard
+Wrażliwym punktem jest również scentralizowany serwer 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługi odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+.
+ Warto jednak zauważyć, że prawdopodobieństwo awarii jednego konkretnego
+ węzła jest dużo niższe niż prawdopodobieństwo awarii dowolnego węzła w
+ klastrze.
+ Argumentem, który przemawia za koniecznością zajęcia się tym problemem
+ jest kluczowe znaczenie serwera 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługi odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+ do realizacji przetwarzania.
+ Aby zapewnić niezawodność dostępu do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługi odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+ możnaby uruchomić jego replikę, która przejmie zadania po awarii podstawowego
+ serwera (podejście to wykorzystywane jest np.
+ w MapReduce, gdzie 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+name node
+\end_layout
+
+\end_inset
+
+ jest replikowany).
+ Możnaby również rozważyć implementację opartą o rozproszoną tablcę haszową
+ (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+distributed hash table
+\end_layout
+
+\end_inset
+
+, DHT) z replikacją.
 \end_layout
 
 \begin_layout Standard

@@ -2122,7 +2122,7 @@ h i poszczególnych wartości.
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection*
 Lista
 \end_layout
 
@@ -2215,7 +2215,7 @@ wątek rozproszony
  przetwarza fragment danych.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection*
 Słownik
 \end_layout
 
@@ -2255,7 +2255,7 @@ DistributedDictionaryEnumerator
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection*
 Licznik
 \end_layout
 

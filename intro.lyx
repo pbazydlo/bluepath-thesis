@@ -87,15 +87,8 @@ Cel i zakres pracy
 
 \begin_layout Standard
 Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigura
-cji czy instalowania wielu składników, pozwoli użytkownikom (def.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:podstawy-teorytyczne-uzytkownik"
-
-\end_inset
-
-) w prosty sposób zaimplementować przetwarzanie rozproszone.
+cji czy instalowania wielu składników, pozwoli programistom w prosty sposób
+ zaimplementować przetwarzanie rozproszone.
  Użytkownik pisząc program jak równoległy, powinien uzyskać program wykorzystują
 cy moc obliczeniową wielu w węzłów w klastrze.
  W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
@@ -131,7 +124,7 @@ Motywacja
 W czasie, kiedy rozpoczynano pracę nie było dostępne popularne, aktywnie
  rozwijane i wspierane komercyjnie środowisko do przetwarzania rozproszonego
  dla .NET Framework (por.
- 
+ punkt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:background-Istniejące-rozwiązania"
