@@ -763,6 +763,21 @@ Zapis do pamięci współdzielonej jest thread-safe? Jeżeli tak, można o tym
 \end_layout
 
 \begin_layout Standard
+\noindent
+\begin_inset Box Frameless
+position "t"
+hor_pos "s"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
 \begin_inset listings
 lstparams "language={[Sharp]C},numbers=left"
 inline false
@@ -804,10 +819,6 @@ var thread = DistributedThread.Create(
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
         return ...; 
 \end_layout
 
@@ -828,6 +839,11 @@ var thread = DistributedThread.Create(
 \begin_layout Plain Layout
 
 thread.Start(...);
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1423,6 +1439,21 @@ reference "lis:implementation-SOAP-ExecuteCallback"
 \end_layout
 
 \begin_layout Standard
+\noindent
+\begin_inset Box Frameless
+position "t"
+hor_pos "s"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
 \begin_inset listings
 lstparams "breaklines=true,language=XML,numbers=left"
 inline false
@@ -1513,6 +1544,11 @@ esult>
 \begin_layout Plain Layout
 
 </s:Envelope>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

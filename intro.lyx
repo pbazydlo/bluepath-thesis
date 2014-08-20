@@ -89,8 +89,8 @@ Cel i zakres pracy
 Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigura
 cji czy instalowania wielu składników, pozwoli programistom w prosty sposób
  zaimplementować przetwarzanie rozproszone.
- Użytkownik pisząc program jak równoległy, powinien uzyskać program wykorzystują
-cy moc obliczeniową wielu w węzłów w klastrze.
+ Programista pisząc program jak równoległy, powinien uzyskać program wykorzystuj
+ący moc obliczeniową wielu w węzłów w klastrze.
  W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, mogą wykonywać się na zdalnych maszynach.
 \end_layout
