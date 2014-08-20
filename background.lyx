@@ -117,7 +117,10 @@ wo awarii jednego z nich), bezpieczeństwa (zapewnienia poufności, integralnoś
  Wykorzystywane w praktyce protokoły sieciowe rozwiązują także wiele innych
  problemów, jak np.
  zatory w sieci czy zaległe żądania (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -146,7 +149,10 @@ name "sub:background-DSM"
 \end_inset
 
 Model rozproszonej pamięci współdzielonej (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -185,7 +191,10 @@ name "def:background-RPC"
 \end_inset
 
 Zdalne wywoływanie procedur (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -210,7 +219,10 @@ key "RPC"
  Abstrakcja RPC składa się z biblioteki odpowiedzialnej za realizację komunikacj
 i oraz korzystających z niej, generowanych automatycznie, namiastki klienta
  (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -221,7 +233,10 @@ client stub
 \end_inset
 
 ) i namiastki serwera (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -242,7 +257,10 @@ utworzenie bufora na wiadomość,
 \begin_layout Itemize
 wypełnienie go danymi -- umieszczenie w nim jakiegoś rodzaju wskaźnika/uchwytu
  do metody oraz parametry wywołania -- w procesie serializacji (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -272,7 +290,10 @@ wysłanie wiadomości przy pomocy biblioteki realizującej proces komunikacji,
 \begin_layout Itemize
 dekodowanie otrzymanego rezultatu -- proces ten jest nazywany deserializacją
  (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -332,7 +353,10 @@ PVM
 
 \begin_layout Standard
 PVM (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -388,7 +412,10 @@ MPI
 
 \begin_layout Standard
 Biblioteka MPI (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -408,7 +435,10 @@ key "Using-MPI-Portable-Parallel-Programming-with-the-Message-Passing-Interface"
  została zaproponowana jako próba połączenia najlepszych rozwiązań z istniejącyc
 h ówcześnie i rozwijanych od lat systemów opartych na przesyłaniu wiadomości
  (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -428,7 +458,10 @@ in.
  w języku C.
  Aplikacja taka jest kompilowana za pomocą standardowego kompilatora i łączona
  (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -480,7 +513,10 @@ Przetwarzanie było modelowane jako skierowany graf acykliczny, w którym
 
 \begin_layout Standard
 Programy w wierzchołkach były zapisywane przy pomocy języka Scope (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -530,7 +566,10 @@ key "DryadLINQ-MSR"
 
 .
  Środowisko to dostarczało implementację LINQ (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -774,7 +813,10 @@ filter
 
 .
  Czwartym sposobem konstrukcji nowego RDD jest zmiana trwałości (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -1844,7 +1886,10 @@ name "def:background-XML"
 \end_inset
 
 (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -1934,7 +1979,10 @@ name "def:background-XSD"
 \end_inset
 
 (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -1981,7 +2029,10 @@ name "def:background-Firewall"
 \end_inset
 
 (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 

@@ -277,7 +277,10 @@ status open
 \begin_layout Plain Layout
 Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdzielo
 nych danych przez różne wątki (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -832,7 +835,10 @@ silna spójność danych -- wszystkie węzły odczytują zawsze tę samą, najba
 \begin_layout Itemize
 dostępność mechanizmów umożliwiających realizację operacji o semantyce atomowego
  porównania i zapisu (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -929,7 +935,10 @@ pamięci rozproszonej
 
 \begin_layout Itemize
 zapis (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -945,7 +954,10 @@ store
 
 \begin_layout Itemize
 zapis lub aktualizacja (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -961,7 +973,10 @@ store or update
 
 \begin_layout Itemize
 aktualizacja (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -987,7 +1002,10 @@ pamięci rozproszonej
 
 \begin_layout Itemize
 pobranie (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -1003,7 +1021,10 @@ retrieve
 
 \begin_layout Itemize
 usunięcie (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -1334,7 +1355,10 @@ name "def:concept-Operacje-zbiorcze-def"
 
 \begin_layout Definition
 Operacje zbiorcze (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 

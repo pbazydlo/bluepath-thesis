@@ -113,7 +113,10 @@ DLINQ
 \end_inset
 
  (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -208,7 +211,10 @@ pamięci rozproszonej
 
 .
  Obecna implementacja służy jako przykład (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -1168,7 +1174,10 @@ ServiceContract
 \end_inset
 
 ) i udostępnia końcówkę WCF (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -2067,7 +2076,10 @@ Wiele aplikacji operujących na dużej liczbie danych próbuje wspomóc swoich
 
 \begin_layout Standard
 Jedną z takich technik jest system uzupełniania wyrazów (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -2242,18 +2254,7 @@ reference "sec:implementation-Rozproszony-watek"
 \end_inset
 
  pobiera nie przetworzony fragment listy i na podstawie zawartych w nim
- dokumentów uzupełnia słownik (ang.
- 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-dictionary
-\end_layout
-
-\end_inset
-
-) prefiksów i możliwych dla nich uzupełnień.
+ dokumentów uzupełnia słownik prefiksów i możliwych dla nich uzupełnień.
  Gdy na liście nie ma już elementów do przetworzenia 
 \begin_inset Flex Name
 status open
@@ -2666,7 +2667,10 @@ http://mathfaculty.fullerton.edu/mathews/n2003/montecarlopimod.html
  jest formą symulacji z wykorzystaniem generatora liczb pseudolosowych.
  Każde kolejne uruchomienie algorytmu daje nieco inne wyniki, o ile nie
  zapewnimy generatorowi takich samych warunków początkowych (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 

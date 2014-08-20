@@ -666,7 +666,10 @@ name node
  jest replikowany).
  Możnaby również rozważyć implementację opartą o rozproszoną tablcę haszową
  (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 

@@ -303,7 +303,10 @@ zdalnych wykonawców
 W systemie każdy węzeł może komunikować się z dowolnym innym, o ile zna
  jego adres IP i numer portu, pod którym działa usługa.
  Komunikaty, zarówno wywołania (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -314,7 +317,10 @@ request
 \end_inset
 
 ) jak i wywołania zwrotne (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -327,7 +333,10 @@ callback
 ), mają charakter asynchroniczny.
  Istnieje również możliwość wyłączenia wywołań zwrotnych i przełączenia
  systemu w tryb pracy z odpytywaniem (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -1610,7 +1619,10 @@ RoundRobinScheduler
 \end_inset
 
  -- szereguje zadania korzystając z algorytmu cyklicznego (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -2471,12 +2483,15 @@ Wait
 \end_inset
 
  -- wykonanie tej operacji powoduje rozpoczęcie oczekiwania na sygnał (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
 \begin_layout Plain Layout
-Pulse
+pulse
 \end_layout
 
 \end_inset
@@ -3003,7 +3018,10 @@ aktywności
 \end_inset
 
  (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -3131,7 +3149,10 @@ zasób
 \end_inset
 
  (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 

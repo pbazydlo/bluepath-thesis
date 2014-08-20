@@ -189,7 +189,10 @@ Pulse
 \end_inset
 
  z użyciem atrapy obiektu (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
@@ -216,7 +219,10 @@ zdalnego wykonawcy
  -- wykonanie metody z użyciem zserializowanego uchwytu, przechwytywanie
  wyjątków w kodzie użytkownika, zwracanie statystyk obciążenia węzła oraz
  testy z użyciem zmienionej implementacji interfejsu (ang.
- 
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Flex Emph
 status open
 
