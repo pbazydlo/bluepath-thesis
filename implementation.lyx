@@ -1758,6 +1758,12 @@ Rozważane rozwiązania
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:implementation-Pamiec-rozproszona-rozwazane-rozwiazania"
+
+\end_inset
+
 Początkowo pod uwagę brane były następujące aplikacje:
 \end_layout
 
@@ -2644,6 +2650,17 @@ zamków rozproszonych
 \end_inset
 
  powoduje zwolnienie zamka.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a jakieś szczegóły implementacyjne? można by wtedy zrobić odnośnik do innego
+ podejścia (7.2.2)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

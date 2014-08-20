@@ -304,20 +304,142 @@ name "par:problemy-rhino-dht"
 
 \end_inset
 
-abc...
-\end_layout
+W punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:implementation-Pamiec-rozproszona-rozwazane-rozwiazania"
 
-\begin_layout Standard
-\begin_inset Note Note
+\end_inset
+
+, gdzie opisano wybór aplikacji do zrealizowania 
+\begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-nie działało
+pamięci rozproszonej
 \end_layout
 
 \end_inset
 
+, zasygnalizowano problem, który był powodem porzucenia biblioteki Rhino
+ DHT.
+ Zgodnie z założeniami przedstawionymi w punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:concept-Pamiec-rozproszona"
 
+\end_inset
+
+, biblioteka powinna udostępniać mechanizmy atomowego porównania i zapisu
+ bądź atomowego odczytu i zapisu.
+ Przykładowa implementacja 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamka rozproszonego
+\end_layout
+
+\end_inset
+
+ miała opierać się o mechanizm wersjonowania danych obecny w Rhino DHT:
+\end_layout
+
+\begin_layout Itemize
+pobranie aktualnej, najnowszej wersji pola reprezentującego wartość zamka
+ (wolny/zajęty przez wykonawcę o danym 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+eid
+\end_layout
+
+\end_inset
+
+) wraz z numerem wersji 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+k
+\end_layout
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+w przypadku gdy zamek jest wolny -- zapis nowej wersji wartości pola (własnego
+ identyfikatora 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+eid
+\end_layout
+
+\end_inset
+
+) ze wskazaniem wersji 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+k
+\end_layout
+
+\end_inset
+
+ jako rodzica,
+\end_layout
+
+\begin_layout Itemize
+odczyt wersji 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+k+1
+\end_layout
+
+\end_inset
+
+ i porównanie z własnym eid -- jeżeli jest równe oznacza to, że zamek został
+ pobrany, w przeciwnym wypadku -- że został zajęty przez inny proces,
+\end_layout
+
+\begin_layout Itemize
+zwolnienie zamka odbywać się miała poprzez zapis odpowiedniej informacji
+ ze wskazaniem wersji 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+k+1
+\end_layout
+
+\end_inset
+
+ jako rodzica.
+\end_layout
+
+\begin_layout Standard
+Widać zatem, że zapisy miały tworzyć strukturę drzewiastą, gdzie najdłuższa
+ ścieżka miała reprezentować sekwencję pobranych i zwolnionych zamków.
+ Niestety wewnętrznie nie wszystkie operacje zostały zaimplementowane, co
+ objawiało się wyjątkiem 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+NotImplementedException
+\end_layout
+
+\end_inset
+
+ rzucanym z wewnątrz biblioteki Rhino DHT.
 \end_layout
 
 \begin_layout Subsection
@@ -773,16 +895,12 @@ JoinAsync
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
+\begin_inset Note Note
+status open
 
 \begin_layout Subsection
 Wydajność
 \end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
 
 \begin_layout Plain Layout
 W trakcie implementacji zauważono pewne apokrdsssss związane z wydajnością
