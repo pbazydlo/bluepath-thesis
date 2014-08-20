@@ -1596,20 +1596,8 @@ Definicje
 \end_layout
 
 \begin_layout Standard
-...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+Poniżej zdefiniowano pojawiające się w pracy pojęcia oraz wyjaśniono istotne
+ terminy technologiczne.
 \end_layout
 
 \begin_layout Subsection
@@ -1617,18 +1605,37 @@ Nazewnictwo
 \end_layout
 
 \begin_layout Standard
-...
-\begin_inset Note Note
+W tym miejscu należy zdefiniować pojęcia 
+\begin_inset Flex Emph
 status open
 
 \begin_layout Plain Layout
-Napisać, że używamy dalej słowa rozproszony, że współdzielony i wyjaśnić
- jak to rozumiemy
+biblioteka Bluepath
 \end_layout
 
 \end_inset
 
+, 
+\begin_inset Flex Emph
+status open
 
+\begin_layout Plain Layout
+użytkownik
+\end_layout
+
+\end_inset
+
+ oraz 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+kod użytkownika
+\end_layout
+
+\end_inset
+
+, które mają specjalne znaczenie.
 \end_layout
 
 \begin_layout Definition
