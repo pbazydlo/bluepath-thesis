@@ -1067,47 +1067,27 @@ odel-everything-you-wanted-to-know-but-were-afraid-to-ask)
 
 \begin_layout Subsection
 Podsumowanie
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-do poprawy
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-[...] Z jednej strony język jest tylko narzędziem i dla programisty, który
- poznał ich kilka, rozpoznanie kolejnego i napisanie w nim aplikacji zazwyczaj
- nie stanowi problemu.
- Z drugiej strony każdy ma język, podczas pisania w którym czuje się komfortowo,
- wie jakich problemów może się spodziewać i jak je rozwiązać.
- Mając świadomość, że język może być jednak istotnym czynnikiem przy wyborze
- środowiska dla aplikacji rozproszonej, został on ujęty w tabeli 
+W tabeli 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "tab:background-Podsumowanie-istniejacych-rozwiazan"
 
 \end_inset
 
- podsumowującej rozdział.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-warto trzymać się rozwiązań, które są rozwijane
-\end_layout
-
-\begin_layout Plain Layout
-trzymanie się obszarów określonego języka
-\end_layout
-
-\end_inset
-
-
+ zestawiono omówione środowiska.
+ Nie ulega wątpliwości, że projektując nowe systemy warto trzymać się rozwiązań,
+ które są aktywnie rozwijane i wspierane.
+ Istotnym czynnikiem decydującym o wyborze lub odrzuceniu środowiska może
+ być język programowania.
+ Pomimo tego, że język jest tylko narzędziem i dla programisty, który poznał
+ ich kilka, rozpoznanie kolejnego i napisanie w nim aplikacji zazwyczaj
+ nie stanowi problemu, okazuje się, że większość osób ma język, podczas
+ pisania w którym czuje się komfortowo, wie jakich problemów może się spodziewać
+ i jak je rozwiązać.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1334,16 +1314,6 @@ SCOPE / .NET (DryadLINQ)
 
 \begin_layout Plain Layout
 przepływ danych w DAG
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-??
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1353,16 +1323,6 @@ status open
 
 \begin_layout Plain Layout
 2009 / 2011
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(2)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1382,13 +1342,10 @@ Hadoop
 \begin_inset Text
 
 \begin_layout Plain Layout
-Java/Scala
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-/Python?/C++?(1)
-\end_layout
+Java/Scala, Python/C++ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hadoop-Python"
 
 \end_inset
 
@@ -1410,17 +1367,7 @@ mapowanie i reducja
 \begin_inset Text
 
 \begin_layout Plain Layout
-2009
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Yahoo!
-\end_layout
-
-\end_inset
-
- / 2014
+2009 / 2014
 \end_layout
 
 \end_inset
@@ -1450,16 +1397,6 @@ Java/Scala/Python
 
 \begin_layout Plain Layout
 niesprecyzowany
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-??
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1468,17 +1405,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-2014
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-??
-\end_layout
-
-\end_inset
-
- / 2014
+2014 / 2014
 \end_layout
 
 \end_inset
@@ -1657,25 +1584,6 @@ Implementacja Open MPI
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(1) http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-p
-ython/
-\end_layout
-
-\begin_layout Plain Layout
-(2) http://research.microsoft.com/en-us/downloads/03960cab-bb92-4c5c-be23-ce51aee0
-792c/
 \end_layout
 
 \end_inset
@@ -1901,7 +1809,7 @@ name "def:background-XML"
 
 \end_inset
 
-(ang.
+XML (ang.
 \begin_inset space ~
 \end_inset
 
@@ -1915,50 +1823,8 @@ Extensible Markup Language
 
 \end_inset
 
-)...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--- separator definicji --
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-WCF
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-WCF"
-
-\end_inset
-
-Windows Communication Foundation 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MSDN:WhatIsWindowsCommunicationFoundation"
-
-\end_inset
-
-...
+) to uniwersalny język znaczników (zwanych tagami) służący do reprezentacji
+ danych.
 \end_layout
 
 \begin_layout Standard
@@ -1994,7 +1860,7 @@ name "def:background-XSD"
 
 \end_inset
 
-(ang.
+XSD (ang.
 \begin_inset space ~
 \end_inset
 
@@ -2008,7 +1874,61 @@ XML Schema Definition
 
 \end_inset
 
-)...
+) to język, który służy do opisywania w sposób formalny struktury elementów
+ dokumentu XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-- separator definicji --
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+WCF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-WCF"
+
+\end_inset
+
+WCF (ang, 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Windows Communication Foundation
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MSDN:WhatIsWindowsCommunicationFoundation"
+
+\end_inset
+
+ to środowisko przeznaczone do implementacji usług sieciowych.
 \end_layout
 
 \begin_layout Standard
@@ -2044,7 +1964,7 @@ name "def:background-Firewall"
 
 \end_inset
 
-(ang.
+Zapora ogniowa (ang.
 \begin_inset space ~
 \end_inset
 
@@ -2058,7 +1978,33 @@ firewall
 
 \end_inset
 
-)...
+) to oprogramowanie filtrujące ruch sieciowy w oparciu o zestaw reguł.
+\end_layout
+
+\begin_layout Standard
+Zapory ogniowe mają również możliwość modyfikacji pakietów, czego przykładem
+ może być mechanizm NAT (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+network address translation
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rfc1631,rfc3022"
+
+\end_inset
+
+ służący do zamiany adresu źródłowego, docelowego oraz numerów portów w
+ celu umożliwienia komunikacji z użyciem jednego publicznego adresu IP wielu
+ komputerom znajdującym się w sieci lokalnej i korzystającym z prywatnych
+ adresów IP.
 \end_layout
 
 \begin_layout Standard

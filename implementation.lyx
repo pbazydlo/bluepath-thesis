@@ -196,14 +196,8 @@ reference "def:background-Firewall"
 \end_inset
 
 ) blokująca połączenia przychodzące na portach o wysokich numerach.
- W sieci nie może także działać mechanizm NAT 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rfc1631,rfc3022"
-
-\end_inset
-
-, co uniemożliwiłoby realizację bezpośredniej komunikacji między węzłami.
+ W sieci nie może także działać mechanizm NAT, co uniemożliwiłoby realizację
+ bezpośredniej komunikacji między węzłami.
  
 \end_layout
 
@@ -1246,17 +1240,8 @@ Przesłanie parametrów, wykonanie
 \end_layout
 
 \begin_layout Standard
-W kolejnej wiadomości
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nie jest jasne, że kontynuujemy opis protokołu
-\end_layout
-
-\end_inset
-
- węzeł zlecający przesyła parametry wywołania metody.
+W kolejnej wiadomości, po inicjalizacji, węzeł zlecający przesyła parametry
+ wywołania metody.
  Przechwycona koperta z komunikatem 
 \begin_inset Flex Code
 status open
@@ -1418,9 +1403,9 @@ ThreadPool
  wątkami, nie można ich przerwać lub sprawdzić ich stanu (uniemożliwia to
  np.
  realizację detekcji zakleszczenia).
- W przypadku, gdy w kodzie użytkownika wystąpi wyjątek, zostanie on przechwycony
- przez środowisko, zserializowany i udostępniony wywołującemu wątkowi do
- odczytu.
+ Biblioteka Bluepath zapewnia, że w przypadku, gdy w kodzie użytkownika
+ wystąpi wyjątek, zostanie on przechwycony, zserializowany i udostępniony
+ wywołującemu wątkowi do odczytu.
 \end_layout
 
 \begin_layout Subsection
@@ -1574,6 +1559,7 @@ Planista
 \end_layout
 
 \begin_layout Standard
+Wraz z systemem dostarczone zostały następujące typy planistów: 
 \begin_inset Note Note
 status open
 
@@ -1595,7 +1581,7 @@ ia i jest jednym z istotnych elementów modułowości sys
 
 \end_inset
 
-Wraz z systemem dostarczone zostały następujące typy planistów:
+
 \end_layout
 
 \begin_layout Itemize
@@ -3337,23 +3323,6 @@ Interfejs do komunikacji z systemem
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Udostępnianie logu (bo jest statyczny)
-\end_layout
-
-\begin_layout Plain Layout
-potencjalnie mogłoby być reporting
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Aby skorzystać z funkcji udostępnianych przez system (jak np.
  pobranie identyfikatora 
 \begin_inset Flex Name
@@ -3430,13 +3399,10 @@ name "sec:implementation-Skrypt-Send-Folder"
 
 \end_inset
 
-PowerShell Remoting
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[#]
-\end_layout
+PowerShell Remoting 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PS-Remoting"
 
 \end_inset
 
