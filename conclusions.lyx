@@ -77,7 +77,9 @@ Podsumowanie
 \end_layout
 
 \begin_layout Standard
-abc...
+Niniejszy rozdział stanowi podsumowanie pracy.
+ Omówiono w nim przebieg realizacji, napotkane w trakcie implementacji problemy
+ oraz przedstawiono potencjalne kierunki dalszego rozwoju projektu.
 \end_layout
 
 \begin_layout Section
@@ -114,8 +116,28 @@ Napotkane problemy
 \end_layout
 
 \begin_layout Standard
-W trakcie realizacji pracy napotkano problemy, których nie sposób było przewidzi
-eć na początku.
+W trakcie realizacji pracy napotkano problemy, których opis i rozwiązania
+ opisano poniżej.
+ Ich natura była bardzo różna, wynikały głównie z błędów i ograniczeń w
+ wykorzystywanym kodzie pochodzącym od innych twórców:
+\end_layout
+
+\begin_layout Itemize
+serializacja wyjątków,
+\end_layout
+
+\begin_layout Itemize
+niezaimplementowane do końca wewnętrzne metody w Rhino DHT,
+\end_layout
+
+\begin_layout Itemize
+ograniczenie wydajności środowiska Redis w wyniku przenoszenia kodu z systemu
+ Linux do systemu Windows,
+\end_layout
+
+\begin_layout Itemize
+błędy składniowe w plikach XML Schema Definition pochodzących z bibliteki
+ OpenXES.
 \end_layout
 
 \begin_layout Subsection
@@ -123,58 +145,152 @@ Serializacja
 \end_layout
 
 \begin_layout Standard
-abc...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
+Wszystkie wyjątki w .NET Framework powinny być serializowalne.
+ Okazuje się jednak, że klasa bazowa 
+\begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-WYJĄTKI, o jej problemach
+Exception
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Subsection
-Środowisko do testów integracyjnych.
-\end_layout
-
-\begin_layout Standard
-abc...
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
+ zawiera wirtualne pole 
+\begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-był problem żeby bootstrapować
+Data
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
+ typu 
+\begin_inset Flex Code
 status open
 
-\begin_layout Subsection
-Dystrybucja aplikacji do węzłów
-\end_layout
-
 \begin_layout Plain Layout
-abc...rozwiązane skryptem w PowerShellu, w sumie opisane w implementacji
+IDictionary
 \end_layout
 
 \end_inset
 
+, które umożliwia dodanie do kolekcji obiektu, który nie będzie serializowalny.
+ Pomimo tego, że każdy wstawiany obiekt jest sprawdzany pod tym kątem poprzez
+ sprawdzenie flagi 
+\begin_inset Flex Code
+status open
 
+\begin_layout Plain Layout
+Type.IsSerializable
+\end_layout
+
+\end_inset
+
+, nie gwarantuje to, że jego składowe będą serializowalne, a tym samym i
+ cały wyjątek.
+ 
+\end_layout
+
+\begin_layout Standard
+Drugim problemem jest zachowanie klasy 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DataContractSerializer
+\end_layout
+
+\end_inset
+
+.
+ Zakładając, że definicja wiadomości (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DataContract
+\end_layout
+
+\end_inset
+
+) zawiera pole typu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+
+, w którym ma zostać przesłany wyjątek, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+DataContractSerializer
+\end_layout
+
+\end_inset
+
+ wymaga dodania atrybutu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+KnownType
+\end_layout
+
+\end_inset
+
+ dla każdego typu wyjątku wywiedzionego z typu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+
+, który ma zostać przesłany na zdalną stronę, również tego zawartego w polu
+ na wyjątek wewnętrzny (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+InnerException)
+\end_layout
+
+\end_inset
+
+.
+ Dodawanie atrybutu 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+KnownType
+\end_layout
+
+\end_inset
+
+ dla każdego typu wyjątku, który może zostać wygenerowany przez kod użytkownika
+ jest rozwiązaniem dalekim od transparentnego, w związku z tym zdecydowano
+ o przesyłaniu wyjątków w formie tekstowej -- wywoływana jest na nich rekurencyj
+nie metoda 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ToString
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -355,7 +471,11 @@ Perspektywy dalszego rozwoju
 \end_layout
 
 \begin_layout Standard
-...
+Przy projektowaniu biblioteki Bluepath został zdefiniowany szereg założeń
+ oraz podjęto szereg decyzji projektowych przedstawionych w rozdziałach
+ trzecim i czwartym.
+ Poniżej wskazano potencjalne kierunki rozwoju projektu -- rozluźniania
+ pewnych założeń i rozbudowy funkcjonalności.
 \end_layout
 
 \begin_layout Subsection
@@ -370,8 +490,27 @@ name "sub:conclusions-Obsluga-awarii"
 \end_inset
 
 Aspektem, który nie został poruszony w niniejszej pracy jest zapewnienie
- niezawodności przetwarzania w przypadku awarii węzłów.
- Awarie mogą dotyczyć węzłów danych lub węzłów obliczeniowych.
+ niezawodności przetwarzania w przypadku awarii węzłów (por.
+ punkt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:concept-Obsluga-awarii"
+
+\end_inset
+
+).
+ Poniżej zaproponowano sposoby obsługi awarii różnych komponentów -- mogą
+ one dotyczyć węzłów danych, węzłów obliczeniowych a także 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+usługi odnajdywania węzłów
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -415,8 +554,59 @@ W przypadku, gdy aplikacja nie posiada współdzielonego stanu, czyli nie
  wykorzystuje rozproszonych struktur danych ani obiektów -- a więc wywołania
  są idempotentne -- obsługa awarii węzłów obliczeniowych mogłaby uwzględniać
  drzewiasty charakter takiego przetwarzania.
- Rozproszone wątki zainicjowane przez stracony węzeł musiałyby być wycofane,
- a węzeł nadrzędny musiałby zlecić jeszcze raz wykonanie przerwanego wątku.
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Wątki rozproszone
+\end_layout
+
+\end_inset
+
+ zainicjowane przez stracony węzeł musiałyby być wycofane, a węzeł nadrzędny
+ musiałby zlecić jeszcze raz wykonanie przerwanego wątku.
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Wątki rozproszone
+\end_layout
+
+\end_inset
+
+, które mogą być bezpiecznie uruchamiane ponownie musiałyby być 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+explicite
+\end_layout
+
+\end_inset
+
+ oznaczane przez programistę flagą (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+Resumable
+\end_layout
+
+\end_inset
+
+) lub z wykorzystaniem dedykowanej metody (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+AsResumable
+\end_layout
+
+\end_inset
+
+).
  
 \end_layout
 
@@ -489,57 +679,97 @@ distributed hash table
 , DHT) z replikacją.
 \end_layout
 
+\begin_layout Subsection
+Rozbudowa funkcjonalności
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
+Przykładowe obszary, w których możnaby rozbudować funkcjonalność systemu
+ to:
+\end_layout
+
+\begin_layout Itemize
+rozproszone struktury danych -- np.
+ implementacja kolejki,
+\end_layout
+
+\begin_layout Itemize
+interfejs do komunikacji z systemem -- rozbudowa o metody dostępu do pamięci
+ lokalnej węzła (
+\begin_inset Flex Code
 status open
 
 \begin_layout Plain Layout
-Lepsze implementacje poszczególnych części (i tu można się rozwodzić)
-\end_layout
-
-\begin_layout Itemize
-niezawodność, obsługa awarii, wycofywawnie drzewa przetwarzania i wznawianie
- wątków (AsResumable?)
-\end_layout
-
-\begin_layout Itemize
-Więcej rozproszonych struktur danych (kolejka)
-\end_layout
-
-\begin_layout Itemize
-Pełne wsparcie LINQ 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-(AsResumable)
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-rozbudowa interfejsu komunikacji z systemem
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-ReportProgress
-\end_layout
-
-\begin_layout Itemize
 LocalStorage
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-implementacja service discovery jako zdecentralizowanego katalogu (DHT?)
-\end_layout
-
-\begin_layout Itemize
-wykorzystanie w pełni asynchronicznych wzorców z .NET 4.5 (async, await)
 \end_layout
 
 \end_inset
 
+), dodanie możliwości raportowania zaawansowania przetwarzania w ramach
+ wątku (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+ReportProgress
+\end_layout
+
+\end_inset
+
+) w celu budowy dokładniejszych planistów,
+\end_layout
+
+\begin_layout Itemize
+DLINQ -- implementacja pozostałych metod obecnych w standardowym LINQ i
+ niedostępnych w obecnej implementacji,
+\end_layout
+
+\begin_layout Itemize
+wykorzystanie asynchronicznych wzorców z .NET Framework 4.5 (
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+async
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+await
+\end_layout
+
+\end_inset
+
+) -- obecnie jedyną operacją asynchroniczną jest oczekiwanie na zakończenie
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątku rozproszonego
+\end_layout
+
+\end_inset
+
+ -- 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+JoinAsync
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
