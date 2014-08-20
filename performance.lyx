@@ -517,7 +517,7 @@ Bluepath
 
 \begin_layout Standard
 Środowisko do przeprowadzenia testów wydajnościowych zostało przygotowane
- w oparciu o platformę Microsoft Azure
+ w oparciu o platformę Microsoft Azure 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Microsoft-Azure"
