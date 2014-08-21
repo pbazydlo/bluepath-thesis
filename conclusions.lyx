@@ -729,6 +729,22 @@ reference "sec:concept-Rozproszona-pamięć-współdzielona"
  z możliwością zapisu.
 \end_layout
 
+\begin_layout Standard
+Istnieje również wariant systemu -- Redis Cluster -- w którym dane dzielone
+ są pomiędzy węzły, udostępniający mechanizmy replikacji i rekonfiguracji
+ w przypadku awarii.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection*
 Obsługa awarii węzłów obliczeniowych
 \end_layout
