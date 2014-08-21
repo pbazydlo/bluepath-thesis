@@ -2901,7 +2901,7 @@ SaveXes
 
 \end_inset
 
-, która zapisuje wszystkie zgromadzone we 
+, która zapisuje wszystkie zgromadzone w 
 \begin_inset Flex Name
 status open
 
@@ -2913,22 +2913,11 @@ pamięci rozproszonej
 
  zdarzenia do pliku XML w formacie OpenXES.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-tu chyba trzeba by coś dopisać, bo pożniej nagle wyskakujemy z implementacją
- standardu, a nic nie pisaliśmy o żadnych stadardach...
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-Implementacja standardu została wykonana na podstawie zmodyfikowanych plików
- XSD (pkt.
+Implementacja zapisu zdarzeń do pliku XML została wykonana na podstawie
+ zmodyfikowanych plików XSD (pkt.
  
 \begin_inset CommandInset ref
 LatexCommand ref
