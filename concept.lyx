@@ -126,7 +126,7 @@ węzła
 \end_inset
 
 ) określamy komputer, na którym działa usługa zaimplementowana z użyciem
- biblioteki Bluepath, której celem jest zlecenie bądź wykonanie zleconych
+ biblioteki Bluepath, której celem jest zlecanie bądź wykonanie zleconych
  zadań.
 \end_layout
 
@@ -268,37 +268,6 @@ Zakładamy również, że bezpieczeństwo klastra opiera się na tym, iż dział
  bez bezpośredniego dostępu z sieci publicznej (internetu).
  W związku z tym zastosowane protokoły komunikacyjne nie muszą zapewniać
  mechanizmów uwierzytelniania i autoryzacji.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Środowisko miało również zapewnić bezpieczeństwo podczas operacji na współdzielo
-nych danych przez różne wątki (ang.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-thread safety
-\end_layout
-
-\end_inset
-
-), dostarczyć abstrakcje wpółdzielonych kolekcji -- listy, słownika -- oraz
- innych obiektów, np.
- licznika.
- Istotna była też łatwość analizowania błędów.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -882,16 +851,6 @@ test and set
 \end_inset
 
 ) lub atomowego odczytu i zapisu.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-jeszcze jakieś założenia?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
