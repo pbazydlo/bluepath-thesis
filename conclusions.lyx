@@ -89,16 +89,17 @@ Przebieg realizacji
 \begin_layout Standard
 W trakcie realizacji tej pracy udało się zrealizować główny cel -- zaprojektowan
 ie biblioteki wspomagającej użytkowników w implementacji aplikacji rozproszonych
- 
+ (por.
+ punkt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:intro-cel-i-zakres"
 
 \end_inset
 
-.
+).
  Wszystkie przyjęte założenia były weryfikowane poprzez implementację prototypu
- 
+ opisaną w rozdziale 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:implementation"
@@ -134,7 +135,7 @@ pamięci rozproszonej
 
 \begin_layout Standard
 Biblioteka i założenia poczynione przy jej tworzeniu zostały dodatkowo zweryfiko
-wane poprzez implementację aplikacji opisanych w 
+wane poprzez implementację aplikacji opisanych w rozdziale 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:applications"
@@ -196,7 +197,10 @@ Napotkane problemy
 W trakcie realizacji pracy napotkano problemy, których opis i rozwiązania
  opisano poniżej.
  Ich natura była bardzo różna, wynikały głównie z błędów i ograniczeń w
- wykorzystywanym kodzie pochodzącym od innych twórców:
+\begin_inset space ~
+\end_inset
+
+wykorzystywanym kodzie pochodzącym od innych twórców:
 \end_layout
 
 \begin_layout Itemize
@@ -607,7 +611,11 @@ reference "sec:implementation-Logowanie-zdarzen"
  na podstawie plików XML Schema udostępnionych 28 marca 2014 r.
  wraz z wersją 2.0 bibliteki napotkano problemy przy próbie automatycznego
  wygenerowania klas.
- W jednym z plików, 
+ W
+\begin_inset space ~
+\end_inset
+
+jednym z plików, 
 \begin_inset Flex Code
 status open
 
