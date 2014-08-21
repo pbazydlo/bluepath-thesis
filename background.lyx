@@ -113,14 +113,21 @@ key "ArpaciDusseau14-Book"
  m.
  in.
  obsługi awarii (wraz z rosnącą liczbą elementów systemu rośnie prawdopodobieńst
-wo awarii jednego z nich), bezpieczeństwa (zapewnienia poufności, integralności
- i autentyczności komunikatów) i komunikacji.
+wo awarii jednego z
+\begin_inset space ~
+\end_inset
+
+nich), bezpieczeństwa (zapewnienia poufności, integralności i autentyczności
+ komunikatów) i komunikacji.
  Trzeba brać pod uwagę możliwość utraty pakietu, niedostarczenia potwierdzenia
  odbioru, maksymalizować wydajność i przepustowość poprzez minimalizowanie
  liczby komunikatów i opóźnień komunikacyjnych.
  Wykorzystywane w praktyce protokoły sieciowe rozwiązują także wiele innych
  problemów, jak np.
- zatory w sieci czy zaległe żądania (ang.
+\begin_inset space ~
+\end_inset
+
+zatory w sieci czy zaległe żądania (ang.
 \begin_inset space ~
 \end_inset
 
@@ -358,7 +365,7 @@ key "Misra83"
 
 \end_inset
 
- czy drzewiasta topologia przetwarzania w algorytmie Dijkstry-Scholten’a
+ czy drzewiasta topologia przetwarzania w algorytmie Dijkstry-Scholtena
  dla modelu dyfuzyjnego 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -447,8 +454,16 @@ model przetwarzania oparty o zadania, które można utożsamiać z procesami
 
 \begin_layout Itemize
 wsparcie dla heterogenicznych środowisk -- różnych typów komputerów, sieci
- i aplikacji, a także obsługa sytuacji, w których różne maszyny korzystają
- z różnych reprezentacji danych.
+ i
+\begin_inset space ~
+\end_inset
+
+aplikacji, a także obsługa sytuacji, w których różne maszyny korzystają
+ z
+\begin_inset space ~
+\end_inset
+
+różnych reprezentacji danych.
 \end_layout
 
 \begin_layout Subsection
@@ -714,8 +729,12 @@ key "Spark-Berkeley"
  powstało w wyniku prac prowadzonych na University of California w Berkeley.
  Od 2013 r.
  jako Apache Spark jest rozwijane przez Apache Software Foundation.
- Środowisko to może być użyte do przetwarzania w modelu nieograniczonym
- do dwóch faz jak w MapReduce, co upodabnia je bardziej do Dryad.
+ Środowisko to może być użyte do przetwarzania w
+\begin_inset space ~
+\end_inset
+
+modelu nieograniczonym do dwóch faz jak w MapReduce, co upodabnia je bardziej
+ do Dryad.
  Zastosowane w środowisku optymalizacje pozwoliły znacząco poprawić czas
  opóźnienia rozpoczęcia przetwarzania zadania w klastrze składającym się
  z tysięcy rdzeni 
@@ -1092,15 +1111,26 @@ reference "tab:background-Podsumowanie-istniejacych-rozwiazan"
 \end_inset
 
  zestawiono omówione środowiska.
- Nie ulega wątpliwości, że projektując nowe systemy warto trzymać się rozwiązań,
- które są aktywnie rozwijane i wspierane.
+ Nie ulega wątpliwości, że
+\begin_inset space ~
+\end_inset
+
+projektując nowe systemy warto trzymać się rozwiązań, które są aktywnie
+ rozwijane i
+\begin_inset space ~
+\end_inset
+
+wspierane.
  Istotnym czynnikiem decydującym o wyborze lub odrzuceniu środowiska może
  być język programowania.
- Pomimo tego, że język jest tylko narzędziem i dla programisty, który poznał
- ich kilka, rozpoznanie kolejnego i napisanie w nim aplikacji zazwyczaj
- nie stanowi problemu, okazuje się, że większość osób ma język, podczas
- pisania w którym czuje się komfortowo, wie jakich problemów może się spodziewać
- i jak je rozwiązać.
+ Pomimo tego, że język jest tylko narzędziem i
+\begin_inset space ~
+\end_inset
+
+dla programisty, który poznał ich kilka, rozpoznanie kolejnego i napisanie
+ w nim aplikacji zazwyczaj nie stanowi problemu, okazuje się, że większość
+ osób ma język, podczas pisania w którym czuje się komfortowo, wie jakich
+ problemów może się spodziewać i jak je rozwiązać.
  
 \end_layout
 
@@ -1751,7 +1781,11 @@ Pod pojęciem kodu użytkownika rozumiany jest kod źródłowy pochodzący spoza
 
 \begin_layout Standard
 Termin ten odnosi się najczęściej do fragmentów kodu, które są wykonywane
- w ramach rozproszonego wątku (def.
+ w
+\begin_inset space ~
+\end_inset
+
+ramach rozproszonego wątku (def.
  
 \begin_inset CommandInset ref
 LatexCommand ref

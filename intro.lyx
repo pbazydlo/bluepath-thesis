@@ -106,8 +106,16 @@ W niniejszej pracy omówiono koncepcję oraz implementację biblioteki o kodowej
  zespołu.
  Rozdział drugi stanowi wstęp teoretyczny obejmujący definicje oraz przegląd
  istniejących rozwiązań -- środowisk przetwarzania rozproszonego.
- W rozdziale trzecim została szczegółowo przedstawiona koncepcja i projekt
- systemu, a rozdział czwarty opisuje implementacje poszczególnych komponentów.
+ W
+\begin_inset space ~
+\end_inset
+
+rozdziale trzecim została szczegółowo przedstawiona koncepcja i projekt
+ systemu, a
+\begin_inset space ~
+\end_inset
+
+rozdział czwarty opisuje implementacje poszczególnych komponentów.
  Przykładowe zastosowania biblioteki przy implementowaniu aplikacji obliczeniowy
 ch przedstawia rozdział piąty, a wyniki testów jakościowych, wydajnościowych
  i ich analizę -- rozdział szósty.

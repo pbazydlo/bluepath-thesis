@@ -264,7 +264,11 @@ ci z uwagi na to, że w kanale znajduje się w danym momencie co najwyżej
 
 \begin_layout Standard
 Zakładamy również, że bezpieczeństwo klastra opiera się na tym, iż działa
- on w odseparowanej sieci, tj.
+ on w
+\begin_inset space ~
+\end_inset
+
+odseparowanej sieci, tj.
  bez bezpośredniego dostępu z sieci publicznej (internetu).
  W związku z tym zastosowane protokoły komunikacyjne nie muszą zapewniać
  mechanizmów uwierzytelniania i autoryzacji.
@@ -455,7 +459,11 @@ planistę
 .
  Wątek rozproszony musi wykonać się w całości na jednym z węzłów -- nie
  ma możliwości wstrzymania przetwarzania, przeniesienia wątku razem z aktualnym
- stanem i wznowienia obliczeń na innym węźle.
+ stanem i
+\begin_inset space ~
+\end_inset
+
+wznowienia obliczeń na innym węźle.
 \end_layout
 
 \begin_layout Definition
@@ -787,8 +795,12 @@ pamięci rozproszonej
 
 .
  Umożliwia ona synchronizację i wymianę danych między działającymi wątkami.
- Zaleca się jednak myślenie i korzystanie z niej jako pamięci masowej, ponieważ
- koszt dostępu do niej może być znacznie wyższy niż do pamięci operacyjnej.
+ Zaleca się jednak myślenie i korzystanie z
+\begin_inset space ~
+\end_inset
+
+niej jako pamięci masowej, ponieważ koszt dostępu do niej może być znacznie
+ wyższy niż do pamięci operacyjnej.
  W szczególności nie należy jej mylić z DSM opisaną w punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -872,8 +884,16 @@ pamięci rozproszonej
 \end_inset
 
  będziemy rozumieć pamięć, która jest udostępniana przez co najmniej jeden
- węzeł i umożliwia współdzielenie danych między wszystkimi węzłami obliczeniowym
-i w klastrze.
+ węzeł i
+\begin_inset space ~
+\end_inset
+
+umożliwia współdzielenie danych między wszystkimi węzłami obliczeniowymi
+ w
+\begin_inset space ~
+\end_inset
+
+klastrze.
 \end_layout
 
 \begin_layout Standard
@@ -900,8 +920,11 @@ pamięci rozproszonej
 \end_inset
 
  nie przewidziano zapewnienia hierarchii kluczy.
- Tego typu mechanizm, choć przydatny w pewnych przypadkach, może zostać
- dostarczony przez nadbudowane nad 
+ Tego typu mechanizm, choć przydatny w
+\begin_inset space ~
+\end_inset
+
+pewnych przypadkach, może zostać dostarczony przez nadbudowane nad 
 \begin_inset Flex Name
 status open
 
@@ -959,8 +982,11 @@ store or update
 
 \end_inset
 
-) -- operacja zapisująca dane; w przypadku gdy podany klucz istnieje, wartość
- zostanie nadpisana,
+) -- operacja zapisująca dane; w
+\begin_inset space ~
+\end_inset
+
+przypadku gdy podany klucz istnieje, wartość zostanie nadpisana,
 \end_layout
 
 \begin_layout Itemize
@@ -1408,9 +1434,12 @@ zamków rozproszonych
 
 \end_inset
 
- -- współdzielonych przez wszystkie węzły w klastrze (w odróżnieniu od zamków
- istniejących jedynie w obrębie jednego procesu bądź jednego komputera)
- -- opartych o ten mechanizm.
+ -- współdzielonych przez wszystkie węzły w klastrze (w
+\begin_inset space ~
+\end_inset
+
+odróżnieniu od zamków istniejących jedynie w obrębie jednego procesu bądź
+ jednego komputera) -- opartych o ten mechanizm.
  W związku z tym tworzenie i zarządzanie 
 \begin_inset Flex Name
 status open
@@ -1451,6 +1480,21 @@ pamięcią rozproszoną
 .
 \end_layout
 
+\begin_layout Standard
+\noindent
+\begin_inset Box Frameless
+position "t"
+hor_pos "s"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
 \begin_layout Definition
 \begin_inset Flex Strong
 status open
@@ -1466,7 +1510,16 @@ Zamek rozproszony
 
 \begin_layout Definition
 Zamek rozproszony to zamek, który jest współdzielony przez wszystkie węzły
- w klastrze.
+ w
+\begin_inset space ~
+\end_inset
+
+klastrze.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1510,7 +1563,11 @@ listy rozproszonej
 
 \end_inset
 
- do pliku w celu dalszego przetwarzania i wizualizacji np.
+ do pliku w celu dalszego przetwarzania i
+\begin_inset space ~
+\end_inset
+
+wizualizacji np.
  w narzędziach służących do eksploracji procesów.
 \end_layout
 
