@@ -109,7 +109,7 @@ At the time of writing there wasn't available any popular, actively developed
 \end_layout
 
 \begin_layout Abstract
-One of main goals was to make the library as modular as possible -- in this
+One of main goals was to make the library as modular as possible -- this
  way Bluepath wouldn't strongly depend on implementation of its components
  so that the work could go into designing best possible programming enviroment.
 \end_layout
