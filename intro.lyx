@@ -90,7 +90,7 @@ Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigu
 cji czy instalowania wielu składników, pozwoli programistom w prosty sposób
  zaimplementować przetwarzanie rozproszone.
  Programista pisząc program jak równoległy, powinien uzyskać program wykorzystuj
-ący moc obliczeniową wielu w węzłów w klastrze.
+ący moc obliczeniową wielu węzłów w klastrze.
  W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, mogą wykonywać się na zdalnych maszynach.
 \end_layout
@@ -132,9 +132,9 @@ reference "sec:background-Istniejące-rozwiązania"
 \end_inset
 
 ).
- Tego typu środowisko pozwoliłoby użytkownikom uniknąć wielu nietrywialnych
- do rozwiązania błędów, oraz zaoszczędzić czas poprzez wykorzystanie dostarczony
-ch mechanizmów.
+ Tego typu środowisko pozwoliłoby użytkownikom uniknąć konieczności samodzielneg
+o rozwiązywania wielu problemów przetwarzania rozproszonego oraz zaoszczędzić
+ czas poprzez wykorzystanie dostarczonych mechanizmów.
 \end_layout
 
 \begin_layout Section

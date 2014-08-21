@@ -111,5 +111,225 @@ quite expressive YEAH!
 
 \end_layout
 
+\begin_layout Abstract
+___
+\end_layout
+
+\begin_layout Abstract
+____
+\end_layout
+
+\begin_layout Standard
+Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigura
+cji czy instalowania wielu składników, pozwoli programistom w prosty sposób
+ zaimplementować przetwarzanie rozproszone.
+ Programista pisząc program jak równoległy, powinien uzyskać program wykorzystuj
+ący moc obliczeniową wielu węzłów w klastrze.
+ W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
+ procesora, mogą wykonywać się na zdalnych maszynach.
+\end_layout
+
+\begin_layout Standard
+W czasie, kiedy rozpoczynano pracę nie było dostępne popularne, aktywnie
+ rozwijane i wspierane komercyjnie środowisko do przetwarzania rozproszonego
+ dla .NET Framework.
+ Tego typu środowisko pozwoliłoby użytkownikom uniknąć konieczności samodzielneg
+o rozwiązywania wielu problemów przetwarzania rozproszonego oraz zaoszczędzić
+ czas poprzez wykorzystanie dostarczonych mechanizmów.
+\end_layout
+
+\begin_layout Standard
+Jednym z głównych założeń projektowych systemu była jego modułowość -- w
+ ten sposób biblioteka nie byłaby silnie zależna od implementacji jej konkretnyc
+h komponentów, co pozwoliło się skupić na stworzeniu jak najlepszego środowiska.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+W bibliotece 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+ można wyróżnić 5 kluczowych komponentów:
+\end_layout
+
+\begin_layout Itemize
+Usługę odnajdywania węzłów -- odpowiedzialna za dostarczenie informacji
+ o przynależności poszczególnych węzłów do klastra.
+ Aplikacja podczas uruchamiania rejestruje się w usłudze w ten sposób dołączając
+ do klastra,
+\end_layout
+
+\begin_layout Itemize
+Pamięć rozproszoną -- pełniącą rolę miejsca wymiany danych pomiędzy procesami.
+ Na 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ oparte zostały takie struktury danych i obiekty jak 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+lista rozproszona
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+słownik rozproszony
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+licznik rozproszony
+\end_layout
+
+\end_inset
+
+ oraz 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+zamek rozproszony
+\end_layout
+
+\end_inset
+
+ pozwalający tworzyć sekcje krytyczne,
+\end_layout
+
+\begin_layout Itemize
+Wątek rozproszony -- podstawową jednostkę przetwarzania.
+ Wątek ten jest tworzony przez programistę podobnie jak zwykły wątek, jednak
+ może on zostać uruchomiony nie tylko na dowolnym rdzeniu, ale i na dowolnej
+ maszynie na której uruchomione są aplikacje należące do klastra.
+ Podstawą 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątku rozproszonego
+\end_layout
+
+\end_inset
+
+ jest statyczna funkcja.
+ W razie potrzeby funkcji wykonywanej przez 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ udostępniany jest dostęp do 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Planistę -- jego zadaniem jest ustalenie gdzie ma zostać uruchomiony 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+.
+ Biblioteka 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+ dostarcza dwóch implementacj 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+planisty
+\end_layout
+
+\end_inset
+
+: planistę wybierającego węzeł z najmniejszą liczbą uruchomionych wątków
+ rozproszonych oraz planistę opartego o algorytm cykliczny.
+ Ze względu na założenie o modułowości biblioteki użytkownik może dostarczyć
+ własną implementację 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+planisty
+\end_layout
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+Interfejs logowania zdarzeń -- biblioteka 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+ pozwala zbierać informacje o zdarzeniach nie tylko z pojedynczego węzła,
+ ale równierz z całego klastra.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
