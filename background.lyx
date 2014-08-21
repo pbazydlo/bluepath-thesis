@@ -332,6 +332,39 @@ Namiastka serwera natomiast dekoduje otrzymane zlecenie, dokonuje właściwego
  obsługa wskaźników oraz obsługa współbieżnych żądań przez serwer.
 \end_layout
 
+\begin_layout Subsection
+Problem detekcji zakończenia
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:background-Problem-detekcji-zakonczenia"
+
+\end_inset
+
+Istotnym problemem jest detekcja zakończenia przetwarzania w systemie rozproszon
+ym.
+ Konstrukcja obrazu globalnego stanu systemu w celu oceny stanu poszczególnych
+ węzłów jest problemem trudnym.
+ Istnieje szereg algorytmów, które go adresują.
+ Wymagają one wprowadzenia pewnych założeń co do właściwości systemu, jak
+ np.
+ niezawodne kanały FIFO w algorytmie detekcji zakończenia dla systemów asynchron
+icznych (Misra '83) czy drzewiasta topologia przetwarzania w algorytmie
+ Dijkstry-Scholten’a dla modelu dyfuzyjnego.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+pr-m09, cytowania?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Istniejące rozwiązania
 \end_layout
