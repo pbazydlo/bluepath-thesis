@@ -380,7 +380,7 @@ Jednym z problemów związanych z testami integracyjnymi jest potrzeba stworzeni
  nie tylko czy dany proces jest już uruchomiony, ale również czy skończył
  on proces inicjalizacji.
  Należy również zwrócić uwagę, że testy nie powinny być od siebie zależne
- - a więc efekt wykonania jednego testu nie powinien mieć wpływu na inne
+ -- a więc efekt wykonania jednego testu nie powinien mieć wpływu na inne
  testy.
  Aby tego uniknąć, każdy test został wyposażony w taki zestaw parametrów,
  który pozwoli mu się wykonać niezależnie od innych (np.

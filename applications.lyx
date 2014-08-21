@@ -668,8 +668,8 @@ Union
 
 \end_inset
 
- - metoda odpowiadająca za połączenie dwóch kolekcji - należałoby stworzyć
- kolejne klasy - np.
+ -- metoda odpowiadająca za połączenie dwóch kolekcji -- należałoby stworzyć
+ kolejne klasy, np.
  
 \begin_inset Flex Code
 status open

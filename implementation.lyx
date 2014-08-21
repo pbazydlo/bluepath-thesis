@@ -1898,8 +1898,11 @@ Kolejnym rozwiązaniem wziętym pod uwagę był Redis -- system autorstwa Salvat
  Sanfilippo oraz Pietera Noordhuisa.
  Jest używany na co dzień jako mechanizm pamięci podręcznej wielu serwisów
  internetowych (m.
- in.
- cała rodzina StackExchange) - posiada przez to duże wsparcie i aktywnie
+\begin_inset space ~
+\end_inset
+
+in.
+ cała rodzina StackExchange) -- posiada przez to duże wsparcie i aktywnie
  działającą społeczność.
  Redis potrafi działać zarówno jako pojedynczy proces jak i w trybie master-slav
 e, ponadto rozwijana jest wersja rozproszona -- Redis Cluster.
@@ -2209,7 +2212,7 @@ IExtendedStorage
 
 \end_inset
 
- - pozwoliło to zastosować 
+ -- pozwoliło to zastosować 
 \begin_inset Flex Name
 status open
 
@@ -2296,7 +2299,7 @@ CopyPartTo
 
 \end_inset
 
- - jest to odpowiednik operacji 
+ -- jest to odpowiednik operacji 
 \begin_inset Flex Code
 status open
 
