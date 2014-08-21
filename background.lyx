@@ -350,9 +350,23 @@ ym.
  Istnieje szereg algorytmów, które go adresują.
  Wymagają one wprowadzenia pewnych założeń co do właściwości systemu, jak
  np.
- niezawodne kanały FIFO w algorytmie detekcji zakończenia dla systemów asynchron
-icznych (Misra '83) czy drzewiasta topologia przetwarzania w algorytmie
- Dijkstry-Scholten’a dla modelu dyfuzyjnego.
+ kanały FIFO w algorytmie detekcji zakończenia dla systemów asynchronicznych
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Misra83"
+
+\end_inset
+
+ czy drzewiasta topologia przetwarzania w algorytmie Dijkstry-Scholten’a
+ dla modelu dyfuzyjnego 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dijkstra-Diffusing"
+
+\end_inset
+
+.
 \begin_inset Note Note
 status open
 
