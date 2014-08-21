@@ -86,6 +86,12 @@ Cel i zakres pracy
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:intro-cel-i-zakres"
+
+\end_inset
+
 Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigura
 cji czy instalowania wielu składników, pozwoli jej użytkownikom, programistom,
  w prosty sposób zaimplementować przetwarzanie rozproszone.

@@ -77,6 +77,12 @@ Przykładowe zastosowania
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:applications"
+
+\end_inset
+
 W tym rozdziale przedstawione zostaną przykladowe zastosowania systemu Bluepath.
  Na bazie 
 \begin_inset Flex Name

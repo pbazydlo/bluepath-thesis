@@ -87,6 +87,76 @@ Przebieg realizacji
 \end_layout
 
 \begin_layout Standard
+W trakcie realizacji tej pracy udało się zrealizować główny cel -- zaprojektowan
+ie biblioteki wspomagającej użytkowników w implementacji aplikacji rozproszonych
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:intro-cel-i-zakres"
+
+\end_inset
+
+.
+ Wszystkie przyjęte założenia były weryfikowane poprzez implementację prototypu
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:implementation"
+
+\end_inset
+
+.
+ W obecnym momencie biblioteka posiada zależność jedynie od usługi Redis
+ wykorzystywanej do realizacji 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+.
+ Należy jednak nadmienić, że zależność tę można w łatwy sposób usunąć poprzez
+ dostarczenie własnej implementacji 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ co jest możliwe dzięki modułowości biblioteki.
+\end_layout
+
+\begin_layout Standard
+Biblioteka i założenia poczynione przy jej tworzeniu zostały dodatkowo zweryfiko
+wane poprzez implementację aplikacji opisanych w 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:applications"
+
+\end_inset
+
+.
+ Możliwość wykorzystania 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+debuggera
+\end_layout
+
+\end_inset
+
+ w trakcie tworzenia tych aplikacji oraz testowania działania biblioteki
+ okazała się niezastąpiona i stanowiła duży atut.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -115,19 +185,7 @@ może odnieść się do założonych celów w intro (1.1)??
 
 \end_inset
 
-[...] Analizę błędów w aplikacjach powstających z użyciem biblioteki ułatwia
- możliwość wykonania jej na jednej maszynie w ramach jednego procesu z dołączony
-m 
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-debuggerem
-\end_layout
-
-\end_inset
-
-.
+[...] 
 \end_layout
 
 \begin_layout Section
