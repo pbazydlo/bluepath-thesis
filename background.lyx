@@ -767,7 +767,7 @@ Language Integrated Query
  kolekcji.
  Jednym z ograniczeń wprowadzonych przez DryadLINQ w stosunku do LINQ było
  założenie, że funkcje przetwarzające obiekty kolekcji nie będą modyfikowały
- zmiennych zdefiniowanych poza nimi - w przypadku wykonania takiej operacji
+ zmiennych zdefiniowanych poza nimi -- w przypadku wykonania takiej operacji
  twórcy nie definiowali zachowania systemu.
 \end_layout
 
