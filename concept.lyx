@@ -514,6 +514,39 @@ Wątek rozproszony reprezentuje jednostkę przetwarzania w systemie.
 m.
 \end_layout
 
+\begin_layout Subsection
+Problem detekcji zakończenia
+\end_layout
+
+\begin_layout Standard
+W punkcie 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:background-Problem-detekcji-zakonczenia"
+
+\end_inset
+
+ zasygnalizowano konieczność zaproponowania rozwiąznia problemu detekcji
+ zakończenia.
+ 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Wątki rozproszone
+\end_layout
+
+\end_inset
+
+ tworzą drzewiastą strukturę przetwarzania -- można ją określić mianem modelu
+ dyfuzyjnego.
+ Wyróżniamy tutaj inicjatora przetwarzania w korzeniu logicznego drzewa
+ oraz jego następniki -- procesy potomne, które ponadto mogą inicjować kolejne
+ procesy.
+ Użytkownik musi zapewnić, że proces-rodzic nie zakończy się, dopóki nie
+ zakończą się jego procesy-dzieci korzystając z przeznaczonej do tego metody.
+\end_layout
+
 \begin_layout Section
 Wykonawca
 \end_layout
