@@ -79,7 +79,11 @@ Testy jakościowe i wydajnościowe
 \begin_layout Standard
 W bibliotekach wykorzystywanych przez programistów równie ważna jak bogata
  funkcjonalność czy łatwość użycia jest stabilność działania i pewność,
- że błąd w wykonaniu aplikacji nie leży po stronie biblioteki.
+ że błąd w
+\begin_inset space ~
+\end_inset
+
+wykonaniu aplikacji nie leży po stronie biblioteki.
  W związku z tym istotne jest pokrycie kodu biblioteki zestawem testów zarówno
  jednostkowych jak i akceptacyjnych, które zostały opisane w niniejszym
  rozdziale.
@@ -517,7 +521,11 @@ Bluepath
 
 \begin_layout Standard
 Środowisko do przeprowadzenia testów wydajnościowych zostało przygotowane
- w oparciu o platformę Microsoft Azure 
+ w
+\begin_inset space ~
+\end_inset
+
+oparciu o platformę Microsoft Azure 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Microsoft-Azure"
@@ -554,8 +562,11 @@ Medium VM (Basic A2)
 
 \end_inset
 
- i posiadał 2 wirtualne rdzenie AMD Operton 1,6 GHz i 3,5 GB pamięci operacyjnej
-, 
+ i posiadał 2
+\begin_inset space ~
+\end_inset
+
+wirtualne rdzenie AMD Operton 1,6 GHz i 3,5 GB pamięci operacyjnej, 
 \end_layout
 
 \begin_layout Itemize
@@ -597,9 +608,13 @@ reference "tab:performance-Konfiguracja-testowego-klastra"
 \end_inset
 
 .
- Maszyny wirtualne wchodzące w skład klastra połączone zostały w wirtualną
- sieć, w której wyłączone były zapory sieciowe, a komunikacja odbywała się
- z użyciem prywatnych wewnętrznych adresów IP (tzw.
+ Maszyny wirtualne wchodzące w
+\begin_inset space ~
+\end_inset
+
+skład klastra połączone zostały w wirtualną sieć, w której wyłączone były
+ zapory sieciowe, a komunikacja odbywała się z użyciem prywatnych wewnętrznych
+ adresów IP (tzw.
  
 \begin_inset Flex Name
 status open
@@ -1093,8 +1108,12 @@ Skrypt dystrybuujący biblioteki w klastrze
 
 .
 \backslash
-Send-Folder.ps1 -server [adres węzła 1] -user [nazwa użytkownika] -password
- [hasło] -source [folder źródłowy] -destination [folder docelowy]
+Send-Folder.ps1 -server [adres węzła 1] -user [nazwa użytkownika] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  -password [hasło] -source [folder źródłowy] -destination [folder docelowy]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1106,8 +1125,12 @@ Send-Folder.ps1 -server [adres węzła 1] -user [nazwa użytkownika] -password
 
 .
 \backslash
-Send-Folder.ps1 -server [adres węzła n] -user [nazwa użytkownika] -password
- [hasło] -source [folder źródłowy] -destination [folder docelowy]
+Send-Folder.ps1 -server [adres węzła n] -user [nazwa użytkownika] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  -password [hasło] -source [folder źródłowy] -destination [folder docelowy]
 \end_layout
 
 \end_inset
@@ -1122,7 +1145,11 @@ Generowanie słownika prefiksów
 \begin_layout Standard
 Jednym z algorytmów wykorzystanych do pomiaru wydajności był algorytm tworzący
  prefiksy na potrzeby przeprowadzenia operacji uzupełniania tekstu opisany
- w punkcie 
+ w
+\begin_inset space ~
+\end_inset
+
+punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:zastosowania-autocomplete-Wczytywanie-danych"
