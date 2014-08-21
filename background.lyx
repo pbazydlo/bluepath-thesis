@@ -419,6 +419,136 @@ MPI
 \end_layout
 
 \begin_layout Standard
+MPI (ang.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Message-Passing Intefrace
+\end_layout
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MPI-Standard-Version-3,Using-MPI-Portable-Parallel-Programming-with-the-Message-Passing-Interface"
+
+\end_inset
+
+ jest standardem opisującym interfejs biblioteki wspomagającej tworzeniu
+ systemów opartych na przesyłaniu wiadomości (ang.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+message-passing systems
+\end_layout
+
+\end_inset
+
+).
+ Standard MPI skupia się na modelu programowania opartym o przesyłanie wiadomośc
+i.
+ W modelu tym dane przesyłane są pomiędzy procesami przy pomocy skoordynowanych
+ działań.
+ Standard definiuje równierz współbieżne operacje wejścia/wyjścia, dynamiczne
+ tworzenie procesów oraz operacje zbiorowe -- np.
+ synchronizacja procesów przy pomocy barier (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+barrier synchronization
+\end_layout
+
+\end_inset
+
+).
+ Jednymi z głównych założeń jakie postawili sobie twórcy standardu są:
+\end_layout
+
+\begin_layout Itemize
+Zapewnienie wydajnej i wiarygodnej komunikacji,
+\end_layout
+
+\begin_layout Itemize
+Umożliwienie stworzenia implementacji działających w środowisku heterogenicznym
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Allow for implementations that can be used in a heterogeneous enviroment
+\end_layout
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+Wygodny w wykorzystaniu interfejs dla języka C oraz Fortran.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+http://www.mpi-forum.org/docs/mpi-3.0/mpi30-report.pdf - mpi to standard nie
+ biblioteka!
+\end_layout
+
+\begin_layout Plain Layout
+implementacją jest np.
+ OpenMPI (http://www.open-mpi.org/)
+\end_layout
+
+\begin_layout Plain Layout
+_
+\end_layout
+
+\begin_layout Plain Layout
+MPI (Message-Passing Interface) is a message-passing library interface specifica
+tion.
+ All parts of this definition are significant.
+ MPI addresses primarily the message-passing parallel programming model,
+ in which data is moved from the address space of one process to that of
+ another process through cooperative operations on each process.
+ Extensions to the “classical” message-passing model are provided in collective
+ operations, remote-memory access operations, dynamic process creation,
+ and parallel I/O.
+ MPI is a specification, not an implementation; there are multiple implementatio
+ns of MPI.
+ This specification is for a library interface; MPI is not a language, and
+ all MPI operations are expressed as functions, subroutines, or methods,
+ according to the appropriate language bindings which, for C and Fortran,
+ are part of the MPI standard.
+ The standard has been defined through an open process by a community of
+ parallel computing vendors, computer scientists, and application developers.
+ The next few sections provide an overview of the history of MPI’s development.
+\end_layout
+
+\begin_layout Plain Layout
+_
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Biblioteka MPI (ang.
 \begin_inset space ~
 \end_inset
@@ -480,6 +610,11 @@ linked
 \end_inset
 
 ) z biblioteką MPI.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
