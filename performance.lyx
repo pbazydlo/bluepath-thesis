@@ -1152,9 +1152,9 @@ reference "fig:performance-Generowanie-prefixow"
  na pojedynczym węźle oraz w klastrze.
  Dla zbioru 10000 dokumentów udało się uzyskać prawie dwukrotne przyspieszenie
  w stosunku do przetwarzania na pojedynczej maszynie.
- Warto równierz nadmienić, że w algorytmie testującym wprowadzono mechanizm
- okresowo czyszczący lokalną pamięć prefixów ze względu na przeciążenie
- pamięci w przypadku przetwarzania na pojedynczym węźle.
+ Warto również nadmienić, że w algorytmie testującym wprowadzono mechanizm
+ okresowo czyszczący lokalną pamięć prefiksów ze względu na wyczerpywanie
+ się pamięci w przypadku przetwarzania na pojedynczym węźle.
 \end_layout
 
 \begin_layout Standard

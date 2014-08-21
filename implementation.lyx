@@ -351,19 +351,6 @@ polling
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
--można przekonfigurować na coś innego
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset listings
 lstparams "language={[Sharp]C},numbers=left"
 inline false
@@ -956,7 +943,8 @@ eid
 
 \end_inset
 
- (
+ (ang.
+ 
 \begin_inset Flex Emph
 status open
 
@@ -966,7 +954,18 @@ Executor ID
 
 \end_inset
 
-) -- unikalną 128-bitową liczbę (GUID), przy czym instancja 
+) -- unikalną 128-bitową liczbę (GUID, ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Globally Unique Identifier
+\end_layout
+
+\end_inset
+
+), przy czym instancja 
 \begin_inset Flex Name
 status open
 
@@ -1227,20 +1226,6 @@ Int64 <RunTest>b__0(Int32) (System.Int64 <RunTest>b__0(System.Int32)
 \begin_layout Plain Layout
 
 System.UnitySerializationHolder Data	UnityType AssemblyName
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ThreadPool - zhejtować można (ale trochę) - nie można przerywać zadań.
- Sprawdzanie stanu wątków.
 \end_layout
 
 \end_inset
@@ -2119,7 +2104,7 @@ rozszerzonej pamięci rozproszonej
 
 \end_inset
 
- pozwalają na bezpieczne równoległe wywołanie z wielu wątków (ang.
+ pozwalają na bezpieczne współbieżne wywołanie z wielu wątków (ang.
  
 \begin_inset Flex Emph
 status open
@@ -2132,16 +2117,6 @@ thread-safe
 
 ).
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-WTH?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2547,9 +2522,9 @@ Acquire
 
  -- operacja pobrania zamka.
  Posiada wariant, który pozwala określić czas oczekiwania na pobranie zamka
- - jeśli czas ten zostanie przekroczony przed pobraniem zamka użytkownik
+ -- jeśli czas ten zostanie przekroczony przed pobraniem zamka użytkownik
  dostanie informację o niepowodzeniu i będzie mógł kontynuować przetwarzanie.
- Operacja pobrania zamka bez podania czasu oczekiwania jest blokująca -
+ Operacja pobrania zamka bez podania czasu oczekiwania jest blokująca --
  przetwarzanie będzie kontynuowane dopiero po pobraniu zamka,
 \end_layout
 
@@ -2734,21 +2709,6 @@ zamków rozproszonych
 \end_inset
 
  powoduje zwolnienie zamka.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-a jakieś szczegóły implementacyjne? można by wtedy zrobić odnośnik do innego
- podejścia (7.2.2) -- przemyślałem, uważam, że szczegóły implementacyjne tych
- zamków nie są zbyt ciekawe (klasa RedisLock nie działa - nie używamy jej,
- klasa NativeRedisLock bardzo mocno się opiera na implementacji zamków w
- bibliotece StackExchange.Redis, która robi w dużej mierze to co ja chciałem
- zrobić) -- nasze podejście nie różni się od 7.2.2
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
