@@ -784,22 +784,6 @@ pamięć rozproszona
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Zapis do pamięci współdzielonej jest thread-safe? Jeżeli tak, można o tym
- napisać.
- - Jest zarówno pamięć rozproszona jak i wszystkie struktury.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
 \begin_inset Box Frameless
 position "t"
 hor_pos "s"
