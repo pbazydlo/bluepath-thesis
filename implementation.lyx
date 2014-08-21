@@ -186,7 +186,11 @@ reference "sub:concept-Komunikacja"
 
  ppkt.
  2.
- Z uwagi na losowy wybór numerów portów założono, że na maszynach nie działa
+ Z
+\begin_inset space ~
+\end_inset
+
+uwagi na losowy wybór numerów portów założono, że na maszynach nie działa
  zapora ogniowa (pkt.
  
 \begin_inset CommandInset ref
@@ -347,7 +351,11 @@ polling
 ).
  Wprowadza on dodatkowe opóźnienia, co dyskwalifikuje go w przypadku prowadzenia
  w klastrze faktycznych obliczeń, znajduje jednak zastosowanie w niektórych
- scenariuszach realizowanych w środowisku testowym.
+ scenariuszach realizowanych w
+\begin_inset space ~
+\end_inset
+
+środowisku testowym.
 \end_layout
 
 \begin_layout Standard
@@ -751,9 +759,13 @@ wątki rozproszone
 
 \end_inset
 
- działające w ramach jednego procesu-hosta nie mogą komunikować się ze sobą
- poprzez pamięć operacyjną, a parametry, z którymi wywoływana jest metoda
- są kopiowane do nowych instancji klas i struktur.
+ działające w
+\begin_inset space ~
+\end_inset
+
+ramach jednego procesu-hosta nie mogą komunikować się ze sobą poprzez pamięć
+ operacyjną, a parametry, z którymi wywoływana jest metoda są kopiowane
+ do nowych instancji klas i struktur.
  Wyjątkiem jest tutaj dostarczana przez środowisko 
 \begin_inset Flex Name
 status open
@@ -1268,7 +1280,11 @@ callbackUri
 
 \end_inset
 
-, co oznacza, że węzeł wywołujący otrzyma komunikat 
+, co
+\begin_inset space ~
+\end_inset
+
+oznacza, że węzeł wywołujący otrzyma komunikat 
 \begin_inset Flex Code
 status open
 
@@ -1882,7 +1898,11 @@ zamków rozproszonych
 \end_inset
 
 .
- Szczegóły tego problemu zostały przedstawione w punkcie 
+ Szczegóły tego problemu zostały przedstawione w
+\begin_inset space ~
+\end_inset
+
+punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:problemy-rhino-dht"
@@ -2322,7 +2342,11 @@ pamięci rozproszonej
 
 \end_inset
 
- (w stosunku do pamięci podręcznej), a każdy 
+ (w stosunku do pamięci podręcznej), a
+\begin_inset space ~
+\end_inset
+
+każdy 
 \begin_inset Flex Name
 status open
 
@@ -2473,8 +2497,12 @@ GetAndIncrease
 
 \end_inset
 
- -- atomowo pobiera aktualną wartość licznika i zwiększa ją o wskazaną liczbę,
- gdzie liczba o którą ma zostać zwiększony licznik może być ujemna.
+ -- atomowo pobiera aktualną wartość licznika i zwiększa ją o
+\begin_inset space ~
+\end_inset
+
+wskazaną liczbę, gdzie liczba o którą ma zostać zwiększony licznik może
+ być ujemna.
 \end_layout
 
 \begin_layout Subsection
@@ -2526,7 +2554,11 @@ Acquire
  -- operacja pobrania zamka.
  Posiada wariant, który pozwala określić czas oczekiwania na pobranie zamka
  -- jeśli czas ten zostanie przekroczony przed pobraniem zamka użytkownik
- dostanie informację o niepowodzeniu i będzie mógł kontynuować przetwarzanie.
+ dostanie informację o niepowodzeniu i
+\begin_inset space ~
+\end_inset
+
+będzie mógł kontynuować przetwarzanie.
  Operacja pobrania zamka bez podania czasu oczekiwania jest blokująca --
  przetwarzanie będzie kontynuowane dopiero po pobraniu zamka,
 \end_layout
@@ -2849,7 +2881,11 @@ pamięci rozproszonej
 \end_inset
 
 .
- W tym celu należy ustawić flagę 
+ W
+\begin_inset space ~
+\end_inset
+
+tym celu należy ustawić flagę 
 \begin_inset Flex Code
 status open
 
@@ -3147,7 +3183,7 @@ Local_executor_finished_running_user_code
 
 \end_inset
 
- -- zakończenie wykonywania kodu użytkownika na węźle ,
+ -- zakończenie wykonywania kodu użytkownika na węźle,
 \end_layout
 
 \begin_layout Itemize
