@@ -1150,17 +1150,11 @@ reference "fig:performance-Generowanie-prefixow"
 
  przedstawia porównanie uśrednionych czasów generowania słownika prefiksów
  na pojedynczym węźle oraz w klastrze.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-.....??
-\end_layout
-
-\end_inset
-
- 
+ Dla zbioru 10000 dokumentów udało się uzyskać prawie dwukrotne przyspieszenie
+ w stosunku do przetwarzania na pojedynczej maszynie.
+ Warto równierz nadmienić, że w algorytmie testującym wprowadzono mechanizm
+ okresowo czyszczący lokalną pamięć prefixów ze względu na przeciążenie
+ pamięci w przypadku przetwarzania na pojedynczym węźle.
 \end_layout
 
 \begin_layout Standard
@@ -1239,17 +1233,7 @@ reference "fig:performace-Porównanie-czasu-obliczania-pi"
 
  przedstawia porównanie uśrednionych czasów przetwarzania na pojedynczym
  węźle oraz w klastrze w zależności od rozmiaru instancji.
- Czas został przedstawiony w skali logarytmicznej
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-w skali? na skali??
-\end_layout
-
-\end_inset
-
-.
+ Czas został przedstawiony w skali logarytmicznej.
  
 \end_layout
 

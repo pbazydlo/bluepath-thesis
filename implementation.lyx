@@ -659,7 +659,25 @@ DistributedThread
 
 \end_inset
 
- to klasa, której instancje reprezentują jednostkę przetwarzania w systemie.
+ to klasa, której instancje reprezentują jednostkę przetwarzania w systemie
+ czyli 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątek rozproszony
+\end_layout
+
+\end_inset
+
+ (patrz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-Rozproszony-watek"
+
+\end_inset
+
+).
  Wątek taki tworzony jest na podstawie delegatu 
 \begin_inset Flex Code
 status open
@@ -736,6 +754,16 @@ reference "lis:implementation-Tworzenie-i-uruchamianie-watku"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nie powinniśmy wszędzie używać 'wątek rozproszony' - żeby nie mylić ze zwykłym
+ wątkiem?
+\end_layout
+
+\end_inset
+
 Środowisko zakłada izolację pomiędzy wątkami: wątki działające w ramach
  jednego procesu-hosta nie mogą komunikować się ze sobą poprzez pamięć operacyjn
 ą, a parametry, z którymi wywoływana jest metoda są kopiowane do nowych
@@ -753,6 +781,7 @@ pamięć rozproszona
 .
  W tym przypadku użytkownik powinien stosować dostarczone wraz z nią mechanizmy
  synchronizacji.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -762,6 +791,7 @@ status open
 \begin_layout Plain Layout
 Zapis do pamięci współdzielonej jest thread-safe? Jeżeli tak, można o tym
  napisać.
+ - Jest zarówno pamięć rozproszona jak i wszystkie struktury.
 \end_layout
 
 \end_inset
@@ -1559,29 +1589,17 @@ Planista
 \end_layout
 
 \begin_layout Standard
-Wraz z systemem dostarczone zostały następujące typy planistów: 
-\begin_inset Note Note
+Wraz z systemem dostarczone zostały następujące typy 
+\begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-Musi on implementować interfejs 
-\begin_inset Flex Code
-status collapsed
-
-\begin_layout Plain Layout
-IScheduler
+planistów
 \end_layout
 
 \end_inset
 
-.
- Pozwala to zastosować implementację Planisty dostosowaną do potrzeb przetwarzan
-ia i jest jednym z istotnych elementów modułowości sys
-\end_layout
-
-\end_inset
-
-
+: 
 \end_layout
 
 \begin_layout Itemize
@@ -1633,7 +1651,40 @@ key "Tannenbaum-SOP"
 \end_layout
 
 \begin_layout Standard
-Poniżej opisane zostały szczegółowo ich implementacje.
+Wszystkie implementacje 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+planisty
+\end_layout
+
+\end_inset
+
+ muszą implementować interfejs 
+\begin_inset Flex Code
+status open
+
+\begin_layout Plain Layout
+IScheduler
+\end_layout
+
+\end_inset
+
+ dzięki czemu można zastosować implementację 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+planisty
+\end_layout
+
+\end_inset
+
+ dostosowaną do potrzeb przetwarzania i jest jednym z elementów modułowości
+ systemu.
+ Poniżej zostały szczegółowo opisane implementacje planistów dostarczonych
+ z systemem.
  
 \end_layout
 
@@ -2065,6 +2116,49 @@ reference "sec:concept-Rozproszona-pamięć-współdzielona"
 \end_inset
 
 .
+ Wszystkie operacje zdefiniowane w 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ i 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+rozszerzonej pamięci rozproszonej
+\end_layout
+
+\end_inset
+
+ pozwalają na bezpieczne równoległe wywołanie z wielu wątków (ang.
+ 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+thread-safe
+\end_layout
+
+\end_inset
+
+).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+WTH?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2127,7 +2221,16 @@ Rozproszone struktury danych i obiekty
 \end_layout
 
 \begin_layout Standard
-Struktury danych i obiekty, które mogą być współdzielone między wątkami
+Struktury danych i obiekty, które mogą być współdzielone między 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątkami rozproszonymi
+\end_layout
+
+\end_inset
+
  zaimplementowane zostały w oparciu o 
 \begin_inset Flex Name
 status open
@@ -2158,7 +2261,19 @@ zamki rozproszone
 
 \end_inset
 
- w celu zapewnienia poprawności przetwarzania.
+ w celu zapewnienia poprawności przetwarzania -- współbieżny dostęp do rozproszo
+nych struktur danych i obiektów może być prowadzony zarówno z wątków jak
+ i 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+wątków rozproszonych
+\end_layout
+
+\end_inset
+
+.
  Każdy obiekt jest identyfikowany przez klucz będący łańcuchem znaków.
  W przypadku listy czy słownika na podstawie klucza wywiedzione zostają
  identyfikatory obiektów składających się na daną strukturę -- zamków, metadanyc
@@ -2641,7 +2756,11 @@ status open
 
 \begin_layout Plain Layout
 a jakieś szczegóły implementacyjne? można by wtedy zrobić odnośnik do innego
- podejścia (7.2.2)
+ podejścia (7.2.2) -- przemyślałem, uważam, że szczegóły implementacyjne tych
+ zamków nie są zbyt ciekawe (klasa RedisLock nie działa - nie używamy jej,
+ klasa NativeRedisLock bardzo mocno się opiera na implementacji zamków w
+ bibliotece StackExchange.Redis, która robi w dużej mierze to co ja chciałem
+ zrobić) -- nasze podejście nie różni się od 7.2.2
 \end_layout
 
 \end_inset
@@ -2848,6 +2967,17 @@ pamięci rozproszonej
 
  zdarzenia do pliku XML w formacie OpenXES.
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tu chyba trzeba by coś dopisać, bo pożniej nagle wyskakujemy z implementacją
+ standardu, a nic nie pisaliśmy o żadnych stadardach...
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3005,16 +3135,8 @@ xsd.exe" xesext.xsd /classes /o:../Bluepath/Reporting/
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-tutaj jakby czegoś brakuje
-\end_layout
-
-\end_inset
-
-Zdarzenie jest wynikiem zarejestrowania 
+Wszystkie zdarzenia zachodzące w systemie zostały pogrupowane w tkw.
+ 
 \begin_inset Flex Name
 status open
 
@@ -3145,7 +3267,7 @@ message
 \end_layout
 
 \begin_layout Standard
-Jako 
+Format XES definiuje dla zdarzeń w logu 
 \begin_inset Flex Name
 status open
 
@@ -3169,8 +3291,18 @@ resource
 
 \end_inset
 
-) wskazywany jest zawsze wykonawca, który dokonał wpisu, korzystając z jego
- unikalnego identyfikatora 
+) -- w przypadku biblioteki 
+\begin_inset Flex Name
+status open
+
+\begin_layout Plain Layout
+Bluepath
+\end_layout
+
+\end_inset
+
+ wartością tego pola jest zawsze wykonawca, który dokonał wpisu, korzystając
+ z jego unikalnego identyfikatora 
 \begin_inset Flex Code
 status open
 
@@ -3189,18 +3321,18 @@ eid
 
 \begin_layout Standard
 Zależności czasowe są istotną częścią analizy przebiegu procesu.
- Z wykorzystaniem serwerów czasu NTP
-\begin_inset Note Note
+ Z wykorzystaniem serwerów czasu implementujących protokół NTP (ang.
+ 
+\begin_inset Flex Emph
 status open
 
 \begin_layout Plain Layout
-ang.
- ?
+network time protocol
 \end_layout
 
 \end_inset
 
- 
+) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rfc5905"
