@@ -89,29 +89,26 @@ Bluepath -- library supporting creating distributed applications
 \end_layout
 
 \begin_layout Abstract
-The aim of this work is to design of a library, which, without complicated
- configuration or installing multiple components, will allow programers
+The aim of this work is to design a library, which, without complicated
+ configuration or installation of multiple components, will allow programmers
  implement distributed computing in easy way.
- Programmer, while writing application using parallel programming model
- based on threads, should be able to utilize computing power of multiple
- machines in a cluster.
- Threads created by programmer instead of being executed on one of machine's
- cores will be executed on one of the remote machines.
+ A programmer, while writing an application using a parallel programming
+ model based on threads, should be able to utilize the computing power of
+ multiple machines in a cluster.
+ The threads created by the programmer instead of being executed on one
+ of machine's cores will be executed on one of the remote machines.
 \end_layout
 
 \begin_layout Abstract
 At the time of writing there wasn't available any popular, actively developed
- and commercially supported enviroment for creating distributed applications
+ and commercially supported environment for creating distributed applications
  in .NET Framework.
  This kind of enviroment would allow programmers not only to avoid the need
- of solving many problems of distributed programming by themselves but also
- to save time by using provided components.
-\end_layout
-
-\begin_layout Abstract
-One of main goals was to make the library as modular as possible -- this
- way Bluepath wouldn't strongly depend on implementation of its components
- so that the work could go into designing best possible programming enviroment.
+ of solving many problems found in distributed programming by themselves
+ but also to save time.
+ One of the main goals was to make the library as modular as possible --
+ this way Bluepath wouldn't strongly depend on the implementation of its
+ components.
 \end_layout
 
 \begin_layout Abstract
