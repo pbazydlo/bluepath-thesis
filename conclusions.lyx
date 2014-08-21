@@ -91,6 +91,25 @@ Przebieg realizacji
 status open
 
 \begin_layout Plain Layout
+Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigura
+cji czy instalowania wielu składników, pozwoli programistom w prosty sposób
+ zaimplementować przetwarzanie rozproszone.
+ Programista pisząc program jak równoległy, powinien uzyskać program wykorzystuj
+ący moc obliczeniową wielu w węzłów w klastrze.
+ W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
+ procesora, mogą wykonywać się na zdalnych maszynach.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 może odnieść się do założonych celów w intro (1.1)??
 \end_layout
 
@@ -809,8 +828,11 @@ Rozbudowa funkcjonalności
 \end_layout
 
 \begin_layout Standard
-Przykładowe obszary, w których możnaby rozbudować funkcjonalność systemu
- to:
+Ponieważ z przetwarzaniem rozproszonym wiąże się wiele problemów, a przy
+ tworzeniu biblioteki zauważano kolejne obszary w których możnaby zmniejszyć
+ nakład pracy użytkownika nie było możliwe zrealizowanie wszystkich funkcji.
+ Poniżej przedstawiono przykładowe obszary, w których możnaby rozbudować
+ funkcjonalność systemu:
 \end_layout
 
 \begin_layout Itemize

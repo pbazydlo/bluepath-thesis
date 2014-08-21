@@ -754,20 +754,19 @@ reference "lis:implementation-Tworzenie-i-uruchamianie-watku"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+Środowisko zakłada izolację pomiędzy wątkami: 
+\begin_inset Flex Name
 status open
 
 \begin_layout Plain Layout
-nie powinniśmy wszędzie używać 'wątek rozproszony' - żeby nie mylić ze zwykłym
- wątkiem?
+wątki rozproszone
 \end_layout
 
 \end_inset
 
-Środowisko zakłada izolację pomiędzy wątkami: wątki działające w ramach
- jednego procesu-hosta nie mogą komunikować się ze sobą poprzez pamięć operacyjn
-ą, a parametry, z którymi wywoływana jest metoda są kopiowane do nowych
- instancji klas i struktur.
+ działające w ramach jednego procesu-hosta nie mogą komunikować się ze sobą
+ poprzez pamięć operacyjną, a parametry, z którymi wywoływana jest metoda
+ są kopiowane do nowych instancji klas i struktur.
  Wyjątkiem jest tutaj dostarczana przez środowisko 
 \begin_inset Flex Name
 status open
