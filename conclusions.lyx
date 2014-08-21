@@ -176,19 +176,6 @@ cji czy instalowania wielu składników, pozwoli programistom w prosty sposób
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-może odnieść się do założonych celów w intro (1.1)??
-\end_layout
-
-\end_inset
-
-[...] 
-\end_layout
-
 \begin_layout Section
 Napotkane problemy
 \end_layout
@@ -740,16 +727,6 @@ reference "sec:concept-Rozproszona-pamięć-współdzielona"
  odczytu, a jego repliki udostępniają dane tylko do odczytu.
  Po awarii węzła nadrzędnego jedna z replik staje się nowym punktem dostępowym
  z możliwością zapisu.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-jest jeszcze inna możliwość??
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection*
