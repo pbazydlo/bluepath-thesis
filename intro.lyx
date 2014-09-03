@@ -160,35 +160,6 @@ ch przedstawia rozdział piąty, a wyniki testów jakościowych, wydajnościowyc
  W rodziale siódmym podsumowano przebieg realizacji, opisano napotkane problemy
  a także zaproponowano obszary, w których możnaby kontynuować prace nad
  usprawnieniem biblioteki.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Od wieków ludzie chcieli wykorzystywać moc obliczeniową wielu maszyn, do
- których mieli dostęp.
- Umieli programować równolegle, ale programowanie rozproszone okazało się
- znacznie trudniejsze.
- Wprowadzało wiele problemów, których wcześniej nie było.
- W związku z tym czarodzieje zaczeli tworzyć biblioteki i systemy wspomagające
- farmerów w tej trudnej pracy.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
-Programming is intrinsically very difficult.
-\begin_inset Quotes erd
-\end_inset
-
- -- E.
- Dijkstra.
- 
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

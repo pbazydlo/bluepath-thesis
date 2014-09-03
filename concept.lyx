@@ -87,11 +87,25 @@ name "chap:concept"
 \end_inset
 
 Proponowany model programowania miał być jak najbardziej naturalny dla programis
-tów zaznajomionych z zagadnieniami programowania równoległego i korzystać
- z koncepcji wątków, pamięci rozproszonej oraz zamków.
+tów zaznajomionych z zagadnieniami programowania równoległego (por.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:background-rownolegle"
+
+\end_inset
+
+) i korzystać z koncepcji wątków, pamięci rozproszonej oraz zamków.
  Wprowadzone abstrakcje wysokiego poziomu miały na celu ukrycie przed użytkownik
-iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
- komunikatów.
+iem leżącego u podstaw programowania rozproszonego (por.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:background-Przetwarzanie-rozproszone"
+
+\end_inset
+
+) mechnizmu przesyłania komunikatów.
  
 \end_layout
 

@@ -89,7 +89,29 @@ Przetwarzanie równoległe
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:background-rownolegle"
 
+\end_inset
+
+Jednym z modeli przetwarzania danych jest przetwarzanie równoległe.
+ Polega ono na przetwarzaniu zbioru danych jednocześnie na wielu procesorach
+ i rdzeniach.
+ W ten sposób fragmenty przetwarzania, które nie są od siebie zależne mogą
+ zostać wykonane w tym samym czasie -- pozwala to skrócić czas przetwarzania.
+\end_layout
+
+\begin_layout Standard
+Jednym ze sposobów prowadzenia przetwarzania równoległego jest wykorzystanie
+ wątków.
+ Wątki, czasami nazywane lekkimi procesami, wykonują kod niezależnie od
+ siebie, ale działają we wspólnej przestrzeni adresowej, co pozwala współdzielić
+ dane, ale wymaga zastosowania mechanizmów synchronizacji.
+ Podstawowym mechanizmem synchronizacji są zamki.
+ Służą one do realizacji sekcji krytycznych -- fragmentów kodu, które mogą
+ być wykonywane w danym momenie tylko przez jeden wątek.
+ 
 \end_layout
 
 \begin_layout Section
