@@ -76,27 +76,34 @@ dcs
 Wstęp
 \end_layout
 
-\begin_layout Standard
-Od wieków ludzie chcieli wykorzystywać moc obliczeniową wielu maszyn, do
- których mieli dostęp.
- Umieli programować równolegle, ale programowanie rozproszone okazało się
- znacznie trudniejsze.
- Wprowadzało wiele problemów, których wcześniej nie było.
- W związku z tym czarodzieje zaczeli tworzyć biblioteki i systemy wspomagające
- farmerów w tej trudnej pracy.
+\begin_layout Quote
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+Programming is intrinsically very difficult.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+\align right
+--- E.
+ Dijkstra
 \end_layout
 
 \begin_layout Standard
-\begin_inset Quotes eld
-\end_inset
-
-Programming is intrinsically very difficult.
-\begin_inset Quotes erd
-\end_inset
-
- -- E.
- Dijkstra.
- 
+Tworzenie aplikacji działających w klastrze jest złożone i wiąże się z nim
+ wiele problemów takich jak wykrycie zakończenia czy dystrybucja danych
+ pomiędzy maszynami.
+ Dużo prostsze jest tworzenie aplikacji wykorzystujących wiele procesorów
+ i rdzeni pojedynczej maszyny.
+ W niniejszej pracy zaproponowano rozwiązanie czerpiące z obu podejść, pozwalają
+ce zastosować mechanizmy znane z programowania równoległego przy tworzeniu
+ aplikacji rozproszonych.
 \end_layout
 
 \begin_layout Standard
@@ -153,6 +160,35 @@ ch przedstawia rozdział piąty, a wyniki testów jakościowych, wydajnościowyc
  W rodziale siódmym podsumowano przebieg realizacji, opisano napotkane problemy
  a także zaproponowano obszary, w których możnaby kontynuować prace nad
  usprawnieniem biblioteki.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Od wieków ludzie chcieli wykorzystywać moc obliczeniową wielu maszyn, do
+ których mieli dostęp.
+ Umieli programować równolegle, ale programowanie rozproszone okazało się
+ znacznie trudniejsze.
+ Wprowadzało wiele problemów, których wcześniej nie było.
+ W związku z tym czarodzieje zaczeli tworzyć biblioteki i systemy wspomagające
+ farmerów w tej trudnej pracy.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+Programming is intrinsically very difficult.
+\begin_inset Quotes erd
+\end_inset
+
+ -- E.
+ Dijkstra.
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
