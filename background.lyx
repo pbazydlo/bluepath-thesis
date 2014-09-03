@@ -188,7 +188,7 @@ key "DSM"
  Zakłada on udostępnienie wspólnej przestrzeni adresowej dla wszystkich
  komputerów biorących udział w przetwarzaniu.
  Aplikacje odwołują się do pamięci w tradycyjny sposób.
- W przypadku wystąpienia błędu braku strony, system operacyjny zajmuje się
+ W przypadku wystąpienia błędu braku strony system operacyjny zajmuje się
  sprowadzeniem jej do lokalnej pamięci.
  Mechanizm DSM nie jest obecnie wykorzystywany przy konstruowaniu systemów
  rozproszonych.
@@ -231,9 +231,9 @@ key "RPC"
  dla programisty tak proste, jak wywołanie lokalnej metody.
  Zadaniem serwera jest zdefiniowanie listy metod, które udostępnia i które
  mogą być wywoływane przez klienta.
- Abstrakcja RPC składa się z biblioteki odpowiedzialnej za realizację komunikacj
-i oraz korzystających z niej, generowanych automatycznie, namiastki klienta
- (ang.
+ Zdalne wywoływanie procedur składa się z biblioteki odpowiedzialnej za
+ realizację komunikacji oraz korzystających z niej, generowanych automatycznie,
+ namiastki klienta (ang.
 \begin_inset space ~
 \end_inset
 
@@ -332,10 +332,28 @@ unmarshalling
 \end_layout
 
 \begin_layout Standard
-Namiastka serwera natomiast dekoduje otrzymane zlecenie, dokonuje właściwego
- wywołania wskazanej metody, przygotowuje wiadomość zawierającą wynik oraz
- zleca wysłanie jej do klienta.
- Głównym problemem w modelu RPC są: serializacja złożonych struktur danych,
+Namiastka serwera jest symetryczna względem namiastki klienta i do jej zadań
+ należą:
+\end_layout
+
+\begin_layout Itemize
+dekodowanie otrzymanego zlecenia,
+\end_layout
+
+\begin_layout Itemize
+faktyczne wywołanie wskazanej metody,
+\end_layout
+
+\begin_layout Itemize
+przygotowanie wiadomości zawierającej wynik,
+\end_layout
+
+\begin_layout Itemize
+zlecenie wysłania odpowiedzi do klienta.
+\end_layout
+
+\begin_layout Standard
+Głównym problemem w modelu RPC są: serializacja złożonych struktur danych,
  obsługa wskaźników oraz obsługa współbieżnych żądań przez serwer.
 \end_layout
 
@@ -745,12 +763,8 @@ key "Spark-Berkeley-Performance"
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-Warto zwrócić w tym miejscu uwagę na ciekawą abstrakcję pamięci udostępnianą
- przez środowisko Spark nazywaną 
+ Warto wspomnieć w tym miejscu o ciekawej abstrakcji pamięci udostępnianej
+ przez środowisko Spark o nazwie 
 \begin_inset Flex Emph
 status open
 
@@ -760,143 +774,7 @@ Resilient Distributed Dataset
 
 \end_inset
 
- (RDD) zapewniającą odtwarzanie danych utraconych w wyniku awarii.
- RDD może zostać skonstruowany na podstawie pliku znajdującego się we współdziel
-onym systemie plików jak np.
- HDFS, poprzez ,,zrównoleglenie'' kolekcji, np.
- tablicy lub w wyniku manipulacji istniejącym już RDD -- transformacji za
- pomocą operacji mapowania i konkatenacji
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Operacja mapowania i konkatenacji w Spark -- 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-flatMap
-\end_layout
-
-\end_inset
-
-, aplikuje na elementach funkcję 
-\begin_inset Formula $A$
-\end_inset
-
-
-\begin_inset Formula $\Rightarrow$
-\end_inset
-
-
-\begin_inset Formula $List[B]$
-\end_inset
-
- i zwraca jedną listę będącą połączeniem wszystkich pośrednich.
- Jej semantyka jest więc tożsama z semantyką operacji 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-map
-\end_layout
-
-\end_inset
-
- w modelu MapReduce.
-\end_layout
-
-\end_inset
-
-, mapowania
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Operacja mapowania w Spark -- 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-map
-\end_layout
-
-\end_inset
-
-, aplikuje na elementach funkcję 
-\begin_inset Formula $A$
-\end_inset
-
-
-\begin_inset Formula $\Rightarrow$
-\end_inset
-
-
-\begin_inset Formula $B$
-\end_inset
-
- i zwraca nową listę.
-\end_layout
-
-\end_inset
-
- czy filtrowania
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Operacja filtrowania w Spark -- 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-filter
-\end_layout
-
-\end_inset
-
-, zwraca listę elementów spełniających podany predykat.
-\end_layout
-
-\end_inset
-
-.
- Czwartym sposobem konstrukcji nowego RDD jest zmiana trwałości (ang.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Flex Emph
-status open
-
-\begin_layout Plain Layout
-persistence
-\end_layout
-
-\end_inset
-
-) już istniejącego za pomocą akcji 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-cache
-\end_layout
-
-\end_inset
-
- -- wskazuje, że zbiór danych powinien zostać w pamięci operacyjnej ponieważ
- będzie jeszcze używany -- lub 
-\begin_inset Flex Code
-status open
-
-\begin_layout Plain Layout
-save
-\end_layout
-
-\end_inset
-
-, która materializuje zbiór danych do HDFS.
+ (RDD) zapewniającej odtwarzanie danych utraconych w wyniku awarii.
  
 \end_layout
 
@@ -954,40 +832,8 @@ aktorami
  
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Może: Procesy nazywane są też aktorami ze względu na podobieństwa do modelu
- zaproponowanego przez Gula Aghe w artykule [G.
- Agha.
- A model of concurrent computation in distributed systems.
- W MIT Series in Artificial Intelligence.
- MIT Press, Cambridge, MA, USA, 1986.] -- por.
- z kolejną notatką :D
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Project Orleans
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Opis co to jest + Kiedy ogłoszony
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1045,8 +891,8 @@ stateless worker
 \end_inset
 
 , tj.
- nie wymagamy, aby istaniała tylko jedna instancja aktora danego typu (w
- przeciwieństwie do 
+ nie jest wymagane, aby istaniała tylko jedna instancja aktora danego typu
+ (w przeciwieństwie do 
 \begin_inset Flex Emph
 status open
 
@@ -1079,39 +925,12 @@ stateless worker
  mogą być uruchamiane w wielu egzemplarzach.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-The actor model is a long-standing model for concurrent computation, dating
- back to 1973 and invented by Carl Hewitt 
-\end_layout
-
-\begin_layout Plain Layout
-(http://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-M
-odel-everything-you-wanted-to-know-but-were-afraid-to-ask)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Podsumowanie
 \end_layout
 
 \begin_layout Standard
-W tabeli 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "tab:background-Podsumowanie-istniejacych-rozwiazan"
-
-\end_inset
-
- zestawiono omówione środowiska.
- Nie ulega wątpliwości, że
+Nie ulega wątpliwości, że
 \begin_inset space ~
 \end_inset
 
@@ -1128,10 +947,20 @@ wspierane.
 \end_inset
 
 dla programisty, który poznał ich kilka, rozpoznanie kolejnego i napisanie
- w nim aplikacji zazwyczaj nie stanowi problemu, okazuje się, że większość
- osób ma język, podczas pisania w którym czuje się komfortowo, wie jakich
- problemów może się spodziewać i jak je rozwiązać.
- 
+ w nim aplikacji zazwyczaj nie stanowi problemu, okazuje się, że część osób
+ posiada preferowany język programowania.
+ Podczas pisania w nim czuje się komfortowo, wie jakich problemów może się
+ spodziewać i jak je rozwiązać.
+ W związku z tym w tabeli 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:background-Podsumowanie-istniejacych-rozwiazan"
+
+\end_inset
+
+ zestawiającej omówione środowiska obok modelu programowania uwzględniono
+ także języki programowania wspierane przez te środowiska oraz wskazano
+ rok opublikowania pierwszego i najnowszego wydania.
 \end_layout
 
 \begin_layout Standard
@@ -1683,6 +1512,14 @@ kod użytkownika
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
 \begin_inset Flex Strong
 status open
 
@@ -1692,11 +1529,7 @@ Biblioteka Bluepath
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-Biblioteka Bluepath (w skrócie: 
+ (w skrócie: 
 \begin_inset Flex Strong
 status open
 
@@ -1724,27 +1557,32 @@ status open
 \end_layout
 
 \begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Użytkownik
-\end_layout
-
+\begin_inset space ~
 \end_inset
 
 
 \end_layout
 
 \begin_layout Definition
+\noindent
 \begin_inset CommandInset label
 LatexCommand label
 name "def:podstawy-teorytyczne-uzytkownik"
 
 \end_inset
 
-Mianem użytkownika określany jest programista korzystający z funkcji udostępnian
-ych przez bibliotekę Bluepath podczas tworzenia aplikacji.
+Mianem 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+użytkownika
+\end_layout
+
+\end_inset
+
+ określany jest programista korzystający z funkcji udostępnianych przez
+ bibliotekę Bluepath podczas tworzenia aplikacji.
 \end_layout
 
 \begin_layout Standard
@@ -1761,21 +1599,26 @@ status open
 \end_layout
 
 \begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Kod użytkownika
-\end_layout
-
+\begin_inset space ~
 \end_inset
 
 
 \end_layout
 
 \begin_layout Definition
-Pod pojęciem kodu użytkownika rozumiany jest kod źródłowy pochodzący spoza
- biblioteki Bluepath -- będący częścią aplikacji, która ją wykorzystuje.
+\noindent
+Pod pojęciem 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+kodu użytkownika
+\end_layout
+
+\end_inset
+
+ rozumiany jest kod źródłowy pochodzący spoza biblioteki Bluepath -- będący
+ częścią aplikacji, która ją wykorzystuje.
  
 \end_layout
 
@@ -1819,17 +1662,8 @@ W pracy pojawia się szereg terminów technologicznych -- głównie akronimów
  -- które, w celu uniknięcia nieporozumień, zdefiniowano poniżej.
 \end_layout
 
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
+\begin_layout Subsubsection*
 XML
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1870,17 +1704,8 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
+\begin_layout Subsubsection*
 XSD
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1921,17 +1746,8 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
+\begin_layout Subsubsection*
 WCF
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1974,17 +1790,8 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
+\begin_layout Subsubsection*
 Zapora ogniowa
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

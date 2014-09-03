@@ -507,7 +507,7 @@ NotImplementedException
 
 \end_inset
 
- rzucanym z wewnątrz biblioteki Rhino DHT.
+ zgłaszanym z wewnątrz biblioteki Rhino DHT.
 \end_layout
 
 \begin_layout Subsection
@@ -851,7 +851,7 @@ usługi odnajdywania węzłów
 
 \end_inset
 
- możnaby uruchomić jego replikę, która przejmie zadania po awarii podstawowego
+ możnaby uruchomić jego replikę, która przejęłaby zadania po awarii podstawowego
  serwera (podejście to wykorzystywane jest np.
  w MapReduce, gdzie 
 \begin_inset Flex Emph
@@ -864,7 +864,7 @@ name node
 \end_inset
 
  jest replikowany).
- Możnaby również rozważyć implementację opartą o rozproszoną tablcę haszową
+ Warto również rozważyć implementację opartą o rozproszoną tablcę haszową
  (ang.
 \begin_inset space ~
 \end_inset
@@ -975,23 +975,11 @@ JoinAsync
 .
 \end_layout
 
+\begin_layout Section
+Zrealizowane zadania
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Subsection
-Wydajność
-\end_layout
-
-\begin_layout Plain Layout
-W trakcie implementacji zauważono pewne apokrdsssss związane z wydajnością
- i je realizowano.
- Nie skupiano się jednak na tym.
- Wykorzystując dostępną wiedzę można zwiększyć wydajność biblioteki............
-\end_layout
-
-\end_inset
-
 
 \end_layout
 

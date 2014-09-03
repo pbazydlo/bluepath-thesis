@@ -1879,7 +1879,17 @@ key "Redis"
 
 \end_inset
 
- -- otwartoźródłowy system przechowujący dane typu klucz-wartość.
+ -- system rozpowszechniany na licencji 
+\begin_inset Flex Emph
+status open
+
+\begin_layout Plain Layout
+open source
+\end_layout
+
+\end_inset
+
+ przechowujący dane typu klucz-wartość.
 \end_layout
 
 \begin_layout Standard

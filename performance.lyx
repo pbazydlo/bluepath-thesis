@@ -1309,7 +1309,7 @@ Porównanie czasu obliczania przybliżenia liczby
 
 \begin_layout Standard
 Dla dużych instancji przetwarzanie przy pomocy biblioteki Bluepath jest
- dużo szybsze niż przetwarzanie na pojedynczm węźle.
+ dużo szybsze niż przetwarzanie na pojedynczym węźle.
  Jednak dla małych instancji narzut generowany przez bibliotekę sprawia,
  że przetwarzanie w klastrze staje się mniej efektywne niż przetwarzanie
  lokalne.

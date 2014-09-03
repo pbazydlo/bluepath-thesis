@@ -77,6 +77,29 @@ Wstęp
 \end_layout
 
 \begin_layout Standard
+Od wieków ludzie chcieli wykorzystywać moc obliczeniową wielu maszyn, do
+ których mieli dostęp.
+ Umieli programować równolegle, ale programowanie rozproszone okazało się
+ znacznie trudniejsze.
+ Wprowadzało wiele problemów, których wcześniej nie było.
+ W związku z tym czarodzieje zaczeli tworzyć biblioteki i systemy wspomagające
+ farmerów w tej trudnej pracy.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Programming is intrinsically very difficult.
+\begin_inset Quotes erd
+\end_inset
+
+ -- E.
+ Dijkstra.
+ 
+\end_layout
+
+\begin_layout Standard
 W tym rozdziale przedstawione zostaną założony cel oraz zakres pracy, jej
  struktura, motywacja oraz podział prac pomiędzy autorów.
 \end_layout
@@ -94,9 +117,11 @@ name "sec:intro-cel-i-zakres"
 
 Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigura
 cji czy instalowania wielu składników, pozwoli jej użytkownikom, programistom,
- w prosty sposób zaimplementować przetwarzanie rozproszone.
- Programista pisząc program jak równoległy, powinien uzyskać program wykorzystuj
-ący moc obliczeniową wielu węzłów w klastrze.
+ w prosty sposób zaimplementować program przetwarzający dane w sposób rozproszon
+y.
+ Programista pisząc program w sposób podobny do tego w jaki pisałby program
+ równoległy, powinien uzyskać program wykorzystujący moc obliczeniową wielu
+ węzłów w klastrze.
  W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, mogą wykonywać się na zdalnych maszynach.
 \end_layout

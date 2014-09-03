@@ -91,9 +91,9 @@ Bluepath -- library supporting creating distributed applications
 \begin_layout Abstract
 The aim of this work is to design a library, which, without complicated
  configuration or installation of multiple components, will allow programmers
- implement distributed computing in easy way.
+ to implement distributed applications in easy way.
  A programmer, while writing an application using a parallel programming
- model based on threads, should be able to utilize the computing power of
+ model based on threads, should be able to utilise the computing power of
  multiple machines in a cluster.
  The threads created by the programmer instead of being executed on one
  of machine's cores will be executed on one of the remote machines.
@@ -116,47 +116,24 @@ At the time of writing there wasn't available any popular, actively developed
 status open
 
 \begin_layout Plain Layout
-Bluepath is investigating programming models for writing parallel and distribute
-d programs to scale from a small cluster to a large data-center.
-\end_layout
-
-\begin_layout Plain Layout
-====
-\end_layout
-
-\begin_layout Plain Layout
-quite expressive YEAH!
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 Celem pracy było zaprojektowanie biblioteki, która, bez skomplikowanej konfigura
 cji czy instalowania wielu składników, pozwoli programistom w prosty sposób
- zaimplementować przetwarzanie rozproszone.
- Programista pisząc program jak równoległy, powinien uzyskać program wykorzystuj
-ący moc obliczeniową wielu węzłów w klastrze.
+ zaimplementować program przetwarzający dane w sposób rozproszony.
+ Programista pisząc program w sposób podobny do tego w jaki pisałby program
+ równoległy, powinien uzyskać program wykorzystujący moc obliczeniową wielu
+ węzłów w klastrze.
  W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, mogą wykonywać się na zdalnych maszynach.
-\end_layout
-
-\begin_layout Plain Layout
-W czasie, kiedy rozpoczynano pracę nie było dostępne popularne, aktywnie
+ W czasie, kiedy rozpoczynano pracę nie było dostępne popularne, aktywnie
  rozwijane i wspierane komercyjnie środowisko do przetwarzania rozproszonego
  dla .NET Framework.
  Tego typu środowisko pozwoliłoby użytkownikom uniknąć konieczności samodzielneg
 o rozwiązywania wielu problemów przetwarzania rozproszonego oraz zaoszczędzić
  czas poprzez wykorzystanie dostarczonych mechanizmów.
-\end_layout
-
-\begin_layout Plain Layout
-Jednym z głównych założeń projektowych systemu była jego modułowość -- w
- ten sposób biblioteka nie byłaby silnie zależna od implementacji jej konkretnyc
-h komponentów, co pozwoliło się skupić na stworzeniu jak najlepszego środowiska.
+ Jednym z głównych założeń projektowych systemu była jego modułowość --
+ w ten sposób biblioteka nie byłaby silnie zależna od implementacji jej
+ konkretnych komponentów, co pozwoliło się skupić na stworzeniu jak najlepszego
+ środowiska.
 \end_layout
 
 \end_inset

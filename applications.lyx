@@ -1324,21 +1324,6 @@ Pliki, które mają być przetwarzane oraz kod metod Map i Reduce muszą w pierw
 \end_layout
 
 \begin_layout Standard
-\noindent
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100text%"
-special "none"
-height "1in"
-height_special "totalheight"
-status open
-
-\begin_layout Plain Layout
 \begin_inset listings
 lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
@@ -1552,11 +1537,6 @@ public class MapReduceResult
 \begin_layout Plain Layout
 
 }
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -2056,31 +2036,8 @@ dni dwóm programistom, natomiast z wykorzystaniem biblioteki Bluepath czas
 \begin_inset space ~
 \end_inset
 
-dni
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-4?
-\end_layout
-
-\end_inset
-
- i to przy zaangażowaniu tylko jednego programisty.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-może jakieś zestawienie 'co trzeba zakodzić - Bluepath[194LOC] vs.
- WCF[585LOC]'
-\end_layout
-
-\end_inset
-
-
+dni i to przy zaangażowaniu tylko jednego programisty, a liczba linii kodu
+ została zredukowana z 585 do 194.
 \end_layout
 
 \begin_layout Section
@@ -2088,11 +2045,15 @@ System uzupełniania wyrazów
 \end_layout
 
 \begin_layout Standard
-Wiele aplikacji operujących na dużej liczbie danych próbuje wspomóc swoich
+Wiele aplikacji operujących na dużej ilości danych próbuje wspomóc swoich
  użytkowników pozwalając filtrować dane przy pomocy zapytań tekstowych.
  Ponieważ formułowanie zapytań podlega często ograniczeniom, np.
  konieczności użycia konkretnych słów kluczowych, można stosować techniki
- wspomagające użytkownika w tym działaniu.
+ wspomagające użytkownika w
+\begin_inset space ~
+\end_inset
+
+tym działaniu.
  
 \end_layout
 
@@ -2164,8 +2125,7 @@ wczytywanie danych
 \begin_inset space ~
 \end_inset
 
-odpowiedzialna za wytworzenie i powiązanie prefiksów i ich rozwinięć, opisana
- w 
+wytworzenie i powiązanie prefiksów i ich rozwinięć -- opisane w 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:zastosowania-autocomplete-Wczytywanie-danych"
@@ -2184,8 +2144,8 @@ uzupełnianie wyrazów
 \begin_inset space ~
 \end_inset
 
-demonstrująca realizację funkcji podpowiadania możliwych zakończeń prefiksu,
- opisana w 
+demonstracja realizacji funkcji podpowiadania możliwych zakończeń prefiksu
+ -- opisane w 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:zastosowania-autocomplete-Uzupełnianie-wyrazów"
@@ -2204,8 +2164,8 @@ czyszczenie stanu systemu
 \begin_inset space ~
 \end_inset
 
-wykorzystywana w celu przywrócenia całego systemu do stanu początkowego
- bez konieczności ponownego uruchamiania aplikacji.
+przywrócenie całego systemu do stanu początkowego bez konieczności ponownego
+ uruchamiania aplikacji.
 \end_layout
 
 \begin_layout Standard
@@ -2222,12 +2182,12 @@ z założenia przygotowywanie prefiksów (wraz z rozwinięciami) miało być czy
 \begin_inset space ~
 \end_inset
 
-system udziela odpowiedzi na podstawie najświerzszych posiadanych danych,
+system udziela odpowiedzi na podstawie najświeższych posiadanych danych,
 \end_layout
 
 \begin_layout Itemize
 w trakcie pisania systemu okazało się, że przydatna jest metoda przywracająca
- system do stanu początkowego, a nie będąca częścią głównego przetwarzania.
+ system do stanu początkowego, a niebędąca częścią głównego przetwarzania.
 \end_layout
 
 \begin_layout Subsection
@@ -2254,13 +2214,6 @@ listy rozproszonej
 
 \end_inset
 
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:----Koncepcja-wspoldzielone-struktury-danych"
-
-\end_inset
-
 .
  Następnie każdy 
 \begin_inset Flex Name
@@ -2272,16 +2225,9 @@ wątek rozproszony
 
 \end_inset
 
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:implementation-Rozproszony-watek"
-
-\end_inset
-
- pobiera nie przetworzony fragment listy i na podstawie zawartych w nim
- dokumentów uzupełnia słownik prefiksów i możliwych dla nich uzupełnień.
- Gdy na liście nie ma już elementów do przetworzenia 
+ pobiera nieprzetworzony fragment listy i na podstawie zawartych w nim dokumentó
+w uzupełnia słownik prefiksów i możliwych dla nich uzupełnień.
+ Gdy na liście nie ma już elementów do przetworzenia, 
 \begin_inset Flex Name
 status open
 
@@ -2507,9 +2453,10 @@ name "sub:zastosowania-autocomplete-Uzupełnianie-wyrazów"
 Głównym celem systemu uzupełniania wyrazów jest wyszukiwania możliwych zakończeń
  zadanego prefiksu.
  W tym celu należy przeszukać informacje posiadane przez każdy z węzłów,
- a następnie uzyskane wyniki częściowe zagregować.
+ a następnie zagregować uzyskane wyniki częściowe.
  Aby mieć pewność, że każdy węzeł zostanie przeszukany zastosowano planistę
- szeregującego zadania za pomocą algorytmu karuzelowego (opisanego w 
+ szeregującego zadania za pomocą algorytmu karuzelowego (opisanego w punkcie
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Implementacja-Szeregowanie-karuzelowy"
@@ -2526,7 +2473,7 @@ wątków rozproszonych
 
 \end_inset
 
- ile znajduje się węzłów w systemie.
+, ile znajduje się węzłów w systemie.
  Inicjalizacja planisty została przedstawiona na listingu 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2596,7 +2543,7 @@ reference "lis:zastosowania-autocomplete-Zebranie-wyników-w"
 
 \end_inset
 
- przedstawiono zebranie wyników, oraz usunięcie duplikatów.
+ przedstawiono zbieranie wyników oraz usunięcie duplikatów.
 \begin_inset listings
 lstparams "breaklines=true,language={[Sharp]C},numbers=left"
 inline false
@@ -2790,6 +2737,50 @@ p=\frac{m}{n}=\frac{785930}{1000000},\thinspace\thinspace\thinspace p\times4=3,1
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename images/monte-carlo-pi.png
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:applications-Monte-Carlo-Pi"
+
+\end_inset
+
+Ilustracja obliczania przybliżenia liczby 
+\begin_inset Formula $\pi$
+\end_inset
+
+ metodą Monte Carlo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Zwiększanie liczby próbek 
 \begin_inset Formula $n$
 \end_inset
@@ -2816,6 +2807,20 @@ System.Random
 
 
 \begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
 status open
 
 \begin_layout Plain Layout
@@ -2902,6 +2907,11 @@ System.Security.Cryptography.RNGCryptoServiceProvider
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
 .
 \end_layout
 
@@ -2924,49 +2934,6 @@ reference "sub:performance-Obliczanie-przyblizenia-Pi"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset External
-	template RasterImage
-	filename images/monte-carlo-pi.png
-	lyxscale 30
-	scale 40
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:applications-Monte-Carlo-Pi"
-
-\end_inset
-
-Ilustracja obliczania przybliżenia liczby 
-\begin_inset Formula $\pi$
-\end_inset
-
- metodą Monte Carlo
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body

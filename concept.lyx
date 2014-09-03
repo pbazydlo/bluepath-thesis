@@ -95,27 +95,98 @@ iem leżącego u podstaw programowania rozproszonego mechnizmu przesyłania
  
 \end_layout
 
-\begin_layout Definition
-\begin_inset Flex Strong
-status collapsed
-
-\begin_layout Plain Layout
-Węzeł obliczeniowy
+\begin_layout Section
+Komunikacja
 \end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:concept-Komunikacja"
 
 \end_inset
 
+Każdy z węzłów (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-Wezel-obliczeniowy"
+
+\end_inset
+
+) w klastrze (def.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:background-Klaster"
+
+\end_inset
+
+) może komunikować
+\begin_inset space \space{}
+\end_inset
+
+się poprzez sieć z każdym innym węzłem.
+ Przyjęto następujące założenia co do protokołów komunikacyjnych:
+\end_layout
+
+\begin_layout Enumerate
+protokół zastosowany w warstwie transportowej powinien zapewnić niezawodne
+ dostarczenie wszystkich wiadomości,
+\end_layout
+
+\begin_layout Enumerate
+protokół działający w warstwie aplikacji powinien oczekiwać odpowiedzi na
+ wysyłane żądania.
  
 \end_layout
 
+\begin_layout Standard
+Nie jest wymagane zachowanie kolejności dostarczania wiadomości -- w szczególnoś
+ci z uwagi na to, że w kanale znajduje się w danym momencie co najwyżej
+ jedna wiadomość.
+ Dla uzyskania transparentności procesu rozpraszania obliczeń sam proces
+ przesyłania komunikatów pomiędzy węzłami jest ukryty przed użytkownikiem.
+\end_layout
+
+\begin_layout Standard
+Zakładamy również, że bezpieczeństwo klastra opiera się na tym, iż działa
+ on w
+\begin_inset space ~
+\end_inset
+
+odseparowanej sieci, tj.
+ bez bezpośredniego dostępu z sieci publicznej (internetu).
+ W związku z tym zastosowane protokoły komunikacyjne nie muszą zapewniać
+ mechanizmów uwierzytelniania i autoryzacji.
+\end_layout
+
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
 \begin_inset CommandInset label
 LatexCommand label
 name "def:background-Wezel-obliczeniowy"
 
 \end_inset
 
-Mianem węzła obliczeniowego (w skrócie: 
+Mianem 
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+węzła obliczeniowego
+\end_layout
+
+\end_inset
+
+ (w skrócie: 
 \begin_inset Flex Strong
 status open
 
@@ -144,8 +215,23 @@ reference "fig:background-schemat-systemu"
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Klaster"
+
+\end_inset
+
+
 \begin_inset Flex Strong
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Klaster
@@ -153,18 +239,7 @@ Klaster
 
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Definition
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-Klaster"
-
-\end_inset
-
-Klaster to zbiór węzłów obliczeniowych, które są zarejestrowane we wspólnej
- 
+ to zbiór węzłów obliczeniowych, które są zarejestrowane we wspólnej 
 \begin_inset Flex Name
 status open
 
@@ -225,56 +300,6 @@ Schemat architektury systemu
 \end_layout
 
 \begin_layout Section
-Komunikacja
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:concept-Komunikacja"
-
-\end_inset
-
-Każdy z węzłów w klastrze może komunikować
-\begin_inset space \space{}
-\end_inset
-
-się poprzez sieć z każdym innym.
- Przyjęto następujące założenia co do protokołów komunikacyjnych:
-\end_layout
-
-\begin_layout Enumerate
-protokół zastosowany w warstwie transportowej powinien zapewnić niezawodne
- dostarczenie wszystkich wiadomości,
-\end_layout
-
-\begin_layout Enumerate
-protokół działający w warstwie aplikacji powinien oczekiwać odpowiedzi na
- wysyłane żądania.
- 
-\end_layout
-
-\begin_layout Standard
-Nie jest wymagane zachowanie kolejności dostarczania wiadomości -- w szczególnoś
-ci z uwagi na to, że w kanale znajduje się w danym momencie co najwyżej
- jedna wiadomość.
- Dla uzyskania transparentności procesu rozpraszania obliczeń sam proces
- przesyłania komunikatów pomiędzy węzłami jest ukryty przed użytkownikiem.
-\end_layout
-
-\begin_layout Standard
-Zakładamy również, że bezpieczeństwo klastra opiera się na tym, iż działa
- on w
-\begin_inset space ~
-\end_inset
-
-odseparowanej sieci, tj.
- bez bezpośredniego dostępu z sieci publicznej (internetu).
- W związku z tym zastosowane protokoły komunikacyjne nie muszą zapewniać
- mechanizmów uwierzytelniania i autoryzacji.
-\end_layout
-
-\begin_layout Section
 Usługa odnajdywania węzłów
 \end_layout
 
@@ -318,8 +343,23 @@ usługa odnajdywania węzłów
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Usluga-odnajdywania-wezlow"
+
+\end_inset
+
+
 \begin_inset Flex Strong
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Usługa odnajdywania węzłów
@@ -327,18 +367,8 @@ Usługa odnajdywania węzłów
 
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Definition
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-Usluga-odnajdywania-wezlow"
-
-\end_inset
-
-Usługa odnajdywania węzłów to system umożliwiający węzłom odnajdywanie się
- wzajemnie w sieci i łączenie w klaster obliczeniowy.
+ to system umożliwiający węzłom odnajdywanie się wzajemnie w sieci i łączenie
+ w klaster obliczeniowy.
 \end_layout
 
 \begin_layout Subsection
@@ -394,6 +424,14 @@ planistę
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
 \begin_inset Flex Strong
 status open
 
@@ -403,13 +441,9 @@ Zarządca połączeń
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-Zarządca połączeń to klient usługi odnajdywania węzłów, który odpowiada
- za rejestrowanie, wyrejestrowywanie i przechowywanie lokalnego obrazu stanu
- klastra na każdym z węzłów.
+ to klient usługi odnajdywania węzłów, który odpowiada za rejestrowanie,
+ wyrejestrowywanie i przechowywanie lokalnego obrazu stanu klastra na każdym
+ z węzłów.
 \end_layout
 
 \begin_layout Section
@@ -467,6 +501,21 @@ wznowienia obliczeń na innym węźle.
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "def:background-Rozproszony-watek"
+
+\end_inset
+
+
 \begin_inset Flex Strong
 status open
 
@@ -476,17 +525,7 @@ Wątek rozproszony
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset CommandInset label
-LatexCommand label
-name "def:background-Rozproszony-watek"
-
-\end_inset
-
-Wątek rozproszony reprezentuje jednostkę przetwarzania w systemie.
+ reprezentuje jednostkę przetwarzania w systemie.
  Opakowuje fragment kodu, który może być wykonany na dowolnym węźle obliczeniowy
 m.
 \end_layout
@@ -624,6 +663,14 @@ udostępnienie wyników wyższym warstwom po zakończeniu przetwarzania.
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
 \begin_inset Flex Strong
 status open
 
@@ -633,12 +680,7 @@ Lokalny wykonawca
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-Lokalny wykonawca to obiekt, który odpowiada za faktyczne wykonanie otrzymanego
- zadania.
+ to obiekt, który odpowiada za faktyczne wykonanie otrzymanego zadania.
 \end_layout
 
 \begin_layout Subsection
@@ -683,6 +725,14 @@ e go do odczytu na węźle zlecającym zadanie.
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
 \begin_inset Flex Strong
 status open
 
@@ -692,12 +742,7 @@ Zdalny wykonawca
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-Zdalny wykonawca to obiekt, który odpowiada za zlecenie wykonania zadania
- na zdalnej maszynie.
+ to obiekt, który odpowiada za zlecenie wykonania zadania na zdalnej maszynie.
 \end_layout
 
 \begin_layout Section
@@ -742,6 +787,14 @@ planisty
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
 \begin_inset Flex Strong
 status open
 
@@ -751,12 +804,8 @@ Planista
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-Planista odpowiada za wybór węzła, do którego wysłane zostanie zlecenie
- wykonania zadania.
+ odpowiada za wybór węzła, do którego wysłane zostanie zlecenie wykonania
+ zadania.
  Realizuje zdefiniowaną strategię szeregowania zadań w klastrze.
 \end_layout
 
@@ -801,7 +850,11 @@ pamięci rozproszonej
 
 niej jako pamięci masowej, ponieważ koszt dostępu do niej może być znacznie
  wyższy niż do pamięci operacyjnej.
- W szczególności nie należy jej mylić z DSM opisaną w punkcie 
+ W szczególności nie należy jej mylić z DSM opisaną w
+\begin_inset space ~
+\end_inset
+
+punkcie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:background-DSM"
@@ -812,6 +865,21 @@ reference "sub:background-DSM"
 \end_layout
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "def:concept-Pamiec-rozproszona"
+
+\end_inset
+
+
 \begin_inset Flex Strong
 status open
 
@@ -821,18 +889,8 @@ Pamięć rozproszona
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset CommandInset label
-LatexCommand label
-name "def:concept-Pamiec-rozproszona"
-
-\end_inset
-
-Pamięć rozproszona to pamięć dostępna dla wszystkich węzłów, przez którą
- mogą wymieniać się danymi.
+ to pamięć dostępna dla wszystkich węzłów, przez którą mogą wymieniać się
+ danymi.
 \end_layout
 
 \begin_layout Standard
@@ -1123,20 +1181,24 @@ reference "sub:Koncepcja-Zamki-rozproszone"
 \end_layout
 
 \begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Rozszerzona pamięć rozproszona
-\end_layout
-
+\begin_inset space ~
 \end_inset
 
 
 \end_layout
 
 \begin_layout Definition
-Rozszerzona pamięć rozproszona to pamięć rozproszona (def.
+\noindent
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Rozszerzona pamięć rozproszona 
+\end_layout
+
+\end_inset
+
+to pamięć rozproszona (def.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1352,13 +1414,7 @@ pamięci rozproszonej
 \end_layout
 
 \begin_layout Definition
-\begin_inset Flex Strong
-status open
-
-\begin_layout Plain Layout
-Operacje zbiorcze
-\end_layout
-
+\begin_inset space ~
 \end_inset
 
 
@@ -1372,7 +1428,17 @@ name "def:concept-Operacje-zbiorcze-def"
 \end_layout
 
 \begin_layout Definition
-Operacje zbiorcze (ang.
+\noindent
+\begin_inset Flex Strong
+status open
+
+\begin_layout Plain Layout
+Operacje zbiorcze
+\end_layout
+
+\end_inset
+
+ (ang.
 \begin_inset space ~
 \end_inset
 
@@ -1496,6 +1562,13 @@ height_special "totalheight"
 status open
 
 \begin_layout Definition
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
 \begin_inset Flex Strong
 status open
 
@@ -1505,12 +1578,7 @@ Zamek rozproszony
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-Zamek rozproszony to zamek, który jest współdzielony przez wszystkie węzły
- w
+ to zamek, który jest współdzielony przez wszystkie węzły w
 \begin_inset space ~
 \end_inset
 
