@@ -980,15 +980,20 @@ Zakończenie
 \end_layout
 
 \begin_layout Standard
-W niniejszej pracy zaprojektowano bibliotekę, która pozwala jej użytkownikom
- w prosty sposób zaimplementować program przetwarzający dane w sposób rozproszon
-y.
+W niniejszej pracy przeanalizowano i porównano istniejące rozwiązania wspomagają
+ce programistów w tworzeniu aplikacji rozproszonych.
+ Zaprojektowano i zaimplementowano prototyp biblioteki, która pozwala jej
+ użytkownikom w prosty sposób zaimplementować program przetwarzający dane
+ w sposób rozproszony.
  Użytkownik pisząc program w sposób podobny do tego w jaki pisałby program
  równoległy, uzyskuje program wykorzystujący moc obliczeniową wielu węzłów
  w klastrze.
  W takim przypadku wątki, zamiast wykonywać się na wielu rdzeniach jednego
  procesora, wykonują się na zdalnych maszynach.
- Wszystkie założone cele pracy zostały zrealizowane.
+ Prototyp biblioteki został przetestowany zarówno jakościowo jak i wydajnościowo.
+ Przedstawiono również przykładowe zastosowania biblioteki.
+ Biorąc powyższe pod uwagę można uznać, że wszystkie założone cele pracy
+ zostały zrealizowane.
 \end_layout
 
 \end_body
