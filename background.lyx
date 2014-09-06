@@ -996,7 +996,7 @@ reference "tab:background-Podsumowanie-istniejacych-rozwiazan"
 \begin_layout Standard
 \begin_inset Float table
 wide false
-sideways false
+sideways true
 status open
 
 \begin_layout Plain Layout
@@ -1018,7 +1018,7 @@ Porównanie wybranych środowisk przetwarzania rozproszonego
 
 \begin_inset Tabular
 <lyxtabular version="3" rows="11" columns="4">
-<features rotate="90" tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
