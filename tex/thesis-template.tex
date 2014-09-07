@@ -1,0 +1,132 @@
+%% LyX 2.1.2dev created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,a4paper,polish,thesis]{dcsbook}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{babel}
+\usepackage{rotfloat}
+\usepackage{pdfpages}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=true,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+ urlcolor=linkcolor,linkcolor=linkcolor,citecolor=linkcolor}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\RequirePackage{dcslib}[2012/01/30]
+  \theoremstyle{definition}
+  \newtheorem{defn}{\protect\definitionname}[section]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%
+%  $Id: thesis-template.lyx,v 1.7 2011/12/22 12:10:18 sobaniec Exp $
+%
+\AtBeginDocument{% 
+        \renewcommand{\tablename}{Tabela}% 
+}
+\definecolor{tomato}{RGB}{139, 54, 38}
+\definecolor{darkblue}{RGB}{36, 92, 165}
+\definecolor{darkgreen}{RGB}{0, 127, 14}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[s]{>}{<},
+  stringstyle=\color{tomato},
+  identifierstyle=\color{black},
+  keywordstyle=\bfseries\color{darkblue},
+  morekeywords={type, Initialize, methodHandle, Execute, eId, parameters, callbackUri, Address, Binding, ExecuteCallback, eid, ExecuteResult, executeResult, ElapsedTime, Error, ExecutorState, Result, Register, Unregister}
+}
+
+\lstdefinelanguage{Assembler}
+{
+  keywordstyle=\bfseries\color{darkblue},
+  morekeywords={b__0, Int32, Int64, DistributedPI, Program, Bluepath}
+}
+
+\lstset{language=[Sharp]C,
+  morecomment=[l]{//}, %use comment-line-style!
+morecomment=[s]{/*}{*/}, %for multiline comments
+showstringspaces=false,
+morekeywords={ abstract, event, new, struct, as, explicit, null, switch, base, extern, object, this, bool, false, string, operator, throw, break, finally, out, true, byte, fixed, override, try, case, float, params, typeof, catch, for, private, uint, char, foreach, protected, ulong, checked, goto, public, unchecked, class, if, readonly, unsafe, const, implicit, ref, ushort, continue, in, return, using, decimal, int, sbyte, virtual, default, interface, sealed, volatile, delegate, internal, short, void, do, is, sizeof, while, double, lock, stackalloc, else, long, static, enum, namespace },
+keywordstyle=\color{darkblue},
+identifierstyle=\color{black},
+emph=[1]{ IRemoteExecutorService, Guid, ServiceUri, RemoteExecutorServiceResult, PerformanceStatistics, ServiceContract, OperationContract, Task, Dictionary, ICoordinatorService, Uri, MapReduceResult, Tuple, DataContract, DataMember, IEnumerable, KeyValuePair, List, IBluepathCommunicationFramework, IExtendedStorage, DistributedCounter, RoundRobinLocalScheduler, DistributedThread },
+emph=[2]{ var, from, select, using },
+emphstyle=[1]\color{darkgreen},
+emphstyle=[2]\color{darkblue}
+}
+
+\makeatother
+
+\usepackage{listings}
+  \providecommand{\definitionname}{Definicja}
+\renewcommand{\lstlistingname}{Listing}
+
+\begin{document}
+
+\author{Piotr~Bazydło\and Zachariusz~Karwacki}
+
+
+\title{Bluepath -- biblioteka wspomagająca tworzenie programów rozproszonych}
+
+
+\date{Poznań, 2014}
+
+
+\supervisor{dr inż. Jacek Kobusiński}
+
+\maketitle
+
+
+\includepdf{external/karta}
+
+\includepdf[pages=-]{external/bluepath}
+
+\frontmatter
+
+\tableofcontents{}
+
+\include{abstract}
+
+\mainmatter
+
+\include{intro}
+
+\include{background}
+
+\include{concept}
+
+\include{implementation}
+
+\include{applications}
+
+\include{performance}
+
+\include{conclusions}
+
+\backmatter
+
+\bibliographystyle{thesisPP}
+\nocite{*}
+\bibliography{bibliography}
+
+\end{document}

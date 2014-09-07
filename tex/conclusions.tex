@@ -1,0 +1,236 @@
+
+\chapter{Podsumowanie}
+
+Niniejszy rozdział stanowi podsumowanie pracy. Omówiono w nim przebieg
+realizacji, napotkane w trakcie implementacji problemy oraz przedstawiono
+potencjalne kierunki dalszego rozwoju projektu.
+
+
+\section{Przebieg realizacji}
+
+W trakcie realizacji tej pracy udało się zrealizować główny cel --
+zaprojektowanie biblioteki wspomagającej użytkowników w implementacji
+aplikacji rozproszonych (por. punkt \ref{sec:intro-cel-i-zakres}).
+Wszystkie przyjęte założenia były weryfikowane poprzez implementację
+prototypu opisaną w rozdziale \ref{chap:implementation}. W obecnym
+momencie biblioteka posiada zależność jedynie od usługi Redis wykorzystywanej
+do realizacji \dcsname{pamięci rozproszonej}. Należy jednak nadmienić,
+że zależność tę można w łatwy sposób usunąć poprzez dostarczenie własnej
+implementacji \dcsname{pamięci rozproszonej} co jest możliwe dzięki
+modułowości biblioteki.
+
+Biblioteka i założenia poczynione przy jej tworzeniu zostały dodatkowo
+zweryfikowane poprzez implementację aplikacji opisanych w rozdziale
+\ref{chap:applications}. Możliwość wykorzystania \dcsemph{debuggera}
+w trakcie tworzenia tych aplikacji oraz testowania działania biblioteki
+okazała się niezastąpiona i stanowiła duży atut.
+
+
+
+
+\section{Napotkane problemy}
+
+W trakcie realizacji pracy napotkano problemy, których opis i rozwiązania
+opisano poniżej. Ich natura była bardzo różna, wynikały głównie z
+błędów i ograniczeń w~wykorzystywanym kodzie pochodzącym od innych
+twórców:
+\begin{itemize}
+\item serializacja wyjątków,
+\item niezaimplementowane do końca wewnętrzne metody w Rhino DHT,
+\item ograniczenie wydajności środowiska Redis w wyniku przenoszenia kodu
+z systemu Linux do systemu Windows,
+\item błędy składniowe w plikach XML Schema Definition pochodzących z bibliteki
+OpenXES.
+\end{itemize}
+
+\subsection{Serializacja}
+
+Wszystkie wyjątki w .NET Framework powinny być serializowalne. Okazuje
+się jednak, że klasa bazowa \dcscode{Exception} zawiera wirtualne
+pole \dcscode{Data} typu \dcscode{IDictionary}, które umożliwia
+dodanie do kolekcji obiektu, który nie będzie serializowalny. Pomimo
+tego, że każdy wstawiany obiekt jest sprawdzany pod tym kątem poprzez
+sprawdzenie flagi \dcscode{Type.IsSerializable}, nie gwarantuje to,
+że jego składowe będą serializowalne, a tym samym i cały wyjątek. 
+
+Drugim problemem jest zachowanie klasy \dcscode{DataContractSerializer}.
+Zakładając, że definicja wiadomości (\dcscode{DataContract}) zawiera
+pole typu \dcscode{Exception}, w którym ma zostać przesłany wyjątek,
+\dcscode{DataContractSerializer} wymaga dodania atrybutu \dcscode{KnownType}
+dla każdego typu wyjątku wywiedzionego z typu \dcscode{Exception},
+który ma zostać przesłany na zdalną stronę, również tego zawartego
+w polu na wyjątek wewnętrzny (\dcscode{InnerException)}. Dodawanie
+atrybutu \dcscode{KnownType} dla każdego typu wyjątku, który może
+zostać wygenerowany przez kod użytkownika jest rozwiązaniem dalekim
+od transparentnego, w związku z tym zdecydowano o przesyłaniu wyjątków
+w formie tekstowej -- wywoływana jest na nich rekurencyjnie metoda
+\dcscode{ToString}.
+
+
+\subsection{Rhino DHT}
+
+\label{par:problemy-rhino-dht}W punkcie \ref{sub:implementation-Pamiec-rozproszona-rozwazane-rozwiazania},
+gdzie opisano wybór aplikacji do zrealizowania \dcsname{pamięci rozproszonej},
+zasygnalizowano problem, który był powodem porzucenia biblioteki Rhino
+DHT. Zgodnie z założeniami przedstawionymi w punkcie \ref{def:concept-Pamiec-rozproszona},
+biblioteka powinna udostępniać mechanizmy atomowego porównania i zapisu
+bądź atomowego odczytu i zapisu. Przykładowa implementacja \dcsname{zamka rozproszonego}
+miała opierać się o mechanizm wersjonowania danych obecny w Rhino
+DHT:
+\begin{itemize}
+\item pobranie aktualnej, najnowszej wersji pola reprezentującego wartość
+zamka (wolny/zajęty przez wykonawcę o danym \dcscode{eid}) wraz z
+numerem wersji \dcsemph{k},
+\item w przypadku gdy zamek jest wolny -- zapis nowej wersji wartości pola
+(własnego identyfikatora \dcscode{eid}) ze wskazaniem wersji \dcsemph{k}
+jako rodzica,
+\item odczyt wersji \dcsemph{k+1} i porównanie z własnym eid -- jeżeli
+jest równe oznacza to, że zamek został pobrany, w przeciwnym wypadku
+-- że został zajęty przez inny proces,
+\item zwolnienie zamka odbywać się miała poprzez zapis odpowiedniej informacji
+ze wskazaniem wersji \dcsemph{k+1} jako rodzica.
+\end{itemize}
+Widać zatem, że zapisy miały tworzyć strukturę drzewiastą, gdzie najdłuższa
+ścieżka miała reprezentować sekwencję pobranych i zwolnionych zamków.
+Niestety wewnętrznie nie wszystkie operacje zostały zaimplementowane,
+co objawiało się wyjątkiem \dcscode{NotImplementedException} zgłaszanym
+z wewnątrz biblioteki Rhino DHT.
+
+
+\subsection{Redis uruchamiany w systemie Windows}
+
+\label{par:problemy-Windows-Redis}Podczas pracy usługi Redis z dużym
+obciążeniem pod kontrolą systemu Windows zaobserwowano znaczący spadek
+wydajności. Wyjaśnienie problemów z działaniem znaleziono w dokumencie
+\cite{MSOpenTech-Redis-Release-Notes}. 
+
+W wersji dla systemu Linux wszystkie operacje wejścia-wyjścia korzystają
+z deskryptorów plików, które nie są tak rozpowszechnione w API systemu
+Windows. Wersja przeznaczona dla systemów Windows używa w związku
+z tym symulowanego deskryptora plików. Zasadniczym problemem jest
+jednak brak obecności wywołania systemowego \dcscode{fork} do tworzenia
+procesów potomnych, która w systemie Windows została zasymulowana
+poprzez umieszczenie sterty procesu Redis w \dcsemph{memory-mapped file},
+czyli fragmencie pamięci wirtualnej, która jest dokładnym odwzorowaniem
+pliku znajdującego się na dysku lub -- w ogólności -- obiektu, do
+którego jesteśmy w stanie uzyskać deskryptor. Taki deskryptor przekazywany
+jest następnie potomnym procesom. Warto zauważyć, że domyślnym zachowaniem
+środowiska jest tworzenie współdzielonego pliku o rozmiarze odpowiadającym
+rozmiarowi pamięci fizycznej komputera. 
+
+Ostatecznie różnice, które ujawniły się pomiędzy wersją usługi Redis
+przeznaczoną dla systemów Windows a pochodnych UNIXa, wpłynęły na
+podjęcie decyzji o uruchomieniu go w systemie operacyjnym Ubuntu.
+
+
+\subsection{Implementacja standardu OpenXES}
+
+\label{sub:problemy-Implementacja-standardu-OpenXES-z-XSD}Podczas
+próby implementacji standardu OpenXES opisanej w punkcie \ref{sec:implementation-Logowanie-zdarzen}
+na podstawie plików XML Schema udostępnionych 28 marca 2014 r. wraz
+z wersją 2.0 bibliteki napotkano problemy przy próbie automatycznego
+wygenerowania klas. W~jednym z plików, \dcscode{xes.xsd}, znaleziony
+został drobny błąd składniowy -- brakująca spacja, co powodowało,
+że plik XML był niepoprawny składniowo i nieprzyjmowany przez narzędzie
+\dcscode{xsd.exe}. Po jego poprawieniu ujawnił się kolejny problem
+objawiający się wyjątkiem przepełnienia stosu w trakcie generowania
+klas. Ten problem został rozwiązany przez objęcie wnętrza elementu
+\dcscode{xs:complexType} odnoszącego się do typu \dcscode{AttributableType}
+elementem \dcscode{xs:sequence}.
+
+
+\section{Perspektywy dalszego rozwoju}
+
+Przy projektowaniu biblioteki Bluepath został zdefiniowany szereg
+założeń oraz podjęto szereg decyzji projektowych przedstawionych w
+rozdziałach trzecim i czwartym. Poniżej wskazano potencjalne kierunki
+rozwoju projektu -- rozluźniania pewnych założeń i rozbudowy funkcjonalności.
+
+
+\subsection{Niezawodność przetwarzania}
+
+\label{sub:conclusions-Obsluga-awarii}Aspektem, który nie został
+poruszony w niniejszej pracy jest zapewnienie niezawodności przetwarzania
+w przypadku awarii węzłów (por. punkt \ref{sec:concept-Obsluga-awarii}).
+Poniżej zaproponowano sposoby obsługi awarii różnych komponentów --
+mogą one dotyczyć węzłów danych, węzłów obliczeniowych a także \dcsname{usługi odnajdywania węzłów}.
+
+
+\subsubsection*{Obsługa awarii węzłów danych}
+
+Zapewnienie bezpieczeństwa węzłów danych leży po stronie wybranej
+do ich zrealizowania aplikacji (por. punkt \ref{sec:concept-Rozproszona-pami=000119=000107-wsp=0000F3=000142dzielona}).
+Wykorzystywany obecnie system Redis może zostać uruchomiony w trybie
+z replikacją, w którym jeden z węzłów jest punktem dostępowym do zapisu
+lub odczytu, a jego repliki udostępniają dane tylko do odczytu. Po
+awarii węzła nadrzędnego jedna z replik staje się nowym punktem dostępowym
+z możliwością zapisu.
+
+Istnieje również wariant systemu -- Redis Cluster -- w którym dane
+dzielone są pomiędzy węzły, udostępniający mechanizmy replikacji i
+rekonfiguracji w przypadku awarii.
+
+
+\subsubsection*{Obsługa awarii węzłów obliczeniowych}
+
+W przypadku, gdy aplikacja nie posiada współdzielonego stanu, czyli
+nie wykorzystuje rozproszonych struktur danych ani obiektów -- a więc
+wywołania są idempotentne -- obsługa awarii węzłów obliczeniowych
+mogłaby uwzględniać drzewiasty charakter takiego przetwarzania. \dcsname{Wątki rozproszone}
+zainicjowane przez stracony węzeł musiałyby być wycofane, a węzeł
+nadrzędny musiałby zlecić jeszcze raz wykonanie przerwanego wątku.
+\dcsname{Wątki rozproszone}, które mogą być bezpiecznie uruchamiane
+ponownie musiałyby być \dcsemph{explicite} oznaczane przez programistę
+flagą (\dcscode{Resumable}) lub z wykorzystaniem dedykowanej metody
+(\dcscode{AsResumable}). 
+
+
+\subsubsection*{Obsługa awarii serwera usługi odnajdywania węzłów}
+
+Wrażliwym punktem jest również scentralizowany serwer \dcsname{usługi odnajdywania węzłów}.
+Warto jednak zauważyć, że prawdopodobieństwo awarii jednego konkretnego
+węzła jest dużo niższe niż prawdopodobieństwo awarii dowolnego węzła
+w klastrze. Argumentem, który przemawia za koniecznością zajęcia się
+tym problemem jest kluczowe znaczenie serwera \dcsname{usługi odnajdywania węzłów}
+do realizacji przetwarzania. Aby zapewnić niezawodność dostępu do
+\dcsname{usługi odnajdywania węzłów} możnaby uruchomić jego replikę,
+która przejęłaby zadania po awarii podstawowego serwera (podejście
+to wykorzystywane jest np. w MapReduce, gdzie \dcsemph{name node}
+jest replikowany). Warto również rozważyć implementację opartą o rozproszoną
+tablcę haszową (ang.~\dcsemph{distributed hash table}, DHT) z replikacją.
+
+
+\subsection{Rozbudowa funkcjonalności}
+
+Ponieważ z przetwarzaniem rozproszonym wiąże się wiele problemów,
+a przy tworzeniu biblioteki zauważano kolejne obszary w których możnaby
+zmniejszyć nakład pracy użytkownika nie było możliwe zrealizowanie
+wszystkich funkcji. Poniżej przedstawiono przykładowe obszary, w których
+możnaby rozbudować funkcjonalność systemu:
+\begin{itemize}
+\item rozproszone struktury danych -- np. implementacja kolejki,
+\item interfejs do komunikacji z systemem -- rozbudowa o metody dostępu
+do pamięci lokalnej węzła (\dcscode{LocalStorage}), dodanie możliwości
+raportowania zaawansowania przetwarzania w ramach wątku (\dcscode{ReportProgress})
+w celu budowy dokładniejszych planistów,
+\item DLINQ -- implementacja pozostałych metod obecnych w standardowym LINQ
+i niedostępnych w obecnej implementacji,
+\item wykorzystanie asynchronicznych wzorców z .NET Framework 4.5 (\dcscode{async},
+\dcscode{await}) -- obecnie jedyną operacją asynchroniczną jest oczekiwanie
+na zakończenie \dcsname{wątku rozproszonego} -- \dcscode{JoinAsync}.
+\end{itemize}
+
+\section{Zakończenie}
+
+W niniejszej pracy przeanalizowano i porównano istniejące rozwiązania
+wspomagające programistów w tworzeniu aplikacji rozproszonych oraz
+zaprojektowano i zaimplementowano prototyp biblioteki, która pozwala
+jej użytkownikom w prosty sposób zaimplementować program przetwarzający
+dane w sposób rozproszony. Użytkownik pisząc program w sposób podobny
+do tego, w jaki pisałby program równoległy, uzyskuje program wykorzystujący
+moc obliczeniową wielu węzłów w klastrze. W takim przypadku wątki,
+zamiast wykonywać się na wielu rdzeniach jednego procesora, wykonują
+się na zdalnych maszynach. Prototyp biblioteki został przetestowany
+zarówno pod względem jakościowym jak i wydajnościowym. Przedstawiono
+również przykładowe zastosowania biblioteki. Biorąc powyższe pod uwagę
+można uznać, że wszystkie założone cele pracy zostały zrealizowane.

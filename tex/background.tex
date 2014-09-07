@@ -1,0 +1,391 @@
+
+\chapter{Podstawy teorytyczne}
+
+W tym rozdziale przedstawione zostaną terminy wykorzystywane w dalszej
+części pracy oraz zestawienie rozwiązań podobnych tematyką do tej
+pracy.
+
+
+\section{Przetwarzanie równoległe}
+
+\label{sec:background-rownolegle}Jednym z modeli przetwarzania danych
+jest przetwarzanie równoległe. Polega ono na przetwarzaniu zbioru
+danych jednocześnie na wielu procesorach i rdzeniach. W ten sposób
+fragmenty przetwarzania, które nie są od siebie zależne mogą zostać
+wykonane w tym samym czasie -- pozwala to skrócić czas przetwarzania.
+
+Jednym ze sposobów prowadzenia przetwarzania równoległego jest wykorzystanie
+wątków. Wątki, czasami nazywane lekkimi procesami, wykonują kod niezależnie
+od siebie, ale działają we wspólnej przestrzeni adresowej, co pozwala
+współdzielić dane, ale wymaga zastosowania mechanizmów synchronizacji.
+Podstawowym mechanizmem synchronizacji są zamki. Służą one do realizacji
+sekcji krytycznych -- fragmentów kodu, które mogą być wykonywane w
+danym momenie tylko przez jeden wątek. 
+
+
+\section{Przetwarzanie rozproszone}
+
+\label{sec:background-Przetwarzanie-rozproszone} Przetwarzanie rozproszone~\cite{ArpaciDusseau14-Book}
+jest szeroko stosowanym podejściem w przypadku przetwarzania dużej
+ilości danych, konieczności obsługi wielu zleceń użytkowników w jednostce
+czasu czy zapewnienia niezawodności systemu. Problemy, z jakimi zmagają
+się programiści aplikacji rozproszonych dotyczą m. in. obsługi awarii
+(wraz z rosnącą liczbą elementów systemu rośnie prawdopodobieństwo
+awarii jednego z~nich), bezpieczeństwa (zapewnienia poufności, integralności
+i autentyczności komunikatów) i komunikacji. Trzeba brać pod uwagę
+możliwość utraty pakietu, niedostarczenia potwierdzenia odbioru, maksymalizować
+wydajność i przepustowość poprzez minimalizowanie liczby komunikatów
+i opóźnień komunikacyjnych. Wykorzystywane w praktyce protokoły sieciowe
+rozwiązują także wiele innych problemów, jak np.~zatory w sieci czy
+zaległe żądania (ang.~\dcsemph{outstanding requests}). W celu przyspieszenia
+tworzenia systemów rozproszonych zaproponowano wprowadzenie abstrakcji
+realizujących niezawodną komunikację sieciową i wymianę danych bez
+bezpośredniego udziału programisty. 
+
+
+\subsection{DSM}
+
+\label{sub:background-DSM}Model rozproszonej pamięci współdzielonej
+(ang.~\dcsemph{distributed shared memory}, DSM)~\cite{DSM} implementowany
+jest na poziomie systemu operacyjnego. Zakłada on udostępnienie wspólnej
+przestrzeni adresowej dla wszystkich komputerów biorących udział w
+przetwarzaniu. Aplikacje odwołują się do pamięci w tradycyjny sposób.
+W przypadku wystąpienia błędu braku strony system operacyjny zajmuje
+się sprowadzeniem jej do lokalnej pamięci. Mechanizm DSM nie jest
+obecnie wykorzystywany przy konstruowaniu systemów rozproszonych.
+
+
+\subsection{RPC}
+
+\label{def:background-RPC}Zdalne wywoływanie procedur (ang.~\dcsemph{remote procedure call},
+RPC) \cite{RPC} jest realizowane na poziomie języka programowania.
+Jego celem jest sprawić, by wywołanie metody na zdalnym komputerze
+było dla programisty tak proste, jak wywołanie lokalnej metody. Zadaniem
+serwera jest zdefiniowanie listy metod, które udostępnia i które mogą
+być wywoływane przez klienta. Zdalne wywoływanie procedur składa się
+z biblioteki odpowiedzialnej za realizację komunikacji oraz korzystających
+z niej, generowanych automatycznie, namiastki klienta (ang.~\dcsemph{client stub})
+i namiastki serwera (ang.~\dcsemph{server stub}). Namiastka klienta
+odpowiada za:
+\begin{itemize}
+\item utworzenie bufora na wiadomość, 
+\item wypełnienie go danymi -- umieszczenie w nim jakiegoś rodzaju wskaźnika/uchwytu
+do metody oraz parametry wywołania -- w procesie serializacji (ang.~\dcsemph{serialization},
+\dcsemph{marshalling}), 
+\item wysłanie wiadomości przy pomocy biblioteki realizującej proces komunikacji,
+\item dekodowanie otrzymanego rezultatu -- proces ten jest nazywany deserializacją
+(ang.~\dcsemph{deserialization}, \dcsemph{unmarshalling}).
+\end{itemize}
+Namiastka serwera jest symetryczna względem namiastki klienta i do
+jej zadań należą:
+\begin{itemize}
+\item dekodowanie otrzymanego zlecenia,
+\item faktyczne wywołanie wskazanej metody,
+\item przygotowanie wiadomości zawierającej wynik,
+\item zlecenie wysłania odpowiedzi do klienta.
+\end{itemize}
+Głównym problemem w modelu RPC są: serializacja złożonych struktur
+danych, obsługa wskaźników oraz obsługa współbieżnych żądań przez
+serwer.
+
+
+\subsection{Problem detekcji zakończenia}
+
+\label{sub:background-Problem-detekcji-zakonczenia}Istotnym problemem
+jest detekcja zakończenia przetwarzania w systemie rozproszonym. Konstrukcja
+obrazu globalnego stanu systemu w celu oceny stanu poszczególnych
+węzłów jest problemem trudnym. Istnieje szereg algorytmów, które go
+adresują. Wymagają one wprowadzenia pewnych założeń co do właściwości
+systemu, jak np. kanały FIFO w algorytmie detekcji zakończenia dla
+systemów asynchronicznych \cite{Misra83} czy drzewiasta topologia
+przetwarzania w algorytmie Dijkstry-Scholtena dla modelu dyfuzyjnego
+\cite{Dijkstra-Diffusing}.
+
+
+\section{Istniejące rozwiązania}
+
+\label{sec:background-Istniej=000105ce-rozwi=000105zania}Poniżej
+przedstawiono wybrane środowiska umożliwiające tworzenie aplikacji
+do rozproszonych obliczeń. W tabeli \ref{tab:background-Podsumowanie-istniejacych-rozwiazan}
+znajduje się ich porównanie.
+
+
+\subsection{PVM}
+
+PVM (ang.~\dcsemph{Parallel Virtual Machine}) \cite{PVM} powstał
+w 1989 r. w Oak Ridge National Laboratory, a jego dalszy rozwój odbywał
+się na University of Tennessee. W 1993 r. została wydana wersja 3.0.
+Jest to zintegrowany zestaw bibliotek i narzędzi, które służą do projektowania
+aplikacji rozproszonych działąjących w środowisku połączonych siecią
+komputerów heterogenicznych. Główne założenia systemu obejmowały:
+\begin{itemize}
+\item używanie puli maszyn określonej przez użytkownika do realizacji przetwarzania
+oraz możliwość dodawania i usuwania komputerów podczas pracy,
+\item brak pełnego abstrahowania od typów maszyn, tj. aplikacje, które wykorzystywały
+specyficzne własności określonych maszyn mogły zostać im przypisane,
+\item model przetwarzania oparty o zadania, które można utożsamiać z procesami
+w systemie Unix oraz jawne przesyłanie komunikatów pomiędzy zadaniami,
+\item wsparcie dla heterogenicznych środowisk -- różnych typów komputerów,
+sieci i~aplikacji, a także obsługa sytuacji, w których różne maszyny
+korzystają z~różnych reprezentacji danych.
+\end{itemize}
+
+\subsection{MPI}
+
+MPI (ang.~\dcsemph{Message-Passing Intefrace}) \cite{MPI-Standard-Version-3,Using-MPI-Portable-Parallel-Programming-with-the-Message-Passing-Interface}
+jest standardem opisującym interfejs biblioteki wspomagającej tworzenie
+systemów opartych na przesyłaniu wiadomości (ang.~\dcsemph{message-passing systems}).
+Standard MPI skupia się na modelu programowania opartym o przesyłanie
+wiadomości. Definiuje również współbieżne operacje wejścia/wyjścia,
+dynamiczne tworzenie procesów oraz operacje zbiorowe -- np. synchronizacja
+procesów przy pomocy barier (ang. \dcsemph{barrier synchronization}).
+Jednymi z głównych założeń jakie postawili sobie twórcy standardu
+są:
+\begin{itemize}
+\item zapewnienie wydajnej i wiarygodnej komunikacji,
+\item umożliwienie stworzenia implementacji działających w środowisku heterogenicznym,
+\item wygodny w wykorzystaniu interfejs dla języka C oraz Fortran.
+\end{itemize}
+
+\subsection{Dryad i DryadLINQ}
+
+System Dryad \cite{Microsoft-Research-Dryad} został stworzony przez
+zespół naukowców z Microsoft Research. Jego celem było zapewnienie
+niezawodnego środowiska do obliczeń rozproszonych na dużych zbiorach
+danych. System ten miał pozwalać programiście pisać programy wykonywane
+w klastrze bez posiadania umiejętności programowania równoległego
+bądź rozproszonego.
+
+Przetwarzanie było modelowane jako skierowany graf acykliczny, w którym
+wierzchołki reprezentowały sekwencyjne programy, a krawędzie przepływ
+danych jednokierunkowymi kanałami. System Dryad na podstawie tak zamodelowanego
+przetwarzania tworzył graf przetwarzania, wykonywał go i w razie potrzeby
+modyfikował.
+
+Programy w wierzchołkach były zapisywane przy pomocy języka SCOPE
+\linebreak{}
+(ang.~\dcsemph{Structured Computations Optimized for Parallel Execution})
+\cite{SCOPE}. Język ten posiadał składnię podobną do języka SQL (and.
+\dcsemph{Structured Query Language}) \cite{SQL}.
+
+W celu uproszczenia przetwarzania na bazie systemu Dryad powstało
+środowisko DryadLINQ \cite{DryadLINQ-MSR}. Środowisko to dostarczało
+implementację LINQ (ang.~\dcsemph{Language Integrated Query}), która
+wykorzystywała środowisko Dryad do rozproszonego przetwarzania kolekcji.
+Jednym z ograniczeń wprowadzonych przez DryadLINQ w stosunku do LINQ
+było założenie, że funkcje przetwarzające obiekty kolekcji nie będą
+modyfikowały zmiennych zdefiniowanych poza nimi -- w przypadku wykonania
+takiej operacji twórcy nie definiowali zachowania systemu.
+
+W roku 2011 Microsoft zaprzestał rozwijania Dryad w ramach \dcsemph{High Performance Comupting Pack}
+\cite{DryadLINQ-discarded}, skupiając się na dostosowaniu Apache
+Hadoop do pracy pod kontrolą Windows Server i Windows Azure.
+
+
+\subsection{Hadoop}
+
+Przetwarzanie w modelu mapowania i redukcji -- MapReduce \cite{Google-MapReduce}
+-- zostało pierwotnie zaproponowane przez firmę Google. Hadoop to
+jego implementacja wydana na otwartej licencji. Środowisko korzysta
+z \dcsemph{Hadoop Distributed File System} (HDFS)~\cite{HDFS-Architecture-Guide}
+-- rozproszonego systemu plików o wysokiej odporności na awarie węzłów.
+Udostępnia on dane w sposób strumieniowy oraz jest dostosowany do
+obsługi dużych zbiorów danych (tj. rozmiaru mierzonego w terabajtach)
+i dużych plików. Twórcy środowiska wyszli z założenia, że ,,zmiana
+miejsca obliczeń jest mniej kosztowna niż przesłanie danych'', w związku
+z tym HDFS udostępnia aplikacjom interfejs, który pozwala zmienić
+miejsce wykonania tak, aby odbyło się tam, gdzie fizycznie znajdują
+się dane. 
+
+
+\subsection{Spark}
+
+Środowisko obliczeniowe Spark \cite{Spark-Berkeley} powstało w wyniku
+prac prowadzonych na University of California w Berkeley. Od 2013
+r. jako Apache Spark jest rozwijane przez Apache Software Foundation.
+Środowisko to może być użyte do przetwarzania w~modelu nieograniczonym
+do dwóch faz jak w MapReduce, co upodabnia je bardziej do Dryad. Zastosowane
+w środowisku optymalizacje pozwoliły znacząco poprawić czas opóźnienia
+rozpoczęcia przetwarzania zadania w klastrze składającym się z tysięcy
+rdzeni \cite{Spark-Berkeley-Performance}. Warto wspomnieć w tym miejscu
+o ciekawej abstrakcji pamięci udostępnianej przez środowisko Spark
+o nazwie \dcsemph{Resilient Distributed Dataset} (RDD) zapewniającej
+odtwarzanie danych utraconych w wyniku awarii. 
+
+
+\subsection{Erlang}
+
+Język programowania Erlang \cite{Erlang-Armstrong:2010:ERL:1810891.1810910}
+został zaprojektowany do tworzenia odpornych na awarie systemów rozproszonych.
+Jego historia sięga roku 1985, kiedy to w firmie Ericsson postanowiono
+,,zrobić coś ze sposobem, w jaki tworzą aplikacje''. W roku 2000 Erlang
+został upubliczniony na otwartej licencji. Podstawowe jego cechy to:
+\begin{itemize}
+\item izolacja procesów, brak współdzielonych struktur danych w pamięci
+operacyjnej, zamków, semaforów,
+\item procesy komunikują się przesyłając asynchroniczne wiadomości, które
+zawierają faktyczne dane, a nie referencje na zdalne obiekty,
+\item zdolność do wykrycia awarii i replikacja -- procesy otrzymują sygnały
+w przypadku awarii obserwowanych procesów i muszą posiadać tyle danych,
+by przejąć zadania straconego węzła i kontynuować przetwarzanie,
+\item system udostępnia metodę określania przyczyn awarii procesu.
+\end{itemize}
+Z uwagi na mały narzut pamięciowy procesów (nazywanych także \dcsemph{aktorami})
+programista może tworzyć ich bardzo wiele. 
+
+
+\subsection{Project Orleans}
+
+W modelu programowania Orleans \cite{Orleans-export:210931} zaproponowano
+wprowadzenie abstrakcji \dcsemph{wirtualnych aktorów}. W porównaniu
+do języka Erlang, środowisko wykonwacze działa tu na wyższym poziomie
+abstrakcji, uwalniając programistę od problemów takich jak obsługa
+awarii, odtwarzanie aktorów i zarządzanie rozproszonymi zasobami --
+w szczególności rozłożeniem aktorów na poszczególne węzły. W systemie
+Orleans przyjęto następujące założenia:
+\begin{itemize}
+\item aktorzy istnieją permanentnie (wirtualnie), programista nie tworzy
+ani nie niszczy samodzielnie reprezentujących ich obiektów,
+\item instancje aktorów (tzw. \dcsemph{aktywacje}) są tworzone automatycznie
+w momencie wysłania żądania do aktora, który nie istnieje lub gdy
+aktor jest typu \dcsemph{stateless worker}, tj. nie jest wymagane,
+aby istaniała tylko jedna instancja aktora danego typu (w przeciwieństwie
+do \dcsemph{single activation}),
+\item przezroczystość położenia -- instancja aktora może istnieć na różnych
+maszynach w różnych chwilach, może też nie istnieć w ogóle fizycznie,
+aplikacja nie zna lokalizacji aktora,
+\item automatyczne skalowanie -- niezależne instancje aktorów typu \dcsemph{stateless worker}
+mogą być uruchamiane w wielu egzemplarzach.
+\end{itemize}
+
+\subsection{Podsumowanie}
+
+Nie ulega wątpliwości, że~projektując nowe systemy warto trzymać
+się rozwiązań, które są aktywnie rozwijane i~wspierane. Istotnym
+czynnikiem decydującym o wyborze lub odrzuceniu środowiska może być
+język programowania. Pomimo tego, że język jest tylko narzędziem i~dla
+programisty, który poznał ich kilka, rozpoznanie kolejnego i napisanie
+w nim aplikacji zazwyczaj nie stanowi problemu, okazuje się, że część
+osób posiada preferowany język programowania. Podczas pisania w nim
+czuje się komfortowo, wie jakich problemów może się spodziewać i jak
+je rozwiązać. W związku z tym w tabeli \ref{tab:background-Podsumowanie-istniejacych-rozwiazan}
+zestawiającej omówione środowiska obok modelu programowania uwzględniono
+także języki programowania wspierane przez te środowiska oraz wskazano
+rok opublikowania pierwszego i najnowszego wydania.
+
+\begin{sidewaystable}
+\centering{}\protect\caption{\label{tab:background-Podsumowanie-istniejacych-rozwiazan}Porównanie
+wybranych środowisk przetwarzania rozproszonego}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Środowisko & Język programowania & Model programowania & Pierwsze\textsuperscript{a}/najnowsze\tabularnewline
+ &  &  & wydanie\tabularnewline
+\hline 
+\hline 
+PVM & C/C++/Fortran & przesyłanie komunikatów & 1989 / 2009\tabularnewline
+\hline 
+MPI & C/C++/Fortran & przesyłanie komunikatów & 1994 / 2014\textsuperscript{b}\tabularnewline
+\hline 
+Dryad & SCOPE / .NET (DryadLINQ) & przepływ danych w DAG & 2009 / 2011\tabularnewline
+\hline 
+Hadoop & Java/Scala, Python/C++ \cite{Hadoop-Python} & mapowanie i reducja & 2009 / 2014\tabularnewline
+\hline 
+Spark & Java/Scala/Python & niesprecyzowany & 2014 / 2014\tabularnewline
+\hline 
+Erlang & Erlang & przesyłanie komunikatów & 2000 / 2014\tabularnewline
+\hline 
+Orleans & .NET (C\#/F\#/VB) & przesyłanie komunikatów & 2014 / 2014\tabularnewline
+\hline 
+\multicolumn{4}{l}{\textsuperscript{a}Pierwsze publiczne stabilne wydanie}\tabularnewline
+\multicolumn{4}{l}{\textsuperscript{b}Implementacja Open MPI}\tabularnewline
+\end{tabular}
+\end{sidewaystable}
+
+
+
+\section{Definicje}
+
+Poniżej zdefiniowano pojawiające się w pracy pojęcia oraz wyjaśniono
+istotne terminy technologiczne.
+
+
+\subsection{Nazewnictwo}
+
+W tym miejscu należy zdefiniować pojęcia \dcsemph{biblioteka Bluepath},
+\dcsemph{użytkownik} oraz \dcsemph{kod użytkownika}, które mają
+specjalne znaczenie.
+\begin{defn}
+~
+
+\noindent \dcsstrong{Biblioteka Bluepath} (w skrócie: \dcsstrong{biblioteka})
+jest przedmiotem niniejszej pracy. To zestaw klas, które wspomagają
+twórców aplikacji rozproszonych.
+\end{defn}
+
+\begin{defn}
+~
+
+\noindent \label{def:podstawy-teorytyczne-uzytkownik}Mianem \dcsstrong{użytkownika}
+określany jest programista korzystający z funkcji udostępnianych przez
+bibliotekę Bluepath podczas tworzenia aplikacji.
+\end{defn}
+
+\begin{defn}
+~
+
+\noindent Pod pojęciem \dcsstrong{kodu użytkownika} rozumiany jest
+kod źródłowy pochodzący spoza biblioteki Bluepath -- będący częścią
+aplikacji, która ją wykorzystuje. 
+\end{defn}
+Termin ten odnosi się najczęściej do fragmentów kodu, które są wykonywane
+w~ramach rozproszonego wątku (def. \ref{def:background-Rozproszony-watek}). 
+
+
+
+
+\subsection{Terminy technologiczne}
+
+W pracy pojawia się szereg terminów technologicznych -- głównie akronimów
+-- które, w celu uniknięcia nieporozumień, zdefiniowano poniżej.
+
+
+\subsubsection*{XML}
+
+\label{def:background-XML}XML (ang.~\dcsemph{Extensible Markup Language})
+to uniwersalny język znaczników (zwanych tagami) służący do reprezentacji
+danych.
+
+
+
+
+\subsubsection*{XSD}
+
+\label{def:background-XSD}XSD (ang.~\dcsemph{XML Schema Definition})
+to język, który służy do opisywania w sposób formalny struktury elementów
+dokumentu XML.
+
+
+
+
+\subsubsection*{WCF}
+
+\label{def:background-WCF}WCF (ang, \dcsemph{Windows Communication Foundation})
+\cite{MSDN:WhatIsWindowsCommunicationFoundation} to środowisko przeznaczone
+do implementacji usług sieciowych.
+
+
+
+
+\subsubsection*{Zapora ogniowa}
+
+\label{def:background-Firewall}Zapora ogniowa (ang.~\dcsemph{firewall})
+to oprogramowanie filtrujące ruch sieciowy w oparciu o zestaw reguł.
+
+Zapory ogniowe mają również możliwość modyfikacji pakietów, czego
+przykładem może być mechanizm NAT (ang. \dcsemph{network address translation})
+\cite{rfc1631,rfc3022} służący do zamiany adresu źródłowego, docelowego
+oraz numerów portów w celu umożliwienia komunikacji z użyciem jednego
+publicznego adresu IP wielu komputerom znajdującym się w sieci lokalnej
+i korzystającym z prywatnych adresów IP.
+
+

@@ -1,0 +1,96 @@
+
+\chapter{Wstęp}
+\begin{quote}
+\dcsemph{Programming is intrinsically very difficult.}
+
+\begin{flushright}
+--- E. Dijkstra
+\par\end{flushright}
+\end{quote}
+Tworzenie aplikacji działających w klastrze jest złożone i wiąże się
+z nim wiele problemów takich jak wykrycie zakończenia czy dystrybucja
+danych pomiędzy maszynami. Dużo prostsze jest tworzenie aplikacji
+wykorzystujących wiele procesorów i rdzeni pojedynczej maszyny. W
+niniejszej pracy zaproponowano rozwiązanie czerpiące z obu podejść,
+pozwalające zastosować mechanizmy znane z programowania równoległego
+przy tworzeniu aplikacji rozproszonych.
+
+W tym rozdziale przedstawione zostaną założony cel oraz zakres pracy,
+jej struktura, motywacja oraz podział prac pomiędzy autorów.
+
+
+\section{Cel i zakres pracy}
+
+\label{sec:intro-cel-i-zakres}Celem pracy było zaprojektowanie biblioteki,
+która, bez skomplikowanej konfiguracji czy instalowania wielu składników,
+pozwoli jej użytkownikom, programistom, w prosty sposób zaimplementować
+program przetwarzający dane w sposób rozproszony. Programista pisząc
+program w sposób podobny do tego w jaki pisałby program równoległy,
+powinien uzyskać program wykorzystujący moc obliczeniową wielu węzłów
+w klastrze. W takim przypadku wątki, zamiast wykonywać się na wielu
+rdzeniach jednego procesora, mogą wykonywać się na zdalnych maszynach.
+
+
+\section{Struktura pracy}
+
+W niniejszej pracy omówiono koncepcję oraz implementację biblioteki
+o kodowej nazwie Bluepath. Bieżący rozdział opisuje w dalszej części
+motywacje oraz wkład członków zespołu. Rozdział drugi stanowi wstęp
+teoretyczny obejmujący definicje oraz przegląd istniejących rozwiązań
+-- środowisk przetwarzania rozproszonego. W~rozdziale trzecim została
+szczegółowo przedstawiona koncepcja i projekt systemu, a~rozdział
+czwarty opisuje implementacje poszczególnych komponentów. Przykładowe
+zastosowania biblioteki przy implementowaniu aplikacji obliczeniowych
+przedstawia rozdział piąty, a wyniki testów jakościowych, wydajnościowych
+i ich analizę -- rozdział szósty. W rodziale siódmym podsumowano przebieg
+realizacji, opisano napotkane problemy a także zaproponowano obszary,
+w których możnaby kontynuować prace nad usprawnieniem biblioteki.
+
+
+\section{Motywacja}
+
+W czasie, kiedy rozpoczynano pracę nie było dostępne popularne, aktywnie
+rozwijane i wspierane komercyjnie środowisko do przetwarzania rozproszonego
+dla .NET Framework (por. punkt \ref{sec:background-Istniej=000105ce-rozwi=000105zania}).
+Tego typu środowisko pozwoliłoby użytkownikom uniknąć konieczności
+samodzielnego rozwiązywania wielu problemów przetwarzania rozproszonego
+oraz zaoszczędzić czas poprzez wykorzystanie dostarczonych mechanizmów.
+
+
+\section{Udział w pracy poszczególnych członków zespołu}
+
+Niniejsza praca została stworzona przez dwie osoby. Podział prac został
+przedstawiony poniżej.
+
+
+\paragraph{Piotr Bazydło}
+\begin{itemize}
+\item koncepcja rozwiązania,
+\item przegląd i analiza mechanizmów pamięci współdzielonej,
+\item przykładowe aplikacje -- DLINQ, system uzupełniania wyrazów,
+\item implementacja części testów jakościowych i wydajnościowych,
+\item przygotowanie środowiska do przeprowadzenia testów wydajnościowych,
+\item implementacja zamków rozproszonych,
+\item implementacja planisty szeregującego zadania w oparciu o obciążenie
+węzłów,
+\item implementacja planisty szeregującego zadania wykorzystującego algorytm
+cykliczny,
+\item implementacja pamięci rozproszonej na bazie istniejącego rozwiązania,
+\item implementacja rozproszonych struktur danych i obiektów.
+\end{itemize}
+
+\paragraph{Zachariusz Karwacki}
+\begin{itemize}
+\item przegląd istniejących rozwiązań,
+\item koncepcja rozwiązania,
+\item implementacja logiki wątku rozproszonego,
+\item implementacja zdalnego wykonawcy,
+\item implementacja lokalnego wykonawcy,
+\item implementacja mechanizmów logowania zdarzeń,
+\item implementacja usługi odnajdywania węzłów,
+\item implementacja zarządcy połączeń,
+\item implementacja interfejsu do komunikacji z systemem,
+\item implementacja części testów jakościowych i wydajnościowych,
+\item przykładowe aplikacje -- MapReduce, obliczanie liczby PI,
+\item stworzenie skryptów dystrybuujących aplikację w klastrze.\end{itemize}
+
